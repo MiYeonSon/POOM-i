@@ -6,14 +6,7 @@ import SignUpBlock from "./SignUpBlock";
 import ContentMiddleHeader from "../common/ContentMiddleHeader";
 import ContentSmallHeader from "../common/ContentSmallHeader";
 import InfoFormBlock from "./InfoFormBlock";
-
-const InfoFormTemplate = styled.div`
-  box-sizing: border-box;
-  width: 55vw;
-  height: fit-content;
-  margin: 0;
-  padding: 0;
-`;
+import InfoFormTemplate from "./InfoFormTemplate";
 
 const AnnounceComponent = styled.div`
   box-sizing: border-box;

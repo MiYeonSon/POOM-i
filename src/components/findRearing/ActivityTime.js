@@ -5,7 +5,7 @@ const ActivityTime = () => {
     const StyledActivityTime = styled.div`
       box-sizing: border-box;
       width: fit-content;
-      margin: 1.2vw 5% 0vw;
+      margin: 1.2vw 0vw 0vw;
       height: fit-content;
       color: #565656;
       font-size: 0.9vw;

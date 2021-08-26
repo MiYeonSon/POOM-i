@@ -14,7 +14,7 @@ import LongTermPage from "../components/findRearing/content/LongTermPage";
 
 const FindRearingPage = () => {
 
-    const [content, setContent] = useState(LongTermPage);
+    let [content, setContent] = useState(ShortTermPage);
 
     return (
         <div>
@@ -22,8 +22,8 @@ const FindRearingPage = () => {
             <Content>
                 <SideNaviTemplate>
                     <SideTitle>품앗이 찾기</SideTitle>
-                    <SideElem title={"품앗이 꾼 찾기"} select={true} onClick={async () => await setContent(ShortTermPage)}/>
-                    <SideElem title={"품앗이 반 찾기"} select={false} onClick={async () => await setContent(LongTermPage)}/>
+                    <SideElem title={"품앗이 꾼 찾기"} select={true} onClick={async () => await setContent(ShortTermPage)} />
+                    <SideElem title={"품앗이 반 찾기"} select={false} onClick={async () => await setContent(LongTermPage)} />
                 </SideNaviTemplate>
                 <ContentTemplate>
                     {content}

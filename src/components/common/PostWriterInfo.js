@@ -11,7 +11,6 @@ const PostWriterInfo = (props) => {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      border: 1px solid green;
     `;
 
     const WriterInfoTemplate = styled.div`
@@ -20,8 +19,6 @@ const PostWriterInfo = (props) => {
       height: inherit;
       margin: 0vw 0.5vw;
       display: inline-block;
-    
-      border: 1px solid black;
     `;
 
     const StyledWriterId = styled.div`

@@ -38,7 +38,7 @@ const SideElem = (props) => {
     return (
         <>
             <StyledHr select={props.select}/>
-            <StyledMenu select={props.select}>
+            <StyledMenu select={props.select} onClick={props.onClick}>
                 {props.title}
             </StyledMenu>
         </>

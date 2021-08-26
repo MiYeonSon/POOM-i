@@ -3,57 +3,22 @@ import styled from "styled-components";
 
 import ContentHeader from "../../common/ContentHeader";
 import Introduction from "../../common/Introduction";
-import PostBlock from "../../common/PostBlock";
+
 import ProfileImage from "../../common/ProfileImage";
+
+import PostListTemplate from "../PostListZone";
+import NewPostInput from "../NewPostInput";
+import PostBlock from "../../common/PostBlock";
+import PostContent from "../PostContent";
 import CommonHr from "../../common/CommonHr";
-import PostWriterInfo from "../../common/PostWriterInfo";
-import OrangeRectButton from "../../common/OrangeRectButton";
 import Person from "../../common/assets/005-gardener.png";
 import Pencil from "../../common/assets/pencil (1).png";
 import Heart from "../../common/assets/like.png";
 
-import PostListZone from "../PostListZone";
 
 const LongTermPage = () => {
-    /*
-     * 영역 간 분리는 Zone
-     * 영역 내 분리는 Area
-     */
-
-    const NewPostInput = styled.button`
-      box-sizing: border-box;
-      padding: 0 1.5vw;
-      width: 80%;
-      height: 3vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'LotteMartDream';
-      font-size: 0.8vw;
-      color: #AAAAAA;
-      background: #F3F3F3;
-      border: none;
-      outline: #DEDEDE;
-      border-radius: 5px;
-      text-align: left;
-      cursor: pointer;
-      overflow: hidden;
-    `;
-
-
-    const StyledPostContent = styled.div`
-      box-sizing: border-box;
-      width: 100%;
-      height: fit-content;
-      margin: 1vw 0 2vw;
-      color: #565656;
-      font-weight: 300;
-      white-space: pre-wrap;
-      line-height: 1.2vw;
-    `;
-
-
-    const PoomClassInfoTemplate = styled.div`
+    // 작성된 글 제목 영역 레이아웃
+    const PostTitleTemplate = styled.div`
       box-sizing: border-box;
       width: 100%;
       height: fit-content;
@@ -62,6 +27,14 @@ const LongTermPage = () => {
       align-items: center;
     `;
 
+    // 품앗이 반 정보 영역
+    const PoomClassInfoArea = styled.div`
+      box-sizing: border-box;
+      width: fit-content;
+      height: fit-content;
+    `;
+
+    // 품앗이 반 제목
     const PoomClassTitle = styled.div`
       box-sizing: border-box;
       width: fit-content;
@@ -71,6 +44,7 @@ const LongTermPage = () => {
       font-size: 1.2vw;
     `;
 
+    // 품앗이 반 활동 시간
     const PoomClassTime = styled.div`
       box-sizing: border-box;
       width: fit-content;
@@ -80,12 +54,7 @@ const LongTermPage = () => {
       font-weight: 300;
     `;
 
-    const PoomClassInfo = styled.div`
-      box-sizing: border-box;
-      width: fit-content;
-      height: fit-content;
-    `;
-
+    // 글 작성자
     const WriterInfo = styled.div`
       box-sizing: border-box;
       width: fit-content;
@@ -97,7 +66,9 @@ const LongTermPage = () => {
       font-weight: 300;
     `;
 
-    const AttachedImgZone = styled.div`
+
+    // 이미지 영역 레이아웃
+    const AttachedImgTemplate = styled.div`
       box-sizing: border-box;
       width: 100%;
       height: 10vw;
@@ -106,6 +77,7 @@ const LongTermPage = () => {
       align-items: center;
     `;
 
+    // 이미지 첨부 사진 영역(한 공간에 최대 3장 출력)    
     const AttachedImgArea = styled.div`
       box-sizing: border-box;
       width: 85%;
@@ -113,6 +85,7 @@ const LongTermPage = () => {
       text-align: center;
     `;
 
+    // 첨부된 이미지 스타일링
     const StyledAttachedImg = styled.div`
       box-sizing: border-box;
       display: inline-block;
@@ -122,6 +95,7 @@ const LongTermPage = () => {
       background-color: #F2F2F2;
     `;
 
+    // 첨부된 이미지를 보기 위한 이동 버튼
     const StyledButton = styled.button`
       width: fit-content;
       height: 100%;
@@ -133,6 +107,7 @@ const LongTermPage = () => {
       cursor: pointer;
     `;
 
+    // 댓글
     const StyledComment = styled.div`
       box-sizing: border-box;
       display: inline-block;
@@ -150,11 +125,11 @@ const LongTermPage = () => {
         <div>
             <ContentHeader>품앗이 반 찾기</ContentHeader>
             <Introduction>
-                품앗이 반은 품앗이 반을 이루는 가족끼리 정기적으로 모여 자발적으로 활동을하는 모입입니다! <br/>
+                품앗이 반은 품앗이 반을 이루는 가족끼리 정기적으로 모여 자발적으로 활동을 하는 모입입니다! <br/>
                 품앗이 반에 참여하여 아이의 친구들과 재미있는 활동을 시작해보아요 :)
             </Introduction>
 
-            <PostListZone>
+            <PostListTemplate>
                 <PostBlock postInput={true}>
                     <ProfileImage size={4} imgSrc={Person}></ProfileImage>
                     <NewPostInput>
@@ -166,23 +141,23 @@ const LongTermPage = () => {
                 <CommonHr/>
 
                 <PostBlock postInput={false}>
-                    <PoomClassInfoTemplate>
-                        <PoomClassInfo>
+                    <PostTitleTemplate>
+                        <PoomClassInfoArea>
                             <PoomClassTitle>
                                 우리동네 품앗이 <WriterInfo>작성자 : 준이맘</WriterInfo>
                             </PoomClassTitle>
                             <PoomClassTime>활동시간 : 매주 수요일 17시</PoomClassTime>
-                        </PoomClassInfo>
+                        </PoomClassInfoArea>
                         <img src={Heart} style={{width: "1.25vw", height: "1.25vw"}}/>
-                    </PoomClassInfoTemplate>
+                    </PostTitleTemplate>
 
-                    <StyledPostContent>
+                    <PostContent>
                         오랜만에 야외로 나가보았습니다~ <br/>
                         오랜만의 야외활동이라 그런지 아이들이 너무 좋아해서 즐거운 활동이었습니다. <br/>
                         기존에 만들었던 천막을 활용해 놀이를 하니 아이들도 뿌듯함을 느끼더라구요!
-                    </StyledPostContent>
+                    </PostContent>
 
-                    <AttachedImgZone>
+                    <AttachedImgTemplate>
                         <StyledButton> &lt; </StyledButton>
 
                         <AttachedImgArea>
@@ -193,29 +168,29 @@ const LongTermPage = () => {
                         </AttachedImgArea>
 
                         <StyledButton> > </StyledButton>
-                    </AttachedImgZone>
+                    </AttachedImgTemplate>
 
                     <StyledComment>댓글 5</StyledComment>
                 </PostBlock>
 
                 <PostBlock postInput={false}>
-                    <PoomClassInfoTemplate>
-                        <PoomClassInfo>
+                    <PostTitleTemplate>
+                        <PoomClassInfoArea>
                             <PoomClassTitle>
                                 우리동네 품앗이 <WriterInfo>작성자 : 준이맘</WriterInfo>
                             </PoomClassTitle>
                             <PoomClassTime>활동시간 : 매주 수요일 17시</PoomClassTime>
-                        </PoomClassInfo>
+                        </PoomClassInfoArea>
                         <img src={Heart} style={{width: "1.25vw", height: "1.25vw"}}/>
-                    </PoomClassInfoTemplate>
+                    </PostTitleTemplate>
 
-                    <StyledPostContent>
+                    <PostContent>
                         오랜만에 야외로 나가보았습니다~ <br/>
                         오랜만의 야외활동이라 그런지 아이들이 너무 좋아해서 즐거운 활동이었습니다. <br/>
                         기존에 만들었던 천막을 활용해 놀이를 하니 아이들도 뿌듯함을 느끼더라구요!
-                    </StyledPostContent>
+                    </PostContent>
 
-                    <AttachedImgZone>
+                    <AttachedImgTemplate>
                         <StyledButton> &lt; </StyledButton>
 
                         <AttachedImgArea>
@@ -226,12 +201,12 @@ const LongTermPage = () => {
                         </AttachedImgArea>
 
                         <StyledButton> > </StyledButton>
-                    </AttachedImgZone>
+                    </AttachedImgTemplate>
 
                     <StyledComment>댓글 5</StyledComment>
                 </PostBlock>
 
-            </PostListZone>
+            </PostListTemplate>
         </div>
     );
 };
