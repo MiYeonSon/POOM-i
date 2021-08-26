@@ -1,0 +1,54 @@
+.ChildForm {
+}
+
+.ChildForm.childInfo {
+
+}
+
+.ChildForm .childInfo .child {
+
+}
+
+.ChildForm .childInfo .infoInputArea {
+
+    box-sizing: border-box;
+    width: 40vw;
+    height: 25vh;
+    display: inline-block;
+    float: left;
+}
+
+.ChildForm .childInfo .childDetails {
+    box-sizing: border-box;
+    margin: 0.25vw 1vw;
+    width: 40vw;
+    height: fit-content;
+    color: #707070;
+    font-size: 0.9vw;
+    font-weight: 400;
+}
+
+.ChildForm .childInfo .childDetails .infoInput {
+    box-sizing: border-box;
+    width: 20vw;
+    height: 3.5vh;
+    margin: 0.5vw 0.5vw;
+    padding: 0;
+    border: 0.01vw solid #DEDEDE;
+}
+.ChildForm .childInfo .infoInputArea{
+    box-sizing: border-box;
+    width: 42vw;
+    height: 34vh;
+}
+
+
+.ChildForm .childInfo .infoInputArea hr {
+    box-sizing: border-box;
+    width: 42vw;
+    height: 0.01vw;
+    background: #DEDEDE;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}

@@ -1,0 +1,33 @@
+.Footer {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 50vh;
+    margin: 7vw 0 0 0;
+    padding: 5vw 15vw;
+
+    background: #747474;
+}
+
+.Footer img {
+    box-sizing: border-box;
+    width: 15vw;
+    height: 7vh;
+}
+
+.Footer .content {
+    box-sizing: border-box;
+    width: 40vw;
+    height: 20vh;
+    text-align: right;
+
+    float: right;
+    font-family: LotteMartDream;
+    font-weight: lighter;
+    font-size: 1vw;
+    line-height: 1.4vw;
+    letter-spacing: 0.05vw;
+    color: white;
+}
+
+
+

@@ -1,0 +1,35 @@
+.PoomISkillsButton button {
+    box-sizing: border-box;
+    width: 12.5vw;
+    height: 7vh;
+    margin: 0vw 0 0.6vw 0;
+    border: 1px solid #A4A4A4;
+    border-radius: 2px;
+    background: white;
+    font-family: 'LotteMartDream';
+    font-size: 1vw;
+    color: #595959;
+    cursor: pointer;
+}
+
+.PoomISkillsButton button:hover {
+    box-sizing: border-box;
+    width: 13vw;
+    height: 7vh;
+
+    font-size: 1.1vw;
+    border: 1px solid #FFB869;
+    background: #FFB869;
+    color: white;
+}
+
+.PoomISkillsButton .selected {
+    box-sizing: border-box;
+    width: 13vw;
+    height: 7vh;
+    font-size: 1.1vw;
+
+    border: 1px solid #FFB869;
+    background: #FFB869;
+    color: white;
+}

@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.LoginBar {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 5vh;
+    padding-right: 10vw;
+    background: #FFB663;
+    font-family: 'BMHANNAPro';
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.LoginBar button {
+
+}
+
+.LoginBar button + button{
+    box-sizing: border-box;
+    width: 6vw;
+    padding-left: 1vw;
+
+    border-left: 0.25vw solid white;
+}
+
+.LoginBar Link {
+
+}

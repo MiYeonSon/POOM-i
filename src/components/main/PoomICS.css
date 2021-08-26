@@ -1,0 +1,93 @@
+.PoomICS {
+    box-sizing: border-box;
+    width: 70vw;
+    height: 35vh;
+    margin: 0 auto;
+    padding: 0 6vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #595959;
+}
+
+.PoomICS .CSContact {
+    box-sizing: border-box;
+    width: 30vw;
+    height: 20vh;
+    margin: 0;
+    padding: 1vw 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.PoomICS .CSContact .CSContactTitle {
+    box-sizing: border-box;
+    width: 25vw;
+    height: fit-content;
+    font-family: 'LotteMartDream';
+    font-weight: 700;
+    font-size: 1.5vw;
+    color: #4E7093;
+}
+
+.PoomICS .CSContact .CSEmail {
+    box-sizing: border-box;
+    width: 25vw;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'LotteMartDream';
+    letter-spacing: 0.1vw;
+    font-size: 1.2vw;
+}
+
+.PoomICS .CSContact .CSTime {
+    box-sizing: border-box;
+    width: 25vw;
+    height: fit-content;
+
+    font-family: 'LotteMartDream';
+    font-weight: lighter;
+    font-size: 0.9rem;
+    color: #707070;
+}
+
+.PoomICS .VerticalLine {
+    margin: 0 2vw;
+    height: 12rem;
+    border: 0.01vw solid #DEDEDE;
+}
+
+.PoomICS .MorePoomI {
+    box-sizing: border-box;
+    width: 30vw;
+    height: 20vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PoomICS .MorePoomI img {
+    height: 4rem;
+    cursor: pointer;
+}
+
+.PoomICS .MorePoomI button {
+    box-sizing: border-box;
+    width: fit-content;
+    height: 8vh;
+    padding-top: 1.5vw;
+    font-family: 'LotteMartDream';
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #4E7093;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
