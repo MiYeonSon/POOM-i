@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, {css} from "styled-components";
 import InfoHr from "./InfoHr";
+import axios from "axios";
 
 /* 크기 지정 */
 const sizeStyles = css`
@@ -70,7 +71,7 @@ const StyledInput = styled.input`
 `;
 
 const RoundButton = styled.button`
-  
+
   box-sizing: border-box;
   width: 7vw;
   height: 3vh;
@@ -96,7 +97,7 @@ const Guide = styled.div`
 
 const FileLabel = styled.label`
   display: none;
-  
+
   ${props =>
           props.FileButton &&
           css`
@@ -119,16 +120,45 @@ const FileLabel = styled.label`
 `;
 
 
-
 const InfoFormBlock = (props) => {
+    let URL = 'http://poom-i.kro.kr:8081/api/sms-certification/send';
+    const [info, setInfo] = useState('');
+
+
+    const onChange = (e) => {
+        setInfo(e.target.value);
+        console.log(e.target.value);
+    }
+
+    const onClick = () => {
+
+        const dataType = props.dataName;
+
+        let data = {
+            [ dataType + ''] : info
+        }
+
+        data = JSON.stringify(data);
+
+        console.log(data);
+
+        axios.post('http://192.168.10.233:8081/api/sms-certification/send', data, {
+            headers: {
+                "Content-Type": `application/json`,
+            },
+        }).then(response => {
+            console.log(response.data);
+        })
+    }
+
     return (
         <StyledInfoFormBlock>
             <InfoTitle>{props.title}</InfoTitle>
             <InputBlock>
                 <InfoHr/>
-                <StyledInput {...props}/>
+                <StyledInput defaultValue={info} onChange={onChange}/>
 
-                {props.roundButton === "none" ? null :<RoundButton>{props.roundButton}</RoundButton> }
+                {props.roundButton === "none" ? null : <RoundButton onClick={onClick}>{props.roundButton}</RoundButton>}
                 <FileLabel {...props}>
                     파일 올리기
                     <input type={"file"} style={{visibility: "hidden"}}/>

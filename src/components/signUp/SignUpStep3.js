@@ -7,6 +7,7 @@ import ContentMiddleHeader from "../common/ContentMiddleHeader";
 import ContentSmallHeader from "../common/ContentSmallHeader";
 import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
+import InfoFormAddress from "./InfoFormAddress";
 
 const AnnounceComponent = styled.div`
   box-sizing: border-box;
@@ -46,7 +47,13 @@ const SignUpStep3 = () => {
                 <InfoFormBlock title={"닉네임"} inputType={"text"} roundButton={"닉네임 중복 확인"} />
                 <InfoFormBlock title={"휴대전화"} inputType={"password"} roundButton={"none"} />
                 <InfoFormBlock title={"이메일"} inputType={"email"} roundButton={"none"} />
+                {/*
+                                                <InfoFormAddress />
+
+
+                */}
                 <InfoFormBlock title={"주소"} inputType={"text"} roundButton={"none"} />
+
                 <InfoFormBlock title={"주소 인증 문서 첨부"} inputType={"none"} roundButton={"none"} FileButton />
             </InfoFormTemplate>
 

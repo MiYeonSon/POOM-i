@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import GoogleIcon from "./assets/googleOauth.png";
 import FacebookIcon from "./assets/facebookOauth.png";
 import KakaoIcon from "./assets/kakaoOauth.png";
+import {KAKAO_AUTH_URL} from './OauthKakao';
 
 const ShowingLogin = styled.div`
   .openModal {
@@ -221,7 +222,7 @@ const ModalLogin = () => {
                         <OauthIconBlock>
                             <Link to={"/oauth2/authorization/google"}><img src={GoogleIcon} alt={"구글로 로그인"}/></Link>
                             <Link to={"/oauth2/authorization/facebook"}><img src={FacebookIcon} alt={"페이스북으로 로그인"}/></Link>
-                            <Link to={"/oauth2/authorization/kakao"}><img src={KakaoIcon} alt={"카카오로 로그인"}/></Link>
+                            <a href={KAKAO_AUTH_URL}><img src={KakaoIcon} alt={"카카오로 로그인"}/></a>
                         </OauthIconBlock>
                     </LoginOAuthBlock>
                     <GoToSignUpComponent>
