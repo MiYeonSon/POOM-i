@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ContentHeader from "../../common/ContentHeader";
 import Introduction from "../../common/Introduction";
 
@@ -18,8 +18,7 @@ import styled from "styled-components";
 import ActivityTime from "../ActivityTime";
 
 
-const ShortTermPage = () => {
-    const StyledPostFooter = styled.div`
+const StyledPostFooter = styled.div`
       box-sizing: border-box;
       width: 100%;
       height: fit-content;
@@ -28,7 +27,7 @@ const ShortTermPage = () => {
       align-items: center;
     `;
 
-    const StyledInterest = styled.div`
+const StyledInterest = styled.div`
       box-sizing: border-box;
       display: inline-block;
       width: fit-content;
@@ -39,13 +38,17 @@ const ShortTermPage = () => {
     `;
 
 
-    const SeparateArea = styled.div`
+const SeparateArea = styled.div`
       width: fit-content;
       height: fit-content;
       display: flex;
       justify-content: center;
       align-items: center;
     `;
+
+
+
+const ShortTermPage = () => {
 
     return (
         <div>
@@ -58,7 +61,7 @@ const ShortTermPage = () => {
             <PostListTemplate>
                 <PostBlock postInput={true}>
                     <ProfileImage size={4} imgSrc={Person}></ProfileImage>
-                    <NewPostInput>
+                    <NewPostInput content={'findRearing'}>
                         품앗이 꾼 도움 요청/자원 글 작성하기...
                         <img src={Pencil} alt="작성" style={{width: "1.2vw"}}/>
                     </NewPostInput>

@@ -132,7 +132,7 @@ const LongTermPage = () => {
             <PostListTemplate>
                 <PostBlock postInput={true}>
                     <ProfileImage size={4} imgSrc={Person}></ProfileImage>
-                    <NewPostInput>
+                    <NewPostInput content={'FindClass'}>
                         글 작성하기...
                         <img src={Pencil} alt="작성" style={{width: "1.2vw"}}/>
                     </NewPostInput>

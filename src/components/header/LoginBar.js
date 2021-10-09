@@ -22,12 +22,13 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
+// TODO : 클릭 시 선 사라지는 부분 해결 -> 리덕스,,?
 const LoginBar = () => {
     const [openLogin, setOpenLogin] = useState(false);
     return (
         <div className="LoginBar">
-            <StyledButton className={"loginButton"} onClick={() => setOpenLogin(!openLogin)}>로그인</StyledButton>
-            {openLogin ? <ModalLogin open={openLogin}/> : null}
+            <StyledButton className={"loginButton"} onClick={() => setOpenLogin(true)}>로그인</StyledButton>
+            {openLogin && <ModalLogin open={openLogin}/>}
             <StyledButton><Link to={"/signUp"} style={{ color : 'white', textDecoration : 'none'}}>회원가입</Link></StyledButton>
         </div>
     );

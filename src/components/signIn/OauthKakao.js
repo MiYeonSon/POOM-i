@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CLIENT_ID = "ee644a1eeb8e2a1d7f52117f54870bd9";
 const REDIRECT_URI = "http://localhost:3000/signup/oauth/kakao";
 

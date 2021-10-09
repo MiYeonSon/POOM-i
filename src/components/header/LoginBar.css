@@ -18,18 +18,11 @@
     justify-content: flex-end;
 }
 
-.LoginBar button {
-
-}
 
 .LoginBar button + button{
     box-sizing: border-box;
-    width: 6vw;
+    width: fit-content;
     padding-left: 1vw;
 
     border-left: 0.25vw solid white;
-}
-
-.LoginBar Link {
-
 }

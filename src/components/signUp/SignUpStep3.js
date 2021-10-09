@@ -31,7 +31,7 @@ const ChildButton = styled.button`
   cursor: pointer;
 `;
 
-const SignUpStep3 = () => {
+const SignUpStep3 = ({form, onChange, onSubmit}) => {
     const [childNum, setChildNum] = useState(1);
 
 
@@ -40,21 +40,24 @@ const SignUpStep3 = () => {
             <ContentMiddleHeader>정보 입력</ContentMiddleHeader>
             <ContentSmallHeader>* 필수 정보 입력</ContentSmallHeader>
             <InfoFormTemplate>
-                <InfoFormBlock title={"이름"} inputType={"text"} roundButton={"none"}/>
-                <InfoFormBlock title={"아이디"} inputType={"text"} roundButton={"아이디중복확인"}/>
-                <InfoFormBlock title={"비밀번호"} inputType={"password"} roundButton={"none"} />
-                <InfoFormBlock title={"비밀번호 확인"} inputType={"password"} roundButton={"none"} />
-                <InfoFormBlock title={"닉네임"} inputType={"text"} roundButton={"닉네임 중복 확인"} />
-                <InfoFormBlock title={"휴대전화"} inputType={"password"} roundButton={"none"} />
-                <InfoFormBlock title={"이메일"} inputType={"email"} roundButton={"none"} />
-                {/*
-                                                <InfoFormAddress />
-
-
-                */}
-                <InfoFormBlock title={"주소"} inputType={"text"} roundButton={"none"} />
-
-                <InfoFormBlock title={"주소 인증 문서 첨부"} inputType={"none"} roundButton={"none"} FileButton />
+                <InfoFormBlock onChange={onChange} id={'name'} title={"이름"} inputType={"text"}
+                               roundButton={"none"}/>
+                <InfoFormBlock onChange={onChange} id={'email'} title={"이메일"} inputType={"email"}
+                               roundButton={"none"}/>
+                <InfoFormBlock onChange={onChange} id={'password'} title={"비밀번호"}
+                               inputType={"password"} roundButton={"none"}/>
+                <InfoFormBlock onChange={onChange} id={'passwordConfirm'} title={"비밀번호 확인"}
+                               inputType={"password"}
+                               roundButton={"none"}/>
+                <InfoFormBlock onChange={onChange} id={'nickname'} title={"닉네임"}
+                               inputType={"text"} roundButton={"닉네임 중복 확인"}/>
+                <InfoFormBlock onChange={onChange} id={'phone'} title={"휴대전화"}
+                               inputType={"tele"} roundButton={"none"}/>
+                <InfoFormBlock onChange={onChange} id={'address'} title={"주소"} inputType={"text"}
+                               roundButton={"none"}/>
+                <InfoFormBlock onChange={onChange} id={'addressPaper'} title={"주소 인증 문서 첨부"}
+                               inputType={"none"} roundButton={"none"}
+                               FileButton/>
             </InfoFormTemplate>
 
             <ContentSmallHeader>* 자녀 정보 입력 (선택)</ContentSmallHeader>
@@ -65,10 +68,10 @@ const SignUpStep3 = () => {
             </AnnounceComponent>
             <InfoFormTemplate>
                 <InfoFormBlock title={"자녀 유무"} inputType={"radio"} roundButton={"none"}/>
-                <InfoFormBlock title={"가족 관계 증명서 첨부"} inputType={"none"} roundButton={"none"} FileButton />
+                <InfoFormBlock title={"가족 관계 증명서 첨부"} inputType={"none"} roundButton={"none"} FileButton/>
                 <ChildButton>+</ChildButton>
                 <ChildButton>-</ChildButton>
-                <ChildForm />
+                <ChildForm/>
             </InfoFormTemplate>
         </SignUpBlock>
     );

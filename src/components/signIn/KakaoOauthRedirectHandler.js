@@ -1,9 +1,10 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import { userActions } from "./redux/modules/user";
-import MoonLoader from "react-spinners";
-/*
-const OauthRedirectHandler = (props) => {
+import {actionCreators as userActions} from "../../modules/kakao";
+import Loading from "../common/Loading";
+
+
+const KakaoOauthRedirectHandler = (props) => {
     const dispatch = useDispatch();
 
     let code = new URL(window.location.href).searchParams.get("code");
@@ -13,12 +14,10 @@ const OauthRedirectHandler = (props) => {
     }, []);
 
     return (
-        <div>
-            <MoonLoader />
-        </div>
+        <Loading />
     );
 };
 
-export default OauthRedirectHandler;
+export default KakaoOauthRedirectHandler;
 
- */
+

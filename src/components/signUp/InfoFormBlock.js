@@ -121,7 +121,9 @@ const FileLabel = styled.label`
 
 
 const InfoFormBlock = (props) => {
+    /*
     let URL = 'http://poom-i.kro.kr:8081/api/sms-certification/send';
+    // let URL = 'http://192.168.10.233:8081/api/sms-certification/send';
     const [info, setInfo] = useState('');
 
 
@@ -133,32 +135,32 @@ const InfoFormBlock = (props) => {
     const onClick = () => {
 
         const dataType = props.dataName;
-
         let data = {
-            [ dataType + ''] : info
+            [dataType]: info
         }
 
-        data = JSON.stringify(data);
-
-        console.log(data);
-
-        axios.post('http://192.168.10.233:8081/api/sms-certification/send', data, {
-            headers: {
-                "Content-Type": `application/json`,
-            },
-        }).then(response => {
+        axios.post(
+            URL,
+            data,
+            {
+                headers: {"Content-Type": "application/json"}
+            }
+        ).then(response => {
             console.log(response.data);
         })
     }
+
+
+     */
 
     return (
         <StyledInfoFormBlock>
             <InfoTitle>{props.title}</InfoTitle>
             <InputBlock>
                 <InfoHr/>
-                <StyledInput defaultValue={info} onChange={onChange}/>
+                <StyledInput name={props.name} value={props.value} onChange={props.onChange} type={props.inputType}/>
 
-                {props.roundButton === "none" ? null : <RoundButton onClick={onClick}>{props.roundButton}</RoundButton>}
+                {props.roundButton === "none" ? null : <RoundButton onClick={props.buttonClick}>{props.roundButton}</RoundButton>}
                 <FileLabel {...props}>
                     파일 올리기
                     <input type={"file"} style={{visibility: "hidden"}}/>

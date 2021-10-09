@@ -4,9 +4,12 @@ import MainLogo from "../common/assets/mainLogo.png";
 import ContentMiddleHeader from "../common/ContentMiddleHeader";
 import {Link} from "react-router-dom";
 import GoogleIcon from "./assets/googleOauth.png";
-import FacebookIcon from "./assets/facebookOauth.png";
+import NaverIcon from "./assets/naverOauth.png";
 import KakaoIcon from "./assets/kakaoOauth.png";
 import {KAKAO_AUTH_URL} from './OauthKakao';
+import ContainerLoginForm from "../../containers/auth/ContainerLoginForm";
+import {GOOGLE_AUTH_URL} from "./OauthGoogle";
+import {NAVER_AUTH_URL} from "./OauthNaver";
 
 const ShowingLogin = styled.div`
   .openModal {
@@ -30,6 +33,7 @@ const ModalLoginTemplate = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const ModalLoginBlock = styled.div`
@@ -56,17 +60,15 @@ const ModalLoginBlock = styled.div`
     border: none;
     cursor: pointer;
   }
-
 `;
 
-const ModalTitleBlock = styled.div`
+const ModalLoginTitleBlock = styled.div`
   box-sizing: border-box;
   width: 30vw;
   margin: 0;
   flex: fit-content;
   display: flex;
   justify-content: center;
-
 `;
 
 const LoginInputBlock = styled.div`
@@ -77,48 +79,13 @@ const LoginInputBlock = styled.div`
   padding: 0 3vw;
 `;
 
-const InputBlock = styled.div`
+const LoginInputBlock2 = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: fit-content;
   margin: 0.5vw 0;
-
-`;
-const GrayInput = styled.input`
-  box-sizing: border-box;
-  display: inline-block;
-  width: 23vw;
-  height: 5vh;
-  margin: 0.3vw 0;
-  border: none;
-  border-radius: 0.5rem;
-
-  background: #EEEEEE;
-
-  &::placeholder {
-    padding: 0.5vw;
-    font-family: 'LotteMartDream';
-    font-size: 1vw;
-    color: #AAAAAA;
-  }
 `;
 
-const LoginButton = styled.button`
-  box-sizing: border-box;
-  display: inline-block;
-  width: 23vw;
-  height: 5vh;
-  margin: 0.3vw 0;
-  color: white;
-  font-size: 1vw;
-  font-weight: 700;
-  letter-spacing: 0.2vw;
-  background: #FFB663;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  visibility: visible;
-`;
 
 const GoFindInfo = styled.div`
   box-sizing: border-box;
@@ -190,29 +157,25 @@ const GoToSignUpComponent = styled.div`
 `;
 
 
+// TODO : MODAL 창 닫기
+const ModalLogin = ({open}) => {
+    const [openModal, setOpenModal] = useState(true);
 
-// 모달 창 닫기 구현해야 함
-const ModalLogin = () => {
-    const [close, setClose] = useState(false);
-    function onClose(){
-        setClose(!close);
-        return undefined;
-    }
+
     return (
-        <ShowingLogin className={close ? "closeModal" : "openModal"}>
-            <ModalLoginTemplate>
+        <div>
+            {openModal && <ModalLoginTemplate>
                 <ModalLoginBlock>
-                    <button className={"closeButton"} onClick={onClose}>X</button>
-                    <ModalTitleBlock>
+                    <button className={"closeButton"} onClick={() => setOpenModal(false)}>X</button>
+                    <ModalLoginTitleBlock>
                         <img className={"mainLogo"} src={MainLogo} alt={"로고창"}/>
-                    </ModalTitleBlock>
+                    </ModalLoginTitleBlock>
                     <LoginInputBlock>
                         <ContentMiddleHeader>로그인</ContentMiddleHeader>
-                        <InputBlock>
-                            <GrayInput placeholder={"아이디"}/>
-                            <GrayInput placeholder={"비밀번호"}/>
-                            <LoginButton>로그인</LoginButton>
-                        </InputBlock>
+                        <LoginInputBlock2>
+                            <ContainerLoginForm/>
+                        </LoginInputBlock2>
+
                         <GoFindInfo>
                             <Link to={"/"} style={{color: '#707070', textDecoration: 'none'}}>아이디/비밀번호 찾기</Link>
                         </GoFindInfo>
@@ -220,8 +183,8 @@ const ModalLogin = () => {
                     <LoginOAuthBlock>
                         <LineTitle>소셜 계정으로 로그인 하기</LineTitle>
                         <OauthIconBlock>
-                            <Link to={"/oauth2/authorization/google"}><img src={GoogleIcon} alt={"구글로 로그인"}/></Link>
-                            <Link to={"/oauth2/authorization/facebook"}><img src={FacebookIcon} alt={"페이스북으로 로그인"}/></Link>
+                            <a href={GOOGLE_AUTH_URL}><img src={GoogleIcon} alt={"구글로 로그인"}/></a>
+                            <a href={NAVER_AUTH_URL}><img src={NaverIcon} alt={"네이버로 로그인"}/></a>
                             <a href={KAKAO_AUTH_URL}><img src={KakaoIcon} alt={"카카오로 로그인"}/></a>
                         </OauthIconBlock>
                     </LoginOAuthBlock>
@@ -234,7 +197,8 @@ const ModalLogin = () => {
                     </GoToSignUpComponent>
                 </ModalLoginBlock>
             </ModalLoginTemplate>
-        </ShowingLogin>
+            }
+        </div>
     );
 };
 

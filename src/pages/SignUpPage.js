@@ -15,6 +15,7 @@ import SignUpStep1 from "../components/signUp/SignUpStep1";
 import SignUpStep2 from "../components/signUp/SignUpStep2";
 import SignUpStep3 from "../components/signUp/SignUpStep3";
 import SignUpStep4 from "../components/signUp/SignUpStep4";
+import ContainerRegisterForm from "../containers/auth/ContainerRegisterForm";
 
 const SignUpPage = () => {
     const [num, setNum] = useState(0);
@@ -29,11 +30,10 @@ const SignUpPage = () => {
                 <SignUpProcess/>
                 <CommonHr/>
                 {/*
-                                    {stepArr[num]}
+                                {stepArr[num]}
 
                 */}
-
-                <SignUpStep2 />
+                <SignUpStep3 />
 
                 <PageButtonBlock>
                     <PageButton onClick={num > -1 ? () => setNum(num - 1) : setNum(0)}>이전</PageButton>
