@@ -26,7 +26,6 @@ const PoomPlacePage = () => {
                     <SideElem title={"품앗이 터 등록하기"}/>
                 </SideNaviTemplate>
                 <ContentTemplate>
-                    <RegisterPoomPlace />
                 </ContentTemplate>
             </Content>
             <Footer/>
