@@ -8,6 +8,8 @@ import RegularTermPage from "./pages/RegularTermPage";
 import KakaoOauthRedirectHandler from "./components/signIn/KakaoOauthRedirectHandler";
 import GoogleOauthRedirectHandler from "./components/signIn/GoogleOauthRedirectHandler";
 import NaverOauthRedirectHandler from "./components/signIn/NaverOauthRedirectHandler";
+import PoomPlacePage from "./pages/PoomPlacePage";
+import RegisterPoomPlacePage from "./pages/RegisterPoomPlacePage";
 
 function App() {
     return (
@@ -20,7 +22,8 @@ function App() {
             <Route path={"/signup/oauth/kakao"} component={KakaoOauthRedirectHandler} exact={true}/>
             <Route path={"/findRearing/shortTerm"} component={FindRearingPage} exact={true}/>
             <Route path={"/findRearing/regularTerm"} component={RegularTermPage} exact={true}/>
-
+            <Route path={"/playground"} component={PoomPlacePage} exact={true}/>
+            <Route path={"/playground/registerplace"} component={RegisterPoomPlacePage} exact={true} />
         </>
     );
 }

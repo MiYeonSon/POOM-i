@@ -10,7 +10,7 @@ const NaviBar = () => {
             <div className={"NaviMenu"}>
                 <button>서비스 안내</button>
                 <Link to={"/findRearing/shortTerm"}><button>품앗이 찾기</button></Link>
-                <button>품앗이 터 찾기</button>
+                <Link to={"/playground/registerplace"}><button>품앗이 터 찾기</button></Link>
             </div>
         </div>
     );
