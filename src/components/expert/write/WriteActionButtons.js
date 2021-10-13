@@ -23,11 +23,13 @@ const StyledButton = styled.button`
 `;
 
 
-const WriteActionButtons = ({onPublish, onCancel}) => {
+const WriteActionButtons = ({onRegister, onModify, isEdit}) => {
+    const onClickHandler = (isEdit ? onModify : onRegister);
+
     return (
         <WriteActionButtonsBlock>
-            <StyledButton onClick={onPublish}>
-                작성하기
+            <StyledButton onClick={onClickHandler}>
+                {isEdit ? '수정' : '등록'}하기
             </StyledButton>
         </WriteActionButtonsBlock>
     );

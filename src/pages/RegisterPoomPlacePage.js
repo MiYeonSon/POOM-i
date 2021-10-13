@@ -6,7 +6,7 @@ import SideTitle from "../components/sideNavi/SideTitle";
 import SideElem from "../components/sideNavi/SideElem";
 import Footer from "../components/footer/Footer";
 import ContentHeader from "../components/common/ContentHeader";
-import ContentTemplate from "../components/findRearing/ContentTemplate";
+import ContentTemplate from "../components/expert/ContentTemplate";
 
 const RegisterPoomPlacePage = () => {
     return (

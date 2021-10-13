@@ -12,7 +12,7 @@ import SideTitle from "../components/sideNavi/SideTitle";
 import SideElem from "../components/sideNavi/SideElem";
 import SideNaviTemplate from "../components/sideNavi/SideNaviTemplate";
 import Content from "../components/common/Content";
-import ContentTemplate from "../components/findRearing/ContentTemplate";
+import ContentTemplate from "../components/expert/ContentTemplate";
 import RegisterPoomPlacePage from "./RegisterPoomPlacePage";
 
 const PoomPlacePage = () => {

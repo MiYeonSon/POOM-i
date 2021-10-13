@@ -28,7 +28,7 @@ const StyledNewPostInput = styled.div`
 const NewPostInput = ({children, content}) => {
     const [openWritingModal, setOpenWritingModal] = useState(false);
 
-    const form = content === 'findRearing' ? <FindRearingEditorContainer /> : <FindClassEditorContainer />;
+    const form = content === 'expert' ? <FindRearingEditorContainer /> : <FindClassEditorContainer />;
 
     return (
         <>

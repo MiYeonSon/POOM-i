@@ -3,14 +3,13 @@ import styled from 'styled-components';
 import MainLogo from "./assets/mainLogo.png";
 
 // 모달의 회색 뒷배경을 담당함.
-const ModalTemplate = styled.div`
-  position: absolute;
+const ModalTemplate = styled.div`  
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   background-color: rgba(222, 222, 222, 0.6);
   display: flex;
   justify-content: center;

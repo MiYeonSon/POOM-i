@@ -16,6 +16,7 @@ import Pencil from "../../common/assets/pencil (1).png";
 import Heart from "../../common/assets/like.png";
 import styled from "styled-components";
 import ActivityTime from "../ActivityTime";
+import ExpertPostListContainer from "../../../containers/posts/ExpertPostListContainer";
 
 
 const StyledPostFooter = styled.div`
@@ -59,15 +60,17 @@ const ShortTermPage = () => {
             </Introduction>
 
             <PostListTemplate>
-                <PostBlock postInput={true}>
+                <PostBlock postInput>
                     <ProfileImage size={4} imgSrc={Person}></ProfileImage>
-                    <NewPostInput content={'findRearing'}>
+                    <NewPostInput content={'expert'}>
                         품앗이 꾼 도움 요청/자원 글 작성하기...
                         <img src={Pencil} alt="작성" style={{width: "1.2vw"}}/>
                     </NewPostInput>
                 </PostBlock>
 
                 <CommonHr/>
+
+                <ExpertPostListContainer />
 
                 <PostBlock postInput={false}>
                     <PostWriterInfo writer={"준이맘"} review={4}/>

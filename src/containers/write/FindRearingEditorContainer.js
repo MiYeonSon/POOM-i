@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import write, {changeField, chooseChoice, initialize} from "../../modules/write";
-import FindRearingEditor from "../../components/findRearing/write/FindRearingEditor";
-import WriteActionButtons from "../../components/findRearing/write/WriteActionButtons";
+import expertWrite, {changeField, chooseChoice, initialize} from "../../modules/expertWrite";
+import FindRearingEditor from "../../components/expert/write/FindRearingEditor";
+import WriteActionButtons from "../../components/expert/write/WriteActionButtons";
 import WriteActionButtonsContainer from "./WriteActionsButtonContainer";
 
 
@@ -21,9 +21,9 @@ const FindRearingEditorContainer = () => {
      */
 
     // 여기서의 wirte는 리덕스 스토어인 modules/write로 리덕스 스토어의 상태를 들고오는 것임.
-    const {body, is_recurit, child_id, start_date, start_time, end_date, end_time} = useSelector(({write}) => ({
-        body: write.body,
-        is_recurit: write.is_recurit,
+    const {contents, recruit_type, child_id, start_date, start_time, end_date, end_time} = useSelector(({write}) => ({
+        contents: write.contents,
+        recruit_type: write.recruit_type,
         child_id: write.child_id,
         start_date: write.start_date,
         start_time: write.start_time,
@@ -56,8 +56,8 @@ const FindRearingEditorContainer = () => {
     return (
         <>
             <FindRearingEditor onChangeField={onChangeField}
-                               body={body}
-                               is_recurit={is_recurit}
+                               contents={contents}
+                               recruit_type={recruit_type}
                                child_id={child_id}
                                start_date={start_date}
                                start_time={start_time}

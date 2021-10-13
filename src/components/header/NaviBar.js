@@ -9,7 +9,7 @@ const NaviBar = () => {
             <Link to={"/"}><img src={MainLogo} alt="mainLogo" /></Link>
             <div className={"NaviMenu"}>
                 <button>서비스 안내</button>
-                <Link to={"/findRearing/shortTerm"}><button>품앗이 찾기</button></Link>
+                <Link to={"expert"}><button>품앗이 찾기</button></Link>
                 <Link to={"/playground/registerplace"}><button>품앗이 터 찾기</button></Link>
             </div>
         </div>

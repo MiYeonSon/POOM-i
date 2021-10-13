@@ -1,13 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
-import styled from 'styled-components';
-import {StyledInput, StyledSelect} from "../../common/StyledInput";
 
-
-
-const FindClassEditor = () => {
-    const quillElement = useRef(null);  // Quill을 적용할 DivElement를 설정
+const FindRearingEditor = ({contents, recruit_type, child_id, start_date, start_time, end_date, end_time, onChangeField}) => {
+    const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
     useEffect(() => {
@@ -18,12 +14,12 @@ const FindClassEditor = () => {
                 // 더 많은 옵션
                 // https://quilljs.com/docs/modules/toolbar/ 참고
                 toolbar: [
-                    [{header: '1'}, {header: '2'}],
+                    [{ header: '1' }, { header: '2' }],
                     ['bold', 'italic', 'underline', 'strike'],
-                    [{list: 'ordered'}, {list: 'bullet'}],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
                     ['blockquote', 'code-block', 'link', 'image'],
                 ],
-            }
+            },
         });
 
         // quill에 text-change 이벤트 핸들러 등록
@@ -31,10 +27,17 @@ const FindClassEditor = () => {
         const quill = quillInstance.current;
         quill.on('text-change', (delta, oldDelta, source) => {
             if (source === 'user') {
-                onChangeField({key: 'body', value: quill.root.innerHTML});
+                onChangeField({ key: 'contents', value: quill.root.innerHTML });
             }
         });
     }, [onChangeField]);
+
+    const mounted = useRef(false);
+    useEffect(() => {
+        if (mounted.current) return;
+        mounted.current = true;
+        quillInstance.current.root.innerHTML = contents;
+    }, [contents]);
 
     return (
         <div>
@@ -43,4 +46,4 @@ const FindClassEditor = () => {
     );
 };
 
-export default FindClassEditor;
+export default FindRearingEditor;

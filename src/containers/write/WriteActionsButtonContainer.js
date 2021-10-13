@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {writePost} from "../../modules/write";
-import WriteActionButtons from "../../components/findRearing/write/WriteActionButtons";
+import {updatePost, writePost} from "../../modules/expertWrite";
+import WriteActionButtons from "../../components/expert/write/WriteActionButtons";
 
 const WriteActionButtonsContainer = ({history}) => {
     const dispatch = useDispatch();
@@ -11,32 +11,38 @@ const WriteActionButtonsContainer = ({history}) => {
      * 사용 방법 : const 결과 = useSelector(상태 선택 함수);
      */
     const {
-        body,
-        is_recurit,
+        contents,
+        recruit_type,
         child_id,
         start_date,
         start_time,
         end_date,
         end_time,
         post,
-        postError
+        postError,
+        originalPostId
     } = useSelector(({write}) => ({
-        body: write.body,
-        is_recurit: write.is_recurit,
+        contents: write.contents,
+        recruit_type: write.recruit_type,
         child_id: write.child_id,
-        start_date: write.start_date,
+        start_date : write.start_date,
         start_time: write.start_time,
         end_date: write.end_date,
-        end_time: write.end_time,
+        end_time : write.end_time,
         post: write.post,
-        postError: write.postError
+        postError: write.postError,
+        originalPostId: write.originalPostId
     }));
 
     // 포스트 등록
-    const onPublish = () => {
+    const onRegister = () => {
+        /*
+
+         */
+
         dispatch(writePost({
-                body,
-                is_recurit,
+                contents,
+                recruit_type,
                 child_id,
                 start_date,
                 start_time,
@@ -45,6 +51,24 @@ const WriteActionButtonsContainer = ({history}) => {
             }),
         );
     };
+    
+    const onModify = () => {
+        if (originalPostId) {
+            dispatch(updatePost({
+                contents,
+                recruit_type,
+                child_id,
+                start_date,
+                start_time,
+                end_date,
+                end_time,
+                post,
+                postError,
+                expert_id: originalPostId
+            }))
+            return;
+        }
+    }
 
     const onCancel = () => {
         history.goBack();
@@ -53,14 +77,14 @@ const WriteActionButtonsContainer = ({history}) => {
     // 성공 혹은 실패 시 할 작업
     useEffect(() => {
         if (post) {
-            console.log('success');
+            history.push(`expert`);
         }
         if (postError) {
             console.log(postError);
         }
     }, [history, post, postError]);
 
-    return <WriteActionButtons onPublish={onPublish} onCancel={onCancel}/>;
+    return <WriteActionButtons onRegister={onRegister} onModify={onModify} onCancel={onCancel} isEdit={!!originalPostId}/>;
 
 };
 

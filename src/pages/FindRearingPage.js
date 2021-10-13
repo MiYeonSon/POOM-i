@@ -7,10 +7,9 @@ import SideNaviTemplate from "../components/sideNavi/SideNaviTemplate";
 import Content from "../components/common/Content";
 import SideTitle from "../components/sideNavi/SideTitle";
 import SideElem from "../components/sideNavi/SideElem";
-import ContentTemplate from "../components/findRearing/ContentTemplate";
-
-import ShortTermPage from "../components/findRearing/content/ShortTermPage";
-import LongTermPage from "../components/findRearing/content/LongTermPage";
+import ContentTemplate from "../components/expert/ContentTemplate";
+import ShortTermPage from "../components/expert/content/ShortTermPage";
+import LongTermPage from "../components/expert/content/LongTermPage";
 
 const FindRearingPage = () => {
     return (
@@ -19,14 +18,15 @@ const FindRearingPage = () => {
             <Content>
                 <SideNaviTemplate>
                     <SideTitle>품앗이 찾기</SideTitle>
-                    <SideElem title={"품앗이 꾼 찾기"}/>
+                    <SideElem select title={"품앗이 꾼 찾기"}/>
                     <SideElem title={"품앗이 반 찾기"}/>
                 </SideNaviTemplate>
                 <ContentTemplate>
                     {/*
-                    <ShortTermPage />
+                                        <LongTermPage />
                     */}
-                    <LongTermPage />
+                    <ShortTermPage/>
+
                 </ContentTemplate>
             </Content>
             <Footer/>

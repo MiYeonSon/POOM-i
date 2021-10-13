@@ -21,7 +21,7 @@ const CategoryContent = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: fit-content;
-  padding : 0 0.5vw;
+  padding: 0 0.5vw;
 `;
 
 const SmallTitle = styled.div`
@@ -51,12 +51,21 @@ const QuillWrapper = styled.div`
     font-style: normal;
   }
 
-  
+
 `;
 
 
-const FindRearingEditor = ({body, is_recurit, child_id, start_date, start_time, end_date, end_time, onChangeField}) => {
-    const quillElement = useRef(null);  // Quill을 적용할 DivElement를 설정
+const FindRearingEditor = ({
+                               contents,
+                               recruit_type,
+                               child_id,
+                               start_date,
+                               start_time,
+                               end_date,
+                               end_time,
+                               onChangeField
+                           }) => {
+    const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
     useEffect(() => {
@@ -72,7 +81,7 @@ const FindRearingEditor = ({body, is_recurit, child_id, start_date, start_time, 
                     [{list: 'ordered'}, {list: 'bullet'}],
                     ['blockquote', 'code-block', 'link', 'image'],
                 ],
-            }
+            },
         });
 
         // quill에 text-change 이벤트 핸들러 등록
@@ -80,14 +89,21 @@ const FindRearingEditor = ({body, is_recurit, child_id, start_date, start_time, 
         const quill = quillInstance.current;
         quill.on('text-change', (delta, oldDelta, source) => {
             if (source === 'user') {
-                onChangeField({key: 'body', value: quill.root.innerHTML});
+                onChangeField({key: 'contents', value: quill.root.innerHTML});
             }
         });
     }, [onChangeField]);
 
+    const mounted = useRef(false);
+    useEffect(() => {
+        if (mounted.current) return;
+        mounted.current = true;
+        quillInstance.current.root.innerHTML = contents;
+    }, [contents]);
 
-    const onChangeRecurit = e => {
-        onChangeField({key: 'is_recurit', value: e.target.value});
+
+    const onChangeRecruit = e => {
+        onChangeField({key: 'recruit_type', value: e.target.value});
     }
 
     const onChangeChildID = e => {
@@ -108,10 +124,9 @@ const FindRearingEditor = ({body, is_recurit, child_id, start_date, start_time, 
             <CategoryBlock>
                 <SmallTitle>* 분류</SmallTitle>
 
-                <CategoryContent onChange={onChangeRecurit}>
-                    <label><input style={{marginBottom : '0.6vw'}} type="radio" name={'is_recruit'} value={'RECRUIT'}/>품앗이꾼 모집</label>
-                    <br/>
-                    <label><input type="radio" name={'is_recruit'} value={'VOLUNTEER'}/>품앗이꾼 자원</label>
+                <CategoryContent onChange={onChangeRecruit}>
+                    <label><input type="radio" name={'recruit_type'} value={'RECRUIT'}/>품앗이꾼 모집</label>
+                    <label><input type="radio" name={'recruit_type'} value={'VOLUNTEER'}/>품앗이꾼 자원</label>
                 </CategoryContent>
             </CategoryBlock>
 
@@ -150,7 +165,7 @@ const FindRearingEditor = ({body, is_recurit, child_id, start_date, start_time, 
                     </div>
                 </CategoryContent>
             </CategoryBlock>
-            <CategoryBlock style={{padding : '0'}}>
+            <CategoryBlock style={{padding: '0'}}>
                 <SmallTitle>* 내용</SmallTitle>
                 <CategoryContent>
                     <QuillWrapper>

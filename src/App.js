@@ -20,8 +20,8 @@ function App() {
             <Route path={"/signup/oauth/google"} component={GoogleOauthRedirectHandler} exact={true} />
             <Route path={"/signup/oauth/naver"} component={NaverOauthRedirectHandler} exact={true} />
             <Route path={"/signup/oauth/kakao"} component={KakaoOauthRedirectHandler} exact={true}/>
-            <Route path={"/findRearing/shortTerm"} component={FindRearingPage} exact={true}/>
-            <Route path={"/findRearing/regularTerm"} component={RegularTermPage} exact={true}/>
+            <Route path={"/expert"} component={FindRearingPage} exact={true}/>
+            <Route path={"/expert/regularTerm"} component={RegularTermPage} exact={true}/>
             <Route path={"/playground"} component={PoomPlacePage} exact={true}/>
             <Route path={"/playground/registerplace"} component={RegisterPoomPlacePage} exact={true} />
         </>
