@@ -22,9 +22,7 @@ const FindRearingPage = () => {
                     <SideElem title={"품앗이 반 찾기"}/>
                 </SideNaviTemplate>
                 <ContentTemplate>
-                    {/*
-                                        <LongTermPage />
-                    */}
+
                     <ShortTermPage/>
 
                 </ContentTemplate>

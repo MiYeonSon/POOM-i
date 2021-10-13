@@ -8,8 +8,7 @@ import ProfileImage from "../../common/ProfileImage";
 
 import PostListTemplate from "../PostListZone";
 import NewPostInput from "../NewPostInput";
-import PostBlock from "../../common/PostBlock";
-import PostContent from "../PostContent";
+import PostBlock from "../../common/post/PostBlock";
 import CommonHr from "../../common/CommonHr";
 import Person from "../../common/assets/005-gardener.png";
 import Pencil from "../../common/assets/pencil (1).png";
@@ -119,6 +118,13 @@ const LongTermPage = () => {
       color: #565656;
       font-weight: 300;
       font-size: 0.8vw;
+    `;
+
+    const PostContent = styled.div`
+      box-sizing: border-box;
+      height: fit-content;
+      font-size: 1vw;
+      margin: 1vw 0 2vw;
     `;
 
     return (

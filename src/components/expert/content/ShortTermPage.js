@@ -6,16 +6,11 @@ import ProfileImage from "../../common/ProfileImage";
 
 import PostListTemplate from "../PostListZone";
 import NewPostInput from "../NewPostInput";
-import PostBlock from "../../common/PostBlock";
-import PostContent from "../PostContent";
+import PostBlock from "../../common/post/PostBlock";
 import CommonHr from "../../common/CommonHr";
-import PostWriterInfo from "../../common/PostWriterInfo";
-import OrangeRectButton from "../../common/OrangeRectButton";
 import Person from "../../common/assets/005-gardener.png";
 import Pencil from "../../common/assets/pencil (1).png";
-import Heart from "../../common/assets/like.png";
 import styled from "styled-components";
-import ActivityTime from "../ActivityTime";
 import ExpertPostListContainer from "../../../containers/posts/ExpertPostListContainer";
 
 
@@ -60,7 +55,7 @@ const ShortTermPage = () => {
             </Introduction>
 
             <PostListTemplate>
-                <PostBlock postInput>
+                <PostBlock type={"postInput"}>
                     <ProfileImage size={4} imgSrc={Person}></ProfileImage>
                     <NewPostInput content={'expert'}>
                         품앗이 꾼 도움 요청/자원 글 작성하기...
@@ -72,45 +67,6 @@ const ShortTermPage = () => {
 
                 <ExpertPostListContainer />
 
-                <PostBlock postInput={false}>
-                    <PostWriterInfo writer={"준이맘"} review={4}/>
-                    <ActivityTime />
-                    <PostContent>
-                        갑자기 야근이 생겼어요. 한 9시쯤에야 집에 들어갈 수 있을 것 같은데 혹시 우리 애 봐주실 수 있는 분 계신가요?
-                    </PostContent>
-                    <StyledPostFooter>
-                        <SeparateArea>
-                            <StyledInterest>
-                                지원 2
-                                관심 3
-                            </StyledInterest>
-                        </SeparateArea>
-                        <SeparateArea>
-                            <img src={Heart} style={{width: "1.25vw", height: "1.25vw"}}/>
-                            <OrangeRectButton>지원하기</OrangeRectButton>
-                        </SeparateArea>
-                    </StyledPostFooter>
-                </PostBlock>
-                <PostBlock postInput={false} volunteer={true}>
-                    <PostWriterInfo writer={"준이맘"} review={4}/>
-                    <ActivityTime />
-                    <PostContent>
-                        갑자기 비가 오네요.. 딸아이 마중 나가려는데 @@초등학교 자녀 분 계심 같이 우산 씌워줄게요! <br />
-                        도움 필요하신 분들 신청하세요! 선착 2분(아이 : 2명)입니다.
-                    </PostContent>
-                    <StyledPostFooter>
-                        <SeparateArea>
-                            <StyledInterest>
-                                지원 2
-                                관심 3
-                            </StyledInterest>
-                        </SeparateArea>
-                        <SeparateArea>
-                            <img src={Heart} style={{width: "1.25vw", height: "1.25vw"}}/>
-                            <OrangeRectButton>지원하기</OrangeRectButton>
-                        </SeparateArea>
-                    </StyledPostFooter>
-                </PostBlock>
             </PostListTemplate>
         </div>
     );

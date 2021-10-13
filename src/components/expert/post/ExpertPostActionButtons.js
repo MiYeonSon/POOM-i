@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import palette from "../../../lib/styles/palette";
 import ExpertAskRemoveModal from "./ExpertAskRemoveModal";
@@ -7,13 +7,13 @@ import FindRearingEditorContainer from "../../../containers/write/FindRearingEdi
 
 
 const PostActionButtonsBlock = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 2rem;
-  margin-top: -1.5rem;
+  box-sizing: border-box;
+  width: fit-content;
+  margin: 0.5vw 0;
 `;
 
 const ActionButton = styled.button`
+  height: fit-content;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   color: ${palette.gray[6]};
@@ -22,19 +22,21 @@ const ActionButton = styled.button`
   outline: none;
   font-size: 0.875rem;
   cursor: pointer;
+
+
   &:hover {
-    background: ${palette.gray[1]};
-    color: ${palette.cyan[7]};
+    background: rgba(255, 182, 99, 0.5);
+    color: white;
   }
+
   & + & {
-    margin-left: 0.25rem;
+    margin-left: 0.5rem;
   }
 `;
 
 
-
-const ExpertPostActionButtons = ({ onEdit, onRemove }) => {
-    const [modal, setModal] = useState(false);
+const ExpertPostActionButtons = ({onEdit, onRemove}) => {
+    const [removeModal, setRemoveModal] = useState(false);
     const [editorModal, setEditorModal] = useState(false);
 
     const onEditClick = () => {
@@ -43,35 +45,36 @@ const ExpertPostActionButtons = ({ onEdit, onRemove }) => {
     }
 
     const onRemoveClick = () => {
-        setModal(true);
+        setRemoveModal(true);
     };
     const onCancel = () => {
-        setModal(false);
+        setRemoveModal(false);
     };
     const onConfirm = () => {
-        setModal(false);
+        setRemoveModal(false);
         onRemove();
     };
 
 
+    return (
+        <>
+            <PostActionButtonsBlock>
+                <ActionButton onClick={onEditClick}>수정</ActionButton>
+                <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+            </PostActionButtonsBlock>
 
-return (
-<>
-    <PostActionButtonsBlock>
-        <ActionButton onClick={onEditClick}>수정</ActionButton>
-        <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
-    </PostActionButtonsBlock>
-
-    {editorModal && <Modal><FindRearingEditorContainer /></Modal>}
+            {editorModal && <Modal><FindRearingEditorContainer/></Modal>}
 
 
-    <ExpertAskRemoveModal
-        visible={modal}
-        onConfirm={onConfirm}
-        onCancel={onCancel}
-    />
-</>
-);
+            {removeModal && <Modal>
+                <ExpertAskRemoveModal
+                    visible={removeModal}
+                    onConfirm={onConfirm}
+                    onCancel={onCancel}
+                />
+            </Modal>}
+        </>
+    );
 };
 
 export default ExpertPostActionButtons;

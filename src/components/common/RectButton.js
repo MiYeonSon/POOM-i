@@ -2,13 +2,13 @@ import React from 'react';
 import styled from "styled-components";
 
 
-const OrangeRectButton = (props) => {
+const RectButton = ({onClick, backgroundColor, children}) => {
     const StyledOrangeRectButton = styled.button`
       box-sizing: border-box;
       margin: 0 0 0 1vw;
       width: 5vw;
       height: 3.5vh;
-      background: #FFB663;
+      background: ${backgroundColor};
       color: white;
       font-size: 0.8vw;
       font-weight: 300;
@@ -19,8 +19,8 @@ const OrangeRectButton = (props) => {
     `;
 
     return (
-        <StyledOrangeRectButton>{props.children}</StyledOrangeRectButton>
+        <StyledOrangeRectButton onClick={onClick}>{children}</StyledOrangeRectButton>
     );
 };
 
-export default OrangeRectButton;
+export default RectButton;

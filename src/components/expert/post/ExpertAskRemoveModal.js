@@ -1,14 +1,20 @@
 import React from 'react';
 import AskModal from "../../common/AskModal";
+import Modal from "../../common/Modal";
 
-const ExpertAskRemoveModal = ({visible, onConfirm, onCancel}) => {
+
+
+const ExpertAskRemoveModal = ({ visible, onConfirm, onCancel}) => {
     return (
-        <AskModal visible={visible}
-                  description={"글을 정말 삭제하시겠습니까?"}
-                  confirmText={'삭제'}
-                  onConfirm={onConfirm}
-                  onCancel={onCancel}
-        />
+        <>
+            <AskModal visible={visible}
+                      description={"글을 정말 삭제하시겠습니까?"}
+                      confirmText={'삭제'}
+                      onConfirm={onConfirm}
+                      onCancel={onCancel}
+            />
+
+        </>
     );
 
 };

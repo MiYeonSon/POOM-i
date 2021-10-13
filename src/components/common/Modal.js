@@ -77,6 +77,7 @@ const ModalContent = styled.div`
 // 부모 props를 변경하여 다시 돌려주는 형태 고민.
 const Modal = ({children}) => {
     const [openModal, setOpenModal] = useState(true);
+
     return (
         <>
             {openModal && <ModalTemplate>
@@ -91,8 +92,6 @@ const Modal = ({children}) => {
                     <ModalContent>
                         {children}
                     </ModalContent>
-
-
                 </ModalBlock>
             </ModalTemplate>}
 
