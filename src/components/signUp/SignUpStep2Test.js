@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 import SignUpBlock from "./SignUpBlock";
-import ContentMiddleHeader from "../common/ContentMiddleHeader";
+import ContentMiddleHeader from "../common/styledHeader/ContentMiddleHeader";
 import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
 import SignUpStep2Form from "../../containers/signUp/SignUpStep2Form";

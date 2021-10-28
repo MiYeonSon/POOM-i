@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import MainLogo from "../common/assets/mainLogo.png";
-import ContentMiddleHeader from "../common/ContentMiddleHeader";
+import ContentMiddleHeader from "../common/styledHeader/ContentMiddleHeader";
 import {Link} from "react-router-dom";
 import GoogleIcon from "./assets/googleOauth.png";
 import NaverIcon from "./assets/naverOauth.png";

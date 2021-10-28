@@ -11,7 +11,7 @@ export const writePost = ({
                               start_time,
                               end_date,
                               end_time
-                          }) => client.post('expert', {
+                          }) => client.post('/expert', {
         contents: contents,
         recruit_type: recruit_type,
         child_id: Number(child_id),
@@ -27,20 +27,20 @@ export const writePost = ({
 );
 
 /*
-export const readPost = (expertId) => client.get(`expert/${expertId}`, {
+export const readPost = (expertId) => client.get(`childcare/${expertId}`, {
     headers: {
         "Authorization": `Bearer ${token}`
     }
 });
  */
 
-export const expertListPosts = () => client.get('expert', {
+export const expertListPosts = () => client.get('/expert', {
     headers: {
         "Authorization": `Bearer ${token}`
     }
 })
 
-export const removePost = expertId => client.delete(`expert/${expertId}`, {
+export const removePost = expertId => client.delete(`/expert/${expertId}`, {
     headers: {
         "Authorization": `Bearer ${token}`
     }
@@ -55,7 +55,7 @@ export const updatePost = ({
                                start_time,
                                end_date,
                                end_time
-                           }) => client.patch(`expert/${expert_id}`, {
+                           }) => client.patch(`/expert/${expert_id}`, {
     contents: contents,
     recruit_type: recruit_type,
     child_id: Number(child_id),

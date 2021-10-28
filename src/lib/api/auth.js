@@ -1,7 +1,7 @@
 import client from "./client";
 
 export const login = ({email, password}) => client.post(
-    'signin',
+    '/signin',
     {email : email, password : password},
     {
         headers: {"Content-Type": "application/json"}
@@ -9,7 +9,7 @@ export const login = ({email, password}) => client.post(
 );
 
 export const register = ({name, phoneNumber, email, password, nick, gender, address, file}) => client.post(
-    'signup',
+    '/signup',
     {
         name : name,
         phoneNumber : phoneNumber,

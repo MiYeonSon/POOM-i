@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {actionCreators as userActions} from "../../modules/kakao";
+import {actionCreators as userActions} from "../../modules/oAuth/kakao";
 import Loading from "../common/Loading";
 
 

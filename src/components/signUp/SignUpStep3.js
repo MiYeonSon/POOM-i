@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import ChildForm from "./ChildForm";
 import SignUpBlock from "./SignUpBlock";
-import ContentMiddleHeader from "../common/ContentMiddleHeader";
-import ContentSmallHeader from "../common/ContentSmallHeader";
+import ContentMiddleHeader from "../common/styledHeader/ContentMiddleHeader";
+import ContentSmallHeader from "../common/styledHeader/ContentSmallHeader";
 import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
 import InfoFormAddress from "./InfoFormAddress";

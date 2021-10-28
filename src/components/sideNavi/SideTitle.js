@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
-const SideTitle = (props) => {
+const SideTitle = ({children}) => {
     const StyledSideTitle = styled.div`
       box-sizing: border-box;
       margin: 1vw auto;
@@ -15,7 +16,7 @@ const SideTitle = (props) => {
 
 
     return (
-        <StyledSideTitle>{props.children}</StyledSideTitle>
+            <StyledSideTitle>{children}</StyledSideTitle>
     );
 };
 
