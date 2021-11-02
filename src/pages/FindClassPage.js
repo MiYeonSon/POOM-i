@@ -1,10 +1,10 @@
 import React from 'react';
 import DefaultSetting from "../components/common/DefaultSetting";
-import SideNaviTemplate from "../components/sideNavi/SideNaviTemplate";
-import SideTitle from "../components/sideNavi/SideTitle";
-import SideElem from "../components/sideNavi/SideElem";
-import ContentTemplate from "../components/childcare/ContentTemplate";
-import LongTermPage from "../components/content/LongTermPage";
+import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
+import SideTitle from "../components/layout/sideNavi/SideTitle";
+import SideElem from "../components/layout/sideNavi/SideElem";
+import ContentTemplate from "../components/common/ContentTemplate";
+import ClassPage from "../components/routing-page/poom-class/ClassPage";
 
 const FindClassPage = () => {
     return (
@@ -18,7 +18,7 @@ const FindClassPage = () => {
                 </SideNaviTemplate>
                 <ContentTemplate>
 
-                    <LongTermPage/>
+                    <ClassPage/>
 
                 </ContentTemplate>
 

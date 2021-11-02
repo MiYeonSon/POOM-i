@@ -75,14 +75,14 @@ const ModalContent = styled.div`
 
 // TODO : 더블클릭해야 모달창이 출력됨. 한 번만 클릭해도 출력되도록 변경.
 // 부모 props를 변경하여 다시 돌려주는 형태 고민.
-const Modal = ({children}) => {
-    const [openModal, setOpenModal] = useState(true);
+const Modal = ({visible, onClose, children}) => {
+    if(!visible) return null;
 
     return (
         <>
-            {openModal && <ModalTemplate>
+            <ModalTemplate>
                 <ModalBlock>
-                    <button className={"closeButton"} onClick={() => setOpenModal(false)}>X</button>
+                    <button className={"closeButton"} onClick={onClose}>X</button>
                     <ModalTitleBlock>
                         <ModalLogoBlock>
                             <img className={"mainLogo"} src={MainLogo} alt={"로고창"}/>

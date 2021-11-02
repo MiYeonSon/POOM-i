@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SideNaviTemplate from "../components/sideNavi/SideNaviTemplate";
-import SideTitle from "../components/sideNavi/SideTitle";
-import SideElem from "../components/sideNavi/SideElem";
-import ContentTemplate from "../components/childcare/ContentTemplate";
-import ShortTermPage from "../components/content/ShortTermPage";
+import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
+import SideTitle from "../components/layout/sideNavi/SideTitle";
+import SideElem from "../components/layout/sideNavi/SideElem";
+import ContentTemplate from "../components/common/ContentTemplate";
+import ChildcarePage from "../components/common/ChildcarePage";
 import DefaultSetting from "../components/common/DefaultSetting";
 
 const FindChildcarePage = () => {
@@ -19,7 +19,7 @@ const FindChildcarePage = () => {
 
                 <ContentTemplate>
 
-                    <ShortTermPage/>
+                    <ChildcarePage/>
 
                 </ContentTemplate>
             </DefaultSetting>

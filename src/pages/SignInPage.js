@@ -1,10 +1,10 @@
 import React from 'react';
-import ModalLogin from "../components/signIn/ModalLogin";
+import LoginBlock from "../components/routing-page/signIn/LoginBlock";
 
 const SignInPage = () => {
     return (
         <div>
-            <ModalLogin />
+            <LoginBlock />
         </div>
     );
 };

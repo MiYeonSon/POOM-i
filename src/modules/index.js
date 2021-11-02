@@ -3,27 +3,29 @@ import auth, {authSaga} from "./auth";
 import oauthHandler from "./oauthHandler";
 import loading from "./loading";
 import {all} from 'redux-saga/effects';
-import user, {userSaga} from "./user";
+import user from "./user";
 import {actionCreators} from './oAuth/kakao';
-import expertWrite, {writeSaga} from "./childcare/expertWrite";
-import expertPosts, {expertPostsSaga} from "./childcare/expertPosts";
+import childcareWrite, {writeSaga} from "./childcare/childcareWrite";
+import childcarePosts, {childcarePostsSaga} from "./childcare/childcarePosts";
 import classWrite, {classWriteSaga} from "./poom-class/classWrite";
 import classPosts, {classPostsSaga} from "./poom-class/classPosts";
+import classCommentWrite, {classCommentWriteSaga} from "./poom-class/classCommentWrite";
 
 const rootReducer = combineReducers({
     auth,
     oauthHandler,
     loading,
     user,
-    write: expertWrite,
-    expertPosts,
+    childcareWrite,
+    childcarePosts,
     classWrite,
     classPosts,
+    classCommentWrite,
     actionCreators
 });
 
 export function* rootSaga() {
-    yield all([authSaga(), userSaga(), writeSaga(), expertPostsSaga(), classWriteSaga(), classPostsSaga()]);
+    yield all([authSaga(), writeSaga(), childcarePostsSaga(), classWriteSaga(), classPostsSaga(), classCommentWriteSaga()]);
 }
 
 export default rootReducer;

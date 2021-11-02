@@ -24,16 +24,36 @@ export const changeField = createAction(
 export const initializeForm = createAction(INITIALIZE_FORM, form => form);
 
 export const login = createAction(LOGIN, ({email, password}) => ({email, password}));
-export const register = createAction(REGISTER, ({name, phoneNumber, email, password, nick, gender, address, addressFile}) => ({
-    name,
-    phoneNumber,
-    email,
-    password,
-    nick,
-    gender,
-    address,
-    addressFile
-}))
+export const register = createAction(REGISTER, (
+    {
+        name,
+        phoneNumber,
+        email,
+        password,
+        nick,
+        gender,
+        age,
+        postCode,
+        address,
+        detailAddress,
+        extraAddress,
+        addressFile
+    }) => (
+    {
+        name,
+        phoneNumber,
+        email,
+        password,
+        nick,
+        gender,
+        age,
+        postCode,
+        address,
+        detailAddress,
+        extraAddress,
+        addressFile
+    }))
+
 
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
@@ -48,22 +68,21 @@ const initialState = {
         email : '',
         password : ''
     },
-    register : {
-        name : '',
-        phoneNumber : '',
-        email : '',
-        password: '',
-        passwordConfirm : '',
-        nick : '',
-        gender : '',
-        address : {
-            postCode : '',
-            address : '',
-            detailAddress : '',
-            extraAddress : ''
+        register: {
+            name: '',
+            phoneNumber: '',
+            email: '',
+            password: '',
+            passwordConfirm: '',
+            nick: '',
+            gender: '',
+            age : '',
+            postCode: '',
+            address: '',
+            detailAddress: '',
+            extraAddress: '',
+            addressFile: undefined
         },
-        file : undefined
-    },
     auth : null,
     authError : null
 };

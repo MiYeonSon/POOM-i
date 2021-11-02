@@ -3,10 +3,10 @@
  */
 import React from 'react';
 import DefaultSetting from "../components/common/DefaultSetting";
-import SideTitle from "../components/sideNavi/SideTitle";
-import SideElem from "../components/sideNavi/SideElem";
-import SideNaviTemplate from "../components/sideNavi/SideNaviTemplate";
-import ContentTemplate from "../components/childcare/ContentTemplate";
+import SideTitle from "../components/layout/sideNavi/SideTitle";
+import SideElem from "../components/layout/sideNavi/SideElem";
+import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
+import ContentTemplate from "../components/common/ContentTemplate";
 
 const FindPlacePage = () => {
     return (

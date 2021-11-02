@@ -4,13 +4,13 @@
 import React from "react";
 import "./MainPage.css";
 
-import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
+import Footer from "../components/layout/footer/Footer";
+import Header from "../components/layout/header/Header";
 
-import WebBanner from "../components/main/WebBanner";
-import PoomIFeacture from "../components/main/PoomIFeacture";
-import PoomISkills from "../components/main/PoomISkills";
-import PoomICS from "../components/main/PoomICS";
+import WebBanner from "../components/routing-page/main/WebBanner";
+import PoomIFeacture from "../components/routing-page/main/PoomIFeacture";
+import PoomISkills from "../components/routing-page/main/PoomISkills";
+import PoomICS from "../components/routing-page/main/PoomICS";
 
 
 const MainPage = () => {

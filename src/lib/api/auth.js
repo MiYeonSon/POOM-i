@@ -8,24 +8,37 @@ export const login = ({email, password}) => client.post(
     }
 );
 
-export const register = ({name, phoneNumber, email, password, nick, gender, address, file}) => client.post(
+export const register = (
+    {
+        name,
+        phoneNumber,
+        email,
+        password,
+        nick,
+        gender,
+        age,
+        postCode,
+        address,
+        detailAddress,
+        extraAddress,
+        addressFile
+    }) => client.post(
     '/signup',
     {
-        name : name,
-        phoneNumber : phoneNumber,
-        email : email,
-        password : password,
-        nick : nick,
-        gender : gender,
-        address : address,
-        file : file
+        name: name,
+        phone_number: phoneNumber,
+        email: email,
+        password: password,
+        nick: nick,
+        gender: gender,
+        age : Number(age),
+        post_code:postCode,
+        address: address,
+        detail_address : detailAddress,
+        extra_address : extraAddress,
+        address_certification_file: addressFile
     },
     {
-        headers : {"Content-type": "multipart/form-data"}
+        "Content-Type": "application/json",
     }
-
 )
-
-export const check = () => client.get('/api/auth/check');
-
-export const logout = () => client.post('/api/auth/logout');

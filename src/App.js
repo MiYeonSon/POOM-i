@@ -5,9 +5,9 @@ import SignUpPage from "./pages/SignUpPage";
 import SignInPage from "./pages/SignInPage";
 import FindChildcarePage from "./pages/FindChildcarePage";
 import FindClassPage from "./pages/FindClassPage";
-import KakaoOauthRedirectHandler from "./components/signIn/KakaoOauthRedirectHandler";
-import GoogleOauthRedirectHandler from "./components/signIn/GoogleOauthRedirectHandler";
-import NaverOauthRedirectHandler from "./components/signIn/NaverOauthRedirectHandler";
+import KakaoOauthRedirectHandler from "./components/routing-page/signIn/KakaoOauthRedirectHandler";
+import GoogleOauthRedirectHandler from "./components/routing-page/signIn/GoogleOauthRedirectHandler";
+import NaverOauthRedirectHandler from "./components/routing-page/signIn/NaverOauthRedirectHandler";
 import FindPlacePage from "./pages/FindPlacePage";
 import RegisterPlacePage from "./pages/RegisterPlacePage";
 

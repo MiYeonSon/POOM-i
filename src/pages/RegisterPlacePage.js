@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import DefaultSetting from "../components/common/DefaultSetting";
-import SideNaviTemplate from "../components/sideNavi/SideNaviTemplate";
-import SideTitle from "../components/sideNavi/SideTitle";
-import SideElem from "../components/sideNavi/SideElem";
-import ContentTemplate from "../components/childcare/ContentTemplate";
-import RegisterPlaceStep0 from "../components/playground/RegisterPlaceStep0";
-import RegisterPlaceStep1 from "../components/playground/RegisterPlaceStep1";
+import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
+import SideTitle from "../components/layout/sideNavi/SideTitle";
+import SideElem from "../components/layout/sideNavi/SideElem";
+import ContentTemplate from "../components/common/ContentTemplate";
+import RegisterPlaceStep0 from "../components/routing-page/playground/RegisterPlaceStep0";
+import RegisterPlaceStep1 from "../components/routing-page/playground/RegisterPlaceStep1";
 
 const RegisterPlacePage = () => {
     const [page, setPage] = useState(0);

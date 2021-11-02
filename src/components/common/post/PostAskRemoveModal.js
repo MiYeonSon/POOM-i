@@ -1,6 +1,5 @@
 import React from 'react';
 import AskModal from "../AskModal";
-import Modal from "../Modal";
 
 
 
@@ -12,7 +11,6 @@ const PostAskRemoveModal = ({ visible, onConfirm, onCancel}) => {
                       confirmText={'삭제'}
                       onConfirm={onConfirm}
             />
-
         </>
     );
 

@@ -2,11 +2,12 @@ import React from 'react';
 import styled from "styled-components";
 
 
-const RectButton = ({onClick, backgroundColor, children}) => {
+const RectButton = ({width, onClick, backgroundColor, children}) => {
     const StyledOrangeRectButton = styled.button`
       box-sizing: border-box;
       margin: 0 0 0 1vw;
-      width: 5vw;
+      padding: 0;
+      width: ${props => props.width || '5vw'};
       height: 3.5vh;
       background: ${backgroundColor};
       color: white;
@@ -19,7 +20,7 @@ const RectButton = ({onClick, backgroundColor, children}) => {
     `;
 
     return (
-        <StyledOrangeRectButton onClick={onClick}>{children}</StyledOrangeRectButton>
+        <StyledOrangeRectButton width={width} onClick={onClick}>{children}</StyledOrangeRectButton>
     );
 };
 
