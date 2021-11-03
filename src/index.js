@@ -17,8 +17,9 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 
 function loadUser() {
     try{
-        const tokenInfo = localStorage.getItem('tokenInfo');
-        store.dispatch(tempSetUser(JSON.parse(tokenInfo)));
+        const user = JSON.parse(localStorage.getItem('user'));
+        const token = JSON.parse(localStorage.getItem('token'));
+        store.dispatch(tempSetUser({user, token}));
     } catch (e) {
         console.log('localStorage is not working');
     }
@@ -26,7 +27,7 @@ function loadUser() {
 
 
 sagaMiddleware.run(rootSaga);
-// loadUser();
+loadUser();
 
 ReactDOM.render(
     <Provider store={store}>

@@ -14,6 +14,9 @@ import Modal from "../../../common/Modal";
 import ContainerCommentWriteActionButtons
     from "../../../../containers/poom-class/comment-write/ContainerCommentWriteActionButtons";
 import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
+import CommentClassPostList from "../comment-posts/CommentClassPostList";
+import ContainerCommentClassPostList from "../../../../containers/poom-class/comment-posts/ContainerCommentClassPostList";
+import {classCommentListPosts} from "../../../../modules/poom-class/classCommentPosts";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -130,7 +133,7 @@ const FindClassPostItem = ({post, history}) => {
     const [commentModal, setCommentModal] = useState(false);
 
     const onComment = () => {
-        dispatch(getBoardId(post));
+        // dispatch(getBoardId(post));
         setCommentModal(true);
     }
 
@@ -173,8 +176,11 @@ const FindClassPostItem = ({post, history}) => {
             <CommentBlock onClick={onComment}>댓글</CommentBlock>
             {commentModal &&
             <Modal visible={commentModal} onClose={onClose}>
+                <ContainerCommentClassPostList boardId={board_id} />
+                {/*
                 <ContainerCommentClassEditor />
                 <ContainerCommentWriteActionButtons />
+                */}
             </Modal>}
 
         </PostBlock>

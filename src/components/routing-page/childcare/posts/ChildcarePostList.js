@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
 import {removeChildcarePost} from "../../../../lib/api/childcarePosts";
@@ -72,6 +72,7 @@ const ChildcarePostItem = ({childcarePost}) => {
         end_time
     } = childcarePost;
     const dispatch = useDispatch();
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     const onEdit = () => {
         dispatch(setOriginalPost(childcarePost));
@@ -79,7 +80,7 @@ const ChildcarePostItem = ({childcarePost}) => {
 
     const onRemove = async () => {
         try {
-            await removeChildcarePost(expert_id);
+            await removeChildcarePost(token, expert_id);
             window.location.reload()
         } catch (e) {
             console.log(e);

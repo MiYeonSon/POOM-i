@@ -1,17 +1,17 @@
 import client from './client';
-import {token} from './token';
 /*
  * 포스트 관련된 API를 요청하는 함수 모음
  */
 export const writeChildcarePost = ({
-                              contents,
-                              recruit_type,
-                              child_id,
-                              start_date,
-                              start_time,
-                              end_date,
-                              end_time
-                          }) => client.post('/expert', {
+                                       token,
+                                       contents,
+                                       recruit_type,
+                                       child_id,
+                                       start_date,
+                                       start_time,
+                                       end_date,
+                                       end_time
+                                   }) => client.post('/expert', {
         contents: contents,
         recruit_type: recruit_type,
         child_id: Number(child_id),
@@ -26,28 +26,30 @@ export const writeChildcarePost = ({
     }
 );
 
-export const childcareListPosts = () => client.get('/expert', {
+export const childcareListPosts = (token) => client.get('/expert', {
     headers: {
         "Authorization": `Bearer ${token}`
     }
 })
 
-export const removeChildcarePost = expertId => client.delete(`/expert/${expertId}`, {
+export const removeChildcarePost = (token, expertId) => client.delete(`/expert/${expertId}`, {
     headers: {
         "Authorization": `Bearer ${token}`
     }
 });
 
-export const updateChildcarePost = ({
-                               expert_id,
-                               contents,
-                               recruit_type,
-                               child_id,
-                               start_date,
-                               start_time,
-                               end_date,
-                               end_time
-                           }) => client.patch(`/expert/${expert_id}`, {
+export const updateChildcarePost = (
+    {
+        token,
+        expert_id,
+        contents,
+        recruit_type,
+        child_id,
+        start_date,
+        start_time,
+        end_date,
+        end_time
+    }) => client.patch(`/expert/${expert_id}`, {
     contents: contents,
     recruit_type: recruit_type,
     child_id: Number(child_id),

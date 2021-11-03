@@ -1,7 +1,7 @@
 import {createAction, handleActions} from "redux-actions";
 import createRequestSaga, {createRequestActionTypes} from "../../lib/createRequestSaga";
 import {takeLatest} from "redux-saga/effects";
-import * as postsAPI from '../../lib/api/classsCommentPosts';
+import * as postsAPI from '../../lib/api/classCommentPosts';
 
 const INITIALIZE = 'classCommentWrite/INITIALIZE';
 const CHANGE_FIELD = 'classCommentWrite/CHANGE_FILED';

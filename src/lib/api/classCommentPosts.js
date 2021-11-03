@@ -12,4 +12,12 @@ export const classCommentWritePost = ({
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         }
-    });
+    }
+);
+
+export const classCommentListPosts = (boardId) => client.get(`/board/${boardId}/comment`, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+);

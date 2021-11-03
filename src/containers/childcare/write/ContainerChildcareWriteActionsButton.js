@@ -25,22 +25,21 @@ const WriteActionButtonsContainer = ({history}) => {
         contents: childcareWrite.contents,
         recruit_type: childcareWrite.recruit_type,
         child_id: childcareWrite.child_id,
-        start_date : childcareWrite.start_date,
+        start_date: childcareWrite.start_date,
         start_time: childcareWrite.start_time,
         end_date: childcareWrite.end_date,
-        end_time : childcareWrite.end_time,
+        end_time: childcareWrite.end_time,
         post: childcareWrite.post,
         postError: childcareWrite.postError,
         originalPostId: childcareWrite.originalPostId
     }));
 
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+
     // 포스트 등록
     const onRegister = () => {
-        /*
-
-         */
-
         dispatch(writePost({
+                token,
                 contents,
                 recruit_type,
                 child_id,
@@ -53,9 +52,11 @@ const WriteActionButtonsContainer = ({history}) => {
 
     };
     
+    // 포스트 수정
     const onModify = () => {
         if (originalPostId) {
             dispatch(updatePost({
+                token,
                 contents,
                 recruit_type,
                 child_id,
@@ -71,22 +72,18 @@ const WriteActionButtonsContainer = ({history}) => {
         }
     }
 
-    const onCancel = () => {
-        history.goBack();
-    };
 
     // 성공 혹은 실패 시 할 작업
     useEffect(() => {
         if (post) {
             window.location.replace('/childcare');
-
         }
         if (postError) {
             console.log(postError);
         }
     }, [history, post, postError]);
 
-    return <ChildcareWriteActionButtons onRegister={onRegister} onModify={onModify} onCancel={onCancel} isEdit={!!originalPostId}/>;
+    return <ChildcareWriteActionButtons onRegister={onRegister} onModify={onModify} isEdit={!!originalPostId}/>;
 
 };
 

@@ -42,3 +42,5 @@ export const register = (
         "Content-Type": "application/json",
     }
 )
+
+export const logout = () => client.post('/logout');

@@ -1,9 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import CommentClassEditor from "../../../components/routing-page/poom-class/comment-write/CommentClassEditor";
-import CommentClassWriteActionButtons
-    from "../../../components/routing-page/poom-class/comment-write/CommentClassWriteActionButtons";
 import {useDispatch, useSelector} from "react-redux";
-import {changeField, getBoardId, initialize} from "../../../modules/poom-class/classCommentWrite";
+import {changeField, initialize} from "../../../modules/poom-class/classCommentWrite";
 
 const ContainerCommentClassEditor = () => {
     const dispatch = useDispatch();

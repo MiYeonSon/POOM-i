@@ -27,6 +27,7 @@ const ContainerLoginForm = ({match, history}) => {
         e.preventDefault();
         const {email, password} = form;
         dispatch(login({email, password}));
+        window.location.reload();
     }
 
 
@@ -41,7 +42,8 @@ const ContainerLoginForm = ({match, history}) => {
     useEffect(() => {
         if(auth) {
             try{
-                localStorage.setItem('tokenInfo', JSON.stringify(auth.token_info.access_token));
+                localStorage.setItem('user', JSON.stringify(auth.data));
+                localStorage.setItem('token', JSON.stringify(auth.token_info.access_token));
             }catch (e) {
                 console.log('localstorage is not working');
             }

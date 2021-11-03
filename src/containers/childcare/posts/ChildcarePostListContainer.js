@@ -14,8 +14,11 @@ const ChildcarePostListContainer = () => {
         })
     );
 
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+
+
     useEffect(() => {
-        dispatch(childcareListPosts());
+        dispatch(childcareListPosts(token));
     }, [dispatch]);
 
 

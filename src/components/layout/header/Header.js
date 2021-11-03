@@ -1,11 +1,11 @@
 import React from 'react';
-import LoginBar from "./LoginBar";
 import NaviBar from "./NaviBar";
+import ContainerLoginBar from "../../../containers/layout/header/ContainerLoginBar";
 
 const Header = () => {
     return (
         <div>
-            <LoginBar/>
+            <ContainerLoginBar />
             <NaviBar/>
         </div>
     );

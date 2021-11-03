@@ -44,6 +44,7 @@ export const changeField = createAction(CHANGE_FILED, ({key, value}) => ({
 
 export const writePost = createAction(WRITE_POST,
     ({
+         token,
          contents,
          recruit_type,
          child_id,
@@ -52,6 +53,7 @@ export const writePost = createAction(WRITE_POST,
          end_date,
          end_time
      }) => ({
+        token,
         contents,
         recruit_type,
         child_id,
@@ -64,25 +66,29 @@ export const writePost = createAction(WRITE_POST,
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
 
 export const updatePost = createAction(UPDATE_POST,
-    ({
-         expert_id,
-         contents,
-         recruit_type,
-         child_id,
-         start_date,
-         start_time,
-         end_date,
-         end_time
-     }) => ({
-        expert_id,
-        contents,
-        recruit_type,
-        child_id,
-        start_date,
-        start_time,
-        end_date,
-        end_time
-    })
+    (
+        {
+            token,
+            expert_id,
+            contents,
+            recruit_type,
+            child_id,
+            start_date,
+            start_time,
+            end_date,
+            end_time
+        }) => (
+        {
+            token,
+            expert_id,
+            contents,
+            recruit_type,
+            child_id,
+            start_date,
+            start_time,
+            end_date,
+            end_time
+        })
 );
 
 
