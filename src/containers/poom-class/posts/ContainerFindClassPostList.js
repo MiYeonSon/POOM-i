@@ -15,8 +15,10 @@ const ContainerFindClassPostList = () => {
         }),
     );
 
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+
     useEffect(() => {
-        dispatch(classListPosts());
+        dispatch(classListPosts(token));
     }, [dispatch]);
 
 

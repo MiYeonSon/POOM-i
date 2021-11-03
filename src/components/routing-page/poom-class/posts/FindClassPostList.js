@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import FindClassPostActionButtons from "../post/FindClassPostActionButtons";
 import PostBlock from "../../../common/post/PostBlock";
@@ -116,6 +116,7 @@ const FindClassPostItem = ({post, history}) => {
     const {title, writer, regular_meeting_day, board_id, contents, images, created_at} = post;
 
     const dispatch = useDispatch();
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     const onEdit = () => {
         dispatch(setOriginalPost(post));
@@ -123,7 +124,7 @@ const FindClassPostItem = ({post, history}) => {
 
     const onRemove = async () => {
         try {
-            await classRemovePost(board_id);
+            await classRemovePost(token, board_id);
             window.location.replace('/class');
         } catch (e) {
             console.log(e);

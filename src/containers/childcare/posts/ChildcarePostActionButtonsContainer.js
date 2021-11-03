@@ -30,6 +30,9 @@ const ChildcarePostActionButtonsContainer = ({ onEdit, onRemove }) => {
         originalPostId: write.originalPostId
     }));
 
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+
+
     const onPublish = () => {
         if (originalPostId) {
             dispatch(updatePost({

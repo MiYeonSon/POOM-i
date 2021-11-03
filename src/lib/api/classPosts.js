@@ -1,7 +1,7 @@
 import client from './client';
-import {token} from './token';
 
 export const classWritePost = ({
+                                   token,
                                    groupId,
                                    contents,
                                    images
@@ -18,13 +18,14 @@ export const classWritePost = ({
     }
 );
 
-export const classListPosts = () => client.get('/board', {
+export const classListPosts = (token) => client.get('/board', {
     headers: {
         "Authorization": `Bearer ${token}`
     }
 });
 
 export const classUpdatePost = ({
+                                    token,
                                     groupId,
                                     contents,
                                     remove_images,
@@ -46,7 +47,7 @@ export const classUpdatePost = ({
     }
 );
 
-export const classRemovePost = board_id => client.delete(`/board/${board_id}`, {
+export const classRemovePost = (token, board_id) => client.delete(`/board/${board_id}`, {
     headers: {
         "Authorization": `Bearer ${token}`
     }

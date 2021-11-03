@@ -30,10 +30,12 @@ export const changeField = createAction(CHANGE_FIELD, ({key, value}) => ({
 
 export const classWritePost = createAction(WRITE_POST,
     ({
+         token,
          groupId,
          contents,
          images
      }) => ({
+        token,
         groupId,
         contents,
         images
@@ -43,8 +45,20 @@ export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
 
 export const classUpdatePost = createAction(
     UPDATE_POST,
-    ({groupId, contents, remove_images, images, originalPostId}) => ({
-        groupId, contents, remove_images, images, originalPostId
+    ({
+         token,
+         groupId,
+         contents,
+         remove_images,
+         images,
+         originalPostId
+    }) => ({
+        token,
+        groupId,
+        contents,
+        remove_images,
+        images,
+        originalPostId
     })
 );
 
@@ -63,7 +77,7 @@ const initialState = {
     images: '',
     post: null,
     postError: null,
-    remove_images : null,
+    remove_images: null,
     originalPostId: null
 };
 

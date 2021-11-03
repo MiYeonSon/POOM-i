@@ -18,21 +18,30 @@ const ContainerFindClassWriteActionButtons = ({history}) => {
     } = useSelector(({classWrite}) => ({
         groupId: classWrite.groupId,
         contents: classWrite.contents,
-        images : classWrite.images,
+        images: classWrite.images,
         post: classWrite.post,
         postError: classWrite.postError,
         remove_images: classWrite.remove_images,
         originalPostId: classWrite.originalPostId
     }));
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     const onPublish = () => {
         if (originalPostId) {
-            dispatch(classUpdatePost({groupId, contents, remove_images, images, originalPostId}));
+            dispatch(classUpdatePost({
+                token,
+                groupId,
+                contents,
+                remove_images,
+                images,
+                originalPostId
+            }));
             window.location.replace('/class');
             return;
         }
 
         dispatch(classWritePost({
+                token,
                 groupId,
                 contents,
                 images
