@@ -1,12 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import RectButton from "../../../common/RectButton";
+import {WriteActionButtonsBlock} from "../../../common/post/StyledEditor";
 
-const WriteActionButtonsBlock = styled.div`
-  margin: 1vw;
-  display: flex;
-  justify-content: right;
-`;
+
 
 const ChildcareWriteActionButtons = ({onRegister, onModify, isEdit}) => {
     const onClickHandler = (isEdit ? onModify : onRegister);

@@ -1,24 +1,24 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
 import CommentClassPostList from "../../../components/routing-page/poom-class/comment-posts/CommentClassPostList";
+import {useDispatch, useSelector} from "react-redux";
 import {classCommentListPosts} from "../../../modules/poom-class/classCommentPosts";
-
 
 const ContainerCommentClassPostList = ({boardId}) => {
     const dispatch = useDispatch();
 
     const {posts, error, loading, user} = useSelector(
         ({classCommentPosts, loading, user}) => ({
-            posts : classCommentPosts.posts,
-            error : classCommentPosts.error,
-            loading : loading['classCommentPosts/LIST_POSTS'],
-            user : user.user
+            posts: classCommentPosts.posts,
+            error: classCommentPosts.error,
+            loading: loading['classCommentPosts/LIST_POSTS'],
+            user: user.userInfo
         }),
     );
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     useEffect(() => {
-        dispatch(classCommentListPosts(boardId));
-    }, [dispatch]);
+        dispatch(classCommentListPosts({token, boardId}));
+    }, [dispatch, token, boardId]);
 
     return (
         <CommentClassPostList

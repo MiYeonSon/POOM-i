@@ -11,6 +11,7 @@ import classWrite, {classWriteSaga} from "./poom-class/classWrite";
 import classPosts, {classPostsSaga} from "./poom-class/classPosts";
 import classCommentWrite, {classCommentWriteSaga} from "./poom-class/classCommentWrite";
 import classCommentPosts, {classCommentPostsSaga} from "./poom-class/classCommentPosts";
+import childcareSupportWrite, {childcareSupportWriteSaga} from "./childcare/childcareSupportWrite";
 
 const rootReducer = combineReducers({
     auth,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     user,
     childcareWrite,
     childcarePosts,
+    childcareSupportWrite,
     classWrite,
     classPosts,
     classCommentWrite,
@@ -27,7 +29,7 @@ const rootReducer = combineReducers({
 });
 
 export function* rootSaga() {
-    yield all([authSaga(), writeSaga(), childcarePostsSaga(), classWriteSaga(), classPostsSaga(), classCommentWriteSaga()], classCommentPostsSaga());
+    yield all([authSaga(), writeSaga(), childcarePostsSaga(), childcareSupportWriteSaga(), classWriteSaga(),  classPostsSaga(), classCommentWriteSaga(), classCommentPostsSaga()]);
 }
 
 export default rootReducer;

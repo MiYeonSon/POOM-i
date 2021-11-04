@@ -23,7 +23,8 @@ export const changeField = createAction(CHANGE_FIELD, ({key, value}) => ({
 
 export const getBoardId = createAction(GET_BOARD_ID, post => post);
 
-export const writePost = createAction(WRITE_POST, ({boardId, contents}) => ({
+export const writePost = createAction(WRITE_POST, ({token, boardId, contents}) => ({
+    token,
     boardId,
     contents
 }));
@@ -33,7 +34,6 @@ const classCommentWritePostSaga = createRequestSaga(WRITE_POST, postsAPI.classCo
 export function* classCommentWriteSaga(){
     yield takeLatest(WRITE_POST, classCommentWritePostSaga);
 }
-
 
 const initialState = {
     boardId : '',

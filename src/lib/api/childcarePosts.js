@@ -61,3 +61,10 @@ export const updateChildcarePost = (
         "Authorization": `Bearer ${token}`
     }
 });
+
+
+export const likedChildCarePost = (token, expertId) => client.post(`/expert/${expertId}/like`, {}, {
+    headers: {
+        "Authorization": `Bearer ${token}`
+    }
+});

@@ -1,7 +1,7 @@
 import React from 'react';
-import ProfileImage from "../ProfileImage";
 import Person from "../assets/005-gardener.png";
 import styled from "styled-components";
+import {ProfileImage} from "./WriterInfo";
 
 const StyledPostWriterInfo = styled.div`
   box-sizing: border-box;
@@ -32,14 +32,13 @@ const StyledWriterReview = styled.div`
 `;
 
 
-const PostWriterInfo = (props) => {
+const HorizontalPostWriterInfo = (props) => {
     const getScore = () => {
         let score = '';
         for (let i = 0; i < props.review; i++) {
             score += '❤';
         }
-
-        return score
+        return score;
     }
 
 
@@ -54,4 +53,4 @@ const PostWriterInfo = (props) => {
     );
 };
 
-export default PostWriterInfo;
+export default HorizontalPostWriterInfo;

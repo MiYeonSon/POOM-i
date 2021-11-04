@@ -1,19 +1,16 @@
 import React from 'react';
-import AskModal from "../AskModal";
+import AskModal from "../../../common/AskModal";
 
-
-
-const PostAskRemoveModal = ({visible, onConfirm}) => {
+const CommentAskRemoveModal = ({visible, onConfirm}) => {
     return (
         <>
             <AskModal visible={visible}
-                      description={"글을 정말 삭제하시겠습니까?"}
+                      description={"댓글을 정말 삭제하시겠습니까?"}
                       confirmText={'삭제'}
                       onConfirm={onConfirm}
             />
         </>
     );
-
 };
 
-export default PostAskRemoveModal;
+export default CommentAskRemoveModal;

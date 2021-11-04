@@ -1,16 +1,16 @@
 import React from 'react';
-import ContentHeader from "./styledHeader/ContentHeader";
-import Introduction from "./Introduction";
+import ContentHeader from "../../common/styledHeader/ContentHeader";
+import Introduction from "../../common/Introduction";
 
-import ProfileImage from "./ProfileImage";
 
-import PostListTemplate from "./PostListZone";
-import NewPostInput from "./NewPostInput";
-import PostBlock from "./post/PostBlock";
-import CommonHr from "./CommonHr";
-import Person from "./assets/005-gardener.png";
-import Pencil from "./assets/pencil (1).png";
-import ExpertPostListContainer from "../../containers/childcare/posts/ChildcarePostListContainer";
+import PostListTemplate from "../../common/PostListZone";
+import NewPostInput from "../../common/NewPostInput";
+import PostBlock from "../../common/post/PostBlock";
+import CommonHr from "../../common/CommonHr";
+import Person from "../../common/assets/005-gardener.png";
+import Pencil from "../../common/assets/pencil (1).png";
+import ExpertPostListContainer from "../../../containers/childcare/posts/ChildcarePostListContainer";
+import {ProfileImage} from "../../common/post/WriterInfo";
 
 const ChildcarePage = () => {
 

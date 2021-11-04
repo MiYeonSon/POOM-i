@@ -14,9 +14,13 @@ const ContainerCommentWriteActionButtons = () => {
         postError : classCommentWrite.postError
     }));
 
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+
+
     const onPublish = () =>{
         dispatch(
             writePost({
+                token,
                 boardId,
                 contents
             })
@@ -25,7 +29,7 @@ const ContainerCommentWriteActionButtons = () => {
 
     useEffect(() => {
         if(post){
-            const {boardId, contents} = post;
+            window.location.reload();
         }
 
         if(postError){

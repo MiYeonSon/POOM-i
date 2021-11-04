@@ -6,8 +6,7 @@ import {changeField, initialize} from "../../../modules/poom-class/classCommentW
 const ContainerCommentClassEditor = () => {
     const dispatch = useDispatch();
 
-    const {boardId, contents } = useSelector(({classCommentWrite}) => ({
-        boardId : classCommentWrite.boardId,
+    const {contents } = useSelector(({classCommentWrite}) => ({
         contents: classCommentWrite.contents
     }));
 

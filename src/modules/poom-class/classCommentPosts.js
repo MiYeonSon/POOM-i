@@ -9,10 +9,7 @@ const [
     LIST_POSTS_FAILURE
 ] = createRequestActionTypes('classCommentPosts/LIST_POSTS');
 
-export const classCommentListPosts = createAction(
-    LIST_POSTS,
-    (boardId) => (boardId)
-);
+export const classCommentListPosts = createAction(LIST_POSTS);
 
 const classCommentListPostsSaga = createRequestSaga(LIST_POSTS, postsAPI.classCommentListPosts);
 

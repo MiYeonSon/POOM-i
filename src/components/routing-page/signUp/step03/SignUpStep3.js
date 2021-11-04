@@ -7,8 +7,6 @@ import ContentMiddleHeader from "../../../common/styledHeader/ContentMiddleHeade
 import ContentSmallHeader from "../../../common/styledHeader/ContentSmallHeader";
 import InfoFormBlock from "../InfoFormBlock";
 import InfoFormTemplate from "../InfoFormTemplate";
-import InfoFormAddress from "../InfoFormAddress";
-import RegisterForm from "./RegisterForm";
 import RegisterFormContainer from "../../../../modules/sign-up/RegisterFormContainer";
 
 const AnnounceComponent = styled.div`

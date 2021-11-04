@@ -4,6 +4,8 @@ import LoginBlock from "../../routing-page/signIn/LoginBlock";
 import styled from "styled-components";
 import Modal from "../../common/Modal";
 
+
+
 const LoginBarTemplate = styled.div`
     box-sizing: border-box;
     width: 100%;
@@ -28,8 +30,6 @@ const LoginBarTemplate = styled.div`
 const LoginButtonsBlock = styled.div`
   box-sizing: border-box;
   width: fit-content;
-  
-  border: 1px solid black;
 `;
 
 const StyledButton = styled.button`
@@ -47,16 +47,16 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const LoginBar = ({user, onLogout}) => {
+const LoginBar = ({userInfo, onLogout}) => {
     const [visible, setVisible] = useState(false);
     const onClose = () => {
         setVisible(false);
     }
     return (
         <LoginBarTemplate>
-            {user ? (
+            {userInfo ? (
                 <LoginButtonsBlock>
-                    <StyledButton>{user.nick} 님 환영합니다!</StyledButton>
+                    <StyledButton>{userInfo.user.nick} 님 환영합니다!</StyledButton>
                     <StyledButton onClick={onLogout}>로그아웃</StyledButton>
                 </LoginButtonsBlock>
             ) : (

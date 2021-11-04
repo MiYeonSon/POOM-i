@@ -36,7 +36,7 @@ const ContainerFindClassWriteActionButtons = ({history}) => {
                 images,
                 originalPostId
             }));
-            window.location.replace('/class');
+            history.push('/class');
             return;
         }
 
@@ -46,14 +46,13 @@ const ContainerFindClassWriteActionButtons = ({history}) => {
                 contents,
                 images
             }),
-        );
-        window.location.replace('/class');
+        )
 
     };
 
     useEffect(() => {
-        if (post) {
-            window.location.replace('/class');
+        if(post){
+            history.push('/class');
         }
         if (postError) {
             console.log(postError);

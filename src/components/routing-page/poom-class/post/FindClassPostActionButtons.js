@@ -39,7 +39,11 @@ const FindClassPostActonButtons = ({onEdit, onRemove}) => {
     const onRemoveClick = () => {
         setRemoveModal(true);
     };
-    const onCancel = () => {
+    const onEditCancel = () => {
+        setEditorModal(false);
+    };
+
+    const onRemoveCancel = () => {
         setRemoveModal(false);
     };
     const onConfirm = () => {
@@ -54,13 +58,14 @@ const FindClassPostActonButtons = ({onEdit, onRemove}) => {
                 <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
             </div>
 
-            {editorModal && <Modal visible={editorModal} onClose={onCancel}><ContainerFindClassEditor /></Modal>}
+            {editorModal && <Modal visible={onEditClick} onClose={onEditCancel}>
+                <ContainerFindClassEditor />
+            </Modal>}
 
-            {removeModal && <Modal  visible={onRemoveClick} onClose={onCancel}>
+            {removeModal && <Modal  visible={onRemoveClick} onClose={onRemoveCancel}>
                 <PostAskRemoveModal
                 visible={removeModal}
                 onConfirm={onConfirm}
-                onCancel={onCancel}
                 />
                 </Modal>
             }

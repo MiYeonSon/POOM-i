@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
-import {removeChildcarePost} from "../../../../lib/api/childcarePosts";
+import {likedChildCarePost, removeChildcarePost} from "../../../../lib/api/childcarePosts";
 import ChildcarePostActionButtons from "../post/ChildcarePostActionButtons";
 import PostBlock from "../../../common/post/PostBlock";
-import PostWriterInfo from "../../../common/post/PostWriterInfo";
+import HorizontalPostWriterInfo from "../../../common/post/HorizontalPostWriterInfo";
 import ActivityTime from "../../../common/ActivityTime";
-import Heart from "../../../common/assets/like.png";
-
-import RectButton from "../../../common/RectButton";
 import PostCreateDate from "../../../common/post/PostCreateDate";
-import CommentChildcareWriteActionButtons from "../comment-write/CommentChildcareWriteActionButtons";
+import SupportChildcareWriteActionButtons from "../support-write/SupportChildcareWriteActionButtons";
+import {IoHeartOutline, IoHeart} from "react-icons/io5";
+import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
+import Modal from "../../../common/Modal";
+import SupportChildcareEditor from "../support-write/SupportChildcareEditor";
+import RectButton from "../../../common/RectButton";
+import ContainerSupportChildcareEditor
+    from "../../../../containers/childcare/support-write/ContainerSupportChildcareEditor";
+import ContainerCommentWriteActionButtons
+    from "../../../../containers/poom-class/comment-write/ContainerCommentWriteActionButtons";
+import ContainerSupportChildcareWriteActonButtons
+    from "../../../../containers/childcare/support-write/ContainerSupportChildcareWriteActonButtons";
+import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
 
 
 const PostContent = styled.div`
@@ -47,7 +56,6 @@ const StyledInterest = styled.div`
   font-weight: 300;
   font-size: 0.8vw;
 `;
-
 
 const SeparateArea = styled.div`
   width: fit-content;
@@ -87,19 +95,42 @@ const ChildcarePostItem = ({childcarePost}) => {
         }
     }
 
+    const [liked, setLiked] = useState(false);
+    const onLiked = async () => {
+        setLiked(true);
+        likedChildCarePost(token, expert_id).then(r => console.log(r));
+    }
+
+    const onLikedCancel = async () => {
+        setLiked(false);
+        likedChildCarePost(token, expert_id).then(r => console.log(r));
+    }
+
+    const [supportModal, setSupportModal] = useState(false);
+
+    const onSupport = () => {
+        dispatch(getExpertId(childcarePost));
+        setSupportModal(true);
+    }
+
+    const onClose = () => {
+        setSupportModal(false);
+    }
+
+
     return (
         <>
             <PostBlock type={recruit_type}>
                 <StyledPostHeader>
-                    <PostWriterInfo writer={writer} review={writer_score}/>
+                    <HorizontalPostWriterInfo writer={writer} review={writer_score}/>
                     <ChildcarePostActionButtons onEdit={onEdit} onRemove={onRemove}/>
                 </StyledPostHeader>
                 <br/>
 
                 <ActivityTime>활동 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}</ActivityTime>
 
-                <PostContent dangerouslySetInnerHTML={{__html: contents}} />
-                <PostCreateDate createDate={created_at} />
+                <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
+                <PostCreateDate createDate={created_at} fontSize={'0.8vw'}/>
 
                 <StyledPostFooter>
                     <SeparateArea>
@@ -109,8 +140,24 @@ const ChildcarePostItem = ({childcarePost}) => {
                         </StyledInterest>
                     </SeparateArea>
                     <SeparateArea>
-                        <img src={Heart} alt={'관심'} style={{width: "1.25vw", height: "1.25vw"}}/>
-                        <CommentChildcareWriteActionButtons />
+                        {
+                            liked ? (
+                                <IoHeart onClick={onLikedCancel} size={'1.5vw'}
+                                         color={'#FF5151'} style={{cursor: 'pointer'}}/>
+                            ) : (
+                                <IoHeartOutline onClick={onLiked} size={'1.5vw'}
+                                                style={{cursor: 'pointer'}}/>
+                            )
+                        }
+
+                        <RectButton backgroundColor={"#FFB663"} onClick={onSupport}>지원하기</RectButton>
+                        {
+                            supportModal &&
+                            <Modal visible={supportModal} onClose={onClose}>
+                                <ContainerSupportChildcareEditor />
+                                <ContainerSupportChildcareWriteActonButtons />
+                            </Modal>
+                        }
                     </SeparateArea>
                 </StyledPostFooter>
             </PostBlock>

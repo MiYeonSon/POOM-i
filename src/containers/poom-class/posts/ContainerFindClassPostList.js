@@ -19,7 +19,7 @@ const ContainerFindClassPostList = () => {
 
     useEffect(() => {
         dispatch(classListPosts(token));
-    }, [dispatch]);
+    }, [dispatch, token]);
 
 
     return (

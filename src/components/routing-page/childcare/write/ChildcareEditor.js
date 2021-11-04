@@ -3,6 +3,7 @@ import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
 import styled from 'styled-components';
 import {StyledInput, StyledSelect} from "../../../common/StyledInput";
+import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
 
 const FindRearingEditorTemplate = styled.div`
   font-family: paybooc-Medium;
@@ -10,12 +11,7 @@ const FindRearingEditorTemplate = styled.div`
   color: #707070;
 `;
 
-const CategoryBlock = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: fit-content;
-  padding: 0 0 1.5vw;
-`;
+
 
 const CategoryContent = styled.div`
   box-sizing: border-box;
@@ -24,11 +20,7 @@ const CategoryContent = styled.div`
   padding: 0 0.5vw;
 `;
 
-const SmallTitle = styled.div`
-  margin-bottom: 0.5vw;
-  font-family: paybooc-Bold;
-  font-size: 0.9vw;
-`;
+
 
 
 const QuillWrapper = styled.div`

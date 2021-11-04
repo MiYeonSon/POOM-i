@@ -5,16 +5,16 @@ const StyledActionButton = styled.button`
   height: fit-content;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  color: gray;
+  color: ${props => props.color || 'gray'};
   font-weight: bold;
   border: none;
   outline: none;
   font-size: 0.875rem;
   cursor: pointer;
-
+  background-color: ${props => props.backgroundColor};
 
   &:hover {
-    background: rgba(255, 182, 99, 0.5);
+    background-color: ${props => props.hoverColor || 'rgba(255, 182, 99, 0.5)'};
     color: white;
   }
 
@@ -23,9 +23,17 @@ const StyledActionButton = styled.button`
   }
 `;
 
-const ActionButton = ({onClick, children}) => {
+const ActionButton = ({backgroundColor, hoverColor, color, onClick, children}) => {
     return (
-        <ActionButton onClick={onClick}>{children}</ActionButton>
+        <StyledActionButton
+            backgroundColor={backgroundColor}
+            hoverColor={hoverColor}
+            color={color}
+            type={'button'}
+            onClick={onClick}
+        >
+            {children}
+        </StyledActionButton>
     );
 };
 

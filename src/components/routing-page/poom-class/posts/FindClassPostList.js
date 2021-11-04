@@ -5,18 +5,13 @@ import {withRouter} from "react-router-dom";
 import FindClassPostActionButtons from "../post/FindClassPostActionButtons";
 import PostBlock from "../../../common/post/PostBlock";
 import PostCreateDate from "../../../common/post/PostCreateDate";
-import ProfileImage from "../../../common/ProfileImage";
 import Person from "../../../common/assets/005-gardener.png";
 import {setOriginalPost} from "../../../../modules/poom-class/classWrite";
 import {classRemovePost} from "../../../../lib/api/classPosts";
-import ContainerCommentClassEditor from "../../../../containers/poom-class/comment-write/ContainerCommentClassEditor";
 import Modal from "../../../common/Modal";
-import ContainerCommentWriteActionButtons
-    from "../../../../containers/poom-class/comment-write/ContainerCommentWriteActionButtons";
 import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
-import CommentClassPostList from "../comment-posts/CommentClassPostList";
-import ContainerCommentClassPostList from "../../../../containers/poom-class/comment-posts/ContainerCommentClassPostList";
-import {classCommentListPosts} from "../../../../modules/poom-class/classCommentPosts";
+import CommentClassBlock from "../CommentClassBlock";
+import {ProfileImage, StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -61,20 +56,6 @@ const PostContent = styled.div`
   height: fit-content;
   font-size: 1vw;
   font-weight: lighter;
-`;
-
-const UserInfoBlock = styled.div`
-  width: fit-content;
-  height: fit-content;
-`;
-
-const StyledWriterId = styled.div`
-  width: 100%;
-  height: fit-content;
-  margin-top: 0.5vh;
-  text-align: center;
-  font-size: 0.8vw;
-  color: #565656;
 `;
 
 const ActivityImgBlock = styled.div`
@@ -134,7 +115,7 @@ const FindClassPostItem = ({post, history}) => {
     const [commentModal, setCommentModal] = useState(false);
 
     const onComment = () => {
-        // dispatch(getBoardId(post));
+        dispatch(getBoardId(post));
         setCommentModal(true);
     }
 
@@ -177,12 +158,9 @@ const FindClassPostItem = ({post, history}) => {
             <CommentBlock onClick={onComment}>댓글</CommentBlock>
             {commentModal &&
             <Modal visible={commentModal} onClose={onClose}>
-                <ContainerCommentClassPostList boardId={board_id} />
-                {/*
-                <ContainerCommentClassEditor />
-                <ContainerCommentWriteActionButtons />
-                */}
-            </Modal>}
+                <CommentClassBlock boardId={board_id}/>
+            </Modal>
+            }
 
         </PostBlock>
     )

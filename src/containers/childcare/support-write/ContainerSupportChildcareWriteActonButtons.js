@@ -1,0 +1,43 @@
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {writePost} from "../../../modules/childcare/childcareSupportWrite";
+import SupportChildcareWriteActionButtons
+    from "../../../components/routing-page/childcare/support-write/SupportChildcareWriteActionButtons";
+
+const ContainerSupportChildcareWriteActonButtons = () => {
+    const dispatch = useDispatch();
+
+    const {childId, contents, expertId, post, postError} = useSelector(({childcareSupportWrite}) => ({
+        childId: childcareSupportWrite.childId,
+        contents: childcareSupportWrite.contents,
+        expertId : childcareSupportWrite.expertId,
+        post: childcareSupportWrite.post,
+        postError: childcareSupportWrite.postError
+    }));
+
+    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+
+    const onPublish = () => {
+        dispatch(writePost({
+            token,
+            expertId,
+            childId,
+            contents,
+        }))
+    }
+
+    useEffect(() => {
+        if (post) {
+            window.location.reload();
+        }
+        if (postError) {
+            console.log(postError);
+        }
+    }, [post, postError]);
+
+    return (
+        <SupportChildcareWriteActionButtons onPublish={onPublish}/>
+    );
+};
+
+export default ContainerSupportChildcareWriteActonButtons;

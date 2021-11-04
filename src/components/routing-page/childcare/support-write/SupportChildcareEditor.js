@@ -1,7 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import Quill from "quill";
-import 'quill/dist/quill.bubble.css'
-import styled from 'styled-components';
+import styled from "styled-components";
+import {StyledSelect} from "../../../common/StyledInput";
+import * as PropTypes from "prop-types";
+import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
 
 const QuillWrapper = styled.div`
   /* 최소 크기 지정 및 padding 제거 */
@@ -9,20 +11,24 @@ const QuillWrapper = styled.div`
   .ql-editor {
     box-sizing: border-box;
     width: 100%;
-    height: 10vh;
-    margin: 3vw 0 0;
+    height: 12vh;
     font-family: paybooc-Medium;
     font-size: 0.8vw;
     line-height: 1.5;
-    border-top: 4px solid #AAAAAA;
+    background-color: #F3F3F3;
   }
 
+
+  // placeholder css
   .ql-editor.ql-blank::before {
-    left: 0px;
+    font-family: paybooc-Medium;
+    font-style: normal;
   }
 `;
 
-const CommentClassEditor = ({contents, onChangeField}) => {
+
+
+const SupportChildcareEditor = ({onChangeField, childId, contents}) => {
     const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
@@ -52,13 +58,37 @@ const CommentClassEditor = ({contents, onChangeField}) => {
         });
     }, [onChangeField]);
 
+    const mounted = useRef(false);
+    useEffect(() => {
+        if (mounted.current) return;
+        mounted.current = true;
+        quillInstance.current.root.innerHTML = contents;
+    }, [contents]);
+
+    const onChangeChildId = e => {
+        onChangeField({key :'childId', value : e.target.value});
+    }
+
     return (
         <>
-            <QuillWrapper>
-                <div ref={quillElement}></div>
-            </QuillWrapper>
+            <CategoryBlock>
+                <SmallTitle>* 자녀</SmallTitle>
+                <StyledSelect onChange={onChangeChildId}>
+                    <option value="null">-</option>
+                    <option value="1">자녀 1</option>
+                    <option value="2">자녀 2</option>
+                    <option value="3">자녀 3</option>
+                </StyledSelect>
+            </CategoryBlock>
+
+            <CategoryBlock>
+                <SmallTitle>* 내용</SmallTitle>
+                <QuillWrapper>
+                    <div ref={quillElement}/>
+                </QuillWrapper>
+            </CategoryBlock>
         </>
     );
 };
 
-export default CommentClassEditor;
+export default SupportChildcareEditor;
