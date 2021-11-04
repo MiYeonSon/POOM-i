@@ -4,7 +4,7 @@ import {withRouter} from "react-router-dom";
 import {updatePost, writePost} from "../../../modules/childcare/childcareWrite";
 import ChildcareWriteActionButtons from "../../../components/routing-page/childcare/write/ChildcareWriteActionButtons";
 
-const WriteActionButtonsContainer = ({history}) => {
+const ContainerChildcareWriteActionsButton = ({history}) => {
     const dispatch = useDispatch();
     /*
      * useSelector Hook은 리덕스의 상태를 조회할 수 있다.
@@ -20,8 +20,9 @@ const WriteActionButtonsContainer = ({history}) => {
         end_time,
         post,
         postError,
-        originalPostId
-    } = useSelector(({childcareWrite}) => ({
+        originalPostId,
+        token
+    } = useSelector(({childcareWrite, user}) => ({
         contents: childcareWrite.contents,
         recruit_type: childcareWrite.recruit_type,
         child_id: childcareWrite.child_id,
@@ -31,10 +32,9 @@ const WriteActionButtonsContainer = ({history}) => {
         end_time: childcareWrite.end_time,
         post: childcareWrite.post,
         postError: childcareWrite.postError,
-        originalPostId: childcareWrite.originalPostId
+        originalPostId: childcareWrite.originalPostId,
+        token: user.token
     }));
-
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     // 포스트 등록
     const onRegister = () => {
@@ -51,7 +51,7 @@ const WriteActionButtonsContainer = ({history}) => {
         );
 
     };
-    
+
     // 포스트 수정
     const onModify = () => {
         if (originalPostId) {
@@ -76,7 +76,7 @@ const WriteActionButtonsContainer = ({history}) => {
     // 성공 혹은 실패 시 할 작업
     useEffect(() => {
         if (post) {
-            window.location.replace('/childcare');
+            history.push('/childcare');
         }
         if (postError) {
             console.log(postError);
@@ -87,4 +87,4 @@ const WriteActionButtonsContainer = ({history}) => {
 
 };
 
-export default withRouter(WriteActionButtonsContainer);
+export default withRouter(ContainerChildcareWriteActionsButton);

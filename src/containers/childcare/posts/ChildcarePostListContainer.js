@@ -6,16 +6,14 @@ import {getChildList} from "../../../modules/detailInfo/detailInfo";
 
 const ChildcarePostListContainer = () => {
     const dispatch = useDispatch();
-    const {posts, error, loading, user} = useSelector(
+    const {posts, error, loading, token} = useSelector(
         ({childcarePosts, loading, user}) => ({
-            posts : childcarePosts.posts,
-            error : childcarePosts.error,
-            loading : loading['posts/EXPERT_LIST_POSTS'],
-            user : user.user
+            posts: childcarePosts.posts,
+            error: childcarePosts.error,
+            loading: loading['posts/EXPERT_LIST_POSTS'],
+            token: user.token
         })
     );
-
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
 
     useEffect(() => {
@@ -30,7 +28,6 @@ const ChildcarePostListContainer = () => {
                 loading={loading}
                 error={error}
                 childcarePosts={posts}
-                showWriteButton={user}
             />
         </>
 

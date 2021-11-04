@@ -20,7 +20,7 @@ const ContainerChildcareEditor = () => {
      */
 
     // 여기서의 wirte는 리덕스 스토어인 modules/write로 리덕스 스토어의 상태를 들고오는 것임.
-    const {contents, recruit_type, child_id, start_date, start_time, end_date, end_time} = useSelector(({childcareWrite}) => ({
+    const {contents, recruit_type, child_id, start_date, start_time, end_date, end_time, childList} = useSelector(({childcareWrite, detailInfo}) => ({
         contents: childcareWrite.contents,
         recruit_type: childcareWrite.recruit_type,
         child_id: childcareWrite.child_id,
@@ -28,9 +28,6 @@ const ContainerChildcareEditor = () => {
         start_time: childcareWrite.start_time,
         end_date: childcareWrite.end_date,
         end_time: childcareWrite.end_time,
-    }));
-
-    const {childList} = useSelector(({detailInfo}) => ({
         childList : detailInfo.childList
     }));
 

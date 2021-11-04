@@ -7,15 +7,14 @@ import SupportChildcareWriteActionButtons
 const ContainerSupportChildcareWriteActonButtons = () => {
     const dispatch = useDispatch();
 
-    const {childId, contents, expertId, post, postError} = useSelector(({childcareSupportWrite}) => ({
+    const {childId, contents, expertId, post, postError, token} = useSelector(({childcareSupportWrite, user}) => ({
         childId: childcareSupportWrite.childId,
         contents: childcareSupportWrite.contents,
         expertId : childcareSupportWrite.expertId,
         post: childcareSupportWrite.post,
-        postError: childcareSupportWrite.postError
+        postError: childcareSupportWrite.postError,
+        token: user.token
     }));
-
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     const processChildId = childId === 'null' ? null : childId;
 
@@ -38,7 +37,7 @@ const ContainerSupportChildcareWriteActonButtons = () => {
     }, [post, postError]);
 
     return (
-        <SupportChildcareWriteActionButtons onPublish={onPublish}/>
+        <SupportChildcareWriteActionButtons onPublish={onPublish} />
     );
 };
 

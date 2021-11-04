@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {updatePost} from "../../../modules/childcare/childcareWrite";
 import ChildcarePostActionButtons from "../../../components/routing-page/childcare/post/ChildcarePostActionButtons";
 
-const ChildcarePostActionButtonsContainer = ({ onEdit, onRemove }) => {
+const ChildcarePostActionButtonsContainer = () => {
     const dispatch = useDispatch();
 
     const {
@@ -16,8 +16,9 @@ const ChildcarePostActionButtonsContainer = ({ onEdit, onRemove }) => {
         end_time,
         post,
         postError,
-        originalPostId
-    } = useSelector(({write}) => ({
+        originalPostId,
+        token
+    } = useSelector(({write, user}) => ({
         contents: write.contents,
         recruit_type: write.recruit_type,
         child_id: write.child_id,
@@ -27,10 +28,9 @@ const ChildcarePostActionButtonsContainer = ({ onEdit, onRemove }) => {
         end_time : write.end_time,
         post: write.post,
         postError: write.postError,
-        originalPostId: write.originalPostId
+        originalPostId: write.originalPostId,
+        token : user.token
     }));
-
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
 
     const onPublish = () => {

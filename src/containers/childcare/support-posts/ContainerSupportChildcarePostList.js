@@ -13,12 +13,11 @@ const ContainerSupportChildcarePostList = ({expertId}) => {
             error: childcareSupportPosts.error,
             loading: loading['childcareSupportPosts/LIST_POSTS'],
             user : user.userInfo,
-            token : user.userInfo.token,
+            token : user.token,
         })
     );
 
     useEffect(() => {
-        console.log("id " + expertId);
         dispatch(childcareSupportListPosts({token, expertId}));
     }, [dispatch, token, expertId]);
 

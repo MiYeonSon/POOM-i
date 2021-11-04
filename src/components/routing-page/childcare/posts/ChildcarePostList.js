@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
-import {withRouter} from "react-router-dom";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
 import {likedCancelChildCarePost, likedChildCarePost, removeChildcarePost} from "../../../../lib/api/childcarePosts";
 import ChildcarePostActionButtons from "../post/ChildcarePostActionButtons";
@@ -9,20 +8,14 @@ import PostBlock from "../../../common/post/PostBlock";
 import HorizontalPostWriterInfo from "../../../common/post/HorizontalPostWriterInfo";
 import ActivityTime from "../../../common/ActivityTime";
 import PostCreateDate from "../../../common/post/PostCreateDate";
-import SupportChildcareWriteActionButtons from "../support-write/SupportChildcareWriteActionButtons";
 import {IoHeartOutline, IoHeart} from "react-icons/io5";
-import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
 import Modal from "../../../common/Modal";
-import SupportChildcareEditor from "../support-write/SupportChildcareEditor";
 import RectButton from "../../../common/RectButton";
 import ContainerSupportChildcareEditor
     from "../../../../containers/childcare/support-write/ContainerSupportChildcareEditor";
-import ContainerCommentWriteActionButtons
-    from "../../../../containers/poom-class/comment-write/ContainerCommentWriteActionButtons";
 import ContainerSupportChildcareWriteActonButtons
     from "../../../../containers/childcare/support-write/ContainerSupportChildcareWriteActonButtons";
 import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
-import SupportChildcarePostList from "../support-posts/SupportChildcarePostList";
 import ContainerSupportChildcarePostList
     from "../../../../containers/childcare/support-posts/ContainerSupportChildcarePostList";
 
@@ -83,13 +76,17 @@ const ChildcarePostItem = ({childcarePost}) => {
         end_date,
         end_time,
         liked_count,
-        applied_count
+        applied_count,
+        apply_status,
     } = childcarePost;
 
-    const {token, nick} = useSelector(({user}) => ({
-        token: user.userInfo.token,
-        nick: user.userInfo.user.nick
+    const {nick, token} = useSelector(({user}) => ({
+        nick: user.userInfo.nick,
+        token: user.token
     }));
+
+    // 작성자만 수정/삭제 버튼을 볼 수 있도록 사용하는 변수
+    const ownPost = nick === writer;
 
     const onEdit = () => {
         dispatch(setOriginalPost(childcarePost));
@@ -98,7 +95,7 @@ const ChildcarePostItem = ({childcarePost}) => {
     const onRemove = async () => {
         try {
             await removeChildcarePost(token, expert_id);
-            window.location.reload()
+            window.location.reload();
         } catch (e) {
             console.log(e);
         }
@@ -131,7 +128,7 @@ const ChildcarePostItem = ({childcarePost}) => {
             <PostBlock type={recruit_type}>
                 <StyledPostHeader>
                     <HorizontalPostWriterInfo writer={writer} review={writer_score}/>
-                    <ChildcarePostActionButtons onEdit={onEdit} onRemove={onRemove}/>
+                    {ownPost && <ChildcarePostActionButtons onEdit={onEdit} onRemove={onRemove}/> }
                 </StyledPostHeader>
                 <br/>
 
@@ -160,7 +157,8 @@ const ChildcarePostItem = ({childcarePost}) => {
                         }
 
                         {
-                            nick === writer ? (
+
+                            (nick === writer || apply_status === "APPLY") ? (
                                 <div>
                                     <RectButton backgroundColor={"#AAAAAA"} onClick={() => setSupportModal(true)}>
                                         지원자 보기
@@ -195,11 +193,10 @@ const ChildcarePostItem = ({childcarePost}) => {
 };
 
 
-const ChildcarePostList = ({childcarePosts, loading, error, showWriteButton}) => {
+const ChildcarePostList = ({childcarePosts, loading, error}) => {
     if (error) {
         return <>에러 발생</>
     }
-
 
     return (
         <>
@@ -217,4 +214,4 @@ const ChildcarePostList = ({childcarePosts, loading, error, showWriteButton}) =>
     );
 };
 
-export default withRouter(ChildcarePostList);
+export default ChildcarePostList;

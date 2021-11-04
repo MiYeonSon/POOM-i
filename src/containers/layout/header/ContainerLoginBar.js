@@ -2,8 +2,9 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import LoginBar from "../../../components/layout/header/LoginBar";
 import {logout} from "../../../modules/user";
+import {withRouter} from "react-router-dom";
 
-const ContainerLoginBar = () => {
+const ContainerLoginBar = ({history}) => {
     const dispatch = useDispatch();
 
     const {userInfo, token} = useSelector(({user}) => ({
@@ -14,6 +15,7 @@ const ContainerLoginBar = () => {
     const onLogout = () => {
         console.log(token);
         dispatch(logout());
+        history.push('/');
     };
 
     return (
@@ -23,4 +25,4 @@ const ContainerLoginBar = () => {
     );
 };
 
-export default ContainerLoginBar;
+export default withRouter(ContainerLoginBar);

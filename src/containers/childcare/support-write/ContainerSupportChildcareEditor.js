@@ -5,19 +5,16 @@ import SupportChildcareEditor from "../../../components/routing-page/childcare/s
 
 const ContainerSupportChildcareEditor = () => {
     const dispatch = useDispatch();
-    const {childId, contents} = useSelector(({childcareSupportWrite}) => ({
-        childId : childcareSupportWrite.childId,
-        contents : childcareSupportWrite.contents
+    const {childId, contents, childList} = useSelector(({childcareSupportWrite, detailInfo}) => ({
+        childId: childcareSupportWrite.childId,
+        contents: childcareSupportWrite.contents,
+        childList: detailInfo.childList
     }));
 
-    const {childList} = useSelector(({detailInfo}) => ({
-        childList : detailInfo.childList
-    }));
 
     const onChangeFiled = useCallback(payload => dispatch(changeField(payload)), [
         dispatch,
     ]);
-
 
 
     useEffect(() => {
@@ -27,7 +24,10 @@ const ContainerSupportChildcareEditor = () => {
     }, [dispatch]);
 
     return (
-        <SupportChildcareEditor onChangeField={onChangeFiled} childId={childId} contents={contents} childList={childList} />
+        <SupportChildcareEditor onChangeField={onChangeFiled}
+                                childId={childId}
+                                contents={contents}
+                                childList={childList}/>
     );
 };
 
