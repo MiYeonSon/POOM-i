@@ -68,3 +68,10 @@ export const likedChildCarePost = (token, expertId) => client.post(`/expert/${ex
         "Authorization": `Bearer ${token}`
     }
 });
+
+export const likedCancelChildCarePost = (token, expertId) => client.delete(`/expert/${expertId}/like`,  {
+    headers: {
+        "Authorization": `Bearer ${token}`
+    }
+});
+

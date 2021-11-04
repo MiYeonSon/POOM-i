@@ -1,8 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import childcareWrite, {changeField, chooseChoice, initialize} from "../../../modules/childcare/childcareWrite";
+import {changeField, initialize} from "../../../modules/childcare/childcareWrite";
 import ChildcareEditor from "../../../components/routing-page/childcare/write/ChildcareEditor";
-import ChildcareWriteActionButtons from "../../../components/routing-page/childcare/write/ChildcareWriteActionButtons";
 import WriteActionButtonsContainer from "./ContainerChildcareWriteActionsButton";
 
 
@@ -28,7 +27,11 @@ const ContainerChildcareEditor = () => {
         start_date: childcareWrite.start_date,
         start_time: childcareWrite.start_time,
         end_date: childcareWrite.end_date,
-        end_time: childcareWrite.end_time
+        end_time: childcareWrite.end_time,
+    }));
+
+    const {childList} = useSelector(({detailInfo}) => ({
+        childList : detailInfo.childList
     }));
 
     // 컴포넌트 성능을 최적화해야하기 때문에 useCallback으로 액션을 디스패치하는 함수를 감싸준다.
@@ -62,7 +65,9 @@ const ContainerChildcareEditor = () => {
                              start_date={start_date}
                              start_time={start_time}
                              end_date={end_date}
-                             end_time={end_time}/>
+                             end_time={end_time}
+                            childList={childList}
+            />
             <WriteActionButtonsContainer/>
         </>
     );

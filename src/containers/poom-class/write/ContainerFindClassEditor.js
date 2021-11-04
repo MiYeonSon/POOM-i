@@ -13,6 +13,10 @@ const ContainerFindClassEditor = () => {
         images: classWrite.images
     }));
 
+    const {classList} = useSelector(({detailInfo}) => ({
+        classList : detailInfo.classList
+    }));
+
     const onChangeField = useCallback(payload => dispatch(changeField(payload)), [
         dispatch
     ]);
@@ -29,6 +33,7 @@ const ContainerFindClassEditor = () => {
                              groupId={groupId}
                              contents={contents}
                              images={images}
+                             classList={classList}
             />
             <FindClassWriteActionButtonsContainer/>
         </>

@@ -2,18 +2,17 @@ import { createAction, handleActions } from 'redux-actions';
 import { takeLatest, call } from 'redux-saga/effects';
 import * as authAPI from '../lib/api/auth';
 
-const TEMP_SET_USER = 'user/TEMP_SET_USER'; // 새로고침 이후 임시 로그인 처리
-
+const SET_USER = 'user/SET_USER'; // 새로고침 이후 임시 로그인 처리
+const SET_TOKEN = 'user/SET_TOKEN';
 const LOGOUT = 'user/LOGOUT';
 
-export const tempSetUser = createAction(TEMP_SET_USER, ({user, token}) => ({user, token}));
+export const setUser = createAction(SET_USER, (user) => (user));
+export const setToken = createAction(SET_TOKEN, (token) => (token));
 export const logout = createAction(LOGOUT);
 
 function* logoutSaga() {
     try {
-        yield call(authAPI.logout); // logout API 호출
-        localStorage.removeItem('token'); // localStorage 에서 user 제거
-        localStorage.removeItem('user'); // localStorage 에서 user 제거
+        yield call(() => localStorage.clear());// localStorage 에서 user 제거
     } catch (e) {
         console.log(e);
     }
@@ -25,17 +24,20 @@ export function* userSaga() {
 
 const initialState = {
     userInfo: null,
-    token : null,
+    token : null
 };
 
-export default handleActions(
+export const user =  handleActions(
     {
-        [TEMP_SET_USER]: (state, { payload: userInfo, token }) => ({
+        [SET_USER]: (state, { payload: userInfo}) => ({
             ...state,
-            userInfo,
+            userInfo
+        }),
+        [SET_TOKEN] : (state, {payload : token}) => ({
+            ...state,
             token
         }),
-        [LOGOUT]: state => ({
+        [LOGOUT]: (state) => ({
             ...state,
             userInfo: null,
             token : null
@@ -43,3 +45,4 @@ export default handleActions(
     },
     initialState,
 );
+export default user;

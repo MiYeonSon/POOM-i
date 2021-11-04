@@ -3,15 +3,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeField, initializeForm, login} from "../../modules/auth";
 import LoginForm from "../../components/routing-page/signIn/LoginForm";
 import {withRouter} from "react-router-dom";
+import {setToken, setUser} from "../../modules/user";
 
 const ContainerLoginForm = ({match, history}) => {
     // useDispatch와 useSelector 함수를 사용하여 컴포넌트를 리덕스와 연동시킨다.
     const dispatch = useDispatch();
+
     const {form, auth, authError, user} = useSelector(({auth, user}) => ({
         form : auth.login,
         auth : auth.auth,
         authError : auth.authError,
-        user : user
+        user : user.user
     }));
 
     const onChange = e => {
@@ -27,9 +29,7 @@ const ContainerLoginForm = ({match, history}) => {
         e.preventDefault();
         const {email, password} = form;
         dispatch(login({email, password}));
-        window.location.reload();
     }
-
 
     /*
      *  - 리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook이다.
@@ -40,17 +40,29 @@ const ContainerLoginForm = ({match, history}) => {
     }, [dispatch]);
 
     useEffect(() => {
-        if(auth) {
+        if(authError){
+            console.log(authError);
+        }
+
+        if(auth){
+            localStorage.setItem('user', JSON.stringify(auth.data));
+            localStorage.setItem('token', JSON.stringify(auth.token_info.access_token));
+            dispatch(setUser(auth.data));
+            dispatch(setToken(auth.token_info.access_token));
+        }
+    },[auth, authError]);
+
+    useEffect(() => {
+        if(user){
+            console.log('user exist');
             try{
-                localStorage.setItem('user', JSON.stringify(auth.data));
-                localStorage.setItem('token', JSON.stringify(auth.token_info.access_token));
-            }catch (e) {
+                console.log(user);
+            } catch (e){
                 console.log('localstorage is not working');
             }
-        } else {
-            return;
         }
-    }, [auth]);
+    }, [history, user]);
+
 
     return (
         <LoginForm

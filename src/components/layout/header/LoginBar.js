@@ -5,20 +5,19 @@ import styled from "styled-components";
 import Modal from "../../common/Modal";
 
 
-
 const LoginBarTemplate = styled.div`
-    box-sizing: border-box;
-    width: 100%;
-    height: 5vh;
-    padding-right: 10vw;
-    background: #FFB663;
-    font-family: 'BMHANNAPro';
+  box-sizing: border-box;
+  width: 100%;
+  height: 5vh;
+  padding-right: 10vw;
+  background: #FFB663;
+  font-family: 'BMHANNAPro';
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-  button + button{
+  button + button {
     box-sizing: border-box;
     width: fit-content;
     padding-left: 1vw;
@@ -47,17 +46,17 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const LoginBar = ({userInfo, onLogout}) => {
+const LoginBar = ({user, onLogout}) => {
     const [visible, setVisible] = useState(false);
     const onClose = () => {
         setVisible(false);
     }
     return (
         <LoginBarTemplate>
-            {userInfo ? (
+            {user ? (
                 <LoginButtonsBlock>
-                    <StyledButton>{userInfo.user.nick} 님 환영합니다!</StyledButton>
-                    <StyledButton onClick={onLogout}>로그아웃</StyledButton>
+                    <StyledButton type={'button'}>{user.nick} 님 환영합니다!</StyledButton>
+                    <StyledButton type={'button'} onClick={onLogout}>로그아웃</StyledButton>
                 </LoginButtonsBlock>
             ) : (
                 <LoginButtonsBlock>
@@ -73,6 +72,9 @@ const LoginBar = ({userInfo, onLogout}) => {
                     </StyledButton>
                 </LoginButtonsBlock>
             )}
+
+
+
         </LoginBarTemplate>
     );
 };

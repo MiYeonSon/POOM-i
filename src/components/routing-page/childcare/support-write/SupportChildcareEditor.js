@@ -27,8 +27,7 @@ const QuillWrapper = styled.div`
 `;
 
 
-
-const SupportChildcareEditor = ({onChangeField, childId, contents}) => {
+const SupportChildcareEditor = ({onChangeField, childId, contents, childList}) => {
     const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
@@ -66,7 +65,7 @@ const SupportChildcareEditor = ({onChangeField, childId, contents}) => {
     }, [contents]);
 
     const onChangeChildId = e => {
-        onChangeField({key :'childId', value : e.target.value});
+        onChangeField({key: 'childId', value: e.target.value});
     }
 
     return (
@@ -75,9 +74,11 @@ const SupportChildcareEditor = ({onChangeField, childId, contents}) => {
                 <SmallTitle>* 자녀</SmallTitle>
                 <StyledSelect onChange={onChangeChildId}>
                     <option value="null">-</option>
-                    <option value="1">자녀 1</option>
-                    <option value="2">자녀 2</option>
-                    <option value="3">자녀 3</option>
+                    {
+                        childList.data.map(child => (
+                            <option value={child.child_id} key={child.child_id}>{child.name}</option>
+                        ))
+                    }
                 </StyledSelect>
             </CategoryBlock>
 

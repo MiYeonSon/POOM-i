@@ -17,11 +17,13 @@ const ContainerSupportChildcareWriteActonButtons = () => {
 
     const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
+    const processChildId = childId === 'null' ? null : childId;
+
     const onPublish = () => {
         dispatch(writePost({
             token,
             expertId,
-            childId,
+            processChildId,
             contents,
         }))
     }

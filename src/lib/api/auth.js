@@ -43,4 +43,8 @@ export const register = (
     }
 )
 
-export const logout = () => client.post('/logout');
+export const logout = () => client.post('/logout', {}, {
+    headers: {
+        "Authorization": `Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzYxMTQ5MDMsInN1YiI6ImFkbWluQHRlc3QuY29tIiwiYXV0aCI6IlJPTEVfQURNSU4ifQ.0XRRJcM80u0yyb25YK3TjQP2gN9E9t-s0Tep-Ba71E0`
+    }
+});

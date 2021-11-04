@@ -12,7 +12,6 @@ const INITIALIZE = 'childcareWrite/INITIALIZE';  // 모든 내용 초기화
 const CHANGE_FILED = 'childcareWrite/CHANGE_FIELD';  // 특정 key 값 바꾸기
 const SET_ORIGINAL_POST = 'childcareWrite/SET_ORIGINAL_POST';// 수정 시 post 상태를 write로 복사
 
-
 // POST 시 요청 후 상태에 대한 액션 타입 정의
 const [
     WRITE_POST,
@@ -21,11 +20,14 @@ const [
 ] = createRequestActionTypes('childcareWrite/WRITE_POST');
 
 // PATCH 시 요청 후 상태에 대한 액션 타입 정의
+
 const [
     UPDATE_POST,
     UPDATE_POST_SUCCESS,
     UPDATE_POST_FAILURE
 ] = createRequestActionTypes('childcareWrite/UPDATE_POST');
+
+
 
 
 // createAction을 사용하면 매번 객체를 직접 만들어줄 필요 없기 간단하게 액션 생성 함수를 선언할 수 있음.
@@ -92,6 +94,7 @@ export const updatePost = createAction(UPDATE_POST,
 );
 
 
+
 // 사가 생성
 export const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writeChildcarePost);
 export const updatePostSaga = createRequestSaga(UPDATE_POST, postsAPI.updateChildcarePost);
@@ -150,7 +153,8 @@ const childcareWrite = handleActions(
             start_time: post.start_time,
             end_date: post.end_date,
             end_time: post.end_time,
-            originalPostId: post.expert_id
+            originalPostId: post.expert_id,
+            childList : post.childList,
         }),
         [UPDATE_POST_SUCCESS]: (state, {payload: post}) => ({
             ...state,
@@ -159,7 +163,8 @@ const childcareWrite = handleActions(
         [UPDATE_POST_FAILURE]: (state, {payload: postError}) => ({
             ...state,
             postError
-        })
+        }),
+
     },
     initialState
 )

@@ -9,3 +9,9 @@ export const childcareSupportWritePost = ({token, expertId, childId, contents}) 
             "Authorization": `Bearer ${token}`
         }
     });
+
+export const childcareSupportListPosts = ({token, expertId}) => client.get(`/expert/${expertId}/apply`,{
+    headers: {
+        "Authorization": `Bearer ${token}`
+    }
+});

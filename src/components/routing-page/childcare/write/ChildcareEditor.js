@@ -4,6 +4,8 @@ import 'quill/dist/quill.bubble.css';
 import styled from 'styled-components';
 import {StyledInput, StyledSelect} from "../../../common/StyledInput";
 import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
+import {useDispatch} from "react-redux";
+import {getChildList} from "../../../../modules/childcare/childcareWrite";
 
 const FindRearingEditorTemplate = styled.div`
   font-family: paybooc-Medium;
@@ -12,15 +14,12 @@ const FindRearingEditorTemplate = styled.div`
 `;
 
 
-
 const CategoryContent = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: fit-content;
   padding: 0 0.5vw;
 `;
-
-
 
 
 const QuillWrapper = styled.div`
@@ -48,15 +47,16 @@ const QuillWrapper = styled.div`
 
 
 const ChildcareEditor = ({
-                               contents,
-                               recruit_type,
-                               child_id,
-                               start_date,
-                               start_time,
-                               end_date,
-                               end_time,
-                               onChangeField
-                           }) => {
+                             contents,
+                             recruit_type,
+                             child_id,
+                             start_date,
+                             start_time,
+                             end_date,
+                             end_time,
+                             childList,
+                             onChangeField
+                         }) => {
     const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
@@ -111,6 +111,7 @@ const ChildcareEditor = ({
         onChangeField({key: `${type}_time`, value: e.target.value});
     };
 
+
     return (
         <FindRearingEditorTemplate>
             <CategoryBlock>
@@ -127,9 +128,12 @@ const ChildcareEditor = ({
                 <CategoryContent>
                     <StyledSelect onChange={onChangeChildID}>
                         <option value="null">-</option>
-                        <option value="1">자녀 1</option>
-                        <option value="2">자녀 2</option>
-                        <option value="3">자녀 3</option>
+
+                        {
+                            childList.data.map(child => (
+                                <option value={child.child_id} key={child.child_id}>{child.name}</option>
+                            ))
+                        }
                     </StyledSelect>
                 </CategoryContent>
             </CategoryBlock>

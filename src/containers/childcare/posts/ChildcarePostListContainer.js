@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import ChildcarePostList from "../../../components/routing-page/childcare/posts/ChildcarePostList";
 import {childcareListPosts} from "../../../modules/childcare/childcarePosts";
+import {getChildList} from "../../../modules/detailInfo/detailInfo";
 
 const ChildcarePostListContainer = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const ChildcarePostListContainer = () => {
 
     useEffect(() => {
         dispatch(childcareListPosts(token));
-    }, [dispatch]);
+        dispatch(getChildList(token));
+    }, [dispatch, token]);
 
 
     return (
@@ -30,8 +32,6 @@ const ChildcarePostListContainer = () => {
                 childcarePosts={posts}
                 showWriteButton={user}
             />
-
-
         </>
 
     );

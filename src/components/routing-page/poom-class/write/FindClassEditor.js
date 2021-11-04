@@ -32,7 +32,7 @@ const QuillWrapper = styled.div`
 
 const AddFileButtonBlock = styled.div`
   display: flex;
-  
+
   input[type="file"] {
     position: absolute;
     width: 0;
@@ -56,7 +56,7 @@ const AddFileButtonBlock = styled.div`
   }
 `;
 
-const FindClassEditor = ({groupId, contents, images, onChangeField}) => {
+const FindClassEditor = ({groupId, contents, images, classList, onChangeField}) => {
     const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
@@ -124,7 +124,12 @@ const FindClassEditor = ({groupId, contents, images, onChangeField}) => {
             <SmallTitle>* 품앗이 반</SmallTitle>
             <StyledSelect onChange={onChangeGroupId} value={groupId}>
                 <option value="null">-</option>
-                <option value="1">숲이 조아</option>
+                {
+                    classList.data.map(classUnit => (
+                        <option value={classUnit.group_id} key={classUnit.group_id}>{classUnit.name}</option>
+
+                    ))
+                }
             </StyledSelect>
 
             <SmallTitle>* 내용</SmallTitle>

@@ -10,6 +10,9 @@ const ContainerSupportChildcareEditor = () => {
         contents : childcareSupportWrite.contents
     }));
 
+    const {childList} = useSelector(({detailInfo}) => ({
+        childList : detailInfo.childList
+    }));
 
     const onChangeFiled = useCallback(payload => dispatch(changeField(payload)), [
         dispatch,
@@ -24,7 +27,7 @@ const ContainerSupportChildcareEditor = () => {
     }, [dispatch]);
 
     return (
-        <SupportChildcareEditor onChangeField={onChangeFiled} childId={childId} contents={contents} />
+        <SupportChildcareEditor onChangeField={onChangeFiled} childId={childId} contents={contents} childList={childList} />
     );
 };
 

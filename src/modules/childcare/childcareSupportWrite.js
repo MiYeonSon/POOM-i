@@ -40,7 +40,6 @@ const initialState = {
     expertId : null,
     post : null,
     postError : null,
-    error : null
 };
 
 const childcareSupportWrite = handleActions(

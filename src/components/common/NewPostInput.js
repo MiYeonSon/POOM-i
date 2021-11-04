@@ -27,6 +27,7 @@ const StyledNewPostInput = styled.div`
 
 const NewPostInput = ({children, content}) => {
     const [visible, setVisible] = useState(false);
+
     const onClose = () => {
         setVisible(false);
     }
