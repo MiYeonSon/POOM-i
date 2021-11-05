@@ -4,7 +4,7 @@ import ChildcarePostList from "../../../components/routing-page/childcare/posts/
 import {childcareListPosts} from "../../../modules/childcare/childcarePosts";
 import {getChildList} from "../../../modules/detailInfo/detailInfo";
 
-const ChildcarePostListContainer = () => {
+const ContainerChildcarePostList = () => {
     const dispatch = useDispatch();
     const {posts, error, loading, token} = useSelector(
         ({childcarePosts, loading, user}) => ({
@@ -34,6 +34,6 @@ const ChildcarePostListContainer = () => {
     );
 };
 
-export default ChildcarePostListContainer;
+export default ContainerChildcarePostList;
 
 

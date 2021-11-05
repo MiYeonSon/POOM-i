@@ -6,15 +6,15 @@ import {classCommentListPosts} from "../../../modules/poom-class/classCommentPos
 const ContainerCommentClassPostList = ({boardId}) => {
     const dispatch = useDispatch();
 
-    const {posts, error, loading, user} = useSelector(
+    const {posts, error, loading, user, token} = useSelector(
         ({classCommentPosts, loading, user}) => ({
             posts: classCommentPosts.posts,
             error: classCommentPosts.error,
             loading: loading['classCommentPosts/LIST_POSTS'],
-            user: user.userInfo
+            user: user.userInfo,
+            token : user.token
         }),
     );
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     useEffect(() => {
         dispatch(classCommentListPosts({token, boardId}));

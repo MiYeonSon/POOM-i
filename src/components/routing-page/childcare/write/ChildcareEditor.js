@@ -4,8 +4,6 @@ import 'quill/dist/quill.bubble.css';
 import styled from 'styled-components';
 import {StyledInput, StyledSelect} from "../../../common/StyledInput";
 import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
-import {useDispatch} from "react-redux";
-import {getChildList} from "../../../../modules/childcare/childcareWrite";
 
 const FindRearingEditorTemplate = styled.div`
   font-family: paybooc-Medium;

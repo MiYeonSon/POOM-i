@@ -3,6 +3,7 @@ import styled, {css} from "styled-components";
 export const UserInfoBlock = styled.div`
   width: fit-content;
   height: fit-content;
+  text-align: center;
 `;
 
 export const ProfileImage = styled.img`
@@ -20,10 +21,10 @@ export const ProfileImage = styled.img`
 `;
 
 export const StyledWriterId = styled.div`
-  width: 100%;
+  width: ${props => props.width || '100%'};
   height: fit-content;
-  margin-top: 0.5vh;
-  text-align: center;
+  margin: 0.5vh 0;
+  text-align: ${props => props.textAlign || 'center'};
   font-size: 0.8vw;
   color: #565656;
 `;

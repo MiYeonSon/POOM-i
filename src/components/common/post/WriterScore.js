@@ -3,15 +3,17 @@ import styled, {css} from 'styled-components';
 
 const StyledWriterScore = styled.div`
   height: fit-content;
-  margin: 0.5vw 0 0;
+  margin: ${props => props.margin || '0.5vw 0 0'};
   ${props => css`
         width: ${props.width};
         font-weight: ${props.fontWeight};
         font-size: ${props.fontSize};
       `}
+  
+  border : 1px solid red;
 `;
 
-const WriterScore = ({score, width, fontWeight, fontSize}) => {
+const WriterScore = ({score, margin, width, fontWeight, fontSize}) => {
     const getScore = () => {
         let result = '';
         for (let i = 0; i < score; i++) {
@@ -20,7 +22,7 @@ const WriterScore = ({score, width, fontWeight, fontSize}) => {
         return result;
     }
     return (
-        <StyledWriterScore width={width} fontWeight={fontWeight} fontSize={fontSize}>
+        <StyledWriterScore margin={margin} width={width} fontWeight={fontWeight} fontSize={fontSize}>
             품앗이 점수 : {getScore()}
         </StyledWriterScore>
     );

@@ -7,16 +7,15 @@ import {getClassList} from "../../../modules/detailInfo/detailInfo";
 const ContainerFindClassPostList = () => {
     const dispatch = useDispatch();
 
-    const {posts, error, loading, user} = useSelector(
+    const {posts, error, loading, user, token} = useSelector(
         ({classPosts, loading, user}) => ({
             posts : classPosts.posts,
             error : classPosts.error,
             loading : loading['classPosts/LIST_POSTS'],
-            user : user.user
+            user : user.userInfo,
+            token : user.token
         }),
     );
-
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     useEffect(() => {
         dispatch(classListPosts(token));

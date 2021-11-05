@@ -3,29 +3,31 @@ import styled from 'styled-components';
 import palette from "../../../../lib/styles/palette";
 import PostAskRemoveModal from "../../../common/post/PostAskRemoveModal";
 import Modal from "../../../common/Modal";
-import ContainerChildcareEditor from "../../../../containers/childcare/write/ContainerChildcareEditor";
+import ContainerSupportChildcareEditor
+    from "../../../../containers/childcare/support-write/ContainerSupportChildcareEditor";
+import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
 
 
 const PostActionButtonsBlock = styled.div`
   box-sizing: border-box;
-  width: fit-content;
-  margin: 0.5vw 0;
+  width: 100%;
+  text-align: right;
 `;
 
 const ActionButton = styled.button`
   height: fit-content;
-  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   color: ${palette.gray[6]};
+  background-color: #DEDEDE;
   font-weight: bold;
   border: none;
   outline: none;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
   cursor: pointer;
 
 
   &:hover {
-    background: rgba(255, 182, 99, 0.7);
+    background:#AAAAAA;
     color: white;
   }
 
@@ -35,7 +37,7 @@ const ActionButton = styled.button`
 `;
 
 
-const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
+const SupportChildcarePostActionButtons = ({onEdit, onRemove}) => {
     const [removeModal, setRemoveModal] = useState(false);
     const [editorModal, setEditorModal] = useState(false);
 
@@ -50,6 +52,7 @@ const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
     const onConfirm = () => {
         setRemoveModal(false);
         onRemove();
+        window.location.reload();
     };
 
 
@@ -61,7 +64,7 @@ const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
             </PostActionButtonsBlock>
 
             {editorModal &&
-            <Modal visible={editorModal} onClose={() => setEditorModal(false)}><ContainerChildcareEditor/></Modal>}
+            <Modal visible={editorModal} onClose={() => setEditorModal(false)}><ContainerSupportChildcareEditor/></Modal>}
 
 
             {removeModal && <Modal visible={removeModal} onClose={() => setRemoveModal(false)}>
@@ -73,4 +76,4 @@ const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
     );
 };
 
-export default ChildcarePostActionButtons;
+export default SupportChildcarePostActionButtons;

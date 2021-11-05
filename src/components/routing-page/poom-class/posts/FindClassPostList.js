@@ -97,7 +97,7 @@ const FindClassPostItem = ({post, history}) => {
     const {title, writer, regular_meeting_day, board_id, contents, images, created_at} = post;
 
     const dispatch = useDispatch();
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
+    const {token} = useSelector(({user}) => ({token: user.token}));
 
     const onEdit = () => {
         dispatch(setOriginalPost(post));

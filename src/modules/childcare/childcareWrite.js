@@ -107,7 +107,7 @@ export function* writeSaga() {
 const initialState = {
     contents: '',
     recruit_type: '',
-    child_id: null,
+    child_id: 'null',
     start_date: '',
     start_time: '',
     end_date: '',

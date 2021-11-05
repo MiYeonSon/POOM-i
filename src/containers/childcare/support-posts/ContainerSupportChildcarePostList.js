@@ -7,12 +7,11 @@ import SupportChildcarePostList
 const ContainerSupportChildcarePostList = ({expertId}) => {
     const dispatch = useDispatch();
 
-    const {posts, error, loading, user, token} = useSelector(
+    const {posts, error, loading, token} = useSelector(
         ({childcareSupportPosts, loading, user}) => ({
             posts: childcareSupportPosts.posts,
             error: childcareSupportPosts.error,
             loading: loading['childcareSupportPosts/LIST_POSTS'],
-            user : user.userInfo,
             token : user.token,
         })
     );
@@ -26,7 +25,7 @@ const ContainerSupportChildcarePostList = ({expertId}) => {
             loading={loading}
             error={error}
             posts={posts}
-            showWriteButton={user}
+            expertId={expertId}
         />
     );
 };

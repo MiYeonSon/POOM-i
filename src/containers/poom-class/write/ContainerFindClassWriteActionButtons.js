@@ -2,9 +2,8 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {classUpdatePost, classWritePost} from "../../../modules/poom-class/classWrite";
 import FindClassWriteActionButtons from "../../../components/routing-page/poom-class/write/FindClassWriteActionButtons";
-import {withRouter} from "react-router-dom";
 
-const ContainerFindClassWriteActionButtons = ({history}) => {
+const ContainerFindClassWriteActionButtons = () => {
     const dispatch = useDispatch();
 
     const {
@@ -14,17 +13,18 @@ const ContainerFindClassWriteActionButtons = ({history}) => {
         post,
         postError,
         remove_images,
-        originalPostId
-    } = useSelector(({classWrite}) => ({
+        originalPostId,
+        token
+    } = useSelector(({classWrite, user}) => ({
         groupId: classWrite.groupId,
         contents: classWrite.contents,
         images: classWrite.images,
         post: classWrite.post,
         postError: classWrite.postError,
         remove_images: classWrite.remove_images,
-        originalPostId: classWrite.originalPostId
+        originalPostId: classWrite.originalPostId,
+        token : user.token
     }));
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
     const onPublish = () => {
         if (originalPostId) {
@@ -36,7 +36,7 @@ const ContainerFindClassWriteActionButtons = ({history}) => {
                 images,
                 originalPostId
             }));
-            history.push('/class');
+            window.location.reload();
             return;
         }
 
@@ -52,17 +52,17 @@ const ContainerFindClassWriteActionButtons = ({history}) => {
 
     useEffect(() => {
         if(post){
-            history.push('/class');
+            window.location.reload();
         }
         if (postError) {
             console.log(postError);
         }
 
-    }, [history, post, postError]);
+    }, [post, postError]);
 
     return (
         <FindClassWriteActionButtons onPublish={onPublish} isEdit={!!originalPostId}/>
     );
 };
 
-export default withRouter(ContainerFindClassWriteActionButtons);
+export default ContainerFindClassWriteActionButtons;

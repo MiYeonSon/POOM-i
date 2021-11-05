@@ -7,17 +7,16 @@ import CommentClassWriteActionButtons
 const ContainerCommentWriteActionButtons = () => {
     const dispatch = useDispatch();
 
-    const {boardId, contents, post, postError} = useSelector(({classCommentWrite}) => ({
-        boardId : classCommentWrite.boardId,
-        contents : classCommentWrite.contents,
-        post : classCommentWrite.post,
-        postError : classCommentWrite.postError
+    const {boardId, contents, post, postError, token} = useSelector(({classCommentWrite, user}) => ({
+        boardId: classCommentWrite.boardId,
+        contents: classCommentWrite.contents,
+        post: classCommentWrite.post,
+        postError: classCommentWrite.postError,
+        token: user.token
     }));
 
-    const {token} = useSelector(({user}) => ({token: user.userInfo.token}));
 
-
-    const onPublish = () =>{
+    const onPublish = () => {
         dispatch(
             writePost({
                 token,
@@ -28,17 +27,17 @@ const ContainerCommentWriteActionButtons = () => {
     };
 
     useEffect(() => {
-        if(post){
+        if (post) {
             window.location.reload();
         }
 
-        if(postError){
+        if (postError) {
             console.log(postError);
         }
     }, [post, postError]);
 
     return (
-        <CommentClassWriteActionButtons onPublish={onPublish} />
+        <CommentClassWriteActionButtons onPublish={onPublish}/>
     );
 };
 

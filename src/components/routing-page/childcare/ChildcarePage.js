@@ -9,7 +9,7 @@ import PostBlock from "../../common/post/PostBlock";
 import CommonHr from "../../common/CommonHr";
 import Person from "../../common/assets/005-gardener.png";
 import Pencil from "../../common/assets/pencil (1).png";
-import ExpertPostListContainer from "../../../containers/childcare/posts/ChildcarePostListContainer";
+import ExpertPostListContainer from "../../../containers/childcare/posts/ContainerChildcarePostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
 
 const ChildcarePage = () => {

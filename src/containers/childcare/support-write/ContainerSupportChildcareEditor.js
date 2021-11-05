@@ -2,6 +2,9 @@ import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize} from "../../../modules/childcare/childcareSupportWrite";
 import SupportChildcareEditor from "../../../components/routing-page/childcare/support-write/SupportChildcareEditor";
+import SupportChildcareWriteActionButtons
+    from "../../../components/routing-page/childcare/support-write/SupportChildcareWriteActionButtons";
+import ContainerSupportChildcareWriteActonButtons from "./ContainerSupportChildcareWriteActonButtons";
 
 const ContainerSupportChildcareEditor = () => {
     const dispatch = useDispatch();
@@ -17,6 +20,7 @@ const ContainerSupportChildcareEditor = () => {
     ]);
 
 
+
     useEffect(() => {
         return () => {
             dispatch(initialize());
@@ -24,10 +28,13 @@ const ContainerSupportChildcareEditor = () => {
     }, [dispatch]);
 
     return (
-        <SupportChildcareEditor onChangeField={onChangeFiled}
-                                childId={childId}
-                                contents={contents}
-                                childList={childList}/>
+        <>
+            <SupportChildcareEditor onChangeField={onChangeFiled}
+                                    childId={childId}
+                                    contents={contents}
+                                    childList={childList}/>
+            <ContainerSupportChildcareWriteActonButtons />
+        </>
     );
 };
 

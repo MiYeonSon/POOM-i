@@ -1,8 +1,6 @@
 import React from 'react';
 import AskModal from "../AskModal";
 
-
-
 const PostAskRemoveModal = ({visible, onConfirm}) => {
     return (
         <>

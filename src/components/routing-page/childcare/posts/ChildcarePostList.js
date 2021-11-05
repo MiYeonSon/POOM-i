@@ -177,7 +177,6 @@ const ChildcarePostItem = ({childcarePost}) => {
                                         supportModal &&
                                         <Modal visible={supportModal} onClose={onClose}>
                                             <ContainerSupportChildcareEditor/>
-                                            <ContainerSupportChildcareWriteActonButtons/>
                                         </Modal>
                                     }
                                 </div>

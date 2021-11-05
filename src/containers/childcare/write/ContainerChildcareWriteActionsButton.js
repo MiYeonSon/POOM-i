@@ -36,8 +36,12 @@ const ContainerChildcareWriteActionsButton = ({history}) => {
         token: user.token
     }));
 
+    const processChildId = child_id === 'null' ? null : child_id;
     // 포스트 등록
     const onRegister = () => {
+        console.log(child_id);
+        console.log(typeof child_id);
+
         dispatch(writePost({
                 token,
                 contents,
@@ -55,11 +59,12 @@ const ContainerChildcareWriteActionsButton = ({history}) => {
     // 포스트 수정
     const onModify = () => {
         if (originalPostId) {
+
             dispatch(updatePost({
                 token,
                 contents,
                 recruit_type,
-                child_id,
+                processChildId,
                 start_date,
                 start_time,
                 end_date,

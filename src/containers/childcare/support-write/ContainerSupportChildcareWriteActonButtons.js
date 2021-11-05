@@ -1,31 +1,44 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {writePost} from "../../../modules/childcare/childcareSupportWrite";
+import {getExpertId, updatePost, writePost} from "../../../modules/childcare/childcareSupportWrite";
 import SupportChildcareWriteActionButtons
     from "../../../components/routing-page/childcare/support-write/SupportChildcareWriteActionButtons";
 
 const ContainerSupportChildcareWriteActonButtons = () => {
     const dispatch = useDispatch();
 
-    const {childId, contents, expertId, post, postError, token} = useSelector(({childcareSupportWrite, user}) => ({
+    const {childId, contents, expertId, post, postError, originalPostId, token} = useSelector(({childcareSupportWrite, user}) => ({
         childId: childcareSupportWrite.childId,
         contents: childcareSupportWrite.contents,
         expertId : childcareSupportWrite.expertId,
         post: childcareSupportWrite.post,
         postError: childcareSupportWrite.postError,
+        originalPostId : childcareSupportWrite.originalPostId,
         token: user.token
     }));
 
-    const processChildId = childId === 'null' ? null : childId;
 
     const onPublish = () => {
+        if(originalPostId){
+            dispatch(updatePost({
+                token,
+                expertId,
+                childId,
+                contents,
+                applyId : originalPostId
+            }))
+        }
+
         dispatch(writePost({
             token,
             expertId,
-            processChildId,
+            childId,
             contents,
         }))
     }
+
+
+
 
     useEffect(() => {
         if (post) {
@@ -37,7 +50,7 @@ const ContainerSupportChildcareWriteActonButtons = () => {
     }, [post, postError]);
 
     return (
-        <SupportChildcareWriteActionButtons onPublish={onPublish} />
+        <SupportChildcareWriteActionButtons onPublish={onPublish} isEdit={!!originalPostId}/>
     );
 };
 
