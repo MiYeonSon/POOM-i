@@ -4,9 +4,6 @@ import styled, {css} from 'styled-components';
 import DaumPostcode from "react-daum-postcode";
 import RectButton from "../../../common/RectButton";
 
-const InfoFormUnit = styled.div`
-
-`;
 
 const StyledInput = styled.input`
   box-sizing: border-box;

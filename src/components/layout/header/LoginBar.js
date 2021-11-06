@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
-import LoginBlock from "../../routing-page/signIn/LoginBlock";
+import LoginBlock from "../../routing-page/login/LoginBlock";
 import styled from "styled-components";
 import Modal from "../../common/Modal";
 
@@ -68,7 +68,7 @@ const LoginBar = ({user, onLogout}) => {
                         </Modal>
                     }
                     <StyledButton>
-                        <Link to={"/signUp"} style={{color: 'white', textDecoration: 'none'}}>회원가입</Link>
+                        <Link to={"/register"} style={{color: 'white', textDecoration: 'none'}}>회원가입</Link>
                     </StyledButton>
                 </LoginButtonsBlock>
             )}

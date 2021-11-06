@@ -1,8 +1,6 @@
 import React from 'react';
-import ContentHeader from "../../common/styledHeader/ContentHeader";
 import Introduction from "../../common/Introduction";
-import ContentMiddleHeader from "../../common/styledHeader/ContentMiddleHeader";
-import ContentSmallHeader from "../../common/styledHeader/ContentSmallHeader";
+import {ContentHeader, ContentMiddleHeader, ContentSmallHeader} from "../../common/StyledHeader";
 
 const RegisterPlaceStep0 = () => {
     return (

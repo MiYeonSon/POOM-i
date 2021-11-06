@@ -1,9 +1,9 @@
 import React from 'react';
 
 import SignUpBlock from "./SignUpBlock";
-import ContentMiddleHeader from "../../common/styledHeader/ContentMiddleHeader";
 import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
+import {ContentMiddleHeader} from "../../common/StyledHeader";
 
 const SignUpStep2 = ({form, onChange, buttonClick}) => {
 

@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
 
 import SignUpBlock from "./SignUpBlock";
-import ContentMiddleHeader from "../../common/styledHeader/ContentMiddleHeader";
 import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
-import SignUpStep2Form from "../../containers/signUp/SignUpStep2Form";
+import {ContentMiddleHeader} from "../../common/StyledHeader";
 
 const SignUpStep2Test = ({form, onChange, onSubmit}) => {
     // const [phone, setPhone] = useState("");

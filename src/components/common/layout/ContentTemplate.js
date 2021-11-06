@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const PostListZone = ({children}) => {
+const ContentTemplate = ({children}) => {
     const StyledPostListZone = styled.div`
       box-sizing: border-box;
       width: 100%;
@@ -17,4 +17,4 @@ const PostListZone = ({children}) => {
     );
 };
 
-export default PostListZone;
+export default ContentTemplate;

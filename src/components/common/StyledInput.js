@@ -19,6 +19,8 @@ export const StyledSelect = styled.select`
 
 export const StyledInput = styled.input`
   box-sizing: border-box;
+  width: ${props => props.width};
+  height: ${props => props.height};
   margin :  0.1vw;
   padding: 0.2vw 0.4vw;
   font-family: paybooc-Medium;
@@ -26,10 +28,26 @@ export const StyledInput = styled.input`
   background: #F3F3F3;
   border: none;
   
-
-  
   input[type="date"] {
     color : red;
   }
+`;
 
+
+export const RoundSquareLabel = styled.label`
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  margin: ${props => props.margin || '1vw 0'};
+  padding: 0.5vw 1vw;
+  background-color : #DEDEDE;
+  font-size: 0.8vw;
+  border-radius: 4px;
+  color: #8E8E8E;
+  cursor: pointer;
+
+  input[type="file"] {
+    border: none;
+    display: none;
+  }
 `;

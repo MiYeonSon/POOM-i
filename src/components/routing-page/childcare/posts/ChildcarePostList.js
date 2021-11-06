@@ -6,7 +6,7 @@ import {likedCancelChildCarePost, likedChildCarePost, removeChildcarePost} from 
 import ChildcarePostActionButtons from "../post/ChildcarePostActionButtons";
 import PostBlock from "../../../common/post/PostBlock";
 import HorizontalPostWriterInfo from "../../../common/post/HorizontalPostWriterInfo";
-import ActivityTime from "../../../common/ActivityTime";
+import UnderlinedDivision from "../../../common/UnderlinedDivision";
 import PostCreateDate from "../../../common/post/PostCreateDate";
 import {IoHeartOutline, IoHeart} from "react-icons/io5";
 import Modal from "../../../common/Modal";
@@ -132,7 +132,7 @@ const ChildcarePostItem = ({childcarePost}) => {
                 </StyledPostHeader>
                 <br/>
 
-                <ActivityTime>활동 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}</ActivityTime>
+                <UnderlinedDivision>활동 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}</UnderlinedDivision>
 
                 <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
                 <PostCreateDate createDate={created_at} fontSize={'0.8vw'}/>

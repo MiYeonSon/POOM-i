@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const ActivityTime = ({children}) => {
+const UnderlinedDivision = ({children}) => {
     const StyledActivityTime = styled.div`
       box-sizing: border-box;
       width: fit-content;
@@ -20,4 +20,4 @@ const ActivityTime = ({children}) => {
     );
 };
 
-export default ActivityTime;
+export default UnderlinedDivision;

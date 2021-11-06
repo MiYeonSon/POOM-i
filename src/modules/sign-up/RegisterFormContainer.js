@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initializeForm, register} from "../auth";
-import RegisterForm from "../../components/routing-page/signUp/step03/RegisterForm";
+import RegisterForm from "../../components/routing-page/register/step03/RegisterForm";
 
 const RegisterFormContainer = () => {
     const dispatch = useDispatch();

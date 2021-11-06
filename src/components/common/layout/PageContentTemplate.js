@@ -8,11 +8,11 @@ const StyledContentTemplate = styled.div`
   margin: 0 auto;
 `;
 
-const ContentTemplate = (props) => {
+const PageContentTemplate = (props) => {
 
     return (
         <StyledContentTemplate>{props.children}</StyledContentTemplate>
     );
 };
 
-export default ContentTemplate;
+export default PageContentTemplate;

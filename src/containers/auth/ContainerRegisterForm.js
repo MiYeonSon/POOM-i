@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initializeForm, register} from "../../modules/auth";
-import SignUpStep3 from "../../components/routing-page/signUp/step03/SignUpStep3";
+import SignUpStep3 from "../../components/routing-page/register/step03/SignUpStep3";
 import {check} from "../../modules/user";
 
 const ContainerRegisterForm = () => {

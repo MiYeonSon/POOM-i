@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initializeForm, login} from "../../modules/auth";
-import LoginForm from "../../components/routing-page/signIn/LoginForm";
+import LoginForm from "../../components/routing-page/login/LoginForm";
 import {withRouter} from "react-router-dom";
 import {setToken, setUser} from "../../modules/user";
 

@@ -142,7 +142,7 @@ const FindClassEditor = ({groupId, contents, images, classList, onChangeField}) 
             <AddFileButtonBlock>
                 <label style={{margin: '0.6vw', cursor: 'pointer'}}>
                     <img src={AddFileImg} alt="파일추가" style={{width: '4vw', height: '4vw'}}/>
-                    <input type="file" accept={".jpg, .png, .pdf"} onChange={onChangeFiles}/>
+                    <input type="file" accept={".jpg, .png, .pdf"} onChange={onChangeFiles} multiple={true}/>
                 </label>
 
             </AddFileButtonBlock>

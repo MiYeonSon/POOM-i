@@ -3,7 +3,7 @@ import React from 'react';
 import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
 import SideTitle from "../components/layout/sideNavi/SideTitle";
 import SideElem from "../components/layout/sideNavi/SideElem";
-import ContentTemplate from "../components/common/ContentTemplate";
+import PageContentTemplate from "../components/common/layout/PageContentTemplate";
 import ChildcarePage from "../components/routing-page/childcare/ChildcarePage";
 import DefaultSetting from "../components/common/DefaultSetting";
 
@@ -17,11 +17,11 @@ const FindChildcarePage = () => {
                     <SideElem title={"품앗이 반 찾기"} link={"/class"} />
                 </SideNaviTemplate>
 
-                <ContentTemplate>
+                <PageContentTemplate>
 
                     <ChildcarePage/>
 
-                </ContentTemplate>
+                </PageContentTemplate>
             </DefaultSetting>
         </>
     );

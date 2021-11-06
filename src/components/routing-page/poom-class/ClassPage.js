@@ -1,8 +1,7 @@
 import React from 'react';
-import ContentHeader from "../../common/styledHeader/ContentHeader";
 import Introduction from "../../common/Introduction";
 
-import PostListTemplate from "../../common/PostListZone";
+import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
 import PostBlock from "../../common/post/PostBlock";
 import CommonHr from "../../common/CommonHr";
@@ -10,6 +9,7 @@ import Person from "../../common/assets/005-gardener.png"
 import Pencil from "../../common/assets/pencil (1).png";
 import ContainerFindClassPostList from "../../../containers/poom-class/posts/ContainerFindClassPostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
+import {ContentHeader} from "../../common/StyledHeader";
 
 // 필요 스타일링 컴포넌트(예상)
 {/*
@@ -135,7 +135,7 @@ const ClassPage = () => {
             품앗이 반에 참여하여 아이의 친구들과 재미있는 활동을 시작해보아요 :)
         </Introduction>
 
-        <PostListTemplate>
+        <ContentTemplate>
             <PostBlock type={"postInput"}>
                 <ProfileImage size={4} imgSrc={Person}></ProfileImage>
                 <NewPostInput content={'class'}>
@@ -148,7 +148,7 @@ const ClassPage = () => {
 
             <ContainerFindClassPostList />
 
-        </PostListTemplate>
+        </ContentTemplate>
 
         </>
     );

@@ -3,14 +3,14 @@ import styld from "styled-components";
 
 const StyledHr = styld.hr`
     width: 100%;
-    margin : 2vw 0vw;
+    margin : ${props => props.margin || '2vw 0vw'};
     border: 1px solid #DEDEDE;
 `;
 
 
-const CommonHr = () => {
+const CommonHr = ({margin}) => {
     return (
-        <StyledHr />
+        <StyledHr margin={margin} />
     );
 };
 

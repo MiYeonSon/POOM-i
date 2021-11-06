@@ -6,7 +6,7 @@ import DefaultSetting from "../components/common/DefaultSetting";
 import SideTitle from "../components/layout/sideNavi/SideTitle";
 import SideElem from "../components/layout/sideNavi/SideElem";
 import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
-import ContentTemplate from "../components/common/ContentTemplate";
+import PageContentTemplate from "../components/common/layout/PageContentTemplate";
 
 const FindPlacePage = () => {
     return (
@@ -19,9 +19,9 @@ const FindPlacePage = () => {
                     <SideElem title={"품앗이 터 등록하기"} link={"/playground/register"} />
                 </SideNaviTemplate>
 
-                <ContentTemplate>
+                <PageContentTemplate>
                     품앗이 터 찾기
-                </ContentTemplate>
+                </PageContentTemplate>
 
             </DefaultSetting>
         </>

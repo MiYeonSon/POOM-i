@@ -3,11 +3,10 @@ import styled from "styled-components";
 
 import ChildForm from "../ChildForm";
 import SignUpBlock from "../SignUpBlock";
-import ContentMiddleHeader from "../../../common/styledHeader/ContentMiddleHeader";
-import ContentSmallHeader from "../../../common/styledHeader/ContentSmallHeader";
 import InfoFormBlock from "../InfoFormBlock";
 import InfoFormTemplate from "../InfoFormTemplate";
 import RegisterFormContainer from "../../../../modules/sign-up/RegisterFormContainer";
+import {ContentMiddleHeader, ContentSmallHeader} from "../../../common/StyledHeader";
 
 const AnnounceComponent = styled.div`
   box-sizing: border-box;

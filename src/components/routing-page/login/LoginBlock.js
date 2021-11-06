@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import MainLogo from "../../common/assets/mainLogo.png";
-import ContentMiddleHeader from "../../common/styledHeader/ContentMiddleHeader";
 import {Link} from "react-router-dom";
 import GoogleIcon from "./assets/googleOauth.png";
 import NaverIcon from "./assets/naverOauth.png";
@@ -10,6 +8,7 @@ import {KAKAO_AUTH_URL} from './OauthKakao';
 import ContainerLoginForm from "../../../containers/auth/ContainerLoginForm";
 import {GOOGLE_AUTH_URL} from "./OauthGoogle";
 import {NAVER_AUTH_URL} from "./OauthNaver";
+import {ContentMiddleHeader} from "../../common/StyledHeader";
 
 const ModalLoginBlock = styled.div`
   box-sizing: border-box;
@@ -129,7 +128,7 @@ const LoginBlock = () => {
                 </LoginOAuthBlock>
                 <GoToSignUpComponent>
                     아직 회원이 아니신가요? &nbsp;
-                    <span className={"highlight"}> <Link to={"/signUp"} style={{
+                    <span className={"highlight"}> <Link to={"/register"} style={{
                         color: '#FFB663',
                         textDecoration: 'none'
                     }}>회원 가입 하기</Link></span>
