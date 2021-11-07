@@ -11,6 +11,7 @@ const RegisterPlaceStep0 = () => {
                 공용 공간 사용에 대한 아파트 입주민들의 동의서 제작 및 배포 후 품앗이 공간으로 활용해보세요!
             </Introduction>
 
+
             <ContentMiddleHeader color={"#4E7093"}>
                 [ 품앗이 터 등록하는 방법 ]
             </ContentMiddleHeader>

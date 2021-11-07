@@ -10,6 +10,7 @@ import Pencil from "../../common/assets/pencil (1).png";
 import ExpertPostListContainer from "../../../containers/childcare/posts/ContainerChildcarePostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
 import {ContentHeader} from "../../common/StyledHeader";
+import CallingCard from "../mypage/myInfo/CallingCard";
 
 const ChildcarePage = () => {
 
@@ -23,7 +24,7 @@ const ChildcarePage = () => {
 
             <ContentTemplate>
                 <PostBlock type={"postInput"}>
-                    <ProfileImage size={4} imgSrc={Person}></ProfileImage>
+                    <ProfileImage size={4} imgSrc={CallingCard} />
                     <NewPostInput content={'childcare'}>
                         품앗이 꾼 도움 요청/자원 글 작성하기...
                         <img src={Pencil} alt="작성" style={{width: "1.2vw"}}/>

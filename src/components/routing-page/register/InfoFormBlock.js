@@ -5,9 +5,8 @@ import InfoHr from "./InfoHr";
 const StyledInfoFormBlock = styled.div`
   box-sizing: border-box;
   width: 55vw;
-  height: fit-content;
+  height: ${props => props.height || '5vw'};
   margin: 0.5vw 0;
-  padding: 0;
   display: flex;
   align-items: center;
   
@@ -28,7 +27,7 @@ const InputBlock = styled.div`
   box-sizing: border-box;
   display: flex;
   width: 43vw;
-  height: max-content;
+  height: inherit;
   margin: 0;
   padding: 0;
   display: flex;

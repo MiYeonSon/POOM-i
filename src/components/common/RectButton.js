@@ -10,9 +10,8 @@ const StyledRectButton = styled.button`
   width: ${props => props.width || 'fit-content'};
   height: fit-content;
   background: ${props => props.backgroundColor || '#DEDEDE'};
-  color: ${props => props.color || '#8E8E8E'};
+  color: ${props => props.color || 'white'};
   font-size: 0.8vw;
-  font-weight: 700;
   font-family: 'LotteMartDream';
   letter-spacing: 0.1vw;
   border: none;

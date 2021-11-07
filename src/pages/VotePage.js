@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyComponent = () => {
+const VotePage = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const MyComponent = () => {
     );
 };
 
-export default MyComponent;
+export default VotePage;

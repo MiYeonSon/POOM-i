@@ -55,7 +55,11 @@ const LoginBar = ({user, onLogout}) => {
         <LoginBarTemplate>
             {user ? (
                 <LoginButtonsBlock>
-                    <StyledButton type={'button'}>{user.nick} 님 환영합니다!</StyledButton>
+                    <StyledButton type={'button'}>
+                        <Link to={'/mypage'} style={{color: 'white', textDecoration: 'none'}}>
+                            {user.nick} 님 환영합니다!
+                        </Link>
+                    </StyledButton>
                     <StyledButton type={'button'} onClick={onLogout}>로그아웃</StyledButton>
                 </LoginButtonsBlock>
             ) : (

@@ -4,9 +4,14 @@ export const ContentHeader = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: 8vh;
+  
+  margin: ${props => props.margin};
+  
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  
+  
   
   font-weight: 700;
   font-size: 1.9vw;

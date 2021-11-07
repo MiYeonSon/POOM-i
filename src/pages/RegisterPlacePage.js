@@ -24,7 +24,7 @@ const RegisterPlacePage = () => {
                 </SideNaviTemplate>
 
                 <PageContentTemplate>
-                    <RegisterPlaceStep3 />
+                    <RegisterPlaceStep2 />
                 </PageContentTemplate>
 
             </DefaultSetting>

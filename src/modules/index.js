@@ -14,6 +14,7 @@ import classCommentPosts, {classCommentPostsSaga} from "./poom-class/classCommen
 import childcareSupportWrite, {childcareSupportWriteSaga} from "./childcare/childcareSupportWrite";
 import detailInfo, {getDetailInfoSaga} from "./detailInfo/detailInfo";
 import childcareSupportPosts, {childcareSupportPostsSaga} from "./childcare/childcareSupportPosts";
+import makeVoteForm, {makeVoteFormSaga} from "./playground/register/makeVoteForm";
 
 const rootReducer = combineReducers({
     auth,
@@ -29,11 +30,12 @@ const rootReducer = combineReducers({
     classPosts,
     classCommentWrite,
     classCommentPosts,
+    makeVoteForm,
     actionCreators
 });
 
 export function* rootSaga() {
-    yield all([authSaga(), userSaga(), writeSaga(), getDetailInfoSaga(), childcarePostsSaga(), childcareSupportWriteSaga(), childcareSupportPostsSaga(), classWriteSaga(),  classPostsSaga(), classCommentWriteSaga(), classCommentPostsSaga()]);
+    yield all([authSaga(), userSaga(), writeSaga(), getDetailInfoSaga(), childcarePostsSaga(), childcareSupportWriteSaga(), childcareSupportPostsSaga(), classWriteSaga(),  classPostsSaga(), classCommentWriteSaga(), classCommentPostsSaga(), makeVoteFormSaga()]);
 }
 
 export default rootReducer;
