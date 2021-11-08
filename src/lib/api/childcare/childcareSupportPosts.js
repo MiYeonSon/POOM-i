@@ -1,4 +1,4 @@
-import client from './client';
+import client from '../client';
 
 export const childcareSupportWritePost = ({token, expertId, childId, contents}) =>
     client.post(`/expert/${expertId}/apply`, {

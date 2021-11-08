@@ -1,7 +1,7 @@
 import React from 'react';
-import CallingCard from "./CallingCard";
-import ContentTemplate from "../../../common/layout/ContentTemplate";
-import UserInfoTable from "./UserInfoTable";
+import CallingCard from "./myInfo/CallingCard";
+import ContentTemplate from "../../common/layout/ContentTemplate";
+import UserInfoTable from "./myInfo/UserInfoTable";
 
 const MyInfoPage = () => {
     return (

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
-import {likedCancelChildCarePost, likedChildCarePost, removeChildcarePost} from "../../../../lib/api/childcarePosts";
+import {likedCancelChildCarePost, likedChildCarePost, removeChildcarePost} from "../../../../lib/api/childcare/childcarePosts";
 import ChildcarePostActionButtons from "../post/ChildcarePostActionButtons";
 import PostBlock from "../../../common/post/PostBlock";
 import HorizontalPostWriterInfo from "../../../common/post/HorizontalPostWriterInfo";

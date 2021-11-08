@@ -1,6 +1,6 @@
 import {createAction, handleActions} from "redux-actions";
 import createRequestSaga, {createRequestActionTypes} from "../../lib/createRequestSaga";
-import * as postsAPI from '../../lib/api/classCommentPosts';
+import * as postsAPI from '../../lib/api/poom-class/classCommentPosts';
 import {takeLatest} from "redux-saga/effects";
 
 const [

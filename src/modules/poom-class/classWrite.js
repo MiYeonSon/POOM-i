@@ -1,6 +1,6 @@
 import {createAction, handleActions} from "redux-actions";
 import createRequestSaga, {createRequestActionTypes} from "../../lib/createRequestSaga";
-import * as postsAPI from '../../lib/api/classPosts';
+import * as postsAPI from '../../lib/api/poom-class/classPosts';
 import {takeLatest} from "redux-saga/effects";
 
 const INITIALIZE = 'classWrite/INITIALIZE'; // 모든 내용 초기화

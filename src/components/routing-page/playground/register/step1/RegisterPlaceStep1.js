@@ -6,6 +6,8 @@ import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import {ContentHeader} from "../../../../common/StyledHeader";
 import ContainerSubmitFile from "../../../../../containers/common/ContainerSubmitFile";
 import ContainerSubmitActionButton from "../../../../../containers/common/ConatinerSubmitActionButton";
+import client from "../../../../../lib/api/client";
+import {useSelector} from "react-redux";
 
 const QuestionBlock = styled.div`
   box-sizing: border-box;

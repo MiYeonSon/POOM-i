@@ -1,6 +1,6 @@
 import {createAction, handleActions} from "redux-actions";
 import createRequestSaga, {createRequestActionTypes} from "../../../lib/createRequestSaga";
-import * as postsAPI from '../../../lib/api/makeVoteForm';
+import * as postsAPI from '../../../lib/api/playground/makeVoteForm';
 import {takeLatest} from "redux-saga/effects";
 
 const INITIALIZE = 'makeVoteForm/INITIALIZE';

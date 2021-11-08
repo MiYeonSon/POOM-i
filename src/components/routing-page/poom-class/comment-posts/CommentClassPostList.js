@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Person from '../../../common/assets/005-gardener.png';
 import {ProfileImage, StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
-import {classCommentRemovePost} from "../../../../lib/api/classCommentPosts";
+import {classCommentRemovePost} from "../../../../lib/api/poom-class/classCommentPosts";
 import {useSelector} from "react-redux";
 import CommentPostActionButton from "../comment-post/CommentPostActionButton";
 import {
@@ -37,6 +37,7 @@ const CommentClassPostItem = ({post}) => {
             console.log(e);
         }
     }
+
     return (
         <CommentUnitBackground>
 
@@ -46,7 +47,7 @@ const CommentClassPostItem = ({post}) => {
                     <ProfileImage size={2.5} imgSrc={Person}/>
                     <StyledWriterId>
                         {writer}
-                        <div style={{fontSize : '0.7vw'}}>(TEMP: {writer_score})</div>
+                        <div style={{width : '100%', fontSize : '0.7vw'}}>(TEMP: {writer_score})</div>
                     </StyledWriterId>
                 </UserInfoBlock>
 

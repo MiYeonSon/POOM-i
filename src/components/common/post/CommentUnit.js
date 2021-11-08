@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import {ProfileImage, StyledWriterId, UserInfoBlock} from "./WriterInfo";
-import Person from "../assets/005-gardener.png";
 
 export const CommentUnitBackground = styled.div`
   box-sizing: border-box;
@@ -39,30 +37,5 @@ export const CommentContent = styled.div`
   height: fit-content;
   padding: 0;
 `;
-
-
-const CommentUnit = ({applier, contents, writer_score, actionButtons}) => {
-    return (
-        <CommentUnitBackground>
-            <CommentUnitContentTemplate>
-                <UserInfoBlock>
-                    <ProfileImage size={2.5} imgSrc={Person}/>
-                    <StyledWriterId>
-                        {applier}
-                        <div style={{fontSize : '0.7vw'}}>(TEMP: {writer_score})</div>
-                    </StyledWriterId>
-                </UserInfoBlock>
-
-                <div style={{width: '100%', marginLeft: '1.5vw'}}>
-                    {actionButtons}
-
-                    <CommentContent dangerouslySetInnerHTML={{__html: contents}}/>
-                </div>
-            </CommentUnitContentTemplate>
-        </CommentUnitBackground>
-    );
-};
-
-export default CommentUnit;
 
 

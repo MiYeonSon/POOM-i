@@ -7,7 +7,7 @@ import PostBlock from "../../../common/post/PostBlock";
 import PostCreateDate from "../../../common/post/PostCreateDate";
 import Person from "../../../common/assets/005-gardener.png";
 import {setOriginalPost} from "../../../../modules/poom-class/classWrite";
-import {classRemovePost} from "../../../../lib/api/classPosts";
+import {classRemovePost} from "../../../../lib/api/poom-class/classPosts";
 import Modal from "../../../common/Modal";
 import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
 import CommentClassBlock from "../CommentClassBlock";

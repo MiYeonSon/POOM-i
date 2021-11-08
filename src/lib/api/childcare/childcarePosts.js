@@ -1,4 +1,4 @@
-import client from './client';
+import client from '../client';
 /*
  * 포스트 관련된 API를 요청하는 함수 모음
  */

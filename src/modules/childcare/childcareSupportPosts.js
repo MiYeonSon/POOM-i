@@ -1,6 +1,6 @@
 import createRequestSaga, {createRequestActionTypes} from "../../lib/createRequestSaga";
 import {createAction, handleActions} from "redux-actions";
-import * as postsAPI from "../../lib/api/childcareSupportPosts";
+import * as postsAPI from "../../lib/api/childcare/childcareSupportPosts";
 import {takeLatest} from "redux-saga/effects";
 
 const [

@@ -9,7 +9,7 @@ import {ProfileImage, StyledWriterId, UserInfoBlock} from "../../../common/post/
 import Person from "../../../common/assets/005-gardener.png";
 import {setOriginalPost} from "../../../../modules/childcare/childcareSupportWrite";
 import {useDispatch, useSelector} from "react-redux";
-import {childcareSupportRemovePost} from "../../../../lib/api/childcareSupportPosts";
+import {childcareSupportRemovePost} from "../../../../lib/api/childcare/childcareSupportPosts";
 import {withRouter} from "react-router-dom";
 
 const SupportChildcarePostItem = ({history, post, expertId}) => {

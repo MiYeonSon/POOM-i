@@ -4,7 +4,7 @@ import SideTitle from "../../components/layout/sideNavi/SideTitle";
 import SideElem from "../../components/layout/sideNavi/SideElem";
 import PageContentTemplate from "../../components/common/layout/PageContentTemplate";
 import DefaultSetting from "../../components/common/DefaultSetting";
-import MyInfoPage from "../../components/routing-page/mypage/myInfo/MyInfoPage";
+import MyInfoPage from "../../components/routing-page/mypage/MyInfoPage";
 
 const MyPage = () => {
     return (

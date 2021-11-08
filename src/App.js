@@ -29,7 +29,6 @@ function App() {
             <Route path={"/mypage/manageactivity"} component={MyPageActivity} exact={true}/>
             <Route path={"/mypage/manageform"} component={MyPageSpaceForm} exact={true}/>
 
-                <Route path={"/vote"} component={VotePage} exact={true} />
 
             <Route path={"/childcare"} component={FindChildcarePage} exact={true}/>
             <Route path={"/class"} component={FindClassPage} exact={true}/>
