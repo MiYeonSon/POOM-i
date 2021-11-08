@@ -1,6 +1,6 @@
 import React from 'react';
 import NaviBar from "./NaviBar";
-import ContainerLoginBar from "../../../containers/layout/header/ContainerLoginBar";
+import ContainerLoginBar from "../../../containers/common/ContainerLoginBar";
 
 const Header = () => {
     return (

@@ -1,12 +1,10 @@
 import React from 'react';
-import DefaultSetting from "../components/common/DefaultSetting";
-import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
-import SideTitle from "../components/layout/sideNavi/SideTitle";
-import SideElem from "../components/layout/sideNavi/SideElem";
-import PageContentTemplate from "../components/common/layout/PageContentTemplate";
-import MyInfoPage from "../components/routing-page/mypage/myInfo/MyInfoPage";
-import ManageActivity from "../components/routing-page/mypage/ManageActivity";
-import ManageSpaceForm from "../components/routing-page/mypage/ManageSpaceForm";
+import DefaultSetting from "../../components/common/DefaultSetting";
+import SideNaviTemplate from "../../components/layout/sideNavi/SideNaviTemplate";
+import SideTitle from "../../components/layout/sideNavi/SideTitle";
+import SideElem from "../../components/layout/sideNavi/SideElem";
+import PageContentTemplate from "../../components/common/layout/PageContentTemplate";
+import ManageSpaceForm from "../../components/routing-page/mypage/ManageSpaceForm";
 
 const MyPageSpaceForm = () => {
     return (

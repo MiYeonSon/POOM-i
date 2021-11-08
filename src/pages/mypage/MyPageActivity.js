@@ -1,10 +1,10 @@
 import React from 'react';
-import DefaultSetting from "../components/common/DefaultSetting";
-import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
-import SideTitle from "../components/layout/sideNavi/SideTitle";
-import SideElem from "../components/layout/sideNavi/SideElem";
-import PageContentTemplate from "../components/common/layout/PageContentTemplate";
-import ManageActivity from "../components/routing-page/mypage/ManageActivity";
+import DefaultSetting from "../../components/common/DefaultSetting";
+import SideNaviTemplate from "../../components/layout/sideNavi/SideNaviTemplate";
+import SideTitle from "../../components/layout/sideNavi/SideTitle";
+import SideElem from "../../components/layout/sideNavi/SideElem";
+import PageContentTemplate from "../../components/common/layout/PageContentTemplate";
+import ManageActivity from "../../components/routing-page/mypage/ManageActivity";
 
 const MyPageActivity = () => {
     return (

@@ -16,6 +16,7 @@ import detailInfo, {getDetailInfoSaga} from "./detailInfo/detailInfo";
 import childcareSupportPosts, {childcareSupportPostsSaga} from "./childcare/childcareSupportPosts";
 import makeVoteForm, {makeVoteFormSaga} from "./playground/register/makeVoteForm";
 import playgroundList, {playgroundListSaga} from "./playground/list/playgroundList";
+import submitFile, {submitSaga} from "./submitFile";
 
 const rootReducer = combineReducers({
     auth,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
     loading,
     user,
     detailInfo,
+    submitFile,
     childcareWrite,
     childcarePosts,
     childcareSupportWrite,
@@ -42,6 +44,7 @@ export function* rootSaga() {
         userSaga(),
         writeSaga(),
         getDetailInfoSaga(),
+        submitSaga(),
         childcarePostsSaga(),
         childcareSupportWriteSaga(),
         childcareSupportPostsSaga(),
@@ -49,6 +52,7 @@ export function* rootSaga() {
         classPostsSaga(),
         classCommentWriteSaga(),
         classCommentPostsSaga(),
+
         makeVoteFormSaga(),
         playgroundListSaga()
     ]);

@@ -31,10 +31,6 @@ const UserInfoTableTemplate = styled.div`
   border: 1px solid red;
 `;
 
-const UserInfoBlock = styled.div`
-`;
-
-
 const UserInfoTable = () => {
     return (
         <UserInfoTableContentTemplate>

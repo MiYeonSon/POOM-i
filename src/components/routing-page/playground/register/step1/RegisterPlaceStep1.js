@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import Introduction from "../../../../common/Introduction";
-
 import styled from 'styled-components';
-import Map from "../Map";
+import Map from "./Map";
 import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import {ContentHeader} from "../../../../common/StyledHeader";
-import SubmitFile from "../../../../common/SubmitFileButton";
-
+import ContainerSubmitFile from "../../../../../containers/common/ContainerSubmitFile";
+import ContainerSubmitActionButton from "../../../../../containers/common/ConatinerSubmitActionButton";
 
 const QuestionBlock = styled.div`
   box-sizing: border-box;
@@ -108,15 +107,11 @@ const RegisterPlaceStep1 = () => {
                         거주지 인증을 실시합니다. 3개월 이내에 정부 24에서 발급받은 서류를 업로드해주세요. <br/>
                         (해당 폼은 관리자의 거주지 인증 승인을 거친 후 배포할 수 있으며, 승인은 최소 12시간 ~ 최대 48시간이
                         소요됩니다.)
-                        <SubmitFile />
+                        <ContainerSubmitFile />
+                        <ContainerSubmitActionButton />
                     </QuestionContent>
                 </QuestionBlock>
             </ContentTemplate>
-            {/*
-            <SubmitFileActionButtonContainer checkFact={checkFact} />
-
-            */}
-
         </>
     );
 };

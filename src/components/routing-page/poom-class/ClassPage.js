@@ -1,6 +1,5 @@
 import React from 'react';
 import Introduction from "../../common/Introduction";
-
 import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
 import PostBlock from "../../common/post/PostBlock";
@@ -12,7 +11,7 @@ import {ProfileImage} from "../../common/post/WriterInfo";
 import {ContentHeader} from "../../common/StyledHeader";
 
 // 필요 스타일링 컴포넌트(예상)
-{/*
+/*
 // 작성된 글 제목 영역 레이아웃
 const PostTitleTemplate = styled.div`
       box-sizing: border-box;
@@ -123,7 +122,7 @@ const PostContent = styled.div`
       font-size: 1vw;
       margin: 1vw 0 2vw;
     `;
-*/}
+*/
 
 const ClassPage = () => {
 

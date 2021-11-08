@@ -1,10 +1,10 @@
 import React from 'react';
-import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
-import SideTitle from "../components/layout/sideNavi/SideTitle";
-import SideElem from "../components/layout/sideNavi/SideElem";
-import PageContentTemplate from "../components/common/layout/PageContentTemplate";
-import DefaultSetting from "../components/common/DefaultSetting";
-import MyInfoPage from "../components/routing-page/mypage/myInfo/MyInfoPage";
+import SideNaviTemplate from "../../components/layout/sideNavi/SideNaviTemplate";
+import SideTitle from "../../components/layout/sideNavi/SideTitle";
+import SideElem from "../../components/layout/sideNavi/SideElem";
+import PageContentTemplate from "../../components/common/layout/PageContentTemplate";
+import DefaultSetting from "../../components/common/DefaultSetting";
+import MyInfoPage from "../../components/routing-page/mypage/myInfo/MyInfoPage";
 
 const MyPage = () => {
     return (

@@ -5,7 +5,6 @@ import PostAskRemoveModal from "../../../common/post/PostAskRemoveModal";
 import Modal from "../../../common/Modal";
 import ContainerSupportChildcareEditor
     from "../../../../containers/childcare/support-write/ContainerSupportChildcareEditor";
-import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
 
 
 const PostActionButtonsBlock = styled.div`

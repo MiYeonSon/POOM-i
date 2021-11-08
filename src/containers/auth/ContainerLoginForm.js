@@ -50,7 +50,7 @@ const ContainerLoginForm = ({match, history}) => {
             dispatch(setUser(auth.data));
             dispatch(setToken(auth.token_info.access_token));
         }
-    }, [auth, authError]);
+    }, [dispatch, auth, authError]);
 
     useEffect(() => {
         if (user) {

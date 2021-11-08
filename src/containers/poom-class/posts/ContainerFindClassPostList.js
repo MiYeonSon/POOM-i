@@ -7,12 +7,11 @@ import {getClassList} from "../../../modules/detailInfo/detailInfo";
 const ContainerFindClassPostList = () => {
     const dispatch = useDispatch();
 
-    const {posts, error, loading, user, token} = useSelector(
+    const {posts, error, loading, token} = useSelector(
         ({classPosts, loading, user}) => ({
             posts : classPosts.posts,
             error : classPosts.error,
             loading : loading['classPosts/LIST_POSTS'],
-            user : user.userInfo,
             token : user.token
         }),
     );

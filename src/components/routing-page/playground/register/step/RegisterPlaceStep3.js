@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import {ContentHeader} from "../../../../common/StyledHeader";
-import Introduction from "../../../../common/Introduction";
 import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import FromCongrats from '../../assets/formCongratus.png';
 

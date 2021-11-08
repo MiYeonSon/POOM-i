@@ -1,13 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import {ContentHeader, ContentMiddleHeader, ContentSmallHeader} from "../../../common/StyledHeader";
-
+import {ContentHeader} from "../../../common/StyledHeader";
 import Introduction from "../../../common/Introduction";
 import ContentTemplate from "../../../common/layout/ContentTemplate";
-import playground from '../assets/playground.jpg';
-import Person from '../../../common/assets/005-gardener.png';
-import {ProfileImage} from "../../../common/post/WriterInfo";
 
 const SpaceItemBlock = styled.div`
   margin: 2vw 0;

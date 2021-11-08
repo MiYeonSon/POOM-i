@@ -11,9 +11,10 @@ const StyledRectButton = styled.button`
   height: fit-content;
   background: ${props => props.backgroundColor || '#DEDEDE'};
   color: ${props => props.color || 'white'};
-  font-size: 0.8vw;
   font-family: 'LotteMartDream';
-  letter-spacing: 0.1vw;
+  font-size: 0.8vw;
+  font-weight: 300;
+  letter-spacing: 0.2vw;
   border: none;
   cursor: pointer;
 `;

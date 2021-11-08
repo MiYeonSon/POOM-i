@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from 'react';
 import Quill from "quill";
 import styled from "styled-components";
 import {StyledSelect} from "../../../common/StyledInput";
-import * as PropTypes from "prop-types";
 import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
 
 const QuillWrapper = styled.div`

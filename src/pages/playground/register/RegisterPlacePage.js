@@ -41,11 +41,14 @@ const RegisterPlacePage = () => {
                     <PageButtonBlock>
                         {
                             (page >= 1 && page < 3) && (
-                                <PageButton onClick={page > -1 ? () => setPage(page - 1) : setPage(0)}>이전</PageButton>)
+                                <PageButton onClick={page > -1 ? () => setPage(page - 1) : setPage(0)}>이전
+                                </PageButton>)
                         }
                         {
                             page < 3 && (
-                                <PageButton onClick={page < 4 ? () => setPage(page + 1) : setPage(3)} highlight>다음</PageButton>
+                                <PageButton onClick={page < 4 ? () => setPage(page + 1) : setPage(3)} highlight>
+                                    다음
+                                </PageButton>
                             )
                         }
                     </PageButtonBlock>

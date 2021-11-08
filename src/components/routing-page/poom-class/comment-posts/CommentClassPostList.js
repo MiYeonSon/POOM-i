@@ -7,11 +7,9 @@ import {useSelector} from "react-redux";
 import CommentPostActionButton from "../comment-post/CommentPostActionButton";
 import {
     CommentContent,
-    CommentHeaderBlock,
     CommentUnitBackground,
     CommentUnitContentTemplate
 } from "../../../common/post/CommentUnit";
-import SupportChildcarePostActionButtons from "../../childcare/support-post/SupportChildcarePostActionButtons";
 
 const CommentContentBlock = styled.div`
   box-sizing: border-box;

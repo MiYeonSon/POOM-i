@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 export const ContentHeader = styled.div`
   box-sizing: border-box;
@@ -10,8 +10,6 @@ export const ContentHeader = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  
-  
   
   font-weight: 700;
   font-size: 1.9vw;

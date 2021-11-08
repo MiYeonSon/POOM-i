@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import client from "../../../../lib/api/client";
-import {useDispatch, useSelector} from "react-redux";
+import client from "../../../../../lib/api/client";
+import {useSelector} from "react-redux";
 
 const {kakao} = window;
 
@@ -60,7 +60,7 @@ const Map = () => {
 
             marker.setMap(map);
         });
-    }, []);
+    }, [token]);
 
     return (
         <div id='myMap' style={{

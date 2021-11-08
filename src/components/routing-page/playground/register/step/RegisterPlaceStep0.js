@@ -1,10 +1,10 @@
 import React from 'react';
 import Introduction from "../../../../common/Introduction";
-import {ContentHeader, ContentMiddleHeader, ContentSmallHeader} from "../../../../common/StyledHeader";
+import {ContentHeader, ContentMiddleHeader} from "../../../../common/StyledHeader";
 import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import styled from "styled-components";
 
-const MiniHeader = styled.div`
+const CategoryHeader = styled.div`
   margin: 1vw 0 0;
   
   font-size: 1.2vw;
@@ -40,9 +40,9 @@ const RegisterPlaceStep0 = () => {
                     [ 품앗이 터 등록하는 방법 ]
                 </ContentMiddleHeader>
 
-                <MiniHeader>
+                <CategoryHeader>
                     * 동의서 제작
-                </MiniHeader>
+                </CategoryHeader>
 
                 <ContentStyle>
                     <ol>
@@ -53,9 +53,9 @@ const RegisterPlaceStep0 = () => {
                     </ol>
                 </ContentStyle>
 
-                <MiniHeader>
+                <CategoryHeader>
                     * 동의서 배포
-                </MiniHeader>
+                </CategoryHeader>
                 <ContentStyle>
                     <ol>
                         <li>거주 내 POOM-i 회원에게 공용 공간 사용에 대한 찬반 투표 참여 이메일 전송</li>
@@ -63,9 +63,9 @@ const RegisterPlaceStep0 = () => {
                     </ol>
                 </ContentStyle>
 
-                <MiniHeader>
+                <CategoryHeader>
                     * 투표 관리
-                </MiniHeader>
+                </CategoryHeader>
                 <ContentStyle>
                     <ul>
                         <li>투표 상황을 실시간으로 확인할 수 있습니다.</li>
@@ -74,9 +74,9 @@ const RegisterPlaceStep0 = () => {
                     </ul>
                 </ContentStyle>
 
-                <MiniHeader>
+                <CategoryHeader>
                     * 주의 사항
-                </MiniHeader>
+                </CategoryHeader>
                 <ContentStyle>
                     <ol>
                         <li>현재 서비스는 공용시설 이용에 대한 투표 진행의편의성을 제공하기 위한 서비스입니다.</li>

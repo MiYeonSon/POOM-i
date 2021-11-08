@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentUnit, {
+import {
     CommentContent,
     CommentUnitBackground,
     CommentUnitContentTemplate
@@ -7,7 +7,7 @@ import CommentUnit, {
 import SupportChildcarePostActionButtons from "../support-post/SupportChildcarePostActionButtons";
 import {ProfileImage, StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
 import Person from "../../../common/assets/005-gardener.png";
-import {getExpertId, setOriginalPost} from "../../../../modules/childcare/childcareSupportWrite";
+import {setOriginalPost} from "../../../../modules/childcare/childcareSupportWrite";
 import {useDispatch, useSelector} from "react-redux";
 import {childcareSupportRemovePost} from "../../../../lib/api/childcareSupportPosts";
 import {withRouter} from "react-router-dom";

@@ -10,9 +10,9 @@ import GoogleOauthRedirectHandler from "./components/routing-page/login/GoogleOa
 import NaverOauthRedirectHandler from "./components/routing-page/login/NaverOauthRedirectHandler";
 import FindPlacePage from "./pages/FindPlacePage";
 import RegisterPlacePage from "./pages/playground/register/RegisterPlacePage";
-import MyPage from "./pages/MyPage";
-import MyPageActivity from "./pages/MyPageActivity";
-import MyPageSpaceForm from "./pages/MyPageSpaceForm";
+import MyPage from "./pages/mypage/MyPage";
+import MyPageActivity from "./pages/mypage/MyPageActivity";
+import MyPageSpaceForm from "./pages/mypage/MyPageSpaceForm";
 import VotePage from "./pages/VotePage";
 
 function App() {

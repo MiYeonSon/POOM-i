@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import LoginBar from "../../../components/layout/header/LoginBar";
-import {logout} from "../../../modules/user";
+import LoginBar from "../../components/layout/header/LoginBar";
+import {logout} from "../../modules/user";
 import {withRouter} from "react-router-dom";
 
 const ContainerLoginBar = ({history}) => {
