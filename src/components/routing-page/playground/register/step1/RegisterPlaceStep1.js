@@ -1,11 +1,11 @@
-import React from 'react';
-import Introduction from "../../common/Introduction";
+import React, {useState} from 'react';
+import Introduction from "../../../../common/Introduction";
 
 import styled from 'styled-components';
-import Map from "./Map";
-import ContentTemplate from "../../common/layout/ContentTemplate";
-import {RoundSquareLabel} from "../../common/StyledInput";
-import {ContentHeader} from "../../common/StyledHeader";
+import Map from "../Map";
+import ContentTemplate from "../../../../common/layout/ContentTemplate";
+import {ContentHeader} from "../../../../common/StyledHeader";
+import SubmitFile from "../../../../common/SubmitFileButton";
 
 
 const QuestionBlock = styled.div`
@@ -56,7 +56,18 @@ const AdditionalBlock = styled.div`
 
 
 const RegisterPlaceStep1 = () => {
+    const [checkMap, setCheckMap] = useState(null);
+    const [checkAddr, setCheckAddr] = useState(null);
 
+    const checkFact = () => {
+        if (checkMap && checkAddr) {
+            return true;
+        }
+        else {
+            alert('마이페이지에서 주소 정보를 갱신 후 다시 시도해주세요.')
+            return false;
+        }
+    };
 
     return (
         <>
@@ -79,14 +90,14 @@ const RegisterPlaceStep1 = () => {
 
                     <AdditionalBlock>
                         <QuestionContent style={{fontWeight : '400'}}>* 현재 거주 중인 건물과 지도와 일치합니까?</QuestionContent>
-                        <label><input type="radio" name={'mapMatching'}/>예, 일치합니다.</label>
-                        <label><input type="radio"  name={'mapMatching'}/>아니요, 일치하지 않습니다</label>
+                        <label><input type="radio" name={'mapMatching'} onClick={() => setCheckMap(true)} />예, 일치합니다.</label>
+                        <label><input type="radio"  name={'mapMatching'} onClick={() => setCheckMap(false)} />아니요, 일치하지 않습니다</label>
                     </AdditionalBlock>
 
                     <AdditionalBlock>
                         <QuestionContent style={{fontWeight : '400'}}>* 아래의 주소지와 건물의 주소가 일치합니까?</QuestionContent>
-                        <label><input type="radio" name={'addressMatcing'}/>예, 일치합니다.</label>
-                        <label><input type="radio" name={'addressMatcing'}/>아니요, 일치하지 않습니다</label>
+                        <label><input type="radio" name={'addressMatcing'} onClick={() => setCheckAddr(true)}/>예, 일치합니다.</label>
+                        <label><input type="radio" name={'addressMatcing'} onClick={() => setCheckAddr(false)}/>아니요, 일치하지 않습니다</label>
                     </AdditionalBlock>
                 </AdditionalTemplate>
 
@@ -97,13 +108,14 @@ const RegisterPlaceStep1 = () => {
                         거주지 인증을 실시합니다. 3개월 이내에 정부 24에서 발급받은 서류를 업로드해주세요. <br/>
                         (해당 폼은 관리자의 거주지 인증 승인을 거친 후 배포할 수 있으며, 승인은 최소 12시간 ~ 최대 48시간이
                         소요됩니다.)
-                        <RoundSquareLabel> 
-                            파일 선택하기
-                            <input type="file" accept={".jpg, .png, .pdf"} />
-                        </RoundSquareLabel>
+                        <SubmitFile />
                     </QuestionContent>
                 </QuestionBlock>
             </ContentTemplate>
+            {/*
+            <SubmitFileActionButtonContainer checkFact={checkFact} />
+
+            */}
 
         </>
     );

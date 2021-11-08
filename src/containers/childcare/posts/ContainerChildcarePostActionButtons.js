@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {updatePost} from "../../../modules/childcare/childcareWrite";
 import ChildcarePostActionButtons from "../../../components/routing-page/childcare/post/ChildcarePostActionButtons";
 
-const ChildcarePostActionButtonsContainer = () => {
+const ContainerChildcarePostActionButtons = () => {
     const dispatch = useDispatch();
 
     const {
@@ -56,4 +56,4 @@ const ChildcarePostActionButtonsContainer = () => {
     );
 };
 
-export default ChildcarePostActionButtonsContainer;
+export default ContainerChildcarePostActionButtons;

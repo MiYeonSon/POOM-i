@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
 
-import Header from "../components/layout/header/Header";
-import Footer from "../components/layout/footer/Footer";
+import Header from "../../components/layout/header/Header";
+import Footer from "../../components/layout/footer/Footer";
 
-import SignUpProcess from "../components/routing-page/register/SignUpProcess";
+import SignUpProcess from "../../components/routing-page/register/SignUpProcess";
 
-import SignUpTemplate from "../components/routing-page/register/SignUpTemplate";
-import PageButtonBlock from "../components/routing-page/register/PageButtonBlock";
-import PageButton from "../components/routing-page/register/PageButton";
-import CommonHr from "../components/common/CommonHr";
-import SignUpStep1 from "../components/routing-page/register/SignUpStep1";
-import SignUpStep2 from "../components/routing-page/register/SignUpStep2";
-import SignUpStep3 from "../components/routing-page/register/step03/SignUpStep3";
-import SignUpStep4 from "../components/routing-page/register/SignUpStep4";
-import {ContentHeader} from "../components/common/StyledHeader";
+import SignUpTemplate from "../../components/routing-page/register/SignUpTemplate";
+import PageButtonBlock from "../../components/routing-page/register/PageButtonBlock";
+import PageButton from "../../components/routing-page/register/PageButton";
+import CommonHr from "../../components/common/CommonHr";
+import SignUpStep1 from "../../components/routing-page/register/SignUpStep1";
+import SignUpStep2 from "../../components/routing-page/register/SignUpStep2";
+import SignUpStep3 from "../../components/routing-page/register/step03/SignUpStep3";
+import SignUpStep4 from "../../components/routing-page/register/SignUpStep4";
+import {ContentHeader} from "../../components/common/StyledHeader";
 
 const SignUpPage = () => {
     const [num, setNum] = useState(0);

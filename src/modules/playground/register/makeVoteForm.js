@@ -5,6 +5,7 @@ import {takeLatest} from "redux-saga/effects";
 
 const INITIALIZE = 'makeVoteForm/INITIALIZE';
 const CHANGE_FILED = 'makeVoteForm/CHANGE_FIELD';
+
 const [
     MAKE_VOTE,
     MAKE_VOTE_SUCCESS,
@@ -17,6 +18,7 @@ export const changeField = createAction(CHANGE_FILED, ({key, value}) => ({
     key,
     value
 }));
+
 export const makeVote = createAction(MAKE_VOTE, ({
                                                      token,
                                                      images,
@@ -70,7 +72,7 @@ const makeVoteForm = handleActions({
         [MAKE_VOTE_FAILURE]: (state, {payload: voteError}) => ({
             ...state,
             voteError
-        })
+        }),
     },
     initialState
 );

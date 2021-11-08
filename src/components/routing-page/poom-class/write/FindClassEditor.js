@@ -107,10 +107,10 @@ const FindClassEditor = ({groupId, contents, images, classList, onChangeField}) 
         reader.onloadend = () => {
             /*
             if(imgArr){
-                imgArr.push(reader.result);
+                imgArr.push(reader.step);
                 onChangeField({key : 'images', value : imgArr});
             } else {
-                imgArr = new Array(reader.result);
+                imgArr = new Array(reader.step);
                 onChangeField({key : 'images', value : imgArr});
             }
              */

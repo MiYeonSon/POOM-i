@@ -15,6 +15,7 @@ import childcareSupportWrite, {childcareSupportWriteSaga} from "./childcare/chil
 import detailInfo, {getDetailInfoSaga} from "./detailInfo/detailInfo";
 import childcareSupportPosts, {childcareSupportPostsSaga} from "./childcare/childcareSupportPosts";
 import makeVoteForm, {makeVoteFormSaga} from "./playground/register/makeVoteForm";
+import playgroundList, {playgroundListSaga} from "./playground/list/playgroundList";
 
 const rootReducer = combineReducers({
     auth,
@@ -31,11 +32,26 @@ const rootReducer = combineReducers({
     classCommentWrite,
     classCommentPosts,
     makeVoteForm,
+    playgroundList,
     actionCreators
 });
 
 export function* rootSaga() {
-    yield all([authSaga(), userSaga(), writeSaga(), getDetailInfoSaga(), childcarePostsSaga(), childcareSupportWriteSaga(), childcareSupportPostsSaga(), classWriteSaga(),  classPostsSaga(), classCommentWriteSaga(), classCommentPostsSaga(), makeVoteFormSaga()]);
+    yield all([
+        authSaga(),
+        userSaga(),
+        writeSaga(),
+        getDetailInfoSaga(),
+        childcarePostsSaga(),
+        childcareSupportWriteSaga(),
+        childcareSupportPostsSaga(),
+        classWriteSaga(),
+        classPostsSaga(),
+        classCommentWriteSaga(),
+        classCommentPostsSaga(),
+        makeVoteFormSaga(),
+        playgroundListSaga()
+    ]);
 }
 
 export default rootReducer;

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {makeVote} from "../../../modules/playground/register/makeVoteForm";
-import MakeActionButtons from "../../../components/routing-page/playground/MakeActionButtons";
+import MakeActionButtons from "../../../components/routing-page/playground/register/MakeActionButtons";
 
 const MakeActionButtonsContainer = () => {
     const dispatch = useDispatch();

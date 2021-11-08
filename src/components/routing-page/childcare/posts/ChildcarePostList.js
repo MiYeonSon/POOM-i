@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
@@ -13,8 +13,6 @@ import Modal from "../../../common/Modal";
 import RectButton from "../../../common/RectButton";
 import ContainerSupportChildcareEditor
     from "../../../../containers/childcare/support-write/ContainerSupportChildcareEditor";
-import ContainerSupportChildcareWriteActonButtons
-    from "../../../../containers/childcare/support-write/ContainerSupportChildcareWriteActonButtons";
 import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
 import ContainerSupportChildcarePostList
     from "../../../../containers/childcare/support-posts/ContainerSupportChildcarePostList";
@@ -78,6 +76,7 @@ const ChildcarePostItem = ({childcarePost}) => {
         liked_count,
         applied_count,
         apply_status,
+        like_status
     } = childcarePost;
 
     const {nick, token} = useSelector(({user}) => ({
@@ -104,11 +103,11 @@ const ChildcarePostItem = ({childcarePost}) => {
     const [liked, setLiked] = useState(false);
     const onLiked = async () => {
         setLiked(true);
-        likedChildCarePost(token, expert_id).then(r => console.log(r));
+        likedChildCarePost(token, expert_id).then(r => {});
     }
     const onLikedCancel = async () => {
         setLiked(false);
-        likedCancelChildCarePost(token, expert_id).then(r => console.log(r));
+        likedCancelChildCarePost(token, expert_id).then(r => {});
     }
 
     const [supportModal, setSupportModal] = useState(false);
@@ -122,6 +121,8 @@ const ChildcarePostItem = ({childcarePost}) => {
         setSupportModal(false);
     }
 
+    useEffect(() => {
+    }, [liked]);
 
     return (
         <>
@@ -147,7 +148,7 @@ const ChildcarePostItem = ({childcarePost}) => {
                     </SeparateArea>
                     <SeparateArea>
                         {
-                            liked ? (
+                            liked || like_status ==='LIKE'? (
                                 <IoHeart onClick={onLikedCancel} size={'1.5vw'}
                                          color={'#FF5151'} style={{cursor: 'pointer'}}/>
                             ) : (
@@ -194,6 +195,8 @@ const ChildcarePostItem = ({childcarePost}) => {
 
 const ChildcarePostList = ({childcarePosts, loading, error}) => {
     if (error) {
+        console.log(error);
+
         return <>에러 발생</>
     }
 

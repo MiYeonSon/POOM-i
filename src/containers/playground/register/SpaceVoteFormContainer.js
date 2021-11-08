@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize} from "../../../modules/playground/register/makeVoteForm";
-import SpaceVoteForm from "../../../components/routing-page/playground/SpaceVoteForm";
+import SpaceVoteForm from "../../../components/routing-page/playground/register/SpaceVoteForm";
 
 const SpaceVoteFormContainer = () => {
     const dispatch = useDispatch();

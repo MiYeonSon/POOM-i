@@ -10,17 +10,17 @@ const ContainerLoginForm = ({match, history}) => {
     const dispatch = useDispatch();
 
     const {form, auth, authError, user} = useSelector(({auth, user}) => ({
-        form : auth.login,
-        auth : auth.auth,
-        authError : auth.authError,
-        user : user.user
+        form: auth.login,
+        auth: auth.auth,
+        authError: auth.authError,
+        user: user.user
     }));
 
     const onChange = e => {
         const {value, name} = e.target;
         dispatch(changeField({
-            form : 'login',
-            key : name,
+            form: 'login',
+            key: name,
             value
         }))
     }
@@ -40,24 +40,24 @@ const ContainerLoginForm = ({match, history}) => {
     }, [dispatch]);
 
     useEffect(() => {
-        if(authError){
+        if (authError) {
             console.log(authError);
         }
 
-        if(auth){
+        if (auth) {
             localStorage.setItem('user', JSON.stringify(auth.data));
             localStorage.setItem('token', JSON.stringify(auth.token_info.access_token));
             dispatch(setUser(auth.data));
             dispatch(setToken(auth.token_info.access_token));
         }
-    },[auth, authError]);
+    }, [auth, authError]);
 
     useEffect(() => {
-        if(user){
+        if (user) {
             console.log('user exist');
-            try{
+            try {
                 console.log(user);
-            } catch (e){
+            } catch (e) {
                 console.log('localstorage is not working');
             }
         }

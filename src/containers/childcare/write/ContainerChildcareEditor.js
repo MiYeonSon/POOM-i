@@ -2,7 +2,7 @@ import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize} from "../../../modules/childcare/childcareWrite";
 import ChildcareEditor from "../../../components/routing-page/childcare/write/ChildcareEditor";
-import WriteActionButtonsContainer from "./ContainerChildcareWriteActionsButton";
+import ContainerChildcareWriteActionsButton from "./ContainerChildcareWriteActionsButton";
 
 
 const ContainerChildcareEditor = () => {
@@ -65,7 +65,7 @@ const ContainerChildcareEditor = () => {
                              end_time={end_time}
                             childList={childList}
             />
-            <WriteActionButtonsContainer/>
+            <ContainerChildcareWriteActionsButton/>
         </>
     );
 };

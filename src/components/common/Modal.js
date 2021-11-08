@@ -73,7 +73,6 @@ const ModalContent = styled.div`
 `;
 
 
-// TODO : 더블클릭해야 모달창이 출력됨. 한 번만 클릭해도 출력되도록 변경.
 // 부모 props를 변경하여 다시 돌려주는 형태 고민.
 const Modal = ({visible, onClose, children}) => {
     if(!visible) return null;

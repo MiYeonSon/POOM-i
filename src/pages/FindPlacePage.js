@@ -7,6 +7,7 @@ import SideTitle from "../components/layout/sideNavi/SideTitle";
 import SideElem from "../components/layout/sideNavi/SideElem";
 import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
 import PageContentTemplate from "../components/common/layout/PageContentTemplate";
+import SpaceListPage from "../components/routing-page/playground/list/SpaceListPage";
 
 const FindPlacePage = () => {
     return (
@@ -20,7 +21,7 @@ const FindPlacePage = () => {
                 </SideNaviTemplate>
 
                 <PageContentTemplate>
-                    품앗이 터 찾기
+                    <SpaceListPage />
                 </PageContentTemplate>
 
             </DefaultSetting>

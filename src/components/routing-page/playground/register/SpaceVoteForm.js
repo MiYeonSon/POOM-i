@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {ContentSmallHeader} from "../../common/StyledHeader";
-import {RoundSquareLabel, StyledInput} from "../../common/StyledInput";
-import RectButton from "../../common/RectButton";
+import {ContentSmallHeader} from "../../../common/StyledHeader";
+import {RoundSquareLabel, StyledInput} from "../../../common/StyledInput";
+import RectButton from "../../../common/RectButton";
 import DaumPostcode from "react-daum-postcode";
-import CommonHr from "../../common/CommonHr";
+import CommonHr from "../../../common/CommonHr";
 import Quill from "quill";
 import styled from "styled-components";
 
@@ -172,10 +172,10 @@ const SpaceVoteForm = ({onChangeField, onChangeAddress, images, postCode, addres
         reader.onloadend = () => {
             /*
             if(imgArr){
-                imgArr.push(reader.result);
+                imgArr.push(reader.step);
                 onChangeField({key : 'images', value : imgArr});
             } else {
-                imgArr = new Array(reader.result);
+                imgArr = new Array(reader.step);
                 onChangeField({key : 'images', value : imgArr});
             }
              */
