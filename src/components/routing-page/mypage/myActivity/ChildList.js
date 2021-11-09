@@ -58,8 +58,10 @@ const ChildMoreItem = ({child}) => {
 }
 
 const ChildItem = ({child}) => {
-    const {birthday, child_name} = child;
+    const {birthday, child_name, gender} = child;
     const [click, setClick] = useState(false);
+
+    const genderKo = gender === 'FEMALE' ? '여' : '남';
 
     return (
         <ChildBlock onClick={() => setClick(!click)}>
@@ -67,7 +69,7 @@ const ChildItem = ({child}) => {
                             style={{margin: '1vw 2vw 0 0'}}/>
 
             <div style={{width: '100%'}}>
-                <ChildHeader>{child_name} (여)</ChildHeader>
+                <ChildHeader>{child_name} ({genderKo})</ChildHeader>
                 <div>생년월일 : {birthday}</div>
                 {click && <ChildMoreItem child={child}/>}
             </div>

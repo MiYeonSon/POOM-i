@@ -45,10 +45,10 @@ const StyledWritingBlock = styled.div`
 `;
 
 
-const PostBlock = (props) => {
+const PostItem = ({type, children}) => {
     return (
-        <StyledWritingBlock type={props.type}>{props.children}</StyledWritingBlock>
+        <StyledWritingBlock type={type}>{children}</StyledWritingBlock>
     );
 };
 
-export default PostBlock;
+export default PostItem;

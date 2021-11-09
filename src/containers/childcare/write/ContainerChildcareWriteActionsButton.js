@@ -36,13 +36,9 @@ const ContainerChildcareWriteActionsButton = ({history}) => {
         token: user.token
     }));
 
-    const processChildId = child_id === 'null' ? null : child_id;
     // 포스트 등록
-    const onRegister = () => {
-        console.log(child_id);
-        console.log(typeof child_id);
-
-        dispatch(writePost({
+    const onRegister = async () => {
+        await dispatch(writePost({
                 token,
                 contents,
                 recruit_type,
@@ -54,17 +50,17 @@ const ContainerChildcareWriteActionsButton = ({history}) => {
             }),
         );
 
+        window.location.reload();
     };
 
     // 포스트 수정
-    const onModify = () => {
+    const onModify = async () => {
         if (originalPostId) {
-
-            dispatch(updatePost({
+            await dispatch(updatePost({
                 token,
                 contents,
                 recruit_type,
-                processChildId,
+                child_id,
                 start_date,
                 start_time,
                 end_date,
@@ -73,9 +69,10 @@ const ContainerChildcareWriteActionsButton = ({history}) => {
                 postError,
                 expert_id: originalPostId
             }))
+            window.location.reload();
             return;
         }
-    }
+    };
 
 
     // 성공 혹은 실패 시 할 작업

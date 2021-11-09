@@ -12,12 +12,9 @@ const ContainerSupportChildcareEditor = () => {
         childList: detailInfo.childList
     }));
 
-
     const onChangeFiled = useCallback(payload => dispatch(changeField(payload)), [
         dispatch,
     ]);
-
-
 
     useEffect(() => {
         return () => {

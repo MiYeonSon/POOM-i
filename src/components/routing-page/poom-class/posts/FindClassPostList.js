@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import FindClassPostActionButtons from "../post/FindClassPostActionButtons";
-import PostBlock from "../../../common/post/PostBlock";
-import PostCreateDate from "../../../common/post/PostCreateDate";
+import PostItem from "../../../common/post/PostItem";
 import Person from "../../../common/assets/005-gardener.png";
 import {setOriginalPost} from "../../../../modules/poom-class/classWrite";
 import {classRemovePost} from "../../../../lib/api/poom-class/classPosts";
@@ -12,6 +11,7 @@ import Modal from "../../../common/Modal";
 import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
 import CommentClassBlock from "../CommentClassBlock";
 import {ProfileImage, StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
+import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -50,14 +50,6 @@ const PostContentBlock = styled.div`
   font-size: 1vw;
 `;
 
-const PostContent = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: fit-content;
-  font-size: 1vw;
-  font-weight: lighter;
-`;
-
 const ActivityImgBlock = styled.div`
   box-sizing: border-box;
   margin: 2vw 0;
@@ -93,6 +85,7 @@ const CommentBlock = styled.div`
   font-weight: lighter;
 `;
 
+
 const FindClassPostItem = ({post, history}) => {
     const {title, writer, regular_meeting_day, board_id, contents, images, created_at} = post;
 
@@ -124,7 +117,7 @@ const FindClassPostItem = ({post, history}) => {
     }
 
     return (
-        <PostBlock>
+        <PostItem>
             <PostHeaderBlock>
                 <div>
                     {title}
@@ -140,7 +133,7 @@ const FindClassPostItem = ({post, history}) => {
                 </UserInfoBlock>
                 <PostContentBlock>
                     <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
-                    <PostCreateDate createDate={created_at} margin={'0'} fontSize={'0.7vw'}/>
+                    <PostCreateDate margin={'0vw'}>작성일 : {created_at}</PostCreateDate>
                 </PostContentBlock>
             </ContentBlock>
 
@@ -162,7 +155,7 @@ const FindClassPostItem = ({post, history}) => {
             </Modal>
             }
 
-        </PostBlock>
+        </PostItem>
     )
 }
 

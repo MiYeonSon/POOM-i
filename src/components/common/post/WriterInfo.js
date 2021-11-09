@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 
 export const UserInfoBlock = styled.div`
-  width: fit-content;
+  width: 20%;
   height: fit-content;
   text-align: center;
 `;

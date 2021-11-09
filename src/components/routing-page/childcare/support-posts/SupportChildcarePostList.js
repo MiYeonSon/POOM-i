@@ -11,6 +11,7 @@ import {setOriginalPost} from "../../../../modules/childcare/childcareSupportWri
 import {useDispatch, useSelector} from "react-redux";
 import {childcareSupportRemovePost} from "../../../../lib/api/childcare/childcareSupportPosts";
 import {withRouter} from "react-router-dom";
+import {NoListComment} from "../../../common/NoListComment";
 
 const SupportChildcarePostItem = ({history, post, expertId}) => {
     const dispatch = useDispatch();
@@ -28,11 +29,11 @@ const SupportChildcarePostItem = ({history, post, expertId}) => {
     }
 
     const onRemove = async () => {
-        try{
+        try {
             await childcareSupportRemovePost({
                 token,
                 expertId,
-                applyId : apply_id,
+                applyId: apply_id,
             });
         } catch (e) {
             console.log(e);
@@ -46,7 +47,7 @@ const SupportChildcarePostItem = ({history, post, expertId}) => {
                     <ProfileImage size={2.5} imgSrc={Person}/>
                     <StyledWriterId>
                         {applier}
-                        <div style={{fontSize : '0.7vw'}}>(TEMP: {writer_score})</div>
+                        <div style={{width :'100%', fontSize: '0.7vw'}}>(TEMP: {writer_score})</div>
                     </StyledWriterId>
                 </UserInfoBlock>
 
@@ -68,11 +69,15 @@ const SupportChildcarePostList = ({posts, expertId, loading, error}) => {
     return (
         <div>
             {!loading && posts && (
-                <div>
-                    {posts.data.map(post => (
-                        <SupportChildcarePostItem post={post} expertId={expertId} key={post.apply_id} />
-                    ))}
-                </div>
+                posts.data.length === 0 ? (
+                    <NoListComment>아직 지원한 품앗이 꾼이 없습니다.</NoListComment>
+                ) : (
+                    <div>
+                        {posts.data.map(post => (
+                            <SupportChildcarePostItem post={post} expertId={expertId} key={post.apply_id}/>
+                        ))}
+                    </div>
+                )
             )}
         </div>
     );

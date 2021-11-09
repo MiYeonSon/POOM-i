@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {updatePost, writePost} from "../../../modules/childcare/childcareSupportWrite";
+import {getExpertId, updatePost, writePost} from "../../../modules/childcare/childcareSupportWrite";
 import SupportChildcareWriteActionButtons
     from "../../../components/routing-page/childcare/support-write/SupportChildcareWriteActionButtons";
 
@@ -17,8 +17,8 @@ const ContainerSupportChildcareWriteActonButtons = () => {
         token: user.token
     }));
 
-
-    const onPublish = () => {
+    // 품앗이 포스트에 대한 지원 및 자원
+    const onPublish = async () => {
         if(originalPostId){
             dispatch(updatePost({
                 token,
@@ -36,9 +36,6 @@ const ContainerSupportChildcareWriteActonButtons = () => {
             contents,
         }))
     }
-
-
-
 
     useEffect(() => {
         if (post) {

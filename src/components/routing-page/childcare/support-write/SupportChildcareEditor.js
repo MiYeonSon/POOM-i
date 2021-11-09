@@ -6,7 +6,6 @@ import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
 
 const QuillWrapper = styled.div`
   /* 최소 크기 지정 및 padding 제거 */
-
   .ql-editor {
     box-sizing: border-box;
     width: 100%;

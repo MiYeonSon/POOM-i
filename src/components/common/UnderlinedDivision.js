@@ -8,7 +8,7 @@ const UnderlinedDivision = ({children}) => {
       height: fit-content;
       margin: 0.3vw 0 0;
       color: #565656;
-      font-size: 0.8vw;
+      font-size: 1vw;
       font-weight: 400;
       background: linear-gradient(to top, #F1F1F1 50%, transparent 50%);
     `;

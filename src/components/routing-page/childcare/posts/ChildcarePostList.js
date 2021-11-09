@@ -4,10 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
 import {likedCancelChildCarePost, likedChildCarePost, removeChildcarePost} from "../../../../lib/api/childcare/childcarePosts";
 import ChildcarePostActionButtons from "../post/ChildcarePostActionButtons";
-import PostBlock from "../../../common/post/PostBlock";
+import PostItem from "../../../common/post/PostItem";
 import HorizontalPostWriterInfo from "../../../common/post/HorizontalPostWriterInfo";
 import UnderlinedDivision from "../../../common/UnderlinedDivision";
-import PostCreateDate from "../../../common/post/PostCreateDate";
 import {IoHeartOutline, IoHeart} from "react-icons/io5";
 import Modal from "../../../common/Modal";
 import RectButton from "../../../common/RectButton";
@@ -16,13 +15,8 @@ import ContainerSupportChildcareEditor
 import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
 import ContainerSupportChildcarePostList
     from "../../../../containers/childcare/support-posts/ContainerSupportChildcarePostList";
+import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
 
-
-const PostContent = styled.div`
-  box-sizing: border-box;
-  height: fit-content;
-  font-size: 1vw;
-`;
 
 const StyledPostHeader = styled.div`
   box-sizing: border-box;
@@ -60,6 +54,7 @@ const SeparateArea = styled.div`
 `;
 
 
+// TODO : 좋아요 시 새로고침 X 좋아요 수 변화시키기
 const ChildcarePostItem = ({childcarePost}) => {
     const dispatch = useDispatch();
     const {
@@ -87,10 +82,12 @@ const ChildcarePostItem = ({childcarePost}) => {
     // 작성자만 수정/삭제 버튼을 볼 수 있도록 사용하는 변수
     const ownPost = nick === writer;
 
+    // 품앗이 꾼 포스트 수정 함수
     const onEdit = () => {
         dispatch(setOriginalPost(childcarePost));
     }
-
+    
+    // 품앗이 꾼 포스트 삭제 함수
     const onRemove = async () => {
         try {
             await removeChildcarePost(token, expert_id);
@@ -100,7 +97,10 @@ const ChildcarePostItem = ({childcarePost}) => {
         }
     }
 
+    // 품앗이 꾼 포스트 좋아요 구현 부분
     const [liked, setLiked] = useState(false);
+
+    // Redux를 사용하지 않고 api를 요청하는 함수를 호출하는 방식으로 구현함.
     const onLiked = async () => {
         setLiked(true);
         likedChildCarePost(token, expert_id).then(r => {});
@@ -110,8 +110,8 @@ const ChildcarePostItem = ({childcarePost}) => {
         likedCancelChildCarePost(token, expert_id).then(r => {});
     }
 
+    // 품앗이 꾼 지원 및 확인 할 수 있는 Modal 창 구현
     const [supportModal, setSupportModal] = useState(false);
-
     const onSupport = () => {
         dispatch(getExpertId(childcarePost));
         setSupportModal(true);
@@ -122,11 +122,12 @@ const ChildcarePostItem = ({childcarePost}) => {
     }
 
     useEffect(() => {
-    }, [liked]);
+        console.log('test')
+    }, [liked_count]);
 
     return (
         <>
-            <PostBlock type={recruit_type}>
+            <PostItem type={recruit_type}>
                 <StyledPostHeader>
                     <HorizontalPostWriterInfo writer={writer} review={writer_score}/>
                     {ownPost && <ChildcarePostActionButtons onEdit={onEdit} onRemove={onRemove}/> }
@@ -136,7 +137,7 @@ const ChildcarePostItem = ({childcarePost}) => {
                 <UnderlinedDivision>활동 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}</UnderlinedDivision>
 
                 <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
-                <PostCreateDate createDate={created_at} fontSize={'0.8vw'}/>
+                <PostCreateDate>작성일 : {created_at}</PostCreateDate>
 
                 <StyledPostFooter>
                     <SeparateArea>
@@ -187,7 +188,7 @@ const ChildcarePostItem = ({childcarePost}) => {
 
                     </SeparateArea>
                 </StyledPostFooter>
-            </PostBlock>
+            </PostItem>
         </>
     );
 };

@@ -2,13 +2,13 @@ import React from 'react';
 import Introduction from "../../common/Introduction";
 import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
-import PostBlock from "../../common/post/PostBlock";
+import PostItem from "../../common/post/PostItem";
 import CommonHr from "../../common/CommonHr";
 import Person from "../../common/assets/005-gardener.png"
-import Pencil from "../../common/assets/pencil (1).png";
 import ContainerFindClassPostList from "../../../containers/poom-class/posts/ContainerFindClassPostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
 import {ContentHeader} from "../../common/StyledHeader";
+import {ImPencil2} from "react-icons/im";
 
 // 필요 스타일링 컴포넌트(예상)
 /*
@@ -125,29 +125,28 @@ const PostContent = styled.div`
 */
 
 const ClassPage = () => {
-
     return (
         <>
-        <ContentHeader>품앗이 반 찾기</ContentHeader>
-        <Introduction>
-            품앗이 반은 품앗이 반을 이루는 가족끼리 정기적으로 모여 자발적으로 활동을 하는 모입입니다! <br/>
-            품앗이 반에 참여하여 아이의 친구들과 재미있는 활동을 시작해보아요 :)
-        </Introduction>
+            <ContentHeader>품앗이 반 찾기</ContentHeader>
+            <Introduction>
+                품앗이 반은 품앗이 반을 이루는 가족끼리 정기적으로 모여 자발적으로 활동을 하는 모입입니다! <br/>
+                품앗이 반에 참여하여 아이의 친구들과 재미있는 활동을 시작해보아요 :)
+            </Introduction>
 
-        <ContentTemplate>
-            <PostBlock type={"postInput"}>
-                <ProfileImage size={4} imgSrc={Person}></ProfileImage>
-                <NewPostInput content={'class'}>
-                    품앗이 꾼 도움 요청/자원 글 작성하기...
-                    <img src={Pencil} alt="작성" style={{width: "1.2vw"}}/>
-                </NewPostInput>
-            </PostBlock>
+            <ContentTemplate>
+                <PostItem type={"postInput"}>
+                    <ProfileImage size={4} imgSrc={Person}></ProfileImage>
+                    <NewPostInput content={'class'}>
+                        품앗이 꾼 도움 요청/자원 글 작성하기...
+                        <ImPencil2 size={20} />
+                    </NewPostInput>
+                </PostItem>
 
-            <CommonHr/>
+                <CommonHr/>
 
-            <ContainerFindClassPostList />
+                <ContainerFindClassPostList/>
 
-        </ContentTemplate>
+            </ContentTemplate>
 
         </>
     );

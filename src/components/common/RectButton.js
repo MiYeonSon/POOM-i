@@ -14,7 +14,6 @@ const StyledRectButton = styled.button`
   font-family: 'LotteMartDream';
   font-size: 0.8vw;
   font-weight: 300;
-  letter-spacing: 0.2vw;
   border: none;
   cursor: pointer;
 `;

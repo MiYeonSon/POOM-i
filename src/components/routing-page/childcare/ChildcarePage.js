@@ -1,14 +1,14 @@
 import React from 'react';
 import Introduction from "../../common/Introduction";
-
 import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
-import PostBlock from "../../common/post/PostBlock";
+import PostItem from "../../common/post/PostItem";
 import CommonHr from "../../common/CommonHr";
 import ExpertPostListContainer from "../../../containers/childcare/posts/ContainerChildcarePostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
 import {ContentHeader} from "../../common/StyledHeader";
 import CallingCard from "../mypage/myInfo/CallingCard";
+import { ImPencil2 } from "react-icons/im";
 
 const ChildcarePage = () => {
 
@@ -21,12 +21,13 @@ const ChildcarePage = () => {
             </Introduction>
 
             <ContentTemplate>
-                <PostBlock type={"postInput"}>
+                <PostItem type={"postInput"} content={'childcare'}>
                     <ProfileImage size={4} imgSrc={CallingCard} />
                     <NewPostInput content={'childcare'}>
                         품앗이 꾼 도움 요청/자원 글 작성하기...
+                        <ImPencil2 size={20} />
                     </NewPostInput>
-                </PostBlock>
+                </PostItem>
 
                 <CommonHr/>
 

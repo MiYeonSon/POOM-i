@@ -21,7 +21,6 @@ const ContainerFindClassPostList = () => {
         dispatch(getClassList(token));
     }, [dispatch, token]);
 
-
     return (
         <FindClassPostList
             loading={loading}

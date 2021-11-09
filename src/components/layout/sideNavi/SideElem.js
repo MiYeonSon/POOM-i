@@ -41,7 +41,7 @@ const SideElem = ({title, link, select}) => {
     return (
         <>
             <StyledHr select={select}/>
-            <Link to={link}>
+            <Link to={link} onClick={() => window.scrollTo(0, 0)}>
                 <StyledMenu select={select}>
                     {title}
                 </StyledMenu>
