@@ -18,6 +18,7 @@ import makeVoteForm, {makeVoteFormSaga} from "./playground/register/makeVoteForm
 import playgroundList, {playgroundListSaga} from "./playground/list/playgroundList";
 import submitFile, {submitSaga} from "./submitFile";
 import activityInfo, {activityInfoSaga} from "./mypage/activityInfo";
+import spaceFormInfo, {spaceFormSaga} from "./mypage/spaceFormInfo";
 
 const rootReducer = combineReducers({
     auth,
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
     makeVoteForm,
     playgroundList,
     activityInfo,
+    spaceFormInfo,
     actionCreators
 });
 
@@ -56,6 +58,7 @@ export function* rootSaga() {
         classCommentPostsSaga(),
         makeVoteFormSaga(),
         playgroundListSaga(),
+        spaceFormSaga(),
         activityInfoSaga()
     ]);
 }

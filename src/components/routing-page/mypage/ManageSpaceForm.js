@@ -1,10 +1,11 @@
 import React from 'react';
+import ContainerPoomFormList from "../../../containers/mypage/myForm/ContainerPoomFormList";
 
 const ManageSpaceForm = () => {
     return (
-        <div>
-            품앗이 터 등록 폼 관라
-        </div>
+        <>
+            <ContainerPoomFormList />
+        </>
     );
 };
 

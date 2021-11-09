@@ -11,10 +11,7 @@ const ManageActivity = () => {
             <Introduction>진행중인 품앗이를 관리하고, 완료한 품앗이에 대한 평가를 진행해보아요!</Introduction>
 
             <ContentTemplate>
-                <ContentMiddleHeader>자녀 관리</ContentMiddleHeader>
                 <ContainerActivity />
-
-                <ContentMiddleHeader>품앗이 관리</ContentMiddleHeader>
             </ContentTemplate>
         </>
     );

@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {BsTriangleFill} from "react-icons/bs";
-import StyledTableRow from "../../../StyledTableRow";
+import StyledTableRow from "../../../common/StyledTableRow";
 
 const ChildListTemplate = styled.div`
-  margin: 1vw 0;
-
+  margin: 1vw 0 6vw;
   width: 100%;
 `;
 
@@ -19,7 +18,17 @@ const ChildBlock = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   border: 1px solid #AAAAAA;
   border-radius: 14px;
+
+  .nonRotate {
+    transform: rotate(0);
+  }
+
+  .rotate {
+    transform: rotate(180deg);
+  }
+
 `;
+
 
 const ChildHeader = styled.div`
   margin-bottom: 0.6vw;
@@ -32,9 +41,8 @@ const ChildHeader = styled.div`
 const ChildMoreItem = ({child}) => {
     const {school, special_note} = child;
 
-    
     return (
-        <div style={{margin : '1vw 0 0'}}>
+        <div style={{margin: '1vw 0 0'}}>
             <StyledTableRow header={'학교'}>{school}</StyledTableRow>
             <StyledTableRow header={'특이 사항'}>
                 {special_note === null
@@ -51,16 +59,14 @@ const ChildMoreItem = ({child}) => {
 
 const ChildItem = ({child}) => {
     const {birthday, child_name} = child;
-    const [click, setClick] = useState(true);
-
-    const handleClick = () => {
-
-    }
+    const [click, setClick] = useState(false);
 
     return (
         <ChildBlock onClick={() => setClick(!click)}>
-            <BsTriangleFill color={'#AAAAAA'} size={'1vw'} style={{margin: '1vw 2vw 0 0'}}/>
-            <div style={{width : '100%'}}>
+            <BsTriangleFill className={click ? 'rotate' : 'nonRotate'} color={'#AAAAAA'} size={'1vw'}
+                            style={{margin: '1vw 2vw 0 0'}}/>
+
+            <div style={{width: '100%'}}>
                 <ChildHeader>{child_name} (여)</ChildHeader>
                 <div>생년월일 : {birthday}</div>
                 {click && <ChildMoreItem child={child}/>}
