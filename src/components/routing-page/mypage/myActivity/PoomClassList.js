@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {BsTriangleFill} from "react-icons/bs";
-import StyledTableRow from "../../../common/StyledTableRow";
+import {BsFillPersonFill, BsTriangleFill} from "react-icons/bs";
 import RectButton from "../../../common/RectButton";
 import {NoListGrayComment} from "../../../common/NoListComment";
+import {ContentSmallHeader} from "../../../common/layout/StyledHeader";
 
 const PoomClassListTemplate = styled.div`
   margin: 1vw 0 6vw;
@@ -42,26 +42,92 @@ const PoomClassHeader = styled.div`
   font-weight: 700;
 `;
 
+const ApplierBlock = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #AAAAAA;
+  border-radius: 7px;
+`;
+
+const ApplierUserInfo = styled.div`
+  box-sizing: border-box;
+
+  padding: 1vw 2vw 0;
+
+  display: flex;
+  align-items: center;
+`;
+
+const ApplierUserTextInfo =styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  
+  margin: 0 1vw;
+
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ApplyAmbition = styled.div`
+  box-sizing: border-box;
+  margin: 1vw 3vw 0 5vw;
+`;
+
+const ApplierInfo = ({applier}) => {
+    const {apply_contents, applier_nick, child_name, child_birthday} = applier;
+
+    return (
+        <ApplierBlock>
+            <ApplierUserInfo>
+                <div>
+                    <BsFillPersonFill size={40} color={'#8E8E8E'} style={{
+                        padding: '0.1vw',
+                        boxSizing: 'border-box',
+                        border: '1.5px solid #8E8E8E',
+                        borderRadius: '100%'
+                    }}/>
+                </div>
+                <ApplierUserTextInfo>
+                    <div>
+                        <div style={{fontSize : '1.1vw', fontWeight : '700'}}>{applier_nick}</div>
+                        <div style={{marginTop : '0.1vw' , fontSize : '0.8vw'}}>자녀 정보 : {child_name} (생년월일 : {child_birthday})</div>
+                    </div>
+
+                    <RectButton backgroundColor={'#FFB663'}>승인하기</RectButton>
+                </ApplierUserTextInfo>
+            </ApplierUserInfo>
+
+            <ApplyAmbition dangerouslySetInnerHTML={{__html : apply_contents}} />
+        </ApplierBlock>
+    );
+}
+
 const PoomClassMoreInfo = ({group}) => {
     const {participating_members, apply_info} = group;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
-            <StyledTableRow header={'참여자 목록'}>{
+            <ContentSmallHeader>[ 참여자 목록 ]</ContentSmallHeader>
+            {
                 participating_members.length === 0 ? (
                     <div>참여자 없음</div>
                 ) : (
                     participating_members
                 )
-            }</StyledTableRow>
+            }
 
-            <StyledTableRow header={'모집 지원자 목록'}>{
+            <ContentSmallHeader>[ 참여자 희망자 목록 ]</ContentSmallHeader>
+            {
                 apply_info.length === 0 ? (
                     <div>지원자 없음</div>
                 ) : (
-                    apply_info
+                    apply_info.map(applier => (
+                        <ApplierInfo applier={applier} key={applier.apply_id}/>
+                    ))
                 )
-            }</StyledTableRow>
+            }
         </div>
     );
 }

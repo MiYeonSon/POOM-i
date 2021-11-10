@@ -3,7 +3,7 @@ import SideNaviTemplate from "../../components/layout/sideNavi/SideNaviTemplate"
 import SideTitle from "../../components/layout/sideNavi/SideTitle";
 import SideElem from "../../components/layout/sideNavi/SideElem";
 import PageContentTemplate from "../../components/common/layout/PageContentTemplate";
-import DefaultSetting from "../../components/common/DefaultSetting";
+import DefaultSetting from "../../components/common/layout/DefaultSetting";
 import MyInfoPage from "../../components/routing-page/mypage/MyInfoPage";
 
 const MyPage = () => {

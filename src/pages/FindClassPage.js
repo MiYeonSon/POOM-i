@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultSetting from "../components/common/DefaultSetting";
+import DefaultSetting from "../components/common/layout/DefaultSetting";
 import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";
 import SideTitle from "../components/layout/sideNavi/SideTitle";
 import SideElem from "../components/layout/sideNavi/SideElem";

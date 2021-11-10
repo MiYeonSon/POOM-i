@@ -5,7 +5,7 @@ import SideTitle from "../components/layout/sideNavi/SideTitle";
 import SideElem from "../components/layout/sideNavi/SideElem";
 import PageContentTemplate from "../components/common/layout/PageContentTemplate";
 import ChildcarePage from "../components/routing-page/childcare/ChildcarePage";
-import DefaultSetting from "../components/common/DefaultSetting";
+import DefaultSetting from "../components/common/layout/DefaultSetting";
 
 const FindChildcarePage = () => {
     return (

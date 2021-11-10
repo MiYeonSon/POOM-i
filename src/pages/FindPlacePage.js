@@ -2,7 +2,7 @@
  * 품앗이 터 찾기 페이지
  */
 import React from 'react';
-import DefaultSetting from "../components/common/DefaultSetting";
+import DefaultSetting from "../components/common/layout/DefaultSetting";
 import SideTitle from "../components/layout/sideNavi/SideTitle";
 import SideElem from "../components/layout/sideNavi/SideElem";
 import SideNaviTemplate from "../components/layout/sideNavi/SideNaviTemplate";

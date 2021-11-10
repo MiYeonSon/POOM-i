@@ -45,7 +45,7 @@ const ContainerActivity = () => {
                     </Modal>
                 )}
             </ContentMiddleHeader>
-            <PoomClassList loading={loading} error={error} list={list}/>
+            <PoomClassList loading={loading} error={error} list={list} />
         </>
     );
 };

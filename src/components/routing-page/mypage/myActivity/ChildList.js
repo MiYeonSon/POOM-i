@@ -134,7 +134,7 @@ const ChildMoreItem = ({child}) => {
 }
 
 const ChildItem = ({child}) => {
-    const {birthday, child_name, gender,} = child;
+    const {birthday, child_name, gender} = child;
     const [click, setClick] = useState(false);
 
     const genderKo = gender === 'FEMALE' ? '여' : '남';
