@@ -4,14 +4,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import FindClassPostActionButtons from "../post/FindClassPostActionButtons";
 import PostItem from "../../../common/post/PostItem";
-import Person from "../../../common/assets/005-gardener.png";
 import {setOriginalPost} from "../../../../modules/poom-class/classWrite";
 import {classRemovePost} from "../../../../lib/api/poom-class/classPosts";
 import Modal from "../../../common/Modal";
 import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
 import CommentClassBlock from "../CommentClassBlock";
-import {ProfileImage, StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
+import {StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
 import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
+import RectButton from "../../../common/RectButton";
+import ContainerJoinPoomClass from "../../../../containers/mypage/myActivity/ContainerJoinPoomClass";
+import {BsFillPersonFill} from "react-icons/bs";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -31,6 +33,14 @@ const PostHeaderBlock = styled.div`
     color: #AAAAAA;
   }
 `;
+
+const PoomClassInfo = styled.div`
+  box-sizing: border-box;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+`;
+
 
 const ContentBlock = styled.div`
   box-sizing: border-box;
@@ -87,7 +97,17 @@ const CommentBlock = styled.div`
 
 
 const FindClassPostItem = ({post, history}) => {
-    const {title, writer, regular_meeting_day, board_id, contents, images, created_at} = post;
+    const {
+        title,
+        writer,
+        regular_meeting_day,
+        recruitment_status,
+        board_id,
+        group_id,
+        contents,
+        images,
+        created_at
+    } = post;
 
     const dispatch = useDispatch();
     const {token} = useSelector(({user}) => ({token: user.token}));
@@ -116,19 +136,44 @@ const FindClassPostItem = ({post, history}) => {
         setCommentModal(false);
     }
 
+    // 품앗이 반 참여 지원 모달 관련
+    const [classInfoModal, setClassInfoModal] = useState(false);
+    const [supportModal, supportInfoModal] = useState(false);
+
     return (
         <PostItem>
             <PostHeaderBlock>
-                <div>
-                    {title}
-                    <div className={'time'}>{regular_meeting_day}</div>
-                </div>
+                <PoomClassInfo>
+                    <div>
+                        {title}
+                        <div className={'time'}>{regular_meeting_day}</div>
+                    </div>
+                    {recruitment_status === 'RECRUITING' && <RectButton backgroundColor={'#FFB663'} onClick={() => setClassInfoModal(!classInfoModal)}>모집중</RectButton>}
+                    {
+                        classInfoModal && <Modal width={'34vw'} visible={classInfoModal} onClose={() => setClassInfoModal(false)}>
+                            <ContainerJoinPoomClass groupId={group_id}/>
+                            <div style={{width : '100%', marginTop : '0.5vw', textAlign : 'right'}}>
+                                <RectButton backgroundColor={'#FFB663'}>지원하기</RectButton>
+                            </div>
+                        </Modal>
+                    }
+                    {
+                        
+                    }
+                    
+                </PoomClassInfo>
+
                 <FindClassPostActionButtons onEdit={onEdit} onRemove={onRemove}/>
             </PostHeaderBlock>
 
             <ContentBlock>
                 <UserInfoBlock>
-                    <ProfileImage size={3} imgSrc={Person}/>
+                    <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
+                        padding : '0.2vw',
+                        boxSizing : 'border-box',
+                        border: '1.5px solid #8E8E8E',
+                        borderRadius: '100%'
+                    }}/>
                     <StyledWriterId>{writer}</StyledWriterId>
                 </UserInfoBlock>
                 <PostContentBlock>

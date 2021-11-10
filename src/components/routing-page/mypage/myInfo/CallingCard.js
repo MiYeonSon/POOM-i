@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ProfileImg from '../../../common/assets/005-gardener.png';
 import {ProfileImage} from "../../../common/post/WriterInfo";
 import {BsPencilSquare} from "react-icons/bs";
+import HorizontalPostWriterInfo from "../../../common/user-info/HorizontalPostWriterInfo";
 
 const CallingCardTemplate = styled.div`
   box-sizing: border-box;
@@ -47,26 +48,12 @@ const BoldElem = styled.div`
 `;
 
 const CallingCardContent = ({info}) => {
-    const {name, child_count} = info;
+    const {name, child_count, member_score} = info;
 
-    return(
+
+    return (
         <>
-            <UserInfoBlock>
-                <ProfileImage size={4.5} src={ProfileImg} alt={'프로필 사진'}/>
-                <UserInfo>
-                    <div style={{
-                        marginBottom: '0.5vw',
-                        display: 'flex',
-                        alignItems: 'center'
-                    }}>
-                        <BoldElem style={{margin: '0 0.5vw 0 0'}}>{name}</BoldElem>
-                        <BsPencilSquare size={'1.3vw'} color={'#AAAAAA'}/>
-                    </div>
-
-                    <div>품앗이 점수 : ❤❤❤❤❤❤</div>
-                </UserInfo>
-            </UserInfoBlock>
-
+            <HorizontalPostWriterInfo user={name} review={member_score}/>
 
             <ChildInfoBlock>
                 <div>등록된 자녀 수</div>
@@ -79,14 +66,15 @@ const CallingCardContent = ({info}) => {
 const CallingCard = ({info, error, loading}) => {
     if (error) {
         return <div>에러 발생</div>
-    };
+    }
+    ;
 
     return (
         <>
             {!loading && info && (
 
                 <CallingCardTemplate>
-                    <CallingCardContent info={info.data} />
+                    <CallingCardContent info={info.data}/>
                 </CallingCardTemplate>
             )}
         </>

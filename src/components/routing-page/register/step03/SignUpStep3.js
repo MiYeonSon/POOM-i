@@ -6,7 +6,7 @@ import SignUpBlock from "../SignUpBlock";
 import InfoFormBlock from "../InfoFormBlock";
 import InfoFormTemplate from "../InfoFormTemplate";
 import RegisterFormContainer from "../../../../modules/sign-up/RegisterFormContainer";
-import {ContentMiddleHeader, ContentSmallHeader} from "../../../common/StyledHeader";
+import {ContentMiddleHeader, ContentSmallHeader} from "../../../common/layout/StyledHeader";
 
 const AnnounceComponent = styled.div`
   box-sizing: border-box;

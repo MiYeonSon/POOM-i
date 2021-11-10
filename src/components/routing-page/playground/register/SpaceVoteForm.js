@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {ContentSmallHeader} from "../../../common/StyledHeader";
+import {ContentSmallHeader} from "../../../common/layout/StyledHeader";
 import {RoundSquareLabel, StyledInput} from "../../../common/StyledInput";
 import RectButton from "../../../common/RectButton";
 import DaumPostcode from "react-daum-postcode";

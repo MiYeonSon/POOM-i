@@ -8,7 +8,7 @@ import {KAKAO_AUTH_URL} from './OauthKakao';
 import ContainerLoginForm from "../../../containers/auth/ContainerLoginForm";
 import {GOOGLE_AUTH_URL} from "./OauthGoogle";
 import {NAVER_AUTH_URL} from "./OauthNaver";
-import {ContentMiddleHeader} from "../../common/StyledHeader";
+import {ContentMiddleHeader} from "../../common/layout/StyledHeader";
 
 const ModalLoginBlock = styled.div`
   box-sizing: border-box;

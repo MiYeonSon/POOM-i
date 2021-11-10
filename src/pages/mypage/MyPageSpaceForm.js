@@ -5,8 +5,8 @@ import SideTitle from "../../components/layout/sideNavi/SideTitle";
 import SideElem from "../../components/layout/sideNavi/SideElem";
 import PageContentTemplate from "../../components/common/layout/PageContentTemplate";
 import ManageSpaceForm from "../../components/routing-page/mypage/ManageSpaceForm";
-import {ContentHeader, ContentMiddleHeader} from "../../components/common/StyledHeader";
-import Introduction from "../../components/common/Introduction";
+import {ContentHeader, ContentMiddleHeader} from "../../components/common/layout/StyledHeader";
+import Introduction from "../../components/common/layout/Introduction";
 
 const MyPageSpaceForm = () => {
     return (

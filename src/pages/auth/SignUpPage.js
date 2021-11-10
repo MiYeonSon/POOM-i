@@ -13,7 +13,7 @@ import SignUpStep1 from "../../components/routing-page/register/SignUpStep1";
 import SignUpStep2 from "../../components/routing-page/register/SignUpStep2";
 import SignUpStep3 from "../../components/routing-page/register/step03/SignUpStep3";
 import SignUpStep4 from "../../components/routing-page/register/SignUpStep4";
-import {ContentHeader} from "../../components/common/StyledHeader";
+import {ContentHeader} from "../../components/common/layout/StyledHeader";
 
 const SignUpPage = () => {
     const [num, setNum] = useState(0);

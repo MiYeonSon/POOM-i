@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import SignUpBlock from "./SignUpBlock";
 import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
-import {ContentMiddleHeader} from "../../common/StyledHeader";
+import {ContentMiddleHeader} from "../../common/layout/StyledHeader";
 
 const SignUpStep2Test = ({form, onChange, onSubmit}) => {
     // const [phone, setPhone] = useState("");

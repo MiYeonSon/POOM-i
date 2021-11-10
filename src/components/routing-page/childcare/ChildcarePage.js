@@ -1,12 +1,12 @@
 import React from 'react';
-import Introduction from "../../common/Introduction";
+import Introduction from "../../common/layout/Introduction";
 import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
 import PostItem from "../../common/post/PostItem";
 import CommonHr from "../../common/CommonHr";
 import ExpertPostListContainer from "../../../containers/childcare/posts/ContainerChildcarePostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
-import {ContentHeader} from "../../common/StyledHeader";
+import {ContentHeader} from "../../common/layout/StyledHeader";
 import CallingCard from "../mypage/myInfo/CallingCard";
 import { ImPencil2 } from "react-icons/im";
 

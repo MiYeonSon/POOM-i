@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {ContentMiddleHeader} from "../../../common/StyledHeader";
+import {ContentMiddleHeader} from "../../../common/layout/StyledHeader";
 import {BsPencilSquare} from "react-icons/bs";
 import StyledTableRow from "../../../common/StyledTableRow";
 
@@ -41,10 +41,7 @@ const UserInfoTableRowContent = ({info}) => {
 const UserInfoTable = ({info, error, loading}) => {
     if (error) {
         return <div>에러 발생</div>
-    }
-    ;
-
-    console.log(info);
+    };
 
     return (
         <>

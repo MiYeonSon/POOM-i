@@ -51,6 +51,7 @@ const ContainerChildcareWriteActionsButton = ({history}) => {
         );
 
         window.location.reload();
+        return;
     };
 
     // 포스트 수정

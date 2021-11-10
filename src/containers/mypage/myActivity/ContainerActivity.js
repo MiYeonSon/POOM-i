@@ -1,9 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {listActivity} from "../../../modules/mypage/activityInfo";
 import ChildList from "../../../components/routing-page/mypage/myActivity/ChildList";
-import {ContentMiddleHeader} from "../../../components/common/StyledHeader";
+import {ContentMiddleHeader} from "../../../components/common/layout/StyledHeader";
 import PoomClassList from "../../../components/routing-page/mypage/myActivity/PoomClassList";
+import {BsPencilSquare} from "react-icons/bs";
+import Modal from "../../../components/common/Modal";
+import ContainerCreatePoomClass from "./ContainerCreatePoomClass";
+import ContainerCreateActionButton from "./ContainerCreateActionButton";
 
 const ContainerActivity = () => {
     const dispatch = useDispatch();
@@ -21,12 +25,26 @@ const ContainerActivity = () => {
         dispatch(listActivity({token}));
     }, [dispatch]);
 
+    const [modal, setModal] = useState(false);
+
     return (
         <>
             <ContentMiddleHeader>자녀 관리</ContentMiddleHeader>
             <ChildList loading={loading} error={error} list={list}/>
 
-            <ContentMiddleHeader>품앗이 반 관리</ContentMiddleHeader>
+            <ContentMiddleHeader>
+                품앗이 반 관리
+                <BsPencilSquare size={30}
+                                color={'#AAAAAA'}
+                                style={{margin: '0 0.5vw', cursor: 'pointer'}}
+                                onClick={() => setModal(!modal)}/>
+                {modal && (
+                    <Modal visible={modal} onClose={() => setModal(false)}>
+                        <ContainerCreatePoomClass />
+                        <ContainerCreateActionButton />
+                    </Modal>
+                )}
+            </ContentMiddleHeader>
             <PoomClassList loading={loading} error={error} list={list}/>
         </>
     );

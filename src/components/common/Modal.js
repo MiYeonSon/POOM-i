@@ -19,7 +19,7 @@ const ModalTemplate = styled.div`
 // 모달창을 담당함.
 const ModalBlock = styled.div`
   box-sizing: border-box;
-  width: 30vw;
+  width: ${props => props.width || '30vw'};
   height: fit-content;
   max-height: 85vh;
   background: white;
@@ -74,13 +74,13 @@ const ModalContent = styled.div`
 
 
 // 부모 props를 변경하여 다시 돌려주는 형태 고민.
-const Modal = ({visible, onClose, children}) => {
+const Modal = ({width, visible, onClose, children}) => {
     if(!visible) return null;
 
     return (
         <>
             <ModalTemplate>
-                <ModalBlock>
+                <ModalBlock width={width}>
                     <button className={"closeButton"} onClick={onClose}>X</button>
                     <ModalTitleBlock>
                         <ModalLogoBlock>

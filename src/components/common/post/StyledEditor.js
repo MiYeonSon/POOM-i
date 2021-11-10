@@ -11,7 +11,7 @@ export const CategoryBlock = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: fit-content;
-  padding: 0 0 1.5vw;
+  padding: ${props => props.padding || '0 0 1.5vw'};
 `;
 
 export const WriteActionButtonsBlock = styled.div`

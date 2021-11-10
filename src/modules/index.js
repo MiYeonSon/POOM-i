@@ -20,6 +20,7 @@ import submitFile, {submitSaga} from "./submitFile";
 import activityInfo, {activityInfoSaga} from "./mypage/activityInfo";
 import spaceFormInfo, {spaceFormSaga} from "./mypage/spaceFormInfo";
 import myInfo, {myInfoSaga} from "./mypage/myInfo";
+import actionPoomClass, {actionPoomClassSaga} from "./mypage/actionPoomClass";
 
 const rootReducer = combineReducers({
     auth,
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
     myInfo,
     activityInfo,
     spaceFormInfo,
+    actionPoomClass,
     actionCreators
 });
 
@@ -62,9 +64,12 @@ export function* rootSaga() {
         classCommentPostsSaga(),
         makeVoteFormSaga(),
         playgroundListSaga(),
+
         myInfoSaga(),
         spaceFormSaga(),
-        activityInfoSaga()
+        activityInfoSaga(),
+
+        actionPoomClassSaga()
     ]);
 }
 

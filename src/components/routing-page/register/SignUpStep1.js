@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SignUpBlock from "./SignUpBlock";
-import {ContentMiddleHeader} from "../../common/StyledHeader";
+import {ContentMiddleHeader} from "../../common/layout/StyledHeader";
 
 const UserAgreement = styled.div`
   & + & {

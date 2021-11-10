@@ -2,10 +2,14 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {setOriginalPost} from "../../../../modules/childcare/childcareWrite";
-import {likedCancelChildCarePost, likedChildCarePost, removeChildcarePost} from "../../../../lib/api/childcare/childcarePosts";
+import {
+    likedCancelChildCarePost,
+    likedChildCarePost,
+    removeChildcarePost
+} from "../../../../lib/api/childcare/childcarePosts";
 import ChildcarePostActionButtons from "../post/ChildcarePostActionButtons";
 import PostItem from "../../../common/post/PostItem";
-import HorizontalPostWriterInfo from "../../../common/post/HorizontalPostWriterInfo";
+import HorizontalPostWriterInfo from "../../../common/user-info/HorizontalPostWriterInfo";
 import UnderlinedDivision from "../../../common/UnderlinedDivision";
 import {IoHeartOutline, IoHeart} from "react-icons/io5";
 import Modal from "../../../common/Modal";
@@ -54,6 +58,13 @@ const SeparateArea = styled.div`
 `;
 
 
+const CloseBlock = styled.div`
+  .close {
+    box-sizing: border-box;
+    background-color: red;
+  }
+`;
+
 // TODO : 좋아요 시 새로고침 X 좋아요 수 변화시키기
 const ChildcarePostItem = ({childcarePost}) => {
     const dispatch = useDispatch();
@@ -63,6 +74,7 @@ const ChildcarePostItem = ({childcarePost}) => {
         contents,
         writer_score,
         recruit_type,
+        recruitment_status,
         expert_id,
         start_date,
         start_time,
@@ -86,7 +98,7 @@ const ChildcarePostItem = ({childcarePost}) => {
     const onEdit = () => {
         dispatch(setOriginalPost(childcarePost));
     }
-    
+
     // 품앗이 꾼 포스트 삭제 함수
     const onRemove = async () => {
         try {
@@ -103,11 +115,13 @@ const ChildcarePostItem = ({childcarePost}) => {
     // Redux를 사용하지 않고 api를 요청하는 함수를 호출하는 방식으로 구현함.
     const onLiked = async () => {
         setLiked(true);
-        likedChildCarePost(token, expert_id).then(r => {});
+        likedChildCarePost(token, expert_id).then(r => {
+        });
     }
     const onLikedCancel = async () => {
         setLiked(false);
-        likedCancelChildCarePost(token, expert_id).then(r => {});
+        likedCancelChildCarePost(token, expert_id).then(r => {
+        });
     }
 
     // 품앗이 꾼 지원 및 확인 할 수 있는 Modal 창 구현
@@ -129,12 +143,13 @@ const ChildcarePostItem = ({childcarePost}) => {
         <>
             <PostItem type={recruit_type}>
                 <StyledPostHeader>
-                    <HorizontalPostWriterInfo writer={writer} review={writer_score}/>
-                    {ownPost && <ChildcarePostActionButtons onEdit={onEdit} onRemove={onRemove}/> }
+                    <HorizontalPostWriterInfo user={writer} review={writer_score}/>
+                    {ownPost && <ChildcarePostActionButtons onEdit={onEdit} onRemove={onRemove}/>}
                 </StyledPostHeader>
                 <br/>
 
-                <UnderlinedDivision>활동 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}</UnderlinedDivision>
+                <UnderlinedDivision>활동 시간
+                    : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}</UnderlinedDivision>
 
                 <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
                 <PostCreateDate>작성일 : {created_at}</PostCreateDate>
@@ -149,7 +164,7 @@ const ChildcarePostItem = ({childcarePost}) => {
                     </SeparateArea>
                     <SeparateArea>
                         {
-                            liked || like_status ==='LIKE'? (
+                            liked || like_status === 'LIKE' ? (
                                 <IoHeart onClick={onLikedCancel} size={'1.5vw'}
                                          color={'#FF5151'} style={{cursor: 'pointer'}}/>
                             ) : (
@@ -158,8 +173,9 @@ const ChildcarePostItem = ({childcarePost}) => {
                             )
                         }
 
-                        {
-
+                        {recruitment_status === 'CLOSED' ? (
+                            <RectButton backgroundColor={"#AAAAAA"}>매칭 완료</RectButton>
+                        ) : (
                             (nick === writer || apply_status === "APPLY") ? (
                                 <div>
                                     <RectButton backgroundColor={"#AAAAAA"} onClick={() => setSupportModal(true)}>
@@ -168,7 +184,8 @@ const ChildcarePostItem = ({childcarePost}) => {
                                     {
                                         supportModal &&
                                         <Modal visible={supportModal} onClose={onClose}>
-                                            <ContainerSupportChildcarePostList writer={writer} expertId={expert_id}/>
+                                            <ContainerSupportChildcarePostList writer={writer}
+                                                                               expertId={expert_id}/>
                                         </Modal>
                                     }
                                 </div>
@@ -183,9 +200,8 @@ const ChildcarePostItem = ({childcarePost}) => {
                                     }
                                 </div>
                             )
-                        }
 
-
+                        )}
                     </SeparateArea>
                 </StyledPostFooter>
             </PostItem>

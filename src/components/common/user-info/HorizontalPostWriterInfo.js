@@ -1,7 +1,6 @@
 import React from 'react';
-import Person from "../assets/005-gardener.png";
 import styled from "styled-components";
-import {ProfileImage} from "./WriterInfo";
+import {BsFillPersonFill} from "react-icons/bs";
 
 const StyledPostWriterInfo = styled.div`
   box-sizing: border-box;
@@ -16,13 +15,14 @@ const WriterInfoTemplate = styled.div`
   box-sizing: border-box;
   width: 9vw;
   height: inherit;
-  margin: 0vw 0.7vw;
+  margin: 0vw 0.9vw;
   display: inline-block;
 `;
 
 const StyledWriterId = styled.div`
   padding: 0.5vw 0;
-  font-size: 1vw;
+  font-size: 1.2vw;
+  font-weight: 700;
   color: #565656;
 `;
 
@@ -32,10 +32,10 @@ const StyledWriterReview = styled.div`
 `;
 
 
-const HorizontalPostWriterInfo = (props) => {
+const HorizontalPostWriterInfo = ({user, review}) => {
     const getScore = () => {
         let score = '';
-        for (let i = 0; i < props.review; i++) {
+        for (let i = 0; i < review; i++) {
             score += '❤';
         }
         return score;
@@ -44,9 +44,14 @@ const HorizontalPostWriterInfo = (props) => {
 
     return (
         <StyledPostWriterInfo>
-            <ProfileImage size={4} imgSrc={Person}/>
+            <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
+                padding : '0.2vw',
+                boxSizing : 'border-box',
+                border: '1.5px solid #8E8E8E',
+                borderRadius: '100%'
+            }}/>
             <WriterInfoTemplate>
-                <StyledWriterId>{props.writer}</StyledWriterId>
+                <StyledWriterId>{user}</StyledWriterId>
                 <StyledWriterReview>품앗이 점수 : {getScore()}</StyledWriterReview>
             </WriterInfoTemplate>
         </StyledPostWriterInfo>

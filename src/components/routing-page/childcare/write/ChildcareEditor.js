@@ -11,7 +11,6 @@ const FindRearingEditorTemplate = styled.div`
   color: #707070;
 `;
 
-
 const CategoryContent = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -33,14 +32,11 @@ const QuillWrapper = styled.div`
     background-color: #F3F3F3;
   }
 
-
   // placeholder css
   .ql-editor.ql-blank::before {
     font-family: paybooc-Medium;
     font-style: normal;
   }
-
-
 `;
 
 

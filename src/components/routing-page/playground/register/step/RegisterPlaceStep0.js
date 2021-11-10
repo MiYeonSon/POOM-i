@@ -1,6 +1,6 @@
 import React from 'react';
-import Introduction from "../../../../common/Introduction";
-import {ContentHeader, ContentMiddleHeader} from "../../../../common/StyledHeader";
+import Introduction from "../../../../common/layout/Introduction";
+import {ContentHeader, ContentMiddleHeader} from "../../../../common/layout/StyledHeader";
 import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import styled from "styled-components";
 

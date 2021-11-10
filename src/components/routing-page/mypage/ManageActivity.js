@@ -1,6 +1,6 @@
 import React from 'react';
-import {ContentHeader, ContentMiddleHeader, ContentSmallHeader} from "../../common/StyledHeader";
-import Introduction from "../../common/Introduction";
+import {ContentHeader, ContentMiddleHeader, ContentSmallHeader} from "../../common/layout/StyledHeader";
+import Introduction from "../../common/layout/Introduction";
 import ContentTemplate from "../../common/layout/ContentTemplate";
 import ContainerActivity from "../../../containers/mypage/myActivity/ContainerActivity";
 

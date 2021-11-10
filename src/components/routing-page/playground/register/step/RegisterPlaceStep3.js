@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {ContentHeader} from "../../../../common/StyledHeader";
+import {ContentHeader} from "../../../../common/layout/StyledHeader";
 import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import FromCongrats from '../../assets/formCongratus.png';
 

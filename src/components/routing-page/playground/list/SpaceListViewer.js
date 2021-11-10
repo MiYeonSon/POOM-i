@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {ContentHeader} from "../../../common/StyledHeader";
-import Introduction from "../../../common/Introduction";
+import {ContentHeader} from "../../../common/layout/StyledHeader";
+import Introduction from "../../../common/layout/Introduction";
 import ContentTemplate from "../../../common/layout/ContentTemplate";
 
 const SpaceItemBlock = styled.div`

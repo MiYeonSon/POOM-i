@@ -1,5 +1,5 @@
 import React from 'react';
-import Introduction from "../../common/Introduction";
+import Introduction from "../../common/layout/Introduction";
 import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
 import PostItem from "../../common/post/PostItem";
@@ -7,7 +7,7 @@ import CommonHr from "../../common/CommonHr";
 import Person from "../../common/assets/005-gardener.png"
 import ContainerFindClassPostList from "../../../containers/poom-class/posts/ContainerFindClassPostList";
 import {ProfileImage} from "../../common/post/WriterInfo";
-import {ContentHeader} from "../../common/StyledHeader";
+import {ContentHeader} from "../../common/layout/StyledHeader";
 import {ImPencil2} from "react-icons/im";
 
 // 필요 스타일링 컴포넌트(예상)

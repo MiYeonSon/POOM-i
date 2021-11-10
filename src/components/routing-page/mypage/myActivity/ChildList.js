@@ -78,8 +78,8 @@ const ActivityHeader = styled.div`
 
 
 // TODO : 진행 중인 품앗이 화면 출력
-const ChildMoreItem = ({child, expert}) => {
-    const {school, special_note, expert_info} = child;
+const ChildMoreItem = ({child}) => {
+    const {child_name, school, special_note, expert_info} = child;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
@@ -101,16 +101,16 @@ const ChildMoreItem = ({child, expert}) => {
                     ) : (
                         <ActivityItemBlock>
                             <ActivityItemInfo>
-                                <BsFillPersonFill size={40} style={{
+                                <BsFillPersonFill size={40} color={'#8E8E8E'} style={{
                                     boxSizing : 'border-box',
-                                    margin: '0 1vw 0 0',
+                                    margin: '0 0.8vw 0 0',
                                     border: '1.5px solid gray',
                                     borderRadius: '100%'
                                 }}/>
 
                                 <div>
                                     <div>
-                                        {expert_info.manager_nick} 님과 진행중
+                                        {expert_info.manager_nick} 님과 품앗이 진행 중
                                     </div>
                                     <div>
                                         예상 종료 시간 : {expert_info.end_time}
@@ -133,7 +133,7 @@ const ChildMoreItem = ({child, expert}) => {
     );
 }
 
-const ChildItem = ({child, expert}) => {
+const ChildItem = ({child}) => {
     const {birthday, child_name, gender,} = child;
     const [click, setClick] = useState(false);
 
@@ -147,7 +147,7 @@ const ChildItem = ({child, expert}) => {
             <div style={{width: '100%'}}>
                 <ChildHeader>{child_name} ({genderKo})</ChildHeader>
                 <div>생년월일 : {birthday}</div>
-                {click && <ChildMoreItem child={child} expert={expert}/>}
+                {click && <ChildMoreItem child={child} />}
             </div>
         </ChildBlock>
     )
