@@ -21,6 +21,7 @@ import activityInfo, {activityInfoSaga} from "./mypage/activityInfo";
 import spaceFormInfo, {spaceFormSaga} from "./mypage/spaceFormInfo";
 import myInfo, {myInfoSaga} from "./mypage/myInfo";
 import actionPoomClass, {actionPoomClassSaga} from "./mypage/actionPoomClass";
+import applyPoomClass, {applyPoomClassSaga} from "./mypage/applyPoomClass";
 
 const rootReducer = combineReducers({
     auth,
@@ -43,6 +44,8 @@ const rootReducer = combineReducers({
     activityInfo,
     spaceFormInfo,
     actionPoomClass,
+    applyPoomClass,
+
     actionCreators
 });
 
@@ -69,7 +72,9 @@ export function* rootSaga() {
         spaceFormSaga(),
         activityInfoSaga(),
 
-        actionPoomClassSaga()
+        actionPoomClassSaga(),
+        applyPoomClassSaga()
+
     ]);
 }
 

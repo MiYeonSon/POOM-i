@@ -3,7 +3,6 @@ import CommonHr from "../../../common/CommonHr";
 import {BsFillPersonFill} from "react-icons/bs";
 import styled from 'styled-components';
 
-
 const ClassInfoBlock = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -108,7 +107,7 @@ const JoinPoomClassInfo = ({classInfo}) => {
     );
 }
 
-const JoinPoomClass = ({classInfo, loading, error}) => {
+const JoinPoomClassInfos = ({classInfo, loading, error}) => {
     if (error) {
         return (<div>에러 발생</div>);
     }
@@ -120,4 +119,4 @@ const JoinPoomClass = ({classInfo, loading, error}) => {
     );
 };
 
-export default JoinPoomClass;
+export default JoinPoomClassInfos;

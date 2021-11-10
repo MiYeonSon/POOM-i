@@ -30,3 +30,18 @@ export const readClass = ({
         "Authorization": `Bearer ${token}`
     }
 })
+
+export const applyClass = ({
+                              token,
+                              groupId,
+                              contents,
+                              childId
+                          }) => client.post(`/group/${groupId}/apply`, {
+    contents: contents,
+    child_id: childId
+}, {
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    }
+});

@@ -12,8 +12,11 @@ import CommentClassBlock from "../CommentClassBlock";
 import {StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
 import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
 import RectButton from "../../../common/RectButton";
-import ContainerJoinPoomClass from "../../../../containers/mypage/myActivity/ContainerJoinPoomClass";
+import ContainerJoinPoomClassInfos from "../../../../containers/mypage/myActivity/ContainerJoinPoomClassInfos";
 import {BsFillPersonFill} from "react-icons/bs";
+import ApplyPoomClassEditor from "../../mypage/myActivity/ApplyPoomClassEditor";
+import ContainerApplyPoomClassEditor from "../../../../containers/mypage/myActivity/ContainerApplyPoomClassEditor";
+import ContainerApplyActionButton from "../../../../containers/mypage/myActivity/ContainerApplyActionButton";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -138,7 +141,13 @@ const FindClassPostItem = ({post, history}) => {
 
     // 품앗이 반 참여 지원 모달 관련
     const [classInfoModal, setClassInfoModal] = useState(false);
-    const [supportModal, supportInfoModal] = useState(false);
+    const [supportModal, setSupportModal] = useState(false);
+
+    const controlModal = () => {
+        console.log('click');
+        setClassInfoModal(false);
+        setSupportModal(true);
+    }
 
     return (
         <PostItem>
@@ -148,19 +157,27 @@ const FindClassPostItem = ({post, history}) => {
                         {title}
                         <div className={'time'}>{regular_meeting_day}</div>
                     </div>
-                    {recruitment_status === 'RECRUITING' && <RectButton backgroundColor={'#FFB663'} onClick={() => setClassInfoModal(!classInfoModal)}>모집중</RectButton>}
+                    {recruitment_status === 'RECRUITING' && <RectButton backgroundColor={'#FFB663'}
+                                                                        onClick={() => setClassInfoModal(!classInfoModal)}>모집중</RectButton>}
                     {
-                        classInfoModal && <Modal width={'34vw'} visible={classInfoModal} onClose={() => setClassInfoModal(false)}>
-                            <ContainerJoinPoomClass groupId={group_id}/>
-                            <div style={{width : '100%', marginTop : '0.5vw', textAlign : 'right'}}>
-                                <RectButton backgroundColor={'#FFB663'}>지원하기</RectButton>
+                        classInfoModal &&
+                        <Modal width={'34vw'} visible={classInfoModal} onClose={() => setClassInfoModal(false)}>
+                            <ContainerJoinPoomClassInfos groupId={group_id}/>
+                            <div style={{width: '100%', marginTop: '0.5vw', textAlign: 'right'}}>
+                                <RectButton backgroundColor={'#FFB663'} onClick={controlModal}>지원하기</RectButton>
                             </div>
                         </Modal>
                     }
                     {
-                        
+                        supportModal &&
+                        <Modal visible={supportModal} onClose={() => setSupportModal(false)}>
+                            <ContainerApplyPoomClassEditor />
+                            <div style={{width: '100%', marginTop: '0.5vw', textAlign: 'right'}}>
+                            <ContainerApplyActionButton groupId={group_id}/>
+                            </div>
+                        </Modal>
                     }
-                    
+
                 </PoomClassInfo>
 
                 <FindClassPostActionButtons onEdit={onEdit} onRemove={onRemove}/>
@@ -169,8 +186,8 @@ const FindClassPostItem = ({post, history}) => {
             <ContentBlock>
                 <UserInfoBlock>
                     <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
-                        padding : '0.2vw',
-                        boxSizing : 'border-box',
+                        padding: '0.2vw',
+                        boxSizing: 'border-box',
                         border: '1.5px solid #8E8E8E',
                         borderRadius: '100%'
                     }}/>

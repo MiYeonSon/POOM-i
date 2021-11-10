@@ -122,7 +122,6 @@ const ChildcareEditor = ({
                 <CategoryContent>
                     <StyledSelect onChange={onChangeChildID}>
                         <option value="null">-</option>
-
                         {
                             childList.data.map(child => (
                                 <option value={child.child_id} key={child.child_id}>{child.name}</option>

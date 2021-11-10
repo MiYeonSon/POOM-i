@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {readClass} from "../../../modules/mypage/actionPoomClass";
-import JoinPoomClass from "../../../components/routing-page/mypage/myActivity/JoinPoomClass";
+import JoinPoomClassInfo from "../../../components/routing-page/mypage/myActivity/JoinPoomClassInfos";
+import {getChildList} from "../../../modules/detailInfo/detailInfo";
 
-const ContainerJoinPoomClass = ({groupId}) => {
+const ContainerJoinPoomClassInfos = ({groupId}) => {
     const dispatch = useDispatch();
 
     const {classInfo, classInfoError, loading, token}= useSelector(({actionPoomClass, loading, user}) => ({
@@ -14,14 +15,15 @@ const ContainerJoinPoomClass = ({groupId}) => {
     }));
 
     useEffect(() => {
+        dispatch(getChildList(token));
         dispatch(readClass({token, groupId}));
     }, [dispatch]);
 
     return (
         <>
-            <JoinPoomClass classInfo={classInfo} loading={loading} error={classInfoError} />
+            <JoinPoomClassInfo classInfo={classInfo} loading={loading} error={classInfoError} />
         </>
     );
 };
 
-export default ContainerJoinPoomClass;
+export default ContainerJoinPoomClassInfos;

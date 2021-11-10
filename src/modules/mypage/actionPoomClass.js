@@ -21,6 +21,7 @@ const [
 ] = createRequestActionTypes('actionPoomClass/READ_CLASS');
 
 
+
 export const initialize = createAction(INITIALIZE);
 
 // 여기서는 key, value가 액션에 필요한 추가 데이터인 payload
@@ -68,7 +69,8 @@ const initialState = {
     poomClass: null,
     poomClassError: null,
     classInfo: null,
-    classInfoError: null
+    classInfoError: null,
+
 };
 
 const actionPoomClass = handleActions(
@@ -98,7 +100,7 @@ const actionPoomClass = handleActions(
         [READ_CLASS_FAILURE] : (state, {payload : classInfoError}) => ({
             ...state,
             classInfoError : classInfoError
-        })
+        }),
     },
     initialState
 );
