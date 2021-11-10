@@ -6,10 +6,9 @@ const TableRowTemplate = styled.div`
   width: 100%;
   height: fit-content;
 
-  margin: 0.3vw 0;
+  margin: 0.5vw 0;
   
   display: flex;
-  
 `;
 
 const TableHeader = styled.div`
@@ -37,7 +36,7 @@ const TableBody  = styled.div`
   align-items: center;
 
   font-size: 1vw;
-  letter-spacing: 0.1vw;
+  letter-spacing: 0.05vw;
   
   border-top: 1px solid #DEDEDE;
   border-bottom: 1px solid #DEDEDE;

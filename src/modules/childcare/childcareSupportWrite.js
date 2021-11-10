@@ -15,6 +15,7 @@ const [
 ] = createRequestActionTypes('childcareSupportWrite/WRITE_POST');
 
 const SET_ORIGINAL_POST = 'childcareSupportWrite/SET_ORIGINAL_POST';
+const SET_EXPERT_ID = 'childcareSupportWrite/SET_EXPERT_ID';
 
 const [
     UPDATE_POST,
@@ -36,6 +37,7 @@ export const writePost = createAction(WRITE_POST, ({token, expertId, childId, co
 }));
 
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => (post));
+export const setExpertId = createAction(SET_EXPERT_ID, (expertId) => (expertId));
 
 export const updatePost = createAction(
     UPDATE_POST,
@@ -99,8 +101,11 @@ const childcareSupportWrite = handleActions(
             ...state,
             childId: post.child_id,
             contents: post.contents,
-            expertId: post.expert_id,
             originalPostId: post.apply_id
+        }),
+        [SET_EXPERT_ID] : (state, {payload : expertId}) => ({
+           ...state,
+           expertId : expertId
         }),
         [UPDATE_POST_SUCCESS] : (state, {payload : post}) =>({
             ...state,

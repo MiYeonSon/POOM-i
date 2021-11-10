@@ -4,7 +4,7 @@ import {childcareSupportListPosts} from "../../../modules/childcare/childcareSup
 import SupportChildcarePostList
     from "../../../components/routing-page/childcare/support-posts/SupportChildcarePostList";
 
-const ContainerSupportChildcarePostList = ({expertId}) => {
+const ContainerSupportChildcarePostList = ({writer, expertId}) => {
     const dispatch = useDispatch();
 
     const {posts, error, loading, token} = useSelector(
@@ -26,6 +26,7 @@ const ContainerSupportChildcarePostList = ({expertId}) => {
             error={error}
             posts={posts}
             expertId={expertId}
+            writer={writer}
         />
     );
 };

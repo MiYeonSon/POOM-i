@@ -26,7 +26,8 @@ const ContainerSupportChildcareWriteActonButtons = () => {
                 childId,
                 contents,
                 applyId : originalPostId
-            }))
+            }));
+            return;
         }
 
         dispatch(writePost({

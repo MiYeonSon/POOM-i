@@ -18,7 +18,6 @@ const ContainerActivity = () => {
     );
 
     useEffect(() => {
-        console.log(token)
         dispatch(listActivity({token}));
     }, [dispatch]);
 

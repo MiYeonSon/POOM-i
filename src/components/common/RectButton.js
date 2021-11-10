@@ -21,7 +21,7 @@ const StyledRectButton = styled.button`
 const RectButton = ({width, margin, onClick, backgroundColor, color, children}) => {
 
     return (
-        <StyledRectButton width={width} margin={margin} backgroundColor={backgroundColor} color={color}
+        <StyledRectButton type={'button'} width={width} margin={margin} backgroundColor={backgroundColor} color={color}
                           onClick={onClick}>{children}</StyledRectButton>
     );
 };

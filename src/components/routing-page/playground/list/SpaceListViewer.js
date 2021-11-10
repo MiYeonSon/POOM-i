@@ -32,13 +32,12 @@ const SpaceContent = styled.div`
 `;
 const SpaceName = styled.div`
   box-sizing: border-box;
-
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   font-weight: 700;
 `;
 
 const SpaceExplain = styled.div`
-  margin: 1vw 0 0;
+  margin: 0.5vw 0 0;
 
   box-sizing: border-box;
   font-size: 1vw;

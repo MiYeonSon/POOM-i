@@ -168,7 +168,7 @@ const ChildcarePostItem = ({childcarePost}) => {
                                     {
                                         supportModal &&
                                         <Modal visible={supportModal} onClose={onClose}>
-                                            <ContainerSupportChildcarePostList expertId={expert_id}/>
+                                            <ContainerSupportChildcarePostList writer={writer} expertId={expert_id}/>
                                         </Modal>
                                     }
                                 </div>

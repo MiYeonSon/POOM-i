@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {BsTriangleFill} from "react-icons/bs";
 import StyledTableRow from "../../../common/StyledTableRow";
+import RectButton from "../../../common/RectButton";
+import {NoListGrayComment} from "../../../common/NoListComment";
+import {BsFillPersonFill} from "react-icons/bs";
 
 const ChildListTemplate = styled.div`
   margin: 1vw 0 6vw;
@@ -10,7 +13,8 @@ const ChildListTemplate = styled.div`
 
 const ChildBlock = styled.div`
   box-sizing: border-box;
-  padding: 2vw 3vw;
+  margin: 0 0 1vw;
+  padding: 1.5vw 3vw;
   width: 100%;
   display: flex;
 
@@ -26,20 +30,56 @@ const ChildBlock = styled.div`
   .rotate {
     transform: rotate(180deg);
   }
-
 `;
 
 
 const ChildHeader = styled.div`
   margin-bottom: 0.6vw;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   font-weight: 700;
 `;
 
 
+const ActivityItemBlock = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.5vw 0;
+  padding: 1vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #DEDEDE;
+  border-radius: 7px;
+`;
+
+const ActivityItemInfo = styled.div`
+  box-sizing: border-box;
+  width: available;
+  
+  display: flex;
+  align-items: center;
+
+  font-size: 0.9vw;
+
+  div + div {
+    margin-top: 0.3vw;
+    font-size: 0.7vw;
+  }
+
+`;
+
+
+const ActivityHeader = styled.div`
+  font-size: 1vw;
+`;
+
+
 // TODO : 진행 중인 품앗이 화면 출력
-const ChildMoreItem = ({child}) => {
-    const {school, special_note} = child;
+const ChildMoreItem = ({child, expert}) => {
+    const {school, special_note, expert_info} = child;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
@@ -51,14 +91,50 @@ const ChildMoreItem = ({child}) => {
                 }
             </StyledTableRow>
             <StyledTableRow header={'진행 중인 품앗이'}>
-                없음
+
+
+                <div style={{width: '100%', margin: '1.5vw 0'}}>
+                    <ActivityHeader>[단기 품앗이]</ActivityHeader>
+
+                    {expert_info === null ? (
+                        <NoListGrayComment>참여중인 단기 품앗이 목록이 없습니다.</NoListGrayComment>
+                    ) : (
+                        <ActivityItemBlock>
+                            <ActivityItemInfo>
+                                <BsFillPersonFill size={40} style={{
+                                    boxSizing : 'border-box',
+                                    margin: '0 1vw 0 0',
+                                    border: '1.5px solid gray',
+                                    borderRadius: '100%'
+                                }}/>
+
+                                <div>
+                                    <div>
+                                        {expert_info.manager_nick} 님과 진행중
+                                    </div>
+                                    <div>
+                                        예상 종료 시간 : {expert_info.end_time}
+                                    </div>
+                                </div>
+                            </ActivityItemInfo>
+                            <RectButton backgroundColor={'#FFB663'}>종료 및 평가</RectButton>
+                        </ActivityItemBlock>
+                    )}
+
+
+                    <ActivityHeader style={{margin: '2vw 0 0'}}>[정기 품앗이]</ActivityHeader>
+                    <ActivityItemBlock>
+
+                    </ActivityItemBlock>
+
+                </div>
             </StyledTableRow>
         </div>
     );
 }
 
-const ChildItem = ({child}) => {
-    const {birthday, child_name, gender} = child;
+const ChildItem = ({child, expert}) => {
+    const {birthday, child_name, gender,} = child;
     const [click, setClick] = useState(false);
 
     const genderKo = gender === 'FEMALE' ? '여' : '남';
@@ -71,7 +147,7 @@ const ChildItem = ({child}) => {
             <div style={{width: '100%'}}>
                 <ChildHeader>{child_name} ({genderKo})</ChildHeader>
                 <div>생년월일 : {birthday}</div>
-                {click && <ChildMoreItem child={child}/>}
+                {click && <ChildMoreItem child={child} expert={expert}/>}
             </div>
         </ChildBlock>
     )

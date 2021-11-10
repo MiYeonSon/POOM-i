@@ -46,21 +46,22 @@ const BoldElem = styled.div`
   font-weight: 700;
 `;
 
-const CallingCard = () => {
-    return (
-        <CallingCardTemplate>
+const CallingCardContent = ({info}) => {
+    const {name, child_count} = info;
+
+    return(
+        <>
             <UserInfoBlock>
                 <ProfileImage size={4.5} src={ProfileImg} alt={'프로필 사진'}/>
                 <UserInfo>
                     <div style={{
-                        marginBottom:'0.5vw',
+                        marginBottom: '0.5vw',
                         display: 'flex',
                         alignItems: 'center'
                     }}>
-                        <BoldElem style={{margin: '0 0.5vw 0 0'}}>아이조아</BoldElem>
-                        <BsPencilSquare size={'1.3vw'} color={'#AAAAAA'} />
+                        <BoldElem style={{margin: '0 0.5vw 0 0'}}>{name}</BoldElem>
+                        <BsPencilSquare size={'1.3vw'} color={'#AAAAAA'}/>
                     </div>
-
 
                     <div>품앗이 점수 : ❤❤❤❤❤❤</div>
                 </UserInfo>
@@ -69,10 +70,27 @@ const CallingCard = () => {
 
             <ChildInfoBlock>
                 <div>등록된 자녀 수</div>
-                <BoldElem style={{marginTop: '0.5vw'}}>2</BoldElem>
+                <BoldElem style={{marginTop: '0.5vw'}}>{child_count}</BoldElem>
             </ChildInfoBlock>
+        </>
+    );
+}
 
-        </CallingCardTemplate>
+const CallingCard = ({info, error, loading}) => {
+    if (error) {
+        return <div>에러 발생</div>
+    };
+
+    return (
+        <>
+            {!loading && info && (
+
+                <CallingCardTemplate>
+                    <CallingCardContent info={info.data} />
+                </CallingCardTemplate>
+            )}
+        </>
+
     );
 };
 
