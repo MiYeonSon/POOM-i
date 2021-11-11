@@ -5,6 +5,7 @@ import ChildList from "../../../components/routing-page/mypage/myActivity/ChildL
 import {ContentMiddleHeader} from "../../../components/common/layout/StyledHeader";
 import PoomClassList from "../../../components/routing-page/mypage/myActivity/PoomClassList";
 import {BsPencilSquare} from "react-icons/bs";
+import { AiOutlinePlus, AiOutlinePlusSquare } from "react-icons/ai";
 import Modal from "../../../components/common/Modal";
 import ContainerCreatePoomClass from "./ContainerCreatePoomClass";
 import ContainerCreateActionButton from "./ContainerCreateActionButton";
@@ -34,14 +35,15 @@ const ContainerActivity = () => {
 
             <ContentMiddleHeader>
                 품앗이 반 관리
-                <BsPencilSquare size={30}
-                                color={'#AAAAAA'}
-                                style={{margin: '0 0.5vw', cursor: 'pointer'}}
-                                onClick={() => setModal(!modal)}/>
+
+                <AiOutlinePlus style={{margin: '0 0.3vw', cursor: 'pointer'}}
+                               onClick={() => setModal(!modal)} />
                 {modal && (
                     <Modal visible={modal} onClose={() => setModal(false)}>
                         <ContainerCreatePoomClass />
-                        <ContainerCreateActionButton />
+                        <div style={{textAlign : 'right'}}>
+                            <ContainerCreateActionButton />
+                        </div>
                     </Modal>
                 )}
             </ContentMiddleHeader>

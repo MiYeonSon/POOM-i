@@ -45,3 +45,13 @@ export const applyClass = ({
         "Authorization": `Bearer ${token}`
     }
 });
+
+export const approveClass = ({
+    token,
+    groupId,
+    applyId
+}) => client.post(`/group/${groupId}/approve/${applyId}`, {}, {
+    headers: {
+        "Authorization": `Bearer ${token}`
+    }
+});

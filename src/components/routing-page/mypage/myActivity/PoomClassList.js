@@ -4,6 +4,8 @@ import {BsFillPersonFill, BsTriangleFill} from "react-icons/bs";
 import RectButton from "../../../common/RectButton";
 import {NoListGrayComment} from "../../../common/NoListComment";
 import {ContentSmallHeader} from "../../../common/layout/StyledHeader";
+import {useSelector} from "react-redux";
+import {approveClass} from "../../../../lib/api/mypage/actionPoomClass";
 
 const PoomClassListTemplate = styled.div`
   margin: 1vw 0 6vw;
@@ -42,45 +44,51 @@ const PoomClassHeader = styled.div`
   font-weight: 700;
 `;
 
-const ApplierBlock = styled.div`
+const UserInfoBlock = styled.div`
   box-sizing: border-box;
   width: 100%;
 
+  padding: 1.5vw 2vw 1vw;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 1px solid #AAAAAA;
   border-radius: 7px;
 `;
 
-const ApplierUserInfo = styled.div`
+const UserInfo = styled.div`
   box-sizing: border-box;
-
-  padding: 1vw 2vw 0;
-
   display: flex;
   align-items: center;
 `;
 
-const ApplierUserTextInfo =styled.div`
+const UserTextInfo = styled.div`
   box-sizing: border-box;
   width: 100%;
-  
-  margin: 0 1vw;
-
   display: flex;
   justify-content: space-between;
+
+  div {
+    margin: 0 0.3vw;
+  }
 `;
 
 const ApplyAmbition = styled.div`
   box-sizing: border-box;
-  margin: 1vw 3vw 0 5vw;
+
+  margin: 0 0 0 2.7vw;
 `;
 
-const ApplierInfo = ({applier}) => {
-    const {apply_contents, applier_nick, child_name, child_birthday} = applier;
+const ApplierInfo = ({groupId, applier}) => {
+    const {apply_id, apply_contents, applier_nick, child_name, child_birthday} = applier;
+
+    const {token} = useSelector(({user}) => ({
+        token: user.token
+    }));
+
 
     return (
-        <ApplierBlock>
-            <ApplierUserInfo>
+        <UserInfoBlock>
+
+            <UserInfo>
                 <div>
                     <BsFillPersonFill size={40} color={'#8E8E8E'} style={{
                         padding: '0.1vw',
@@ -89,45 +97,82 @@ const ApplierInfo = ({applier}) => {
                         borderRadius: '100%'
                     }}/>
                 </div>
-                <ApplierUserTextInfo>
+                <UserTextInfo>
                     <div>
-                        <div style={{fontSize : '1.1vw', fontWeight : '700'}}>{applier_nick}</div>
-                        <div style={{marginTop : '0.1vw' , fontSize : '0.8vw'}}>자녀 정보 : {child_name} (생년월일 : {child_birthday})</div>
+                        <div style={{fontSize: '1.1vw', fontWeight: '700'}}>{applier_nick}</div>
+                        <div style={{marginTop: '0.1vw', fontSize: '0.8vw'}}>자녀 정보 : {child_name} (생년월일
+                            : {child_birthday})
+                        </div>
                     </div>
 
-                    <RectButton backgroundColor={'#FFB663'}>승인하기</RectButton>
-                </ApplierUserTextInfo>
-            </ApplierUserInfo>
+                    <RectButton margin={'0'} backgroundColor={'#FFB663'}
+                                onClick={() => approveClass({token, groupId, applyId: apply_id})}>승인하기</RectButton>
+                </UserTextInfo>
+            </UserInfo>
 
-            <ApplyAmbition dangerouslySetInnerHTML={{__html : apply_contents}} />
-        </ApplierBlock>
+            <ApplyAmbition dangerouslySetInnerHTML={{__html: apply_contents}}/>
+        </UserInfoBlock>
+    );
+}
+
+const ParticipantInfo = ({participant}) => {
+    const {member_nick, child_name, child_birthday} = participant;
+
+    return (
+        <>
+            <UserInfoBlock>
+                <UserInfo>
+                    <div>
+                        <BsFillPersonFill size={40} color={'#8E8E8E'} style={{
+                            padding: '0.1vw',
+                            boxSizing: 'border-box',
+                            border: '1.5px solid #8E8E8E',
+                            borderRadius: '100%'
+                        }}/>
+
+                    </div>
+                    <UserTextInfo>
+                        <div>
+                            <div style={{fontSize: '1.1vw', fontWeight: '700'}}>{member_nick}</div>
+                            <div style={{marginTop: '0.1vw', fontSize: '0.8vw'}}>
+                                자녀 정보 : {child_name} (생년월일 : {child_birthday})
+                            </div>
+                        </div>
+                    </UserTextInfo>
+                </UserInfo>
+            </UserInfoBlock>
+        </>
     );
 }
 
 const PoomClassMoreInfo = ({group}) => {
-    const {participating_members, apply_info} = group;
+    const {group_id, participating_members, apply_info} = group;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
             <ContentSmallHeader>[ 참여자 목록 ]</ContentSmallHeader>
             {
                 participating_members.length === 0 ? (
-                    <div>참여자 없음</div>
+                    <NoListGrayComment>참여자 없음</NoListGrayComment>
                 ) : (
-                    participating_members
-                )
-            }
-
-            <ContentSmallHeader>[ 참여자 희망자 목록 ]</ContentSmallHeader>
-            {
-                apply_info.length === 0 ? (
-                    <div>지원자 없음</div>
-                ) : (
-                    apply_info.map(applier => (
-                        <ApplierInfo applier={applier} key={applier.apply_id}/>
+                    participating_members.map(participant => (
+                        <ParticipantInfo participant={participant} key={participant.member_id}/>
                     ))
                 )
             }
+
+            <div style={{marginTop: '2vw'}}>
+                <ContentSmallHeader>[ 참여자 희망자 목록 ]</ContentSmallHeader>
+                {
+                    apply_info.length === 0 ? (
+                        <NoListGrayComment>지원자 없음</NoListGrayComment>
+                    ) : (
+                        apply_info.map(applier => (
+                            <ApplierInfo groupId={group_id} applier={applier} key={applier.apply_id}/>
+                        ))
+                    )
+                }
+            </div>
         </div>
     );
 }
@@ -140,7 +185,7 @@ const PoomClassItem = ({group}) => {
         <PoomClassBlock onClick={() => setClick(!click)}>
             <BsTriangleFill className={click ? 'rotate' : 'nonRotate'} color={'#AAAAAA'} size={'1vw'}
                             style={{margin: '1vw 2vw 0 0'}}/>
-            <div style={{width: '100%'}}>
+            <div style={{width: '90%'}}>
                 <PoomClassHeader>
                     <div>
                         {group_name}
@@ -151,7 +196,6 @@ const PoomClassItem = ({group}) => {
                 </PoomClassHeader>
                 <div>
                     <span style={{fontWeight: '300'}}>활동 시간 : {activity_time} </span>
-
                     {click && <PoomClassMoreInfo group={group}/>}
                 </div>
             </div>

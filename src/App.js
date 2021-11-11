@@ -13,7 +13,7 @@ import RegisterPlacePage from "./pages/playground/register/RegisterPlacePage";
 import MyPage from "./pages/mypage/MyPage";
 import MyPageActivity from "./pages/mypage/MyPageActivity";
 import MyPageSpaceForm from "./pages/mypage/MyPageSpaceForm";
-import VotePage from "./pages/VotePage";
+import MyPageMember from "./pages/mypage/MyPageMember";
 
 function App() {
     return (
@@ -28,7 +28,7 @@ function App() {
             <Route path={"/mypage"} component={MyPage} exact={true}/>
             <Route path={"/mypage/manageactivity"} component={MyPageActivity} exact={true}/>
             <Route path={"/mypage/manageform"} component={MyPageSpaceForm} exact={true}/>
-
+            <Route path={'/mypage/managemember'} component={MyPageMember} exact={true}/>
 
             <Route path={"/childcare"} component={FindChildcarePage} exact={true}/>
             <Route path={"/class"} component={FindClassPage} exact={true}/>

@@ -58,7 +58,7 @@ const ActivityItemBlock = styled.div`
 const ActivityItemInfo = styled.div`
   box-sizing: border-box;
   width: available;
-  
+
   display: flex;
   align-items: center;
 
@@ -77,9 +77,32 @@ const ActivityHeader = styled.div`
 `;
 
 
+const GroupInfoItem = ({group}) => {
+
+    const {group_name, activity_time} = group;
+
+    return (
+        <>
+            <ActivityItemBlock>
+                <ActivityItemInfo>
+                    <div>
+                        <div>
+                            {group_name} 참여 중
+                        </div>
+                        <div>
+                            활동 시간 : {activity_time}
+                        </div>
+                    </div>
+                </ActivityItemInfo>
+            </ActivityItemBlock>
+
+        </>
+    );
+}
+
 // TODO : 진행 중인 품앗이 화면 출력
 const ChildMoreItem = ({child}) => {
-    const {child_name, school, special_note, expert_info} = child;
+    const {child_name, school, special_note, expert_info, group_info} = child;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
@@ -102,7 +125,7 @@ const ChildMoreItem = ({child}) => {
                         <ActivityItemBlock>
                             <ActivityItemInfo>
                                 <BsFillPersonFill size={40} color={'#8E8E8E'} style={{
-                                    boxSizing : 'border-box',
+                                    boxSizing: 'border-box',
                                     margin: '0 0.8vw 0 0',
                                     border: '1.5px solid gray',
                                     borderRadius: '100%'
@@ -123,9 +146,13 @@ const ChildMoreItem = ({child}) => {
 
 
                     <ActivityHeader style={{margin: '2vw 0 0'}}>[정기 품앗이]</ActivityHeader>
-                    <ActivityItemBlock>
-
-                    </ActivityItemBlock>
+                    {group_info === null ? (
+                        <NoListGrayComment>참여중인 장기 품앗이 목록이 없습니다.</NoListGrayComment>
+                    ) : (
+                        group_info.map(group => (
+                            <GroupInfoItem group={group} key={group_info.group_id}/>
+                        ))
+                    )}
 
                 </div>
             </StyledTableRow>
@@ -147,7 +174,7 @@ const ChildItem = ({child}) => {
             <div style={{width: '100%'}}>
                 <ChildHeader>{child_name} ({genderKo})</ChildHeader>
                 <div>생년월일 : {birthday}</div>
-                {click && <ChildMoreItem child={child} />}
+                {click && <ChildMoreItem child={child}/>}
             </div>
         </ChildBlock>
     )
