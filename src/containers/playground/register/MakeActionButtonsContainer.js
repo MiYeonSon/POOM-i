@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {makeVote} from "../../../modules/playground/register/makeVoteForm";
 import MakeActionButtons from "../../../components/routing-page/playground/register/MakeActionButtons";
 
-const MakeActionButtonsContainer = () => {
+const MakeActionButtonsContainer = ({move}) => {
     const dispatch = useDispatch();
 
     const {
@@ -28,16 +28,25 @@ const MakeActionButtonsContainer = () => {
         token : user.token
     }));
 
-    const onPublish = () => {
-        dispatch(makeVote({
-            token,
-            postCode,
-            address,
-            detailAddress,
-            extraAddress,
-            purposeUsing,
-            images
-        }))
+    const onPublish = async () => {
+       let check = [images, postCode, address, detailAddress, extraAddress, purposeUsing];
+
+       if(check.includes("")) {
+           alert('찬반 투표를 제외한 모든 항목은 필수 입력 항목입니다.');
+       } else{
+           await dispatch(makeVote({
+               token,
+               postCode,
+               address,
+               detailAddress,
+               extraAddress,
+               purposeUsing,
+               images
+           }));
+
+           move();
+
+       }
     };
     
     useEffect(() => {

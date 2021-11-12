@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {css} from "styled-components";
 
-const StyledPageButton = styled.button`
+const StyledPageButton = styled.div`
   box-sizing: border-box;
   width: 12vw;
   height: 8vh;
@@ -14,7 +14,10 @@ const StyledPageButton = styled.button`
   border-radius: 100vw;
   border: none;
   cursor: pointer;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   ${props =>
           props.highlight &&
           css`

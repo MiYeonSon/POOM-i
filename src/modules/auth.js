@@ -64,67 +64,65 @@ export function* authSaga() {
 }
 
 const initialState = {
-    login : {
-        email : '',
-        password : ''
+    login: {
+        email: '',
+        password: ''
     },
-        register: {
-            name: '',
-            phoneNumber: '',
-            email: '',
-            password: '',
-            passwordConfirm: '',
-            nick: '',
-            gender: '',
-            age : '',
-            postCode: '',
-            address: '',
-            detailAddress: '',
-            extraAddress: '',
-            addressFile: undefined
-        },
-    auth : null,
-    authError : null
+    register: {
+        name: '',
+        phoneNumber: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        nick: '',
+        gender: '',
+        age: '',
+        postCode: '',
+        address: '',
+        detailAddress: '',
+        extraAddress: '',
+        addressFile: undefined
+    },
+    auth: null,
+    authError: null
 };
 
 
-
 // handleActions를 활용하여 리듀서 함수를 만들 수 있으며, 함수의 첫 번째 파라미터에는 각 액션에 대한 업데이트 함수를 넣어주고, 두 번째 파라미터에는 초기 상태를 넣어준다.
-const auth=handleActions(
+const auth = handleActions(
     // 각 액션에 대한 업데이트 함수
     {
-        [CHANGE_FIELD] : (state, {payload : {form, key, value}}) =>
+        [CHANGE_FIELD]: (state, {payload: {form, key, value}}) =>
             produce(state, draft => {
                 draft[form][key] = value
             }),
-        [INITIALIZE_FORM] : (state, {payload : form}) => ({
+        [INITIALIZE_FORM]: (state, {payload: form}) => ({
             ...state,
-            [form] : initialState[form]
+            [form]: initialState[form]
         }),
-        [LOGIN_SUCCESS] : (state, {payload : auth}) => ({
+        [LOGIN_SUCCESS]: (state, {payload: auth}) => ({
             ...state,
             authError: null,
             auth
         }),
-        [LOGIN_FAILURE] : (state, {payload : error}) => ({
+        [LOGIN_FAILURE]: (state, {payload: error}) => ({
             ...state,
-            authError : error
+            authError: error
         })
         ,
-        [REGISTER_SUCCESS] : (state, {payload : auth}) => ({
+        [REGISTER_SUCCESS]: (state, {payload: auth}) => ({
             ...state,
             authError: null,
             auth
         }),
-        [REGISTER_FAILURE] : (state, {payload : error}) => ({
+        [REGISTER_FAILURE]: (state, {payload: error}) => ({
             ...state,
-            authError : error
+            authError: error
         })
     },
     // 초기 상태
     initialState
 );
-
 
 
 export default auth;

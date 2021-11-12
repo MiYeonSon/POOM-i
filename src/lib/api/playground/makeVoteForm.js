@@ -22,3 +22,4 @@ export const makeVote = ({
         "Authorization": `Bearer ${token}`
     }
 })
+

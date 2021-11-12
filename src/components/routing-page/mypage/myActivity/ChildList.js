@@ -102,7 +102,7 @@ const GroupInfoItem = ({group}) => {
 
 // TODO : 진행 중인 품앗이 화면 출력
 const ChildMoreItem = ({child}) => {
-    const {child_name, school, special_note, expert_info, group_info} = child;
+    const {school, special_note, expert_info, group_info} = child;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
@@ -146,7 +146,7 @@ const ChildMoreItem = ({child}) => {
 
 
                     <ActivityHeader style={{margin: '2vw 0 0'}}>[정기 품앗이]</ActivityHeader>
-                    {group_info === null ? (
+                    {group_info.length === 0 ? (
                         <NoListGrayComment>참여중인 장기 품앗이 목록이 없습니다.</NoListGrayComment>
                     ) : (
                         group_info.map(group => (

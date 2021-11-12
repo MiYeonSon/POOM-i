@@ -31,7 +31,7 @@ const SignUpPage = () => {
                                 {stepArr[num]}
 
                 */}
-                <SignUpStep3 />
+                <SignUpStep2 />
 
                 <PageButtonBlock>
                     <PageButton onClick={num > -1 ? () => setNum(num - 1) : setNum(0)}>이전</PageButton>

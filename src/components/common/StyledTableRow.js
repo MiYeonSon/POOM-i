@@ -21,6 +21,8 @@ const TableHeader = styled.div`
   align-items: center;
   
   background-color: #FFB6634D;
+  
+  font-weight: ${props => props.headerBold  && '700'};
 
   font-size: 1vw;
 
@@ -42,10 +44,10 @@ const TableBody  = styled.div`
   border-bottom: 1px solid #DEDEDE;
 `;
 
-const StyledTableRow = ({header, children}) => {
+const StyledTableRow = ({header, headerBold, children}) => {
     return (
         <TableRowTemplate>
-            <TableHeader>{header}</TableHeader>
+            <TableHeader headerBold={headerBold}>{header}</TableHeader>
             <TableBody>
                 {children}
             </TableBody>

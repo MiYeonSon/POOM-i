@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {applyClass} from "../../../modules/mypage/applyPoomClass";
 import RectButton from "../../../components/common/RectButton";
 
-const ContainerApplyActionButton = ({groupId}) => {
+const ContainerApplyActionButton = ({onClose, groupId}) => {
     const dispatch = useDispatch();
 
     const {contents, childId, apply, applyError, token} = useSelector(({
@@ -27,11 +27,13 @@ const ContainerApplyActionButton = ({groupId}) => {
                 childId
             })
         );
+
+        onClose();
     };
 
     useEffect(() => {
         if(apply) {
-            console.log('apply success')
+            console.log('apply success');
         }
 
         if(applyError) {

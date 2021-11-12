@@ -17,7 +17,7 @@ const ContainerJoinPoomClassInfos = ({groupId}) => {
     useEffect(() => {
         dispatch(getChildList(token));
         dispatch(readClass({token, groupId}));
-    }, [dispatch]);
+    }, [dispatch, token, groupId]);
 
     return (
         <>

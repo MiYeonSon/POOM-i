@@ -1,9 +1,10 @@
 import React from 'react';
+import PageButton from "../../register/PageButton";
 
 const MakeActionButtons = ({onPublish}) => {
     return (
         <div>
-            <button type={'button'} onClick={onPublish}>폼 등록</button>
+            <PageButton type={'button'} onClick={onPublish} highlight>등록</PageButton>
         </div>
     );
 };

@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {childcareSupportRemovePost} from "../../../../lib/api/childcare/childcareSupportPosts";
 import {NoListDefaultComment} from "../../../common/NoListComment";
 import AcceptChildcareActionButton from "../support-post/AcceptChildcareActionButton";
+import {BsFillPersonFill} from "react-icons/bs";
 
 const SupportChildcarePostItem = ({post, expertId, writer}) => {
     const dispatch = useDispatch();
@@ -46,7 +47,12 @@ const SupportChildcarePostItem = ({post, expertId, writer}) => {
         <CommentUnitBackground>
             <CommentUnitContentTemplate>
                 <UserInfoBlock>
-                    <ProfileImage size={2.5} imgSrc={Person}/>
+                    <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
+                        padding : '0.2vw',
+                        boxSizing : 'border-box',
+                        border: '1.5px solid #8E8E8E',
+                        borderRadius: '100%'
+                    }}/>
                     <StyledWriterId>
                         {applier}
                         <div style={{width :'100%', fontSize: '0.7vw'}}>(TEMP: {writer_score})</div>

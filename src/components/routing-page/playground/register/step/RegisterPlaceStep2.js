@@ -4,10 +4,11 @@ import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import {ContentHeader} from "../../../../common/layout/StyledHeader";
 import SpaceVoteFormContainer from "../../../../../containers/playground/register/SpaceVoteFormContainer";
 import MakeActionButtonsContainer from "../../../../../containers/playground/register/MakeActionButtonsContainer";
+import PageButtonBlock from "../../../register/PageButtonBlock";
 
 
 
-const RegisterPlaceStep2 = () => {
+const RegisterPlaceStep2 = ({move}) => {
     
     return (
         <>
@@ -18,7 +19,10 @@ const RegisterPlaceStep2 = () => {
 
             <ContentTemplate>
                 <SpaceVoteFormContainer />
-                <MakeActionButtonsContainer />
+
+                <PageButtonBlock>
+                    <MakeActionButtonsContainer move={move}/>
+                </PageButtonBlock>
             </ContentTemplate>
 
         </>

@@ -33,8 +33,8 @@ const AcceptChildcareActionButton = ({token, expertId, applyId}) => {
                 <Modal visible={acceptModal} onClose={() => setAcceptModal(false)}>
                     <div style={{textAlign: 'center'}}>
                         <div style={{margin: '3vw', fontSize: '1.1vw', lineHeight : '1.5vw'}}>
-                            해당 사용자를 품앗이 꾼으로 <br/>
-                            승인하겠습니까?
+                            해당 사용자와 <br/>
+                            품앗이를 진행 하시겠습니까?
                         </div>
                         <RectButton backgroundColor={'#FFB663'} type={'button'} onClick={onAccept}>승인하기</RectButton>
                     </div>

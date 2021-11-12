@@ -4,11 +4,11 @@ import {listActivity} from "../../../modules/mypage/activityInfo";
 import ChildList from "../../../components/routing-page/mypage/myActivity/ChildList";
 import {ContentMiddleHeader} from "../../../components/common/layout/StyledHeader";
 import PoomClassList from "../../../components/routing-page/mypage/myActivity/PoomClassList";
-import {BsPencilSquare} from "react-icons/bs";
-import { AiOutlinePlus, AiOutlinePlusSquare } from "react-icons/ai";
+import { AiOutlinePlus} from "react-icons/ai";
 import Modal from "../../../components/common/Modal";
-import ContainerCreatePoomClass from "./ContainerCreatePoomClass";
-import ContainerCreateActionButton from "./ContainerCreateActionButton";
+import ContainerPoomInfoEditor from "./ContainerPoomInfoEditor";
+import ContainerPoomClassActionButtons from "./ContainerPoomClassActionButtons";
+import ExpertInFoList from "../../../components/routing-page/mypage/myActivity/ExpertInfoList";
 
 const ContainerActivity = () => {
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const ContainerActivity = () => {
 
     useEffect(() => {
         dispatch(listActivity({token}));
-    }, [dispatch]);
+    }, [dispatch, token]);
 
     const [modal, setModal] = useState(false);
 
@@ -34,15 +34,21 @@ const ContainerActivity = () => {
             <ChildList loading={loading} error={error} list={list}/>
 
             <ContentMiddleHeader>
+                제공 중인 품앗이
+            </ContentMiddleHeader>
+            <ExpertInFoList loading={loading} error={error} list={list} />
+
+
+            <ContentMiddleHeader>
                 품앗이 반 관리
 
                 <AiOutlinePlus style={{margin: '0 0.3vw', cursor: 'pointer'}}
                                onClick={() => setModal(!modal)} />
                 {modal && (
                     <Modal visible={modal} onClose={() => setModal(false)}>
-                        <ContainerCreatePoomClass />
-                        <div style={{textAlign : 'right'}}>
-                            <ContainerCreateActionButton />
+                        <ContainerPoomInfoEditor />
+                        <div>
+                            <ContainerPoomClassActionButtons />
                         </div>
                     </Modal>
                 )}

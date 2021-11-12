@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getExpertId, updatePost, writePost} from "../../../modules/childcare/childcareSupportWrite";
+import {updatePost, writePost} from "../../../modules/childcare/childcareSupportWrite";
 import SupportChildcareWriteActionButtons
     from "../../../components/routing-page/childcare/support-write/SupportChildcareWriteActionButtons";
 

@@ -10,6 +10,7 @@ import {
     CommentUnitBackground,
     CommentUnitContentTemplate
 } from "../../../common/post/CommentUnit";
+import {BsFillPersonFill} from "react-icons/bs";
 
 const CommentContentBlock = styled.div`
   box-sizing: border-box;
@@ -44,7 +45,12 @@ const CommentClassPostItem = ({post}) => {
             <CommentUnitContentTemplate>
 
                 <UserInfoBlock>
-                    <ProfileImage size={2.5} imgSrc={Person}/>
+                    <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
+                        padding : '0.2vw',
+                        boxSizing : 'border-box',
+                        border: '1.5px solid #8E8E8E',
+                        borderRadius: '100%'
+                    }}/>
                     <StyledWriterId>
                         {writer}
                         <div style={{width : '100%', fontSize : '0.7vw'}}>(TEMP: {writer_score})</div>

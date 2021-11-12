@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {createClass} from "../../../modules/mypage/actionPoomClass";
-import RectButton from "../../../components/common/RectButton";
+import {createClass, updateClass} from "../../../modules/mypage/actionPoomClass";
+import PoomClassActionButtons from "../../../components/routing-page/mypage/myActivity/PoomClassActionButtons";
 
-const ContainerCreateActionButton = () => {
+const ContainerPoomClassActionButtons = () => {
     const dispatch = useDispatch();
 
     const {
@@ -13,6 +13,7 @@ const ContainerCreateActionButton = () => {
         description,
         recruitmentStatus,
         profileImage,
+        originalClassId,
         poomClass,
         poomClassError,
         token
@@ -26,12 +27,27 @@ const ContainerCreateActionButton = () => {
         description: actionPoomClass.description,
         recruitmentStatus: actionPoomClass.recruitmentStatus,
         profileImage: actionPoomClass.profileImage,
-        poomClass : actionPoomClass.poomClass,
-        poomClassError : actionPoomClass.poomClassError,
+        originalClassId: actionPoomClass.originalClassId,
+        poomClass: actionPoomClass.poomClass,
+        poomClassError: actionPoomClass.poomClassError,
         token: user.token
     }));
 
-    const onCreate = async () => {
+    const onPublish = async () => {
+        if (originalClassId) {
+            dispatch(updateClass({
+                title,
+                meetingDay,
+                mainActivity,
+                description,
+                recruitmentStatus,
+                profileImage,
+                groupId : originalClassId,
+                token
+            }));
+            return;
+        }
+
         await dispatch(
             createClass({
                 title,
@@ -46,21 +62,24 @@ const ContainerCreateActionButton = () => {
     };
 
     useEffect(() => {
-        if(poomClass) {
+        if (poomClass) {
             window.location.reload();
         }
 
-        if(poomClassError){
+        if (poomClassError) {
             console.log(poomClassError);
         }
-    }, [dispatch]);
+    }, [dispatch, poomClass, poomClassError]);
 
 
     return (
         <>
-            <RectButton onClick={onCreate} backgroundColor={'#FFB663'}>품앗이 반 생성하기</RectButton>
+            <PoomClassActionButtons
+                onClick={onPublish}
+                isEdit={!!originalClassId}
+            />
         </>
     );
 };
 
-export default ContainerCreateActionButton;
+export default ContainerPoomClassActionButtons;

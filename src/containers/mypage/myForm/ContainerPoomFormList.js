@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {listForm} from "../../../modules/mypage/spaceFormInfo";
+import MadePoomFormList from "../../../components/routing-page/mypage/myForm/MadePoomFormList";
+import {ContentMiddleHeader} from "../../../components/common/layout/StyledHeader";
 import PoomFormList from "../../../components/routing-page/mypage/myForm/PoomFormList";
 
 const ContainerPoomFormList = () => {
@@ -21,9 +23,15 @@ const ContainerPoomFormList = () => {
 
     return (
         <>
+            <ContentMiddleHeader>진행 중인 투표 폼 목록</ContentMiddleHeader>
             <PoomFormList loading={loading}
                           error={error}
-                          forms={forms}
+                          forms={forms}/>
+
+            <ContentMiddleHeader style={{margin : '3vw 0 0 '}}>제작한 품앗이 터 등록 폼 목록</ContentMiddleHeader>
+            <MadePoomFormList loading={loading}
+                              error={error}
+                              forms={forms}
             />
         </>
     );

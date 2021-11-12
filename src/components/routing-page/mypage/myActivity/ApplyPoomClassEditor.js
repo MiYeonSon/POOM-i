@@ -4,7 +4,7 @@ import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
 import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
 import {StyledSelect} from "../../../common/StyledInput";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 const CategoryContent = styled.div`
   box-sizing: border-box;

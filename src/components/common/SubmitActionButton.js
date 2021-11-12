@@ -1,9 +1,10 @@
 import React from 'react';
+import PageButton from "../routing-page/register/PageButton";
 
 const SubmitActionButton = ({onSubmit}) => {
     return (
         <div>
-            <button type={"button"} onClick={onSubmit}>제출</button>
+            <PageButton type={"button"} onClick={onSubmit}>다음</PageButton>
         </div>
     );
 };

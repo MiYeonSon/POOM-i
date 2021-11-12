@@ -6,6 +6,8 @@ import {NoListGrayComment} from "../../../common/NoListComment";
 import {ContentSmallHeader} from "../../../common/layout/StyledHeader";
 import {useSelector} from "react-redux";
 import {approveClass} from "../../../../lib/api/mypage/actionPoomClass";
+import PoomClassEditButton from "./PoomClassEditButton";
+import CommonHr from "../../../common/CommonHr";
 
 const PoomClassListTemplate = styled.div`
   margin: 1vw 0 6vw;
@@ -44,10 +46,18 @@ const PoomClassHeader = styled.div`
   font-weight: 700;
 `;
 
+const PoomClassHeaderMain = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+`;
+
 const UserInfoBlock = styled.div`
   box-sizing: border-box;
   width: 100%;
 
+  margin: 1vw 0;
   padding: 1.5vw 2vw 1vw;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 1px solid #AAAAAA;
@@ -84,6 +94,12 @@ const ApplierInfo = ({groupId, applier}) => {
         token: user.token
     }));
 
+    const onApply = () => {
+        approveClass({token, groupId, applyId: apply_id}).then(r => {
+            window.location.reload();
+        });
+    }
+
 
     return (
         <UserInfoBlock>
@@ -106,7 +122,7 @@ const ApplierInfo = ({groupId, applier}) => {
                     </div>
 
                     <RectButton margin={'0'} backgroundColor={'#FFB663'}
-                                onClick={() => approveClass({token, groupId, applyId: apply_id})}>승인하기</RectButton>
+                                onClick={onApply}>승인하기</RectButton>
                 </UserTextInfo>
             </UserInfo>
 
@@ -146,7 +162,7 @@ const ParticipantInfo = ({participant}) => {
 }
 
 const PoomClassMoreInfo = ({group}) => {
-    const {group_id, participating_members, apply_info} = group;
+    const {group_id, participating_members, apply_info, participation_type} = group;
 
     return (
         <div style={{margin: '1vw 0 0'}}>
@@ -161,25 +177,30 @@ const PoomClassMoreInfo = ({group}) => {
                 )
             }
 
-            <div style={{marginTop: '2vw'}}>
-                <ContentSmallHeader>[ 참여자 희망자 목록 ]</ContentSmallHeader>
-                {
-                    apply_info.length === 0 ? (
-                        <NoListGrayComment>지원자 없음</NoListGrayComment>
-                    ) : (
-                        apply_info.map(applier => (
-                            <ApplierInfo groupId={group_id} applier={applier} key={applier.apply_id}/>
-                        ))
-                    )
-                }
-            </div>
+            {
+                participation_type === 'MANAGE' && (
+                    <div style={{marginTop: '2vw'}}>
+                        <ContentSmallHeader>[ 참여자 희망자 목록 ]</ContentSmallHeader>
+                        {
+                            apply_info.length === 0 ? (
+                                <NoListGrayComment>지원자 없음</NoListGrayComment>
+                            ) : (
+                                apply_info.map(applier => (
+                                    <ApplierInfo groupId={group_id} applier={applier} key={applier.apply_id}/>
+                                ))
+                            )
+                        }
+                    </div>
+                )
+            }
         </div>
     );
 }
 
 const PoomClassItem = ({group}) => {
-    const {group_name, activity_time, participation_type, recruitment_status} = group;
+    const {group_name, activity_time, participation_type, recruitment_status, group_id} = group;
     const [click, setClick] = useState(false);
+
 
     return (
         <PoomClassBlock onClick={() => setClick(!click)}>
@@ -187,11 +208,19 @@ const PoomClassItem = ({group}) => {
                             style={{margin: '1vw 2vw 0 0'}}/>
             <div style={{width: '90%'}}>
                 <PoomClassHeader>
-                    <div>
+                    <PoomClassHeaderMain>
                         {group_name}
-                        {participation_type === 'MANAGE' &&
-                        <span style={{margin: '0 0.7vw', fontSize: '0.9vw'}}>운영중</span>}
-                    </div>
+                        {
+                            participation_type === 'MANAGE' && (
+                                <>
+                                    <span style={{margin: '0 0.2vw 0 0.7vw', fontSize: '0.9vw'}}>운영중</span>
+                                    <PoomClassEditButton group={group}/>
+                                </>
+                            )
+                        }
+                    </PoomClassHeaderMain>
+
+
                     {recruitment_status === 'RECRUITING' && <RectButton backgroundColor={'#FFB663'}>모집중</RectButton>}
                 </PoomClassHeader>
                 <div>

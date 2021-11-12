@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize} from "../../../modules/mypage/actionPoomClass";
 import CreatePoomClass from "../../../components/routing-page/mypage/myActivity/CreatePoomClass";
 
-const ContainerCreatePoomClass = () => {
+const ContainerPoomInfoEditor = () => {
     const dispatch = useDispatch();
     const {
         title,
@@ -36,11 +36,11 @@ const ContainerCreatePoomClass = () => {
                          title={title}
                          meetingDay={meetingDay}
                          mainActivity={mainActivity}
-                         descripton={description}
+                         description={description}
                          recruitmentStatue={recruitmentStatus}
                          profileImage={profileImage}
         />
     );
 };
 
-export default ContainerCreatePoomClass;
+export default ContainerPoomInfoEditor;

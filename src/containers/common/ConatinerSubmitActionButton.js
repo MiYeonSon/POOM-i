@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import SubmitActionButton from "../../components/common/SubmitActionButton";
 import {submitFileAction} from "../../modules/submitFile";
 
-const ContainerSubmitActionButton = () => {
+const ContainerSubmitActionButton = ({check, move}) => {
     const dispatch = useDispatch();
 
     const {
@@ -19,14 +19,22 @@ const ContainerSubmitActionButton = () => {
     }));
 
     const onSubmit = () => {
-        dispatch(
-            submitFileAction({token, file})
-        );
+        let result = check();
+        if (file === '') {
+            alert('주소 인증 파일을 첨부해주세요');
+        } else if (!result) {
+            alert('마이 페이지에서 주소 인증 문서를 갱신 후 다시 시도해주세요.');
+        } else {
+            dispatch(
+                submitFileAction({token, file})
+            );
+            move();
+        }
     }
 
     useEffect(() => {
         if (submit) {
-            console.log('success')
+            console.log('success');
         }
         if (submitError) {
             console.log('fail')

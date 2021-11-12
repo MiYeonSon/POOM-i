@@ -14,7 +14,6 @@ import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
 import RectButton from "../../../common/RectButton";
 import ContainerJoinPoomClassInfos from "../../../../containers/mypage/myActivity/ContainerJoinPoomClassInfos";
 import {BsFillPersonFill} from "react-icons/bs";
-import ApplyPoomClassEditor from "../../mypage/myActivity/ApplyPoomClassEditor";
 import ContainerApplyPoomClassEditor from "../../../../containers/mypage/myActivity/ContainerApplyPoomClassEditor";
 import ContainerApplyActionButton from "../../../../containers/mypage/myActivity/ContainerApplyActionButton";
 
@@ -173,7 +172,7 @@ const FindClassPostItem = ({post, history}) => {
                         <Modal visible={supportModal} onClose={() => setSupportModal(false)}>
                             <ContainerApplyPoomClassEditor />
                             <div style={{width: '100%', marginTop: '0.5vw', textAlign: 'right'}}>
-                            <ContainerApplyActionButton groupId={group_id}/>
+                            <ContainerApplyActionButton onClose={()=>setSupportModal(false)} groupId={group_id}/>
                             </div>
                         </Modal>
                     }

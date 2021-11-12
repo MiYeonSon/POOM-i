@@ -9,6 +9,7 @@ import ContainerFindClassPostList from "../../../containers/poom-class/posts/Con
 import {ProfileImage} from "../../common/post/WriterInfo";
 import {ContentHeader} from "../../common/layout/StyledHeader";
 import {ImPencil2} from "react-icons/im";
+import {BsFillPersonFill} from "react-icons/bs";
 
 // 필요 스타일링 컴포넌트(예상)
 /*
@@ -135,7 +136,12 @@ const ClassPage = () => {
 
             <ContentTemplate>
                 <PostItem type={"postInput"}>
-                    <ProfileImage size={4} imgSrc={Person}></ProfileImage>
+                    <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
+                        padding : '0.2vw',
+                        boxSizing : 'border-box',
+                        border: '1.5px solid #8E8E8E',
+                        borderRadius: '100%'
+                    }}/>
                     <NewPostInput content={'class'}>
                         품앗이 꾼 도움 요청/자원 글 작성하기...
                         <ImPencil2 size={20} />

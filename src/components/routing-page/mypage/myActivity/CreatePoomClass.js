@@ -56,6 +56,11 @@ const StyledRadioInputBlock = styled.div`
   }
 `;
 
+const StyledLabel = styled.label`
+  background-color: #DEDEDE;
+  color : #707070;
+`;
+
 const Header = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -101,6 +106,13 @@ const CreatePoomClass = ({
             }
         });
     }, [onChangeField]);
+
+    const mounted = useRef(false);
+    useEffect(() => {
+        if (mounted.current) return;
+        mounted.current = true;
+        quillInstance.current.root.innerHTML = description;
+    }, [description]);
 
     const onChangeFiles = e => {
         e.preventDefault();
@@ -162,7 +174,7 @@ const CreatePoomClass = ({
                 <CategoryBlock>
                     * 품앗이 대표 이미지 설정 :
                     <div style={{margin: '0.5vw 0.6vw'}}>
-                        <input type="file" accept={".jpg, .png"} onChange={onChangeFiles}/>
+                            <input type="file" accept={".jpg, .png"} onChange={onChangeFiles} />
                     </div>
                 </CategoryBlock>
             </InputContent>

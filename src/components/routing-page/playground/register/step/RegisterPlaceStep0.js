@@ -3,6 +3,9 @@ import Introduction from "../../../../common/layout/Introduction";
 import {ContentHeader, ContentMiddleHeader} from "../../../../common/layout/StyledHeader";
 import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import styled from "styled-components";
+import ContainerSubmitActionButton from "../../../../../containers/common/ConatinerSubmitActionButton";
+import PageButtonBlock from "../../../register/PageButtonBlock";
+import PageButton from "../../../register/PageButton";
 
 const CategoryHeader = styled.div`
   margin: 1vw 0 0;
@@ -24,7 +27,7 @@ const ContentStyle = styled.div`
   }
 `;
 
-const RegisterPlaceStep0 = () => {
+const RegisterPlaceStep0 = ({move}) => {
     return (
         <>
             <ContentHeader>품앗이 터 등록하기</ContentHeader>
@@ -86,6 +89,10 @@ const RegisterPlaceStep0 = () => {
                         <li>거주 중인 건물의 공용 시설에 대한 이용 수칙을 POOM-i 고객센터로 전달할 경우 서비스 개선에 활용될 수 있습니다.</li>
                     </ol>
                 </ContentStyle>
+
+                <PageButtonBlock>
+                    <PageButton type={"button"} onClick={move}>다음</PageButton>
+                </PageButtonBlock>
             </ContentTemplate>
 
         </>

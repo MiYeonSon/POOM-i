@@ -2,7 +2,6 @@ import createRequestSaga, {createRequestActionTypes} from "../../lib/createReque
 import {createAction, handleActions} from "redux-actions";
 import * as actionClassAPI from "../../lib/api/mypage/actionPoomClass";
 import {takeLatest} from "redux-saga/effects";
-import {createClassSaga, readClassSaga} from "./actionPoomClass";
 
 const INITIALIZE = 'applyPoomClass/INITIALIZE';  // 모든 내용 초기화
 const CHANGE_FILED = 'applyPoomClass/CHANGE_FIELD';  // 특정 key 값 바꾸기

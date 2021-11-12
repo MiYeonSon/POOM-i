@@ -3,12 +3,13 @@ import InfoFormBlock from "../InfoFormBlock";
 import styled, {css} from 'styled-components';
 import DaumPostcode from "react-daum-postcode";
 import RectButton from "../../../common/RectButton";
+import StyledTableRow from "../../../common/StyledTableRow";
 
 
 const StyledInput = styled.input`
   box-sizing: border-box;
   display: inline-block;
-  width: 20vw;
+  width: ${props => props.width || '20vw'};
   height: 3.5vh;
   margin: 0 0.5vw;
   padding: 0;
@@ -104,167 +105,106 @@ const RegisterForm = ({form, onChange, onChangeFile, onSubmit}) => {
 
     return (
         <>
-            <InfoFormBlock title={'이름'}>
+            <StyledTableRow header={'이름'} headerBold={true}>
                 <StyledInput type="text" name={'name'} onChange={onChange} value={form.name}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'이메일'}>
+            <StyledTableRow header={'이메일'} headerBold={true}>
                 <StyledInput type="text" name={'email'} onChange={onChange} value={form.email}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'비밀번호'}>
+            <StyledTableRow header={'비밀번호'} headerBold={true}>
                 <StyledInput type="text" name={'password'} onChange={onChange} value={form.password}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'비밀번호 확인'}>
+            <StyledTableRow header={'비밀번호 확인'} headerBold={true}>
                 <StyledInput type="text" name={'passwordConfirm'} onChange={onChange} value={form.passwordConfirm}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'닉네임'}>
+            <StyledTableRow header={'닉네임'} headerBold={true}>
                 <StyledInput type="text" name={'nick'} onChange={onChange} value={form.nick}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'성별'}>
-                <label><StyledInput type="radio" name={'gender'} id={'MALE'} onChange={onChange}
-                                    value={"MALE"}/>남자</label>
-                <label><StyledInput type="radio" name={'gender'} id={'FEMALE'} onChange={onChange} value={'FEMALE'}/>여자</label>
-            </InfoFormBlock>
+            <StyledTableRow header={'성별'} headerBold={true}>
+                <label>
+                    <input type="radio" name={'gender'} id={'MALE'} onChange={onChange} value={"MALE"}/>
+                    남자
+                </label>
+                <label style={{margin : '0 1vw'}}>
+                    <input type="radio" name={'gender'} id={'FEMALE'} onChange={onChange} value={'FEMALE'}/>
+                    여자
+                </label>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'나이'}>
+            <StyledTableRow header={'나이'} headerBold={true}>
                 <StyledInput type={"text"} name={'age'} onChange={onChange} value={form.age}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'휴대전화'}>
+            <StyledTableRow header={'휴대전화'} headerBold={true}>
                 <StyledInput type="text" name={'phoneNumber'} onChange={onChange} value={form.phoneNumber}/>
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'주소'}>
+            <StyledTableRow header={'주소'} headerBold={true} >
+                <div style={{padding : '1vw 0'}}>
 
+                    <StyledInput type="text"
+                                 id={'postCode'}
+                                 name={'postCode'}
+                                 ref={postCodeRef}
+                                 onChange={onChange}
+                                 value={form.postCode}
+                                 placeholder={'우편번호'}
+                    />
 
-                <StyledInput type="text"
-                             id={'postCode'}
-                             name={'postCode'}
-                             ref={postCodeRef}
-                             onChange={onChange}
-                             value={form.postCode}
-                             placeholder={'우편번호'}
-                />
+                    <RectButton type={"button"} onClick={handleOpenPost}>우편 번호 찾기</RectButton>
 
-                <RectButton type={"button"} onClick={handleOpenPost}>우편 번호 찾기</RectButton>
+                    <br/>
 
-                <br/>
+                    {isDaumPost && (
+                        <DaumPostcode onComplete={handleComplete} autoClose/>
+                    )}
 
-                {isDaumPost && (
-                    <DaumPostcode onComplete={handleComplete} autoClose/>
-                )}
+                    <StyledInput type="text"
+                                 id={'address'}
+                                 name={'address'}
+                                 ref={addrRef}
+                                 onChange={onChange}
+                                 value={form.address}
+                                 placeholder={'주소'}
+                    />
+                    <br/>
 
-                <StyledInput type="text"
-                             id={'address'}
-                             name={'address'}
-                             ref={addrRef}
-                             onChange={onChange}
-                             value={form.address}
-                             placeholder={'주소'}
-                />
-                <br/>
+                    <StyledInput type="text"
+                                 id={'detailAddress'}
+                                 name={'detailAddress'}
+                                 ref={detailAddrRef}
+                                 onChange={onChange}
+                                 value={form.detailAddress}
+                                 placeholder={'상세주소'}
+                    />
+                    <StyledInput type="text"
+                                 id={'extraAddress'}
+                                 name={'extraAddress'}
+                                 ref={extraAddrRef}
+                                 onChange={onChange}
+                                 value={form.extraAddress}
+                                 placeholder={'추가'}
+                                 width={'15vw'}
+                    />
+                </div>
 
-                <StyledInput type="text"
-                             id={'detailAddress'}
-                             name={'detailAddress'}
-                             ref={detailAddrRef}
-                             onChange={onChange}
-                             value={form.detailAddress}
-                             placeholder={'상세주소'}
-                />
-                <StyledInput type="text"
-                             id={'extraAddress'}
-                             name={'extraAddress'}
-                             ref={extraAddrRef}
-                             onChange={onChange}
-                             value={form.extraAddress}
-                             placeholder={'추가'}
-                />
-            </InfoFormBlock>
+            </StyledTableRow>
 
-            <InfoFormBlock title={'주소 인증 문서 첨부'}>
+            <StyledTableRow header={'주소 인증 문서 첨부'} headerBold={true}>
                 <StyledInput
                     type={'file'}
                     id={'addressFile'}
                     name={'addressFile'}
                     onChange={handleFile}
                 />
-            </InfoFormBlock>
+            </StyledTableRow>
 
             <button onClick={onSubmit}>제출</button>
-
-            {/*
-            <InfoFormBlock onChange={onChange} id={'name'} title={"이름"} inputType={"text"}
-                           roundButton={"none"}/>
-            <InfoFormBlock onChange={onChange} id={'email'} title={"이메일"} inputType={"email"}
-                           roundButton={"none"}/>
-            <InfoFormBlock onChange={onChange} id={'password'} title={"비밀번호"}
-                           inputType={"password"} roundButton={"none"}/>
-            <InfoFormBlock onChange={onChange} id={'passwordConfirm'} title={"비밀번호 확인"}
-                           inputType={"password"}
-                           roundButton={"none"}/>
-            <InfoFormBlock onChange={onChange} id={'nickname'} title={"닉네임"}
-                           inputType={"text"} roundButton={"닉네임 중복 확인"}/>
-            <InfoFormBlock onChange={onChange} id={'phone'} title={"휴대전화"}
-                           inputType={"tele"} roundButton={"none"}/>
-            <InfoFormBlock onChange={onChange} id={'gender'} title={'성별'}
-                           inputType={'radio'} roundButton={'none'} />
-
-            성별
-
-            <InfoFormBlock onChange={onChange} id={'age'} title={'나이'}
-                           inputType={'number'} roundButton={'none'} />
-            <InfoFormBlock onChange={onChange} id={'address'} title={"주소"} inputType={"text"}
-                           roundButton={"none"}/>
-
-                    <button type={"button"} onClick={handleOpenPost}>우편 번호 찾기</button>
-
-
-                    <input type="text"
-                           id={'postCode'}
-                           name={'postCode'}
-                           ref={postCodeRef}
-                           onChange={onChange}
-                           value={form.postCode}
-                           placeholder={'우편번호'}
-                    />
-                    <br/>
-
-                    <input type="text"
-                           id={'address'}
-                           name={'address'}
-                           ref={addrRef}
-                           onChange={onChange}
-                           value={form.address}
-                           placeholder={'주소'}
-                    />
-                    <br/>
-
-                    <input type="text"
-                           id={'detailAddress'}
-                           name={'detailAddress'}
-                           ref={detailAddrRef}
-                           onChange={onChange}
-                           value={form.detailAddress}
-                           placeholder={'상세주소'}
-                    />
-                    <input type="text"
-                           id={'extraAddress'}
-                           name={'extraAddress'}
-                           ref={extraAddrRef}
-                           onChange={onChange}
-                           value={form.extraAddress}
-                           placeholder={'추가'}
-                    />
-
-            <InfoFormBlock onChange={onChange} id={'addressPaper'} title={"주소 인증 문서 첨부"}
-                           inputType={"none"} roundButton={"none"}
-                           FileButton/>
-                */}
         </>
     );
 };

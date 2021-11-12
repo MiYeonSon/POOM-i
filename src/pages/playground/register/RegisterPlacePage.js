@@ -8,12 +8,24 @@ import RegisterPlaceStep0 from "../../../components/routing-page/playground/regi
 import RegisterPlaceStep1 from "../../../components/routing-page/playground/register/step1/RegisterPlaceStep1";
 import RegisterPlaceStep2 from "../../../components/routing-page/playground/register/step/RegisterPlaceStep2";
 import RegisterPlaceStep3 from "../../../components/routing-page/playground/register/step/RegisterPlaceStep3";
-import PageButton from "../../../components/routing-page/register/PageButton";
-import PageButtonBlock from "../../../components/routing-page/register/PageButtonBlock";
 
 const RegisterPlacePage = () => {
     const [page, setPage] = useState(0);
-    const pageArr = [<RegisterPlaceStep0/>, <RegisterPlaceStep1/>, <RegisterPlaceStep2/>, <RegisterPlaceStep3/>];
+
+    const goNext = () => {
+        if (page < 5) {
+            setPage(page + 1);
+        } else {
+            setPage(3);
+        }
+    }
+
+    const pageArr = [
+        <RegisterPlaceStep0 move={goNext} />,
+        <RegisterPlaceStep1 move={goNext}/>,
+        <RegisterPlaceStep2 move={goNext}/>,
+        <RegisterPlaceStep3 />
+    ];
 
     const scrollTop = () => {
         window.scrollTo({
@@ -38,20 +50,6 @@ const RegisterPlacePage = () => {
 
                 <PageContentTemplate>
                     {pageArr[page]}
-                    <PageButtonBlock>
-                        {
-                            (page >= 1 && page < 3) && (
-                                <PageButton onClick={page > -1 ? () => setPage(page - 1) : setPage(0)}>이전
-                                </PageButton>)
-                        }
-                        {
-                            page < 3 && (
-                                <PageButton onClick={page < 4 ? () => setPage(page + 1) : setPage(3)} highlight>
-                                    다음
-                                </PageButton>
-                            )
-                        }
-                    </PageButtonBlock>
                 </PageContentTemplate>
 
 

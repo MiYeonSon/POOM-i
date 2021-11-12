@@ -55,3 +55,25 @@ export const approveClass = ({
         "Authorization": `Bearer ${token}`
     }
 });
+
+export const updateClass = ({
+    title,
+    meetingDay,
+    mainActivity,
+    description,
+    recruitmentStatus,
+    profileImage,
+    token,
+    groupId
+}) => client.patch(`/group/${groupId}`, {
+    name: title,
+    regular_meeting_day: meetingDay,
+    main_activity: mainActivity,
+    description: description,
+    recruitment_status: recruitmentStatus,
+    profile_image: profileImage
+}, {
+    headers: {
+        "Authorization": `Bearer ${token}`
+    }
+})

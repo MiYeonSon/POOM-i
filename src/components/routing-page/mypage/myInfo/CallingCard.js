@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProfileImg from '../../../common/assets/005-gardener.png';
-import {ProfileImage} from "../../../common/post/WriterInfo";
-import {BsPencilSquare} from "react-icons/bs";
 import HorizontalPostWriterInfo from "../../../common/user-info/HorizontalPostWriterInfo";
 
 const CallingCardTemplate = styled.div`
@@ -18,22 +15,8 @@ const CallingCardTemplate = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   border: 1px solid #AAAAAA;
   border-radius: 14px;
-
 `;
 
-const UserInfoBlock = styled.div`
-  box-sizing: border-box;
-  width: fit-content;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const UserInfo = styled.div`
-  box-sizing: border-box;
-  margin: 0 1vw;
-`;
 
 const ChildInfoBlock = styled.div`
   box-sizing: border-box;
