@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import {ContentHeader} from "../../../../common/layout/StyledHeader";
-import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import FromCongrats from '../../assets/formCongratus.png';
+import {ContentTemplate} from "../../../../common/layout/StyledLayout";
 
 const CongratsImg = styled.img`
   box-sizing: border-box;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {RoundSquareLabel} from "./StyledInput";
+import {RoundSquareLabel} from "./styling/StyledInput";
 
 const SubmitFile = ({file, onChangeField}) => {
     const onChange = e => {

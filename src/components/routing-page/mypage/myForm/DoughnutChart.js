@@ -31,7 +31,7 @@ const DoughnutChart = ({voteRate}) => {
                 hoverBorderWidth: 5,
                 backgroundColor: [
                     "#F2F1F1",
-                    "#FFE9D0",
+                    "rgba(255, 182, 99, 0.6)",
                 ],
                 fill: true
             }

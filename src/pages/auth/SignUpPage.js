@@ -8,12 +8,12 @@ import SignUpProcess from "../../components/routing-page/register/SignUpProcess"
 import SignUpTemplate from "../../components/routing-page/register/SignUpTemplate";
 import PageButtonBlock from "../../components/routing-page/register/PageButtonBlock";
 import PageButton from "../../components/routing-page/register/PageButton";
-import CommonHr from "../../components/common/CommonHr";
 import SignUpStep1 from "../../components/routing-page/register/SignUpStep1";
 import SignUpStep2 from "../../components/routing-page/register/SignUpStep2";
 import SignUpStep3 from "../../components/routing-page/register/step03/SignUpStep3";
 import SignUpStep4 from "../../components/routing-page/register/SignUpStep4";
 import {ContentHeader} from "../../components/common/layout/StyledHeader";
+import {CommonHr} from "../../components/common/styling/StyledTag";
 
 const SignUpPage = () => {
     const [num, setNum] = useState(0);
@@ -31,7 +31,7 @@ const SignUpPage = () => {
                                 {stepArr[num]}
 
                 */}
-                <SignUpStep2 />
+                <SignUpStep3 />
 
                 <PageButtonBlock>
                     <PageButton onClick={num > -1 ? () => setNum(num - 1) : setNum(0)}>이전</PageButton>

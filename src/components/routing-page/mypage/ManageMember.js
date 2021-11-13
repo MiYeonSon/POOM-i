@@ -1,7 +1,7 @@
 import React from 'react';
 import {ContentHeader} from "../../common/layout/StyledHeader";
-import Introduction from "../../common/layout/Introduction";
-import ContentTemplate from "../../common/layout/ContentTemplate";
+import ContainerApplyMemberInfo from "../../../containers/mypage/manage-member/ContainerApplyMemberInfo";
+import {ContentTemplate, Introduction} from "../../common/layout/StyledLayout";
 
 const ManageMember = () => {
     return (
@@ -10,7 +10,7 @@ const ManageMember = () => {
             <Introduction>각종 인증 승인 처리를 할 수 있습니다.</Introduction>
 
             <ContentTemplate>
-                test
+                <ContainerApplyMemberInfo />
             </ContentTemplate>
 
         </>

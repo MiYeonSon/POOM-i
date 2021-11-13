@@ -1,8 +1,7 @@
 import React from 'react';
 import {ContentHeader} from "../../common/layout/StyledHeader";
-import Introduction from "../../common/layout/Introduction";
-import ContentTemplate from "../../common/layout/ContentTemplate";
 import ContainerActivity from "../../../containers/mypage/myActivity/ContainerActivity";
+import {ContentTemplate, Introduction} from "../../common/layout/StyledLayout";
 
 const ManageActivity = () => {
     return (

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import FindClassPostActionButtons from "../post/FindClassPostActionButtons";
-import PostItem from "../../../common/post/PostItem";
+import PostItemTemplate from "../../../common/post/PostItemTemplate";
 import {setOriginalPost} from "../../../../modules/poom-class/classWrite";
 import {classRemovePost} from "../../../../lib/api/poom-class/classPosts";
 import Modal from "../../../common/Modal";
@@ -149,7 +149,7 @@ const FindClassPostItem = ({post, history}) => {
     }
 
     return (
-        <PostItem>
+        <PostItemTemplate>
             <PostHeaderBlock>
                 <PoomClassInfo>
                     <div>
@@ -216,7 +216,7 @@ const FindClassPostItem = ({post, history}) => {
             </Modal>
             }
 
-        </PostItem>
+        </PostItemTemplate>
     )
 }
 

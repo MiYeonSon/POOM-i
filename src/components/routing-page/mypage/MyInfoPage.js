@@ -1,6 +1,6 @@
 import React from 'react';
-import ContentTemplate from "../../common/layout/ContentTemplate";
 import ContainerMyInfo from "../../../containers/mypage/myInfo/ContainerMyInfo";
+import {ContentTemplate} from "../../common/layout/StyledLayout";
 
 const MyInfoPage = () => {
     return (

@@ -1,39 +1,16 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import palette from "../../../../lib/styles/palette";
+
+import ContainerChildcareEditor from "../../../../containers/childcare/write/ContainerChildcareEditor";
 import PostAskRemoveModal from "../../../common/post/PostAskRemoveModal";
 import Modal from "../../../common/Modal";
-import ContainerChildcareEditor from "../../../../containers/childcare/write/ContainerChildcareEditor";
-
+import ActionButton from "../../../common/post/ActionButton";
 
 const PostActionButtonsBlock = styled.div`
   box-sizing: border-box;
   width: fit-content;
   margin: 0.5vw 0;
 `;
-
-const ActionButton = styled.button`
-  height: fit-content;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  color: ${palette.gray[6]};
-  font-weight: bold;
-  border: none;
-  outline: none;
-  font-size: 0.875rem;
-  cursor: pointer;
-
-
-  &:hover {
-    background: rgba(255, 182, 99, 0.7);
-    color: white;
-  }
-
-  & + & {
-    margin-left: 0.5rem;
-  }
-`;
-
 
 const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
     const [removeModal, setRemoveModal] = useState(false);
@@ -52,7 +29,6 @@ const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
         onRemove();
     };
 
-
     return (
         <>
             <PostActionButtonsBlock>
@@ -60,15 +36,15 @@ const ChildcarePostActionButtons = ({onEdit, onRemove}) => {
                 <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
             </PostActionButtonsBlock>
 
-            {editorModal &&
-            <Modal visible={editorModal} onClose={() => setEditorModal(false)}><ContainerChildcareEditor/></Modal>}
+            {editorModal && (
+                <Modal visible={editorModal} onClose={() => setEditorModal(false)}><ContainerChildcareEditor/></Modal>
+            )}
 
-
-            {removeModal && <Modal visible={removeModal} onClose={() => setRemoveModal(false)}>
-                <PostAskRemoveModal
-                    onConfirm={onConfirm}
-                />
-            </Modal>}
+            {removeModal && (
+                <Modal visible={removeModal} onClose={() => setRemoveModal(false)}>
+                    <PostAskRemoveModal onConfirm={onConfirm}/>
+                </Modal>
+            )}
         </>
     );
 };

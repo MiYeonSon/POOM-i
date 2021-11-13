@@ -20,6 +20,7 @@ export const ContentMiddleHeader = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: 5vh;
+  margin : ${props => props.margin || ''}
   display: flex;
   color: ${props => props.color || '#707070'};
   flex-wrap: wrap;

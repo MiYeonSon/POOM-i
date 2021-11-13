@@ -7,10 +7,9 @@ import {ContentSmallHeader} from "../../../common/layout/StyledHeader";
 import {useSelector} from "react-redux";
 import {approveClass} from "../../../../lib/api/mypage/actionPoomClass";
 import PoomClassEditButton from "./PoomClassEditButton";
-import CommonHr from "../../../common/CommonHr";
 
 const PoomClassListTemplate = styled.div`
-  margin: 1vw 0 6vw;
+  margin: 0 0 6vw;
   width: 100%;
 `;
 
@@ -239,17 +238,17 @@ const PoomClassList = ({list, loading, error}) => {
 
     return (
         <PoomClassListTemplate>
-            {!loading && list && (
-                list.data.group_info.length === 0
-                    ? <NoListGrayComment>참여중인 품앗이 반이 없습니다.</NoListGrayComment>
-                    : <div>
-                        {
-                            list.data.group_info.map(group => (
-                                <PoomClassItem group={group} key={group.group_id}/>
-                            ))
-                        }
-                    </div>
-            )
+            {
+
+                !loading && list && (
+                    list.data.group_info.length === 0 ? (
+                        <NoListGrayComment>참여 중인 품앗이 반이 없습니다.</NoListGrayComment>
+                    ) : (
+                        list.data.group_info.map(group => (
+                            <PoomClassItem group={group} key={group.group_id}/>
+                        ))
+                    )
+                )
             }
         </PoomClassListTemplate>
     );

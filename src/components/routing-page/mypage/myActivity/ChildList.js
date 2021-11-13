@@ -187,14 +187,17 @@ const ChildList = ({list, loading, error}) => {
 
     return (
         <ChildListTemplate>
-            {!loading && list && (
-                <div>
-                    {
-                        list.data.child_info.map(child => (
-                            <ChildItem child={child} key={child.child_id}/>
-                        ))
-                    }
-                </div>
+            {!loading && list && (list.data.child_info.length === 0 ? (
+                    <NoListGrayComment>자녀 정보가 없습니다.</NoListGrayComment>
+                ) : (
+                    <div>
+                        {
+                            list.data.child_info.map(child => (
+                                <ChildItem child={child} key={child.child_id}/>
+                            ))
+                        }
+                    </div>
+                )
             )
             }
         </ChildListTemplate>

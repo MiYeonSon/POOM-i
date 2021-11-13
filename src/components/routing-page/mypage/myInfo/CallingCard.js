@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HorizontalPostWriterInfo from "../../../common/user-info/HorizontalPostWriterInfo";
+import HorizontalWriterInfo from "../../../common/user-info/HorizontalWriterInfo";
 
 const CallingCardTemplate = styled.div`
   box-sizing: border-box;
@@ -36,7 +36,7 @@ const CallingCardContent = ({info}) => {
 
     return (
         <>
-            <HorizontalPostWriterInfo user={name} review={member_score}/>
+            <HorizontalWriterInfo user={name} review={member_score}/>
 
             <ChildInfoBlock>
                 <div>등록된 자녀 수</div>

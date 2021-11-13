@@ -1,8 +1,7 @@
 import React from 'react';
 import ContainerPoomFormList from "../../../containers/mypage/myForm/ContainerPoomFormList";
 import {ContentHeader} from "../../common/layout/StyledHeader";
-import Introduction from "../../common/layout/Introduction";
-import ContentTemplate from "../../common/layout/ContentTemplate";
+import {ContentTemplate, Introduction} from "../../common/layout/StyledLayout";
 
 const ManageSpaceForm = () => {
     return (

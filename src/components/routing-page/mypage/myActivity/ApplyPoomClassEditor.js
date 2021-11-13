@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
 import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
-import {StyledSelect} from "../../../common/StyledInput";
+import {StyledSelect} from "../../../common/styling/StyledInput";
 import {useSelector} from "react-redux";
 
 const CategoryContent = styled.div`

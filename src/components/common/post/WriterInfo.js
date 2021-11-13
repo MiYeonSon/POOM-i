@@ -21,10 +21,4 @@ export const ProfileImage = styled.img`
 `;
 
 export const StyledWriterId = styled.div`
-  width: ${props => props.width || '100%'};
-  height: fit-content;
-  margin: 0.5vh 0;
-  text-align: ${props => props.textAlign || 'center'};
-  font-size: 0.8vw;
-  color: #565656;
 `;

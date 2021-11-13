@@ -10,10 +10,10 @@ const StyledContent = styled.div`
   justify-content: space-between;
 `;
 
-const Content = (props) => {
+const Content = ({children}) => {
     return (
         <StyledContent>
-            {props.children}
+            {children}
         </StyledContent>
     );
 };

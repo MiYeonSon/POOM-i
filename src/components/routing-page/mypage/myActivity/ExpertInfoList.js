@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import {NoListGrayComment} from "../../../common/NoListComment";
 
 const ListTemplate = styled.div`
-  margin: 1vw 0 6vw;
+  margin: 0 0 6vw;
   width: 100%;
 `;
 
@@ -40,6 +41,8 @@ const ListItemHeader = styled.div`
 
 
 const ExpertInfoItem = ({expert}) => {
+    const {contents, start_time, end_time, parent_nick, child_name, child_birthday} = expert;
+
 
     return (
         <ListItemBlock>
@@ -59,9 +62,17 @@ const ExpertInFoList = ({list, loading, error}) => {
     return (
         <ListTemplate>
             {!loading && list && (
-                list.data.expert_info.map(expert => (
-                    <ExpertInfoItem expert={expert} key={expert.expert_id}/>
-                ))
+                list.data.expert_info.length === 0 ? (
+                    <NoListGrayComment>제공 중인 품앗이가 없습니다.</NoListGrayComment>
+                ) : (
+                    <div style={{margin: "1vw 0"}}>
+                        {list.data.expert_info.map(expert => (
+                                <ExpertInfoItem expert={expert} key={expert.expert_id}/>
+                            )
+                        )}
+                    </div>
+
+                )
             )
             }
         </ListTemplate>

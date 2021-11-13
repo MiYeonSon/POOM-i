@@ -3,9 +3,9 @@ import LoginBlock from "../../components/routing-page/login/LoginBlock";
 
 const SignInPage = () => {
     return (
-        <div>
+        <>
             <LoginBlock />
-        </div>
+        </>
     );
 };
 

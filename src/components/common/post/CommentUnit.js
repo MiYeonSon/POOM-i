@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CommentUnitBackground = styled.div`
+export const CommentTemplate = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: fit-content;
@@ -13,7 +13,7 @@ export const CommentUnitBackground = styled.div`
 
 `;
 
-export const CommentUnitContentTemplate = styled.div`
+export const ApplyCommentContentBlock = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding : 0 1vw;

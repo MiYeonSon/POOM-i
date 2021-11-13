@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const SmallTitle = styled.div`
   margin-bottom: 0.5vw;
   font-family: paybooc-Bold;

@@ -4,19 +4,20 @@ import {Link} from "react-router-dom";
 import GoogleIcon from "./assets/googleOauth.png";
 import NaverIcon from "./assets/naverOauth.png";
 import KakaoIcon from "./assets/kakaoOauth.png";
-import {KAKAO_AUTH_URL} from './OauthKakao';
 import ContainerLoginForm from "../../../containers/auth/ContainerLoginForm";
+import {KAKAO_AUTH_URL} from './OauthKakao';
 import {GOOGLE_AUTH_URL} from "./OauthGoogle";
 import {NAVER_AUTH_URL} from "./OauthNaver";
 import {ContentMiddleHeader} from "../../common/layout/StyledHeader";
 
-const ModalLoginBlock = styled.div`
+const LoginContentBlock = styled.div`
   box-sizing: border-box;
   width: 25vw;
   margin: 0;
   padding: 0;
-`;
 
+  text-align: center;
+`;
 
 const LoginInputBlock = styled.div`
   box-sizing: border-box;
@@ -24,23 +25,20 @@ const LoginInputBlock = styled.div`
   height: fit-content;
 `;
 
-
-const LoginInputBlock2 = styled.div`
+const LoginFormBlock = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: fit-content;
   margin: 0.5vw 0;
 `;
 
-
-const GoFindInfo = styled.div`
+const GoFindInfoBlock = styled.div`
   box-sizing: border-box;
   width: 23vw;
   height: fit-content;
   text-align: right;
   font-family: 'LotteMartDream';
 `;
-
 
 const LoginOAuthBlock = styled.div`
   box-sizing: border-box;
@@ -49,7 +47,6 @@ const LoginOAuthBlock = styled.div`
   margin: 2vw 0;
   padding: 0;
 `;
-
 
 const LineTitle = styled.div`
   display: flex;
@@ -70,7 +67,6 @@ const LineTitle = styled.div`
     margin: 1vw;
 `;
 
-
 const OauthIconBlock = styled.div`
   box-sizing: border-box;
   width: 23vw;
@@ -86,7 +82,6 @@ const OauthIconBlock = styled.div`
     cursor: pointer;
   }
 `;
-
 
 const GoToSignUpComponent = styled.div`
   box-sizing: border-box;
@@ -107,17 +102,20 @@ const GoToSignUpComponent = styled.div`
 const LoginBlock = () => {
     return (
         <>
-            <ModalLoginBlock>
+            <LoginContentBlock>
                 <LoginInputBlock>
-                    <ContentMiddleHeader>로그인</ContentMiddleHeader>
-                    <LoginInputBlock2>
+                    <div  style={{margin : '0 1vw'}}>
+                        <ContentMiddleHeader>로그인</ContentMiddleHeader>
+                    </div>
+                    <LoginFormBlock>
                         <ContainerLoginForm/>
-                    </LoginInputBlock2>
+                    </LoginFormBlock>
 
-                    <GoFindInfo>
+                    <GoFindInfoBlock>
                         <Link to={"/"} style={{color: '#707070', textDecoration: 'none'}}>아이디/비밀번호 찾기</Link>
-                    </GoFindInfo>
+                    </GoFindInfoBlock>
                 </LoginInputBlock>
+
                 <LoginOAuthBlock>
                     <LineTitle>소셜 계정으로 로그인 하기</LineTitle>
                     <OauthIconBlock>
@@ -133,7 +131,7 @@ const LoginBlock = () => {
                         textDecoration: 'none'
                     }}>회원 가입 하기</Link></span>
                 </GoToSignUpComponent>
-            </ModalLoginBlock>
+            </LoginContentBlock>
         </>
     );
 };

@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components';
-import {StyledInput} from "../../../common/StyledInput";
+import {StyledInput} from "../../../common/styling/StyledInput";
 import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
 

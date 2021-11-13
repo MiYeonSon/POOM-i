@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import Introduction from "../../../../common/layout/Introduction";
 import styled from 'styled-components';
 import Map from "./Map";
-import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import {ContentHeader} from "../../../../common/layout/StyledHeader";
 import ContainerSubmitFile from "../../../../../containers/common/ContainerSubmitFile";
 import ContainerSubmitActionButton from "../../../../../containers/common/ConatinerSubmitActionButton";
 import {useSelector} from "react-redux";
 import client from "../../../../../lib/api/client";
 import UnderlinedDivision from "../../../../common/UnderlinedDivision";
-import PageButton from "../../../register/PageButton";
 import PageButtonBlock from "../../../register/PageButtonBlock";
+import {ContentTemplate, Introduction} from "../../../../common/layout/StyledLayout";
 
 const QuestionBlock = styled.div`
   box-sizing: border-box;

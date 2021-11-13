@@ -22,6 +22,8 @@ import spaceFormInfo, {spaceFormSaga} from "./mypage/spaceFormInfo";
 import myInfo, {myInfoSaga} from "./mypage/myInfo";
 import actionPoomClass, {actionPoomClassSaga} from "./mypage/actionPoomClass";
 import applyPoomClass, {applyPoomClassSaga} from "./mypage/applyPoomClass";
+import voteSpaceInfo, {voteSpaceInfoSaga} from "./mypage/voteSpaceInfo";
+import applyInfo, {applyInfoSaga} from "./mypage/manage-member/applyInfo";
 
 const rootReducer = combineReducers({
     auth,
@@ -30,21 +32,29 @@ const rootReducer = combineReducers({
     user,
     detailInfo,
     submitFile,
+
     childcareWrite,
     childcarePosts,
     childcareSupportWrite,
     childcareSupportPosts,
+
     classWrite,
     classPosts,
     classCommentWrite,
+    applyPoomClass,
+
     classCommentPosts,
-    makeVoteForm,
     playgroundList,
+    makeVoteForm,
+
     myInfo,
     activityInfo,
-    spaceFormInfo,
     actionPoomClass,
-    applyPoomClass,
+
+    spaceFormInfo,
+    voteSpaceInfo,
+
+    applyInfo,
 
     actionCreators
 });
@@ -65,15 +75,20 @@ export function* rootSaga() {
         classPostsSaga(),
         classCommentWriteSaga(),
         classCommentPostsSaga(),
-        makeVoteFormSaga(),
-        playgroundListSaga(),
+        applyPoomClassSaga(),
 
+        makeVoteFormSaga(),
+
+        playgroundListSaga(),
         myInfoSaga(),
-        spaceFormSaga(),
         activityInfoSaga(),
 
         actionPoomClassSaga(),
-        applyPoomClassSaga()
+
+        spaceFormSaga(),
+        voteSpaceInfoSaga(),
+
+        applyInfoSaga()
 
     ]);
 }

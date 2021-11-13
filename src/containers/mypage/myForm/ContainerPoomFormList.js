@@ -28,11 +28,12 @@ const ContainerPoomFormList = () => {
                           error={error}
                           forms={forms}/>
 
-            <ContentMiddleHeader style={{margin : '3vw 0 0 '}}>제작한 품앗이 터 등록 폼 목록</ContentMiddleHeader>
+            <ContentMiddleHeader style={{margin: '3vw 0 0 '}}>제작한 품앗이 터 등록 폼 목록</ContentMiddleHeader>
             <MadePoomFormList loading={loading}
                               error={error}
                               forms={forms}
             />
+
         </>
     );
 };

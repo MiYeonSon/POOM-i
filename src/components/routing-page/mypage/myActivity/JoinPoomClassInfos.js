@@ -1,7 +1,7 @@
 import React from 'react';
-import CommonHr from "../../../common/CommonHr";
-import {BsFillPersonFill} from "react-icons/bs";
 import styled from 'styled-components';
+import {BsFillPersonFill} from "react-icons/bs";
+import {CommonHr} from "../../../common/styling/StyledTag";
 
 const ClassInfoBlock = styled.div`
   box-sizing: border-box;

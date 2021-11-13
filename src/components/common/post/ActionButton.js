@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 
 const StyledActionButton = styled.button`
+  box-sizing: border-box;
+  width : auto;
   height: fit-content;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
@@ -14,7 +16,7 @@ const StyledActionButton = styled.button`
   background-color: ${props => props.backgroundColor};
 
   &:hover {
-    background-color: ${props => props.hoverColor || 'rgba(255, 182, 99, 0.5)'};
+    background-color: ${props => props.hoverColor || '#AAAAAA'};
     color: white;
   }
 

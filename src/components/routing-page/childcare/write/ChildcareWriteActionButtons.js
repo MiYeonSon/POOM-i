@@ -2,8 +2,6 @@ import React from 'react';
 import RectButton from "../../../common/RectButton";
 import {WriteActionButtonsBlock} from "../../../common/post/StyledEditor";
 
-
-
 const ChildcareWriteActionButtons = ({onRegister, onModify, isEdit}) => {
     const onClickHandler = (isEdit ? onModify : onRegister);
 

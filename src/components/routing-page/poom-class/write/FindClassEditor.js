@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import Quill from "quill";
 import 'quill/dist/quill.bubble.css'
 import styled from 'styled-components';
-import {StyledSelect} from "../../../common/StyledInput";
+import {StyledSelect} from "../../../common/styling/StyledInput";
 import AddFileImg from "../asset/addFile.png"
 
 const SmallTitle = styled.div`

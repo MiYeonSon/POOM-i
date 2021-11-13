@@ -1,7 +1,7 @@
 import React, {useState} from "react";
+import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import LoginBlock from "../../routing-page/login/LoginBlock";
-import styled from "styled-components";
 import Modal from "../../common/Modal";
 
 

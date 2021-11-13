@@ -1,15 +1,12 @@
 import React from 'react';
-import Introduction from "../../common/layout/Introduction";
-import ContentTemplate from "../../common/layout/ContentTemplate";
 import NewPostInput from "../../common/NewPostInput";
-import PostItem from "../../common/post/PostItem";
-import CommonHr from "../../common/CommonHr";
-import Person from "../../common/assets/005-gardener.png"
+import PostItemTemplate from "../../common/post/PostItemTemplate";
 import ContainerFindClassPostList from "../../../containers/poom-class/posts/ContainerFindClassPostList";
-import {ProfileImage} from "../../common/post/WriterInfo";
 import {ContentHeader} from "../../common/layout/StyledHeader";
 import {ImPencil2} from "react-icons/im";
 import {BsFillPersonFill} from "react-icons/bs";
+import {ContentTemplate, Introduction} from "../../common/layout/StyledLayout";
+import {CommonHr} from "../../common/styling/StyledTag";
 
 // 필요 스타일링 컴포넌트(예상)
 /*
@@ -135,7 +132,7 @@ const ClassPage = () => {
             </Introduction>
 
             <ContentTemplate>
-                <PostItem type={"postInput"}>
+                <PostItemTemplate type={"postInput"}>
                     <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
                         padding : '0.2vw',
                         boxSizing : 'border-box',
@@ -146,7 +143,7 @@ const ClassPage = () => {
                         품앗이 꾼 도움 요청/자원 글 작성하기...
                         <ImPencil2 size={20} />
                     </NewPostInput>
-                </PostItem>
+                </PostItemTemplate>
 
                 <CommonHr/>
 

@@ -29,6 +29,8 @@ const PoomFormItemBlock = styled.div`
 `;
 
 const PoomFormHeader = styled.div`
+  box-sizing: border-box;
+  width: 90%;
   font-size: 1.2vw;
   font-weight: 700;
 `;
@@ -63,6 +65,7 @@ const PoomFormMoreItem = ({form}) => {
 
             <ContentSmallHeader>
                 * 미투표자 명단
+
             </ContentSmallHeader>
         </PoomFormMoreTemplate>
 
@@ -79,7 +82,7 @@ const PoomFormItem = ({form}) => {
         <PoomFormItemBlock onClick={() => setClick(!click)}>
             <BsTriangleFill className={click ? 'rotate' : 'nonRotate'} color={'#AAAAAA'} size={'1vw'}/>
 
-            <div style={{width: '100%', margin: '0 2vw'}}>
+            <div style={{width: '89%', margin: '0 0 0 2vw'}}>
                 <PoomFormHeader>{`${address} ${detail_address}`}</PoomFormHeader>
                 {click && <PoomFormMoreItem form={form}/>}
             </div>
@@ -100,16 +103,18 @@ const MadePoomFormList = ({forms, loading, error}) => {
     return (
         <div>
             {!loading && forms && (
-                <div>
-                    {forms.data.map(form => (
-                        form.registrant === user ? (
+                forms.data.member_register_vote_list.length === 0 ? (
+                    <NoListGrayComment>등록된 품앗이 터 폼이 없습니다.</NoListGrayComment>
+                ) : (
+                    forms.data.member_register_vote_list.map(form => (
+                            form.registrant === user && (
                                 <PoomFormItem form={form} key={form.vote_id}/>
-                            ) : (
-                                <NoListGrayComment>제작한 품앗이 터 등록 폼이 없습니다.</NoListGrayComment>
                             )
-                    ))}
-                </div>
-            )}
+                        )
+                    )
+                )
+            )
+            }
         </div>
     );
 };

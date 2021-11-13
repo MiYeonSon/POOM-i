@@ -7,8 +7,8 @@ import {useSelector} from "react-redux";
 import CommentPostActionButton from "../comment-post/CommentPostActionButton";
 import {
     CommentContent,
-    CommentUnitBackground,
-    CommentUnitContentTemplate
+    CommentTemplate,
+    ApplyCommentContentBlock
 } from "../../../common/post/CommentUnit";
 import {BsFillPersonFill} from "react-icons/bs";
 
@@ -40,9 +40,9 @@ const CommentClassPostItem = ({post}) => {
     }
 
     return (
-        <CommentUnitBackground>
+        <CommentTemplate>
 
-            <CommentUnitContentTemplate>
+            <CommentContentBlock>
 
                 <UserInfoBlock>
                     <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
@@ -65,8 +65,8 @@ const CommentClassPostItem = ({post}) => {
                     <CommentContent dangerouslySetInnerHTML={{__html: contents}}/>
                 </div>
 
-            </CommentUnitContentTemplate>
-        </CommentUnitBackground>
+            </CommentContentBlock>
+        </CommentTemplate>
     )
 }
 

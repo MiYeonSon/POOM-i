@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 
-
 const StyledRectButton = styled.button`
   box-sizing: border-box;
   margin: ${props => props.margin || '0 0 0 1vw'};

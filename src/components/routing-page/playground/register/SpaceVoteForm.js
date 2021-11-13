@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {ContentSmallHeader} from "../../../common/layout/StyledHeader";
-import {RoundSquareLabel, StyledInput} from "../../../common/StyledInput";
+import {RoundSquareLabel, StyledInput} from "../../../common/styling/StyledInput";
 import RectButton from "../../../common/RectButton";
 import DaumPostcode from "react-daum-postcode";
-import CommonHr from "../../../common/CommonHr";
 import Quill from "quill";
 import styled from "styled-components";
+import {CommonHr} from "../../../common/styling/StyledTag";
 
 
 const FormTemplate = styled.div`

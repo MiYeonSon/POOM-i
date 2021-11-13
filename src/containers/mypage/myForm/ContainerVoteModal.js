@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
-import {getPlaceInfo} from "../../../lib/api/mypage/spaceVote";
+import {getVoteInfo} from "../../../lib/api/mypage/spaceVote";
 
 const ContainerVoteModal = ({voteId}) => {
 

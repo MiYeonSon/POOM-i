@@ -1,11 +1,9 @@
 import React from 'react';
-import Introduction from "../../../../common/layout/Introduction";
 import {ContentHeader, ContentMiddleHeader} from "../../../../common/layout/StyledHeader";
-import ContentTemplate from "../../../../common/layout/ContentTemplate";
 import styled from "styled-components";
-import ContainerSubmitActionButton from "../../../../../containers/common/ConatinerSubmitActionButton";
 import PageButtonBlock from "../../../register/PageButtonBlock";
 import PageButton from "../../../register/PageButton";
+import {ContentTemplate, Introduction} from "../../../../common/layout/StyledLayout";
 
 const CategoryHeader = styled.div`
   margin: 1vw 0 0;

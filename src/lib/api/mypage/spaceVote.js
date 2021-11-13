@@ -1,8 +1,9 @@
 import client from "../client";
 
-export const getPlaceInfo = ({token, voteId}) => client.get(`/playground/vote/${voteId}`, {
+export const getVoteInfo = ({token, voteId}) => client.get(`/vote/${voteId}`, {
         headers: {
             "Authorization": `Bearer ${token}`
         }
     }
 );
+

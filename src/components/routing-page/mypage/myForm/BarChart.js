@@ -16,42 +16,14 @@ const BarChart = ({agree, disagree}) => {
             position: "right"
         },
         indexAxis: 'y',
-        scales: {
-            xAxes: [
-                {
-                    gridLines: {
-                        display: true,
-                        drawBorder: false,
-                        borderDash: [3, 3],
-                        zeroLineColor: "blue"
-                    },
-                    categoryPercentage: 0.7,
-                    barPercentage: 0.9,
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }
-            ],
-            yAxes: [
-                {
-                    display: false,
-                    gridLines: {
-                        display: false,
-                        zeroLineColor: "transparent"
-                    },
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }
-            ]
-        }
+
     };
 
     const data = {
         labels: ["찬성", "반대"],
         datasets: [
             {
-                data: [60, 40],
+                data: [agree, disagree],
                 borderWidth: 2,
                 hoverBorderWidth: 2,
                 backgroundColor: [

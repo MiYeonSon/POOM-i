@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from 'react';
+import styled from 'styled-components';
 import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
-import styled from 'styled-components';
-import {StyledInput, StyledSelect} from "../../../common/StyledInput";
+import {StyledInput, StyledSelect} from "../../../common/styling/StyledInput";
 import {CategoryBlock, SmallTitle} from "../../../common/post/StyledEditor";
 
 const FindRearingEditorTemplate = styled.div`

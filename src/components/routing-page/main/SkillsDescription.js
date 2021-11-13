@@ -1,8 +1,42 @@
 import React from "react";
-import "./SkillsDescription.css";
+import styled from 'styled-components';
 import Skill01 from "./assets/skill01.png";
 import Skill02 from "./assets/skill02.png";
 import Skill03 from "./assets/skill03.png";
+
+const DescriptionTemplate = styled.div`
+  box-sizing: border-box;
+  width: 40vw;
+  height: 32vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  border: 7px solid #FFB869;
+  background-color: white;
+  text-align: center;
+  
+  img{
+    box-sizing: border-box;
+    width:17vw;
+    height: 20vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .text{
+    box-sizing: border-box;
+    width: 40vw;
+    height: 8vh;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9vw;
+    line-height: 1.2vw;
+    white-space: pre-wrap;
+    color: #666666;
+  }
+`;
 
 const SkillsDescription = ({skills}) => {
     let detailElem = skills.filter((skills) => skills.selected === true);
@@ -34,14 +68,14 @@ const SkillsDescription = ({skills}) => {
     reducer(detailElem);
 
     return (
-        <div className={"SkillsDescription"}>
+        <DescriptionTemplate>
             <div className={"SkillImg"}>
                 <img src={imgSrc} alt="품앗이 찾기"/>
             </div>
-            <div className={"Text"}>
+            <div className={"text"}>
                 {text}
             </div>
-        </div>
+        </DescriptionTemplate>
     );
 };
 

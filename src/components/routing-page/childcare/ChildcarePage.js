@@ -1,18 +1,15 @@
 import React from 'react';
-import Introduction from "../../common/layout/Introduction";
-import ContentTemplate from "../../common/layout/ContentTemplate";
+import {ContentTemplate, Introduction} from "../../common/layout/StyledLayout";
+import {CommonHr} from "../../common/styling/StyledTag";
+
 import NewPostInput from "../../common/NewPostInput";
-import PostItem from "../../common/post/PostItem";
-import CommonHr from "../../common/CommonHr";
-import ExpertPostListContainer from "../../../containers/childcare/posts/ContainerChildcarePostList";
-import {ProfileImage} from "../../common/post/WriterInfo";
+import PostItemTemplate from "../../common/post/PostItemTemplate";
+import ContainerChildcarePostList from "../../../containers/childcare/posts/ContainerChildcarePostList";
 import {ContentHeader} from "../../common/layout/StyledHeader";
-import CallingCard from "../mypage/myInfo/CallingCard";
 import { ImPencil2 } from "react-icons/im";
 import {BsFillPersonFill} from "react-icons/bs";
 
 const ChildcarePage = () => {
-
     return (
         <>
             <ContentHeader>품앗이 꾼 찾기</ContentHeader>
@@ -22,7 +19,7 @@ const ChildcarePage = () => {
             </Introduction>
 
             <ContentTemplate>
-                <PostItem type={"postInput"} content={'childcare'}>
+                <PostItemTemplate type={"postInput"} content={'childcare'}>
                     <BsFillPersonFill size={60} color={'#8E8E8E'} style={{
                         padding : '0.2vw',
                         boxSizing : 'border-box',
@@ -33,11 +30,11 @@ const ChildcarePage = () => {
                         품앗이 꾼 도움 요청/자원 글 작성하기...
                         <ImPencil2 size={20} />
                     </NewPostInput>
-                </PostItem>
+                </PostItemTemplate>
 
                 <CommonHr/>
 
-                <ExpertPostListContainer />
+                <ContainerChildcarePostList />
 
             </ContentTemplate>
         </>

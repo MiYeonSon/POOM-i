@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import ChildcarePostList from "../../../components/routing-page/childcare/posts/ChildcarePostList";
 import {childcareListPosts} from "../../../modules/childcare/childcarePosts";
 import {getChildList} from "../../../modules/detailInfo/detailInfo";
+
+import ChildcarePostList from "../../../components/routing-page/childcare/posts/ChildcarePostList";
 
 const ContainerChildcarePostList = () => {
     const dispatch = useDispatch();
