@@ -113,6 +113,7 @@ const ChildcareEditor = ({
 
                 <CategoryContent onChange={onChangeRecruit}>
                     <label><input type="radio" name={'recruit_type'} value={'RECRUIT'}/>품앗이꾼 모집</label>
+                    &nbsp; &nbsp;
                     <label><input type="radio" name={'recruit_type'} value={'VOLUNTEER'}/>품앗이꾼 자원</label>
                 </CategoryContent>
             </CategoryBlock>
@@ -156,7 +157,7 @@ const ChildcareEditor = ({
             </CategoryBlock>
             <CategoryBlock style={{padding: '0'}}>
                 <SmallTitle>* 내용</SmallTitle>
-                <CategoryContent>
+                <CategoryContent style={{margin : '0.5vw 0'}}>
                     <QuillWrapper>
                         <div ref={quillElement}/>
                     </QuillWrapper>

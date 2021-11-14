@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {childcareSupportListPosts} from "../../../modules/childcare/childcareSupportPosts";
+import {childcareSupportListPosts} from "../../../modules/childcare/childcareApplyPosts";
 import ApplyChildcarePostList
     from "../../../components/routing-page/childcare/apply-posts/ApplyChildcarePostList";
 
@@ -11,7 +11,7 @@ const ContainerApplyChildcarePostList = ({writer, expertId}) => {
         ({childcareSupportPosts, loading, user}) => ({
             posts: childcareSupportPosts.posts,
             error: childcareSupportPosts.error,
-            loading: loading['childcareSupportPosts/LIST_POSTS'],
+            loading: loading['childcareApplyPosts/LIST_POSTS'],
             token : user.token,
         })
     );

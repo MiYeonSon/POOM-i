@@ -35,6 +35,9 @@ export const CommentContent = styled.div`
   width: 100%;
   height: fit-content;
   padding: 0;
+  
+  font-size: 0.95vw;
+  font-weight: 300;
 `;
 
 

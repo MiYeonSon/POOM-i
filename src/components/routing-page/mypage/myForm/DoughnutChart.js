@@ -44,11 +44,10 @@ const DoughnutChart = ({voteRate}) => {
             let height = chart.height;
             let ctx = chart.ctx;
             ctx.restore();
-            let fontSize = (height / 200).toFixed(2);
-            ctx.font = fontSize + "em LotteMartDream";
-            ctx.textBaseline = "middle";
+            ctx.font = "1.5vw LotteMartDream";
+            ctx.textBaseline = "top";
             ctx.fontColor = "#123456";
-            let text = `투표 참여율\n ${voteRate}`,
+            let text = `${voteRate}%`,
                 textX = Math.round((width - ctx.measureText(text).width) / 2),
                 textY = height / 2;
             ctx.fillText(text, textX, textY);

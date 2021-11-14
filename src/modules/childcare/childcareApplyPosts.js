@@ -7,7 +7,7 @@ const [
     LIST_POSTS,
     LIST_POSTS_SUCCESS,
     LIST_POSTS_FAILURE
-] = createRequestActionTypes('childcareSupportPosts/LIST_POSTS');
+] = createRequestActionTypes('childcareApplyPosts/LIST_POSTS');
 
 export const childcareSupportListPosts = createAction(LIST_POSTS);
 
@@ -22,7 +22,7 @@ const initialState = {
     error: null
 };
 
-const childcareSupportPosts = handleActions(
+const childcareApplyPosts = handleActions(
     {
         [LIST_POSTS_SUCCESS] : (state, {payload : posts}) =>  ({
             ...state,
@@ -36,4 +36,4 @@ const childcareSupportPosts = handleActions(
     initialState
 );
 
-export default childcareSupportPosts;
+export default childcareApplyPosts;

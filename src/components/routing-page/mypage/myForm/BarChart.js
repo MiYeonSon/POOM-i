@@ -16,18 +16,27 @@ const BarChart = ({agree, disagree}) => {
             position: "right"
         },
         indexAxis: 'y',
-
     };
 
     const data = {
         labels: ["찬성", "반대"],
         datasets: [
             {
-                data: [agree, disagree],
+                label: ["찬성"],
+                data: [agree],
                 borderWidth: 2,
                 hoverBorderWidth: 2,
                 backgroundColor: [
                     "#A5D8FFB3",
+                ],
+                fill: true
+            },
+            {
+                label: ["반대"],
+                data: [disagree],
+                borderWidth: 2,
+                hoverBorderWidth: 2,
+                backgroundColor: [
                     "#FFC9C9B3",
                 ],
                 fill: true
@@ -35,20 +44,6 @@ const BarChart = ({agree, disagree}) => {
         ]
     }
 
-    const plugins = {
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false
-                }
-            }],
-            yAxes: [{
-                gridLines: {
-                    display: false
-                }
-            }]
-        }
-    }
 
     return (
         <BarTemplate>

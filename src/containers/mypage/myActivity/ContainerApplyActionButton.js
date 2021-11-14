@@ -33,7 +33,7 @@ const ContainerApplyActionButton = ({onClose, groupId}) => {
 
     useEffect(() => {
         if(apply) {
-            console.log('apply success');
+            console.log('apply-write success');
         }
 
         if(applyError) {

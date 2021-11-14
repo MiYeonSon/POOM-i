@@ -6,7 +6,7 @@ import {
     ApplyCommentContentBlock
 } from "../../../common/post/CommentUnit";
 import ApplyChildcarePostActionButtons from "../apply-post/ApplyChildcarePostActionButtons";
-import {setExpertId, setOriginalPost} from "../../../../modules/childcare/childcareSupportWrite";
+import {setExpertId, setOriginalPost} from "../../../../modules/childcare/childcareApplyWrite";
 import {childcareSupportRemovePost} from "../../../../lib/api/childcare/childcareSupportPosts";
 import {NoListDefaultComment} from "../../../common/NoListComment";
 import AcceptApplyChildcareActionButton from "../apply-post/AcceptApplyChildcareActionButton";

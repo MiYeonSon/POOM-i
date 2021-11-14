@@ -6,6 +6,8 @@ import DoughnutChart from "./DoughnutChart";
 import BarChart from "./BarChart";
 import {useSelector} from "react-redux";
 import {NoListGrayComment} from "../../../common/NoListComment";
+import {StyledSelect} from "../../../common/styling/StyledInput";
+import TestChart from "./TestChart";
 
 const PoomFormItemBlock = styled.div`
   box-sizing: border-box;
@@ -33,13 +35,14 @@ const PoomFormHeader = styled.div`
   width: 90%;
   font-size: 1.2vw;
   font-weight: 700;
+  
+  cursor : pointer;
 `;
 
 const PoomFormMoreTemplate = styled.div`
   box-sizing: border-box;
   width: 92%;
   margin: 2vw 0 1vw;
-  border: 1px solid red;
 `;
 
 const ChartBlock = styled.div`
@@ -49,8 +52,31 @@ const ChartBlock = styled.div`
   align-items: center;
 `;
 
+const ListBlock = styled.div`
+  box-sizing: border-box;
+  width: 85%;
+  margin: 0.5vw 1vw;
+`;
+
+const ListContent = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1vw 0;
+  div{
+    box-sizing: border-box;
+    margin: 0.9vw 0;
+    width: fit-content;
+    
+    font-size: 1vw;
+  }
+`;
+
 const PoomFormMoreItem = ({form}) => {
-    const {voting_rate, agree_rate, disagree_rate, detail_address} = form;
+    const {voting_rate, agree_rate, disagree_rate, detail_address, voting_yet_list} = form;
+
+    const keys = Object.keys(voting_yet_list);
+
+    const [selectDong, setSelectDong] = useState(keys[0]);
 
     return (
         <PoomFormMoreTemplate>
@@ -65,8 +91,23 @@ const PoomFormMoreItem = ({form}) => {
 
             <ContentSmallHeader>
                 * 미투표자 명단
-
             </ContentSmallHeader>
+            <ListBlock>
+                <StyledSelect onChange={e => setSelectDong(e.target.value)}>
+                    {
+                        keys.map(dong => (
+                            <option value={dong} key={dong}>{dong}</option>
+                        ))
+                    }
+                </StyledSelect>
+
+                <ListContent>
+                    {voting_yet_list[selectDong].map(ho => (
+                        <div key={ho}>- {ho}</div>
+                    ))}
+                </ListContent>
+
+            </ListBlock>
         </PoomFormMoreTemplate>
 
     );
@@ -79,11 +120,11 @@ const PoomFormItem = ({form}) => {
     const [click, setClick] = useState(false);
 
     return (
-        <PoomFormItemBlock onClick={() => setClick(!click)}>
+        <PoomFormItemBlock>
             <BsTriangleFill className={click ? 'rotate' : 'nonRotate'} color={'#AAAAAA'} size={'1vw'}/>
 
-            <div style={{width: '89%', margin: '0 0 0 2vw'}}>
-                <PoomFormHeader>{`${address} ${detail_address}`}</PoomFormHeader>
+            <div style={{width: '89%', margin: '0 0 0 2vw'}} >
+                <PoomFormHeader onClick={() => setClick(!click)}>{`${address} ${detail_address}`}</PoomFormHeader>
                 {click && <PoomFormMoreItem form={form}/>}
             </div>
         </PoomFormItemBlock>

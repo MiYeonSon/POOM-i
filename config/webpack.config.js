@@ -174,7 +174,7 @@ module.exports = function (webpackEnv) {
         ? [
             // Include an alternative client for WebpackDevServer. A client's job is to
             // connect to WebpackDevServer by a socket and get notified about changes.
-            // When you save a file, the client will either apply hot updates (in case
+            // When you save a file, the client will either apply-write hot updates (in case
             // of CSS changes), or refresh the page (in case of JS changes). When you
             // make a syntax error, this client will display a syntax error overlay.
             // Note: instead of the default WebpackDevServer client, we use a custom one
@@ -237,9 +237,9 @@ module.exports = function (webpackEnv) {
           terserOptions: {
             parse: {
               // We want terser to parse ecma 8 code. However, we don't want it
-              // to apply any minification steps that turns valid ecma 5 code
+              // to apply-write any minification steps that turns valid ecma 5 code
               // into invalid ecma 5 code. This is why the 'compress' and 'output'
-              // sections only apply transformations that are ecma 5 safe
+              // sections only apply-write transformations that are ecma 5 safe
               // https://github.com/facebook/create-react-app/pull/4234
               ecma: 8,
             },

@@ -16,7 +16,7 @@ const StyledActionButton = styled.button`
   background-color: ${props => props.backgroundColor};
 
   &:hover {
-    background-color: ${props => props.hoverColor || '#AAAAAA'};
+    background-color: ${props => props.hoverColor || '#00000029'};
     color: white;
   }
 

@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {updatePost, writePost} from "../../../modules/childcare/childcareSupportWrite";
+import {updatePost, writePost} from "../../../modules/childcare/childcareApplyWrite";
 import ApplyChildcareWriteActionButtons
-    from "../../../components/routing-page/childcare/apply/ApplyChildcareWriteActionButtons";
+    from "../../../components/routing-page/childcare/apply-write/ApplyChildcareWriteActionButtons";
 
 const ContainerApplyChildcareWriteActonButtons = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const ContainerApplyChildcareWriteActonButtons = () => {
     }));
 
     // 품앗이 포스트에 대한 지원 및 자원
-    const onPublish = async () => {
+    const onPublish = () => {
         if(originalPostId){
             dispatch(updatePost({
                 token,
@@ -27,6 +27,7 @@ const ContainerApplyChildcareWriteActonButtons = () => {
                 contents,
                 applyId : originalPostId
             }));
+            window.location.reload();
             return;
         }
 

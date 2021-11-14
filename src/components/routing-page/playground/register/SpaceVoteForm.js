@@ -263,16 +263,6 @@ const SpaceVoteForm = ({onChangeField, onChangeAddress, images, postCode, addres
                     </QuillWrapper>
                 </ItemBlock>
 
-                <CommonHr margin={'4vw 0'}/>
-
-                <ContentSmallHeader style={{fontWeight: '700'}}>[ 공용공간 이용 찬반 투표 ]</ContentSmallHeader>
-                <ItemBlock>
-                    ** 해당 공간을 품앗이 터로 활용하는 것에 찬성하십니까? **
-                    <div id={'radioBlock'}>
-                        <label><input type="radio" name={'spaceVote'}/>네, 찬성합니다.</label> <br/>
-                        <label><input type="radio" name={'spaceVote'}/>아니요, 반대합니다.</label>
-                    </div>
-                </ItemBlock>
 
             </FormTemplate>
         </div>

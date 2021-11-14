@@ -16,7 +16,7 @@ import Modal from "../../../common/Modal";
 import RectButton from "../../../common/RectButton";
 import ContainerApplyChildcareEditor
     from "../../../../containers/childcare/apply-write/ContainerApplyChildcareEditor";
-import {getExpertId} from "../../../../modules/childcare/childcareSupportWrite";
+import {getExpertId} from "../../../../modules/childcare/childcareApplyWrite";
 import ContainerApplyChildcarePostList
     from "../../../../containers/childcare/apply-posts/ContainerApplyChildcarePostList";
 import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
@@ -29,6 +29,7 @@ const PostHeader = styled.div`
   justify-content: space-between;
   height: fit-content;
 `;
+
 
 const PostFooter = styled.div`
   box-sizing: border-box;
@@ -54,9 +55,8 @@ const InterestBlock = styled.div`
   height: fit-content;
   color: #565656;
   font-weight: 300;
-  font-size: 0.8vw;
+  font-size: 0.9vw;
 `;
-
 
 
 const ChildcarePostItem = ({childcarePost}) => {
@@ -146,12 +146,13 @@ const ChildcarePostItem = ({childcarePost}) => {
                 </PostHeader>
                 <br/>
 
-                <UnderlinedDivision>
-                    활동 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}
+                <UnderlinedDivision margin={'1vw 0 1.5vw'}>
+                    요청 시간 : {`${start_date} ${start_time} ~ ${end_date} ${end_time}`}
                 </UnderlinedDivision>
 
                 <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
                 <PostCreateDate>작성일 : {created_at}</PostCreateDate>
+
 
                 <PostFooter>
                     <SeparateArea>
@@ -161,7 +162,7 @@ const ChildcarePostItem = ({childcarePost}) => {
                             관심 {likedNum}
                         </InterestBlock>
                     </SeparateArea>
-                    
+
                     <SeparateArea>
                         {
                             liked || like_status === 'LIKE' ? (

@@ -3,25 +3,25 @@ import createRequestSaga, {createRequestActionTypes} from "../../lib/createReque
 import * as postsAPI from '../../lib/api/childcare/childcareSupportPosts';
 import {takeLatest} from "redux-saga/effects";
 
-const INITIALIZE = 'childcareSupportWrite/INITIALIZE';
-const CHANGE_FIELD = 'childcareSupportWrite/CHANGE_FIELD';
+const INITIALIZE = 'childcareApplyWrite/INITIALIZE';
+const CHANGE_FIELD = 'childcareApplyWrite/CHANGE_FIELD';
 
-const GET_EXPERT_ID = 'childcareSupportWrite/GET_EXPERT_ID';
+const GET_EXPERT_ID = 'childcareApplyWrite/GET_EXPERT_ID';
 
 const [
     WRITE_POST,
     WRITE_POST_SUCCESS,
     WRITE_POST_FAILURE
-] = createRequestActionTypes('childcareSupportWrite/WRITE_POST');
+] = createRequestActionTypes('childcareApplyWrite/WRITE_POST');
 
-const SET_ORIGINAL_POST = 'childcareSupportWrite/SET_ORIGINAL_POST';
-const SET_EXPERT_ID = 'childcareSupportWrite/SET_EXPERT_ID';
+const SET_ORIGINAL_POST = 'childcareApplyWrite/SET_ORIGINAL_POST';
+const SET_EXPERT_ID = 'childcareApplyWrite/SET_EXPERT_ID';
 
 const [
     UPDATE_POST,
     UPDATE_POST_SUCCESS,
     UPDATE_POST_FAILURE
-] = createRequestActionTypes('childcareSupportWrite/UPDATE_POST');
+] = createRequestActionTypes('childcareApplyWrite/UPDATE_POST');
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({key, value}) => ({key, value}));
@@ -73,7 +73,7 @@ const initialState = {
     originalPostId: null
 };
 
-const childcareSupportWrite = handleActions(
+const childcareApplyWrite = handleActions(
     {
         [INITIALIZE]: state => initialState,
         [CHANGE_FIELD]: (state, {payload: {key, value}}) => ({
@@ -119,7 +119,7 @@ const childcareSupportWrite = handleActions(
     initialState
 );
 
-export default childcareSupportWrite;
+export default childcareApplyWrite;
 
 
 

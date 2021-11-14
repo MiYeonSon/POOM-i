@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {changeField, initialize} from "../../../modules/childcare/childcareSupportWrite";
-import ApplyChildcareEditor from "../../../components/routing-page/childcare/apply/ApplyChildcareEditor";
+import {changeField, initialize} from "../../../modules/childcare/childcareApplyWrite";
+import ApplyChildcareEditor from "../../../components/routing-page/childcare/apply-write/ApplyChildcareEditor";
 import ContainerApplyChildcareWriteActonButtons from "./ContainerApplyChildcareWriteActonButtons";
 
 const ContainerApplyChildcareEditor = () => {

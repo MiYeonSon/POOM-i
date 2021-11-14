@@ -14,5 +14,5 @@ export const PostCreateDate = styled.div`
   color: #AAAAAA;
   font-weight: lighter;
   text-align: right;
-  font-size: 0.9vw;
+  font-size: 0.8vw;
 `;

@@ -11,9 +11,9 @@ import classWrite, {classWriteSaga} from "./poom-class/classWrite";
 import classPosts, {classPostsSaga} from "./poom-class/classPosts";
 import classCommentWrite, {classCommentWriteSaga} from "./poom-class/classCommentWrite";
 import classCommentPosts, {classCommentPostsSaga} from "./poom-class/classCommentPosts";
-import childcareSupportWrite, {childcareSupportWriteSaga} from "./childcare/childcareSupportWrite";
+import childcareApplyWrite, {childcareSupportWriteSaga} from "./childcare/childcareApplyWrite";
 import detailInfo, {getDetailInfoSaga} from "./detailInfo/detailInfo";
-import childcareSupportPosts, {childcareSupportPostsSaga} from "./childcare/childcareSupportPosts";
+import childcareApplyPosts, {childcareSupportPostsSaga} from "./childcare/childcareApplyPosts";
 import makeVoteForm, {makeVoteFormSaga} from "./playground/register/makeVoteForm";
 import playgroundList, {playgroundListSaga} from "./playground/list/playgroundList";
 import submitFile, {submitSaga} from "./submitFile";
@@ -35,8 +35,8 @@ const rootReducer = combineReducers({
 
     childcareWrite,
     childcarePosts,
-    childcareSupportWrite,
-    childcareSupportPosts,
+    childcareSupportWrite: childcareApplyWrite,
+    childcareSupportPosts: childcareApplyPosts,
 
     classWrite,
     classPosts,

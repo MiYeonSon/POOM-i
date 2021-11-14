@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const NoListDefaultComment = styled.div`
-  margin: 2vw 0;
+  margin: 2.5vw 0;
 
   text-align: center;
-  font-size: 1vw;
+  font-size: 1.2vw;
 `;
 
 export const NoListGrayComment = styled.div`

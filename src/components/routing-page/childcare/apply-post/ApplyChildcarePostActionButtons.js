@@ -39,8 +39,8 @@ const ApplyChildcarePostActionButtons = ({onEdit, onRemove}) => {
     return (
         <>
             <PostActionButtonsBlock>
-                <ActionButton onClick={onEditClick}>수정</ActionButton>
-                <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+                <ActionButton backgroundColor={'#DEDEDE'} onClick={onEditClick}>수정</ActionButton>
+                <ActionButton backgroundColor={'#DEDEDE'} onClick={onRemoveClick}>삭제</ActionButton>
             </PostActionButtonsBlock>
 
             {editorModal &&
