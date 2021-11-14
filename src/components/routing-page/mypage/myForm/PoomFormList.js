@@ -1,17 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from "styled-components";
-import Modal from "../../../common/Modal";
-import VoteSpaceInfo from "./VoteSpaceInfo";
-import ContainerVoteSpaceInfo from "../../../../containers/mypage/myForm/ContainerVoteSpaceInfo";
-
-const CursorBlock = styled.div`
-  .closed {
-    width: 100%;
-    height: 100%;
-    cursor: default;
-    position: relative;
-  }
-`;
+import {NoListGrayComment} from "../../../common/NoListComment";
 
 const PoomFormItemBlock = styled.div`
   box-sizing: border-box;
@@ -74,9 +63,15 @@ const PoomFormList = ({forms, loading, error}) => {
         <div>
             {!loading && forms && (
                 <div>
-                    {forms.data.voting_vote_list.map(form => (
-                        <PoomFormItem form={form} key={form.vote_id}/>
-                    ))}
+                    {
+                        forms.data.voting_vote_list.length === 0 ? (
+                            <NoListGrayComment>진행중인 투표가 없습니다.</NoListGrayComment>
+                        ) : (
+                            forms.data.voting_vote_list.map(form => (
+                                    <PoomFormItem form={form} key={form.vote_id}/>
+                                )
+                            )
+                        )}
                 </div>
             )}
         </div>

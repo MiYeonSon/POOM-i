@@ -1,7 +1,7 @@
 import React from 'react';
 import {ContentHeader} from "../../../../common/layout/StyledHeader";
-import SpaceVoteFormContainer from "../../../../../containers/playground/register/SpaceVoteFormContainer";
-import MakeActionButtonsContainer from "../../../../../containers/playground/register/MakeActionButtonsContainer";
+import ContainerSpaceVoteForm from "../../../../../containers/playground/register/ContainerSpaceVoteForm";
+import ContainerMakeActionButtons from "../../../../../containers/playground/register/ContainerMakeActionButtons";
 import PageButtonBlock from "../../../register/PageButtonBlock";
 import {ContentTemplate, Introduction} from "../../../../common/layout/StyledLayout";
 
@@ -17,10 +17,10 @@ const RegisterPlaceStep2 = ({move}) => {
             </Introduction>
 
             <ContentTemplate>
-                <SpaceVoteFormContainer />
+                <ContainerSpaceVoteForm />
 
                 <PageButtonBlock>
-                    <MakeActionButtonsContainer move={move}/>
+                    <ContainerMakeActionButtons move={move}/>
                 </PageButtonBlock>
             </ContentTemplate>
 

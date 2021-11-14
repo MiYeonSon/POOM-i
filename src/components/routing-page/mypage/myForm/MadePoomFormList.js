@@ -7,7 +7,6 @@ import BarChart from "./BarChart";
 import {useSelector} from "react-redux";
 import {NoListGrayComment} from "../../../common/NoListComment";
 import {StyledSelect} from "../../../common/styling/StyledInput";
-import TestChart from "./TestChart";
 
 const PoomFormItemBlock = styled.div`
   box-sizing: border-box;
@@ -47,6 +46,8 @@ const PoomFormMoreTemplate = styled.div`
 
 const ChartBlock = styled.div`
   box-sizing: border-box;
+  width: 100%;
+  border: 1px solid orange;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +75,7 @@ const ListContent = styled.div`
 const PoomFormMoreItem = ({form}) => {
     const {voting_rate, agree_rate, disagree_rate, detail_address, voting_yet_list} = form;
 
-    const keys = Object.keys(voting_yet_list);
+    const keys = Object.keys(voting_yet_list).sort();
 
     const [selectDong, setSelectDong] = useState(keys[0]);
 
@@ -133,6 +134,7 @@ const PoomFormItem = ({form}) => {
 
 
 const MadePoomFormList = ({forms, loading, error}) => {
+
     const {user} = useSelector(({user}) => ({
         user: user.userInfo.nick
     }));

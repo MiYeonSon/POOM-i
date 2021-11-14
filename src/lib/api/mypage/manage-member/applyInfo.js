@@ -5,3 +5,9 @@ export const listApplyMemberInfo = ({token}) => client.get('/admin/member', {
         "Authorization": `Bearer ${token}`
     }
 });
+
+export const listApplyForm = ({token}) => client.get('/admin/vote', {
+    headers: {
+        "Authorization": `Bearer ${token}`
+    }
+})

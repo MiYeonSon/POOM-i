@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeField, initializeForm, register} from "../auth";
 import RegisterForm from "../../components/routing-page/register/step03/RegisterForm";
 
-const RegisterFormContainer = () => {
+const RegisterFormContainer = ({move}) => {
     const dispatch = useDispatch();
     const {form, auth, authError}  = useSelector(({auth, user}) =>({
         form: auth.register,

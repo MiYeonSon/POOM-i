@@ -1,12 +1,11 @@
 import React, {useRef, useState} from 'react';
-import InfoFormBlock from "../InfoFormBlock";
 import styled, {css} from 'styled-components';
 import DaumPostcode from "react-daum-postcode";
 import RectButton from "../../../common/RectButton";
 import StyledTableRow from "../../../common/StyledTableRow";
 
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   box-sizing: border-box;
   display: inline-block;
   width: ${props => props.width || '20vw'};
@@ -156,7 +155,7 @@ const RegisterForm = ({form, onChange, onChangeFile, onSubmit}) => {
                                  placeholder={'우편번호'}
                     />
 
-                    <RectButton type={"button"} onClick={handleOpenPost}>우편 번호 찾기</RectButton>
+                    <RectButton type={"button"} color={'#707070'} onClick={handleOpenPost}>우편 번호 찾기</RectButton>
 
                     <br/>
 

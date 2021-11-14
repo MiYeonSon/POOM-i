@@ -17,7 +17,8 @@ import {CommonHr} from "../../components/common/styling/StyledTag";
 
 const SignUpPage = () => {
     const [num, setNum] = useState(0);
-    const stepArr = [<SignUpStep1 />, <SignUpStep2 />, <SignUpStep3 />, <SignUpStep4 />]
+    const stepArr = [<SignUpStep1 />, <SignUpStep2 />, <SignUpStep3 move={() => setNum(3)} />, <SignUpStep4 />]
+
 
     return (
         <div className={"SignUp"}>
@@ -27,11 +28,8 @@ const SignUpPage = () => {
                 <ContentHeader>회원가입</ContentHeader>
                 <SignUpProcess/>
                 <CommonHr/>
-                {/*
                                 {stepArr[num]}
 
-                */}
-                <SignUpStep3 />
 
                 <PageButtonBlock>
                     <PageButton onClick={num > -1 ? () => setNum(num - 1) : setNum(0)}>이전</PageButton>

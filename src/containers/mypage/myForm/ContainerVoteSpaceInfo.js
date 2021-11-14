@@ -18,9 +18,9 @@ const ContainerVoteSpaceInfo = ({voteId}) => {
     }, [dispatch, token, voteId]);
 
     return (
-        <div>
+        <>
             <VoteSpaceInfo voteId={voteId} info={voteSpaceInfo} loading={loading} error={voteSpaceInfoError}/>
-        </div>
+        </>
     );
 };
 

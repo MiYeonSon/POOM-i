@@ -4,7 +4,7 @@ export const CommentTemplate = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: fit-content;
-
+  
   margin: 0.5vw auto;
   padding: 0.7vw 0.2vw;
   border: 1px solid #ECECEC;
@@ -21,14 +21,6 @@ export const ApplyCommentContentBlock = styled.div`
   align-items: center;
 `;
 
-export const CommentHeaderBlock = styled.div`
-  box-sizing: border-box;
-  width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1vw;
-`;
 
 export const CommentContent = styled.div`
   box-sizing: border-box;

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {readList} from "../../../modules/playground/list/playgroundList";
 import SpaceListViewer from "../../../components/routing-page/playground/list/SpaceListViewer";
 
-const SpaceListContainer = () => {
+const ContainerSpaceList = () => {
     const dispatch = useDispatch();
 
     const {list, listError, loading, token} = useSelector(
@@ -23,4 +23,4 @@ const SpaceListContainer = () => {
     );
 };
 
-export default SpaceListContainer;
+export default ContainerSpaceList;

@@ -1,19 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {NoListGrayComment} from "../../../common/NoListComment";
+import {BsTriangleFill} from "react-icons/bs";
 
 const ListTemplate = styled.div`
   margin: 0 0 6vw;
   width: 100%;
 `;
 
-const ListItemBlock = styled.div`
+const ListItemTemplate = styled.div`
   box-sizing: border-box;
-  margin: 0 0 1.5vw;
-  padding: 1.5vw 3vw;
   width: 100%;
-  display: flex;
-
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
   border: 1px solid #AAAAAA;
@@ -28,28 +25,68 @@ const ListItemBlock = styled.div`
   }
 `;
 
+const ListItemBlock = styled.div`
+  box-sizing: border-box;
+  padding: 1.5vw 3vw;
+  width: 100%;
+  display: flex;
+`;
+
 const ListItemHeader = styled.div`
-  margin-bottom: 0.6vw;
+  box-sizing: border-box;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  line-height: 1.6vw;
+  font-size: 1.2vw;
+  font-weight: 700;
+  
+  cursor: pointer;
+`;
+
+const PoomContent = styled.div`
+  box-sizing: border-box;
+  width: 80%;
+  margin-left: 6vw;
   font-size: 1.2vw;
   font-weight: 700;
 `;
 
+const TextBlock = styled.div`
+  box-sizing: border-box;
+  margin: 0.7vw 1.5vw;
+  padding: 0.5vw;
+  font-size: 1vw;
+  font-weight: 400;
+  background-color: #F5F5F5;
+`;
 
 const ExpertInfoItem = ({expert}) => {
     const {contents, start_time, end_time, parent_nick, child_name, child_birthday} = expert;
 
+    const [click, setClick] = useState(false);
 
     return (
-        <ListItemBlock>
-            <ListItemHeader>
-                test
-            </ListItemHeader>
-        </ListItemBlock>
+        <ListItemTemplate>
+            <ListItemBlock>
+                <BsTriangleFill className={click ? 'rotate' : 'nonRotate'} color={'#AAAAAA'} size={'1vw'}
+                                style={{margin: '1vw 2vw 0 0'}}/>
+                <ListItemHeader onClick={() => setClick(!click)}>
+                    * &nbsp; 보호자명 : {parent_nick} ({child_name} - {child_birthday} )<br/>
+                    * &nbsp; 활동 시간 : {start_time} ~ {end_time} <br/>
+                </ListItemHeader>
+            </ListItemBlock>
+
+            {click && (
+                <PoomContent>
+                    * &nbsp; 원글
+                    <TextBlock dangerouslySetInnerHTML={{__html: contents}}/>
+                </PoomContent>
+            )}
+        </ListItemTemplate>
+
     )
 
 }

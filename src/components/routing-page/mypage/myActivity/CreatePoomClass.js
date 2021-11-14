@@ -56,10 +56,6 @@ const StyledRadioInputBlock = styled.div`
   }
 `;
 
-const StyledLabel = styled.label`
-  background-color: #DEDEDE;
-  color : #707070;
-`;
 
 const Header = styled.div`
   box-sizing: border-box;

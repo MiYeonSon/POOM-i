@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {ContentHeader} from "../../../common/layout/StyledHeader";
 import {ContentTemplate, Introduction} from "../../../common/layout/StyledLayout";
+import {NoListDefaultComment} from "../../../common/NoListComment";
 
 const SpaceItemBlock = styled.div`
   margin: 2vw 0;
@@ -77,11 +78,18 @@ const SpaceListViewer = ({list, error, loading}) => {
 
             <ContentTemplate>
                 {!loading && list && (
-                    <div>
-                        {list.data.map(item => (
-                            <SpaceItem item={item} key={item.playground_id} />
-                        ))}
-                    </div>
+                    list.data.length === 0 ? (
+                        <NoListDefaultComment style={{lineHeight : '2vw', backgroundColor: "#FFF7F1", padding :'2vw'}}>
+                            등록된 품앗이 터가 없습니다. <br/>
+                            가장 먼저 등록해주실래요?
+                        </NoListDefaultComment>
+                    ) : (
+                        <div>
+                            {list.data.map(item => (
+                                <SpaceItem item={item} key={item.playground_id}/>
+                            ))}
+                        </div>
+                    )
                 )}
             </ContentTemplate>
         </>

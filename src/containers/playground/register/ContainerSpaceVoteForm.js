@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize} from "../../../modules/playground/register/makeVoteForm";
 import SpaceVoteForm from "../../../components/routing-page/playground/register/SpaceVoteForm";
 
-const SpaceVoteFormContainer = () => {
+const ContainerSpaceVoteForm = () => {
     const dispatch = useDispatch();
     const {
         images,
@@ -53,4 +53,4 @@ const SpaceVoteFormContainer = () => {
     );
 };
 
-export default SpaceVoteFormContainer;
+export default ContainerSpaceVoteForm;

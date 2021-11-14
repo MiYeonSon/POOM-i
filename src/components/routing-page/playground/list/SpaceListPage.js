@@ -1,10 +1,10 @@
 import React from 'react';
-import SpaceListContainer from "../../../../containers/playground/list/SpaceListContainer";
+import ContainerSpaceList from "../../../../containers/playground/list/ContainerSpaceList";
 
 const SpaceListPage = () => {
     return (
         <>
-         <SpaceListContainer />
+         <ContainerSpaceList />
         </>
     );
 };

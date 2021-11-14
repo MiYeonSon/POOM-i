@@ -5,8 +5,6 @@ import RectButton from "../../../common/RectButton";
 import DaumPostcode from "react-daum-postcode";
 import Quill from "quill";
 import styled from "styled-components";
-import {CommonHr} from "../../../common/styling/StyledTag";
-
 
 const FormTemplate = styled.div`
   box-sizing: border-box;
@@ -170,16 +168,6 @@ const SpaceVoteForm = ({onChangeField, onChangeAddress, images, postCode, addres
         reader.readAsDataURL(file);
 
         reader.onloadend = () => {
-            /*
-            if(imgArr){
-                imgArr.push(reader.step);
-                onChangeField({key : 'images', value : imgArr});
-            } else {
-                imgArr = new Array(reader.step);
-                onChangeField({key : 'images', value : imgArr});
-            }
-             */
-
             onChangeField({key: 'images', value: reader.result});
         }
     }
@@ -189,7 +177,7 @@ const SpaceVoteForm = ({onChangeField, onChangeAddress, images, postCode, addres
             <FormTemplate>
                 <ContentSmallHeader style={{fontWeight: '700'}}>[ 공간 소개 ]</ContentSmallHeader>
                 <ItemBlock>
-                    1. 이용 하고자 하는 공간 사진을 업로드 해주세요.(최소 2장)
+                    1. 이용 하고자 하는 공간 사진을 업로드 해주세요.
                     <RoundSquareLabel margin={'0.5vw 1vw'}>
                         파일 선택하기
                         <input type="file" accept={".jpg, .png, .pdf"} onChange={onChangeFiles}/>

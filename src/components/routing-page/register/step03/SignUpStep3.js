@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 
-import ChildForm from "../ChildForm";
 import SignUpBlock from "../SignUpBlock";
-import InfoFormBlock from "../InfoFormBlock";
 import InfoFormTemplate from "../InfoFormTemplate";
 import RegisterFormContainer from "../../../../modules/sign-up/RegisterFormContainer";
 import {ContentMiddleHeader, ContentSmallHeader} from "../../../common/layout/StyledHeader";
@@ -30,7 +28,7 @@ const ChildButton = styled.button`
   cursor: pointer;
 `;
 
-const SignUpStep3 = () => {
+const SignUpStep3 = ({move}) => {
     const [childNum, setChildNum] = useState(1);
 
     return (
@@ -38,10 +36,11 @@ const SignUpStep3 = () => {
             <ContentMiddleHeader>정보 입력</ContentMiddleHeader>
             <ContentSmallHeader>* 필수 정보 입력</ContentSmallHeader>
             <InfoFormTemplate>
-                <RegisterFormContainer />
+                <RegisterFormContainer move={move}/>
             </InfoFormTemplate>
 
-            <ContentSmallHeader>* 자녀 정보 입력 (선택)</ContentSmallHeader>
+            {/*
+<ContentSmallHeader>* 자녀 정보 입력 (선택)</ContentSmallHeader>
             <AnnounceComponent>
                 - 자녀 정보는 품앗이 반 활동 시 필수 입력사항으로, 미입력 시 품앗이 반 활동 등 서비스 이용에 제약이 있을 수 있습니다. <br/>
                 - 자녀 정보 미입력 시 품앗이 꾼으로서의 활동은 가능합니다. <br/>
@@ -54,6 +53,7 @@ const SignUpStep3 = () => {
                 <ChildButton>-</ChildButton>
                 <ChildForm/>
             </InfoFormTemplate>
+            */}
         </SignUpBlock>
     );
 };

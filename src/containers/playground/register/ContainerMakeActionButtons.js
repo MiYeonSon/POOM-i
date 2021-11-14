@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {makeVote} from "../../../modules/playground/register/makeVoteForm";
 import MakeActionButtons from "../../../components/routing-page/playground/register/MakeActionButtons";
 
-const MakeActionButtonsContainer = ({move}) => {
+const ContainerMakeActionButtons = ({move}) => {
     const dispatch = useDispatch();
 
     const {
@@ -66,4 +66,4 @@ const MakeActionButtonsContainer = ({move}) => {
     );
 };
 
-export default MakeActionButtonsContainer;
+export default ContainerMakeActionButtons;

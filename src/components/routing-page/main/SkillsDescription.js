@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Skill01 from "./assets/skill01.png";
 import Skill02 from "./assets/skill02.png";
 import Skill03 from "./assets/skill03.png";
+import Skill04 from "./assets/skill04.png";
 
 const DescriptionTemplate = styled.div`
   box-sizing: border-box;
@@ -57,6 +58,12 @@ const SkillsDescription = ({skills}) => {
             case "skill03":
                 imgSrc = Skill03;
                 text = "품앗이를 할 장소가 마땅치않나요? 우리 동네에서 쉽게 찾을 수 있어요!\n혹시 비어있는 아파트 공용공간을 발견하였나요? \n폼을 만들어 주민들의 동의를 얻어 새로운 품앗이 터로 만들어봐요!"
+
+                break;
+
+            case "skill04":
+                imgSrc = Skill04;
+                text = "품아이의 서비스는 거주지 인증 절차를 거쳐야 가입 및 활동이 가능합니다.\n가입된 회원도 주기적으로 문서 갱신 요청하여 회원의 실제 거주지를 파악합니다.\nPOOM-i의 모든 서비스는 안전을 위해 최선을 다하고 있습니다. 안심하고 이용해주세요 :)"
 
                 break;
 

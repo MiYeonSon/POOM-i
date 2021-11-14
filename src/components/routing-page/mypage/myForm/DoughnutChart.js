@@ -4,9 +4,8 @@ import styled from 'styled-components';
 
 const ChartTemplate = styled.div`
   box-sizing: border-box;
-  width: 12vw;
+  width: 10vw;
   margin: 1vw;
-
 `;
 
 const DoughnutChart = ({voteRate}) => {
@@ -44,9 +43,9 @@ const DoughnutChart = ({voteRate}) => {
             let height = chart.height;
             let ctx = chart.ctx;
             ctx.restore();
-            ctx.font = "1.5vw LotteMartDream";
+            ctx.font = "1.2vw LotteMartDream";
             ctx.textBaseline = "top";
-            ctx.fontColor = "#123456";
+            ctx.fontColor = "#707070";
             let text = `${voteRate}%`,
                 textX = Math.round((width - ctx.measureText(text).width) / 2),
                 textY = height / 2;

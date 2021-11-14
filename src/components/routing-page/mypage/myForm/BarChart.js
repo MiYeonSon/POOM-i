@@ -4,17 +4,48 @@ import styled from 'styled-components';
 
 const BarTemplate = styled.div`
   box-sizing: border-box;
-  width: 15vw;
+  width: 18vw;
+  height: 10vw;
   margin: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 
 const BarChart = ({agree, disagree}) => {
     const options = {
+        responsive: false,
         legend: {
             display: false,
             position: "right"
         },
+        elements : {
+            bar : {
+                borderWidth : 0,
+                borderRadius : 100
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    offset: false
+                }
+            },
+            y: {
+                grid: {
+                    offset: false
+                }
+            },
+
+        },
+
+        plugins : {
+            dataLabels : {
+                display: false
+            }
+        },
+
         indexAxis: 'y',
     };
 
@@ -22,32 +53,23 @@ const BarChart = ({agree, disagree}) => {
         labels: ["찬성", "반대"],
         datasets: [
             {
-                label: ["찬성"],
-                data: [agree],
-                borderWidth: 2,
-                hoverBorderWidth: 2,
+                label : '찬성',
+                data: [agree, disagree],
+                barThickness : 30,
+                categoryPercentage : 1.0,
                 backgroundColor: [
                     "#A5D8FFB3",
-                ],
-                fill: true
-            },
-            {
-                label: ["반대"],
-                data: [disagree],
-                borderWidth: 2,
-                hoverBorderWidth: 2,
-                backgroundColor: [
                     "#FFC9C9B3",
                 ],
                 fill: true
-            }
+            },
         ]
     }
 
 
     return (
         <BarTemplate>
-            <Bar type={"bar"} data={data} options={options}/>
+            <Bar data={data} options={options} />
         </BarTemplate>
     );
 };

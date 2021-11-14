@@ -38,7 +38,7 @@ const PoomISkills = () => {
         {id: "skill01", text: "품앗이 찾기", selected: true},
         {id: "skill02", text: "품앗이 반 찾기", selected: false},
         {id: "skill03", text: "품앗이 터 찾기", selected: false},
-        {id: "skill04", text: "POOM-i 이용 Tip", selected: false},
+        {id: "skill04", text: "POOM-i 안전성", selected: false},
 
     ]);
 

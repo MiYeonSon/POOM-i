@@ -9,7 +9,7 @@ import {classRemovePost} from "../../../../lib/api/poom-class/classPosts";
 import Modal from "../../../common/Modal";
 import {getBoardId} from "../../../../modules/poom-class/classCommentWrite";
 import CommentClassBlock from "../CommentClassBlock";
-import {StyledWriterId, UserInfoBlock} from "../../../common/post/WriterInfo";
+import {UserInfoBlock} from "../../../common/post/WriterInfo";
 import {PostContent, PostCreateDate} from "../../../common/post/PostInfo";
 import RectButton from "../../../common/RectButton";
 import ContainerJoinPoomClassInfos from "../../../../containers/mypage/myActivity/ContainerJoinPoomClassInfos";
@@ -82,7 +82,7 @@ const ActivityImgBlock = styled.div`
 
 const ActivityImg = styled.img`
   box-sizing: border-box;
-  width: 20%;
+  width: 50%;
   height: 100%;
   border: 1px solid #DEDEDE;
 `;
@@ -190,7 +190,7 @@ const FindClassPostItem = ({post, history}) => {
                         border: '1.5px solid #8E8E8E',
                         borderRadius: '100%'
                     }}/>
-                    <StyledWriterId>{writer}</StyledWriterId>
+                    <div>{writer}</div>
                 </UserInfoBlock>
                 <PostContentBlock>
                     <PostContent dangerouslySetInnerHTML={{__html: contents}}/>
@@ -201,8 +201,6 @@ const FindClassPostItem = ({post, history}) => {
             <ActivityImgBlock>
                 <button> &lt; </button>
 
-                <ActivityImg src={images[0].image_uri} alt="이미지"/>
-                <ActivityImg src={images[0].image_uri} alt="이미지"/>
                 <ActivityImg src={images[0].image_uri} alt="이미지"/>
 
                 <button> ></button>

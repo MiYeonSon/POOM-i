@@ -1,9 +1,35 @@
 import React from 'react';
 
 import SignUpBlock from "./SignUpBlock";
-import InfoFormBlock from "./InfoFormBlock";
 import InfoFormTemplate from "./InfoFormTemplate";
 import {ContentMiddleHeader} from "../../common/layout/StyledHeader";
+import StyledTableRow from "../../common/StyledTableRow";
+import styled, {css} from "styled-components";
+import RectButton from "../../common/RectButton";
+
+const StyleInput = styled.input`
+  box-sizing: border-box;
+  display: inline-block;
+  width: ${props => props.width || '20vw'};
+  height: 3.5vh;
+  margin: 0 0.5vw;
+  padding: 0;
+  border: 0.01vw solid #DEDEDE;
+
+  ${props =>
+    props.inputType === "none" &&
+    css`
+            display: none;
+          `};
+
+  ${props =>
+    props.inputType === "radio" &&
+    css`
+            width: 100vw;
+            height: 10vw;
+          `};
+`;
+
 
 const SignUpStep2 = ({form, onChange, buttonClick}) => {
 
@@ -12,24 +38,15 @@ const SignUpStep2 = ({form, onChange, buttonClick}) => {
             <ContentMiddleHeader>본인 인증</ContentMiddleHeader>
             <InfoFormTemplate>
                 <form>
-                    <InfoFormBlock
-                        name={"phone"}
-                        onChange={onChange}
-                        value={form.phone}
-                        title={"휴대전화"}
-                        inputType={"text"}
-                        dataName={'phone_number'}
-                        roundButton={"인증번호 전송"}
-                        onClick={buttonClick}
-                    />
-                    <InfoFormBlock
-                        autoComplete={'certifiedNum'}
-                        name={"certifiedNum"}
-                        onChange={onChange}
-                        title={"인증번호"}
-                        inputType={"text"}
-                        roundButton={"인증 확인"}
-                    />
+                    <StyledTableRow header={'휴대 전화'} headerBold={true}>
+                        <StyleInput type={'text'} />
+
+                        <RectButton color={'#707070'}>인증 번호 요청</RectButton>
+                    </StyledTableRow>
+
+                    <StyledTableRow header={'인증 번호'} headerBold={true}>
+                        <StyleInput type={'text'} />
+                    </StyledTableRow>
                 </form>
             </InfoFormTemplate>
         </SignUpBlock>

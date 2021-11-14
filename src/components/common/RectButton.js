@@ -12,7 +12,7 @@ const StyledRectButton = styled.button`
   color: ${props => props.color || 'white'};
   font-family: 'LotteMartDream';
   font-size: 0.8vw;
-  font-weight: 300;
+  font-weight: 400;
   border: none;
   cursor: pointer;
 `;

@@ -197,7 +197,7 @@ const PoomClassMoreInfo = ({group}) => {
 }
 
 const PoomClassItem = ({group}) => {
-    const {group_name, activity_time, participation_type, recruitment_status, group_id} = group;
+    const {group_name, activity_time, participation_type, recruitment_status} = group;
     const [click, setClick] = useState(false);
 
 
